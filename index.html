@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz sobre os Anjos!</title>
+    <title>ESTUDO 19 - O exemplo dos anjos!</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,7 +14,6 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px 0;
         }
         .quiz-container {
             background-color: #fff;
@@ -23,40 +22,46 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             width: 90%;
             max-width: 700px;
+            text-align: center;
         }
         h1 {
             color: #2980b9;
-            text-align: center;
             margin-bottom: 20px;
         }
-        .question {
-            margin-bottom: 20px;
+        .question-page {
+            text-align: left;
+        }
+        .question-page.hidden {
+            display: none;
+        }
+        .question p {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
             border-left: 4px solid #3498db;
             padding-left: 15px;
         }
-        .question p {
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
         .options div {
             margin-bottom: 10px;
-            padding: 5px;
-            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
         .options div:hover {
-            background-color: #ecf0f1;
+            background-color: #f1f1f1;
         }
         input[type="radio"] {
             margin-right: 10px;
         }
         label {
-            font-size: 1em;
+            font-size: 1.1em;
             cursor: pointer;
         }
-        #submit-btn {
+        #nav-btn {
             display: block;
-            width: 100%;
+            width: 50%;
             padding: 15px;
             background-color: #27ae60;
             color: white;
@@ -64,173 +69,175 @@
             border-radius: 8px;
             font-size: 1.2em;
             cursor: pointer;
-            margin-top: 20px;
+            margin: 20px auto 0;
         }
-        #submit-btn:hover {
-            background-color: #2ecc71;
+        #nav-btn.hidden {
+            display: none;
         }
         #results {
-            margin-top: 20px;
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: bold;
-            text-align: center;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
+        }
+        .correct {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+            color: #155724;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+            color: #721c24;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <div class="quiz-container">
-        <h1>Estudo 19: O Exemplo dos Anjos! 😇</h1>
-        <form id="quiz-form">
-            <div class="question">
-                <p>1. O que deixa os anjos muito felizes no céu?</p>
-                <div class="options">
-                    <div><input type="radio" name="q1" value="a" id="q1a"><label for="q1a">A) Quando as estrelas brilham</label></div>
-                    <div><input type="radio" name="q1" value="b" id="q1b"><label for="q1b">B) Quando um pecador se arrepende</label></div>
-                    <div><input type="radio" name="q1" value="c" id="q1c"><label for="q1c">C) Quando um novo anjo é criado</label></div>
+        <h1>Quiz: O Exemplo dos Anjos! 😇</h1>
+
+        <div id="quiz-area">
+            <div class="question-page" data-question-index="0">
+                <div class="question">
+                    <p>1. O que deixa os anjos muito felizes no céu?</p>
+                    <div class="options">
+                        <div data-value="a"><input type="radio" name="q1" id="q1a"><label for="q1a">A) Quando as estrelas brilham</label></div>
+                        <div data-value="b"><input type="radio" name="q1" id="q1b"><label for="q1b">B) Quando um pecador se arrepende</label></div>
+                        <div data-value="c"><input type="radio" name="q1" id="q1c"><label for="q1c">C) Quando um novo anjo é criado</label></div>
+                    </div>
                 </div>
             </div>
 
-            <div class="question">
-                <p>2. O que um anjo humilde disse para o apóstolo João adorar?</p>
-                <div class="options">
-                    <div><input type="radio" name="q2" value="a" id="q2a"><label for="q2a">A) O próprio anjo</label></div>
-                    <div><input type="radio" name="q2" value="b" id="q2b"><label for="q2b">B) Os apóstolos</label></div>
-                    <div><input type="radio" name="q2" value="c" id="q2c"><label for="q2c">C) Somente Jeová</label></div>
+            <div class="question-page hidden" data-question-index="1">
+                <div class="question">
+                    <p>2. O que um anjo humilde disse para o apóstolo João adorar?</p>
+                    <div class="options">
+                        <div data-value="a"><input type="radio" name="q2" id="q2a"><label for="q2a">A) O próprio anjo</label></div>
+                        <div data-value="b"><input type="radio" name="q2" id="q2b"><label for="q2b">B) Os apóstolos</label></div>
+                        <div data-value="c"><input type="radio" name="q2" id="q2c"><label for="q2c">C) Somente e Jeová</label></div>
+                    </div>
                 </div>
             </div>
-
-            <div class="question">
-                <p>3. Em qual trabalho importante os anjos ajudam a gente?</p>
-                <div class="options">
-                    <div><input type="radio" name="q3" value="a" id="q3a"><label for="q3a">A) No trabalho de pregação</label></div>
-                    <div><input type="radio" name="q3" value="b" id="q3b"><label for="q3b">B) Em construir casas</label></div>
-                    <div><input type="radio" name="q3" value="c" id="q3c"><label for="q3c">C) Em fazer as lições da escola</label></div>
-                </div>
+            
+            <div class="question-page hidden" data-question-index="2">
+                <div class="question"><p>3. Em qual trabalho importante os anjos ajudam a gente?</p><div class="options"><div data-value="a"><input type="radio" name="q3" id="q3a"><label for="q3a">A) No trabalho de pregação</label></div><div data-value="b"><input type="radio" name="q3" id="q3b"><label for="q3b">B) Em construir casas</label></div><div data-value="c"><input type="radio" name="q3" id="q3c"><label for="q3c">C) Em fazer as lições da escola</label></div></div></div>
             </div>
-
-            <div class="question">
-                <p>4. Mesmo sendo muito poderosos, o que os anjos fiéis sempre fazem?</p>
-                <div class="options">
-                    <div><input type="radio" name="q4" value="a" id="q4a"><label for="q4a">A) Mostram seus poderes para todos</label></div>
-                    <div><input type="radio" name="q4" value="b" id="q4b"><label for="q4b">B) Obedecem a Jeová</label></div>
-                    <div><input type="radio" name="q4" value="c" id="q4c"><label for="q4c">C) Fazem o que acham melhor</label></div>
-                </div>
+            <div class="question-page hidden" data-question-index="3">
+                <div class="question"><p>4. Mesmo sendo muito poderosos, o que os anjos fiéis sempre fazem?</p><div class="options"><div data-value="a"><input type="radio" name="q4" id="q4a"><label for="q4a">A) Mostram seus poderes para todos</label></div><div data-value="b"><input type="radio" name="q4" id="q4b"><label for="q4b">B) Obedecem a Jeová</label></div><div data-value="c"><input type="radio" name="q4" id="q4c"><label for="q4c">C) Fazem o que acham melhor</label></div></div></div>
             </div>
-
-            <div class="question">
-                <p>5. A Bíblia fala o nome de quantos anjos?</p>
-                <div class="options">
-                    <div><input type="radio" name="q5" value="a" id="q5a"><label for="q5a">A) Milhares</label></div>
-                    <div><input type="radio" name="q5" value="b" id="q5b"><label for="q5b">B) Apenas dois (Miguel e Gabriel)</label></div>
-                    <div><input type="radio" name="q5" value="c" id="q5c"><label for="q5c">C) Nenhum</label></div>
-                </div>
+            <div class="question-page hidden" data-question-index="4">
+                <div class="question"><p>5. A Bíblia fala o nome de quantos anjos?</p><div class="options"><div data-value="a"><input type="radio" name="q5" id="q5a"><label for="q5a">A) Milhares</label></div><div data-value="b"><input type="radio" name="q5" id="q5b"><label for="q5b">B) Apenas dois (Miguel e Gabriel)</label></div><div data-value="c"><input type="radio" name="q5" id="q5c"><label for="q5c">C) Nenhum</label></div></div></div>
             </div>
-
-            <div class="question">
-                <p>6. Se um amigo faz algo muito errado, o que devemos incentivá-lo a fazer?</p>
-                <div class="options">
-                    <div><input type="radio" name="q6" value="a" id="q6a"><label for="q6a">A) Falar com os pais ou anciãos</label></div>
-                    <div><input type="radio" name="q6" value="b" id="q6b"><label for="q6b">B) Esconder o erro</label></div>
-                    <div><input type="radio" name="q6" value="c" id="q6c"><label for="q6c">C) Contar para outros amigos</label></div>
-                </div>
+            <div class="question-page hidden" data-question-index="5">
+                <div class="question"><p>6. Se um amigo faz algo muito errado, o que devemos incentivá-lo a fazer?</p><div class="options"><div data-value="a"><input type="radio" name="q6" id="q6a"><label for="q6a">A) Falar com os pais e os anciãos</label></div><div data-value="b"><input type="radio" name="q6" id="q6b"><label for="q6b">B) Esconder o erro</label></div><div data-value="c"><input type="radio" name="q6" id="q6c"><label for="q6c">C) Contar para outros amigos</label></div></div></div>
             </div>
-
-            <div class="question">
-                <p>7. Qual é uma das qualidades mais bonitas dos anjos que podemos imitar?</p>
-                <div class="options">
-                    <div><input type="radio" name="q7" value="a" id="q7a"><label for="q7a">A) A capacidade de voar</label></div>
-                    <div><input type="radio" name="q7" value="b" id="q7b"><label for="q7b">B) A sua humildade</label></div>
-                    <div><input type="radio" name="q7" value="c" id="q7c"><label for="q7c">C) A sua super força</label></div>
-                </div>
+            <div class="question-page hidden" data-question-index="6">
+                <div class="question"><p>7. Qual é uma das qualidades mais bonitas dos anjos que podemos imitar?</p><div class="options"><div data-value="a"><input type="radio" name="q7" id="q7a"><label for="q7a">A) A capacidade de voar</label></div><div data-value="b"><input type="radio" name="q7" id="q7b"><label for="q7b">B) A sua humildade</label></div><div data-value="c"><input type="radio" name="q7" id="q7c"><label for="q7c">C) A sua super força</label></div></div></div>
             </div>
-
-            <div class="question">
-                <p>8. Além dos nossos irmãos na Terra, quem também faz parte da nossa família espiritual?</p>
-                <div class="options">
-                    <div><input type="radio" name="q8" value="a" id="q8a"><label for="q8a">A) As nuvens</label></div>
-                    <div><input type="radio" name="q8" value="b" id="q8b"><label for="q8b">B) Os anjos fiéis no céu</label></div>
-                    <div><input type="radio" name="q8" value="c" id="q8c"><label for="q8c">C) Apenas as pessoas que vemos</label></div>
-                </div>
+            <div class="question-page hidden" data-question-index="7">
+                <div class="question"><p>8. Além dos nossos irmãos na Terra, quem também faz parte da nossa família espiritual?</p><div class="options"><div data-value="a"><input type="radio" name="q8" id="q8a"><label for="q8a">A) As nuvens</label></div><div data-value="b"><input type="radio" name="q8" id="q8b"><label for="q8b">B) Os anjos fiéis no céu</label></div><div data-value="c"><input type="radio" name="q8" id="q8c"><label for="q8c">C) Apenas as pessoas que vemos</label></div></div></div>
             </div>
-
-            <div class="question">
-                <p>9. O que o anjo disse que ele era, mostrando sua humildade para João?</p>
-                <div class="options">
-                    <div><input type="radio" name="q9" value="a" id="q9a"><label for="q9a">A) Um rei</label></div>
-                    <div><input type="radio" name="q9" value="b" id="q9b"><label for="q9b">B) O chefe dos apóstolos</label></div>
-                    <div><input type="radio" name="q9" value="c" id="q9c"><label for="q9c">C) Um escravo igual a ele</label></div>
-                </div>
+            <div class="question-page hidden" data-question-index="8">
+                <div class="question"><p>9. O que o anjo disse que ele era, mostrando sua humildade para João?</p><div class="options"><div data-value="a"><input type="radio" name="q9" id="q9a"><label for="q9a">A) Um rei</label></div><div data-value="b"><input type="radio" name="q9" id="q9b"><label for="q9b">B) O chefe dos apóstolos</label></div><div data-value="c"><input type="radio" name="q9" id="q9c"><label for="q9c">C) Um escravo igual a ele</label></div></div></div>
             </div>
-
-            <div class="question">
-                <p>10. Os anjos fiéis continuaram servindo a Jeová mesmo depois de ver algo muito triste acontecer. O que foi?</p>
-                <div class="options">
-                    <div><input type="radio" name="q10" value="a" id="q10a"><label for="q10a">A) Satanás e outros anjos se rebelarem</label></div>
-                    <div><input type="radio" name="q10" value="b" id="q10b"><label for="q10b">B) Uma chuva de meteoros</label></div>
-                    <div><input type="radio" name="q10" value="c" id="q10c"><label for="q10c">C) O sol se apagar por um dia</label></div>
-                </div>
+            <div class="question-page hidden" data-question-index="9">
+                <div class="question"><p>10. Os anjos fiéis continuaram servindo a Jeová mesmo depois de ver algo muito triste acontecer. O que foi?</p><div class="options"><div data-value="a"><input type="radio" name="q10" id="q10a"><label for="q10a">A) Satanás e outros anjos se rebelarem</label></div><div data-value="b"><input type="radio" name="q10" id="q10b"><label for="q10b">B) Uma chuva de meteoros</label></div><div data-value="c"><input type="radio" name="q10" id="q10c"><label for="q10c">C) O sol se apagar por um dia</label></div></div></div>
             </div>
+        </div>
 
-            <button type="button" id="submit-btn">Terminei! Ver meus acertos</button>
-        </form>
-        <div id="results"></div>
+        <button id="nav-btn" class="hidden">Próximo</button>
+        <div id="results" class="hidden"></div>
     </div>
 
     <script>
-        document.getElementById('submit-btn').addEventListener('click', function() {
-            const correctAnswers = {
-                q1: 'b', q2: 'c', q3: 'a', q4: 'b', q5: 'b',
-                q6: 'a', q7: 'b', q8: 'b', q9: 'c', q10: 'a'
-            };
+        const quizArea = document.getElementById('quiz-area');
+        const questionPages = document.querySelectorAll('.question-page');
+        const navBtn = document.getElementById('nav-btn');
+        const resultsContainer = document.getElementById('results');
 
-            let score = 0;
-            const form = document.getElementById('quiz-form');
-            const resultsContainer = document.getElementById('results');
+        const correctAnswers = ['b', 'c', 'a', 'b', 'b', 'a', 'b', 'b', 'c', 'a'];
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function showQuestion(index) {
+            questionPages.forEach((page, i) => {
+                page.classList.toggle('hidden', i !== index);
+            });
+        }
+
+        function handleOptionSelect(event) {
+            const selectedOptionDiv = event.target.closest('div[data-value]');
+            if (!selectedOptionDiv) return;
+
+            const currentPage = questionPages[currentQuestionIndex];
+            const options = currentPage.querySelectorAll('.options div');
             
-            // Verifica todas as respostas
-            for (const question in correctAnswers) {
-                const radioButtons = form.elements[question];
-                if (radioButtons.value === correctAnswers[question]) {
-                    score++;
-                    // Pinta a opção correta de verde
-                    radioButtons.forEach(rb => {
-                        if(rb.value === correctAnswers[question]) {
-                            rb.parentElement.style.backgroundColor = '#d4edda';
-                        }
-                    });
-                } else if (radioButtons.value) {
-                    // Pinta a opção errada de vermelho e a correta de verde
-                     radioButtons.forEach(rb => {
-                        if(rb.checked) {
-                            rb.parentElement.style.backgroundColor = '#f8d7da';
-                        }
-                        if(rb.value === correctAnswers[question]) {
-                            rb.parentElement.style.backgroundColor = '#d4edda';
-                        }
-                    });
-                }
+            // Impede cliques múltiplos
+            if (currentPage.dataset.answered === 'true') {
+                return;
             }
+            currentPage.dataset.answered = 'true';
+
+            const selectedValue = selectedOptionDiv.dataset.value;
+            const correctAnswer = correctAnswers[currentQuestionIndex];
+
+            if (selectedValue === correctAnswer) {
+                score++;
+                selectedOptionDiv.classList.add('correct');
+            } else {
+                selectedOptionDiv.classList.add('incorrect');
+                // Mostra a resposta correta
+                options.forEach(opt => {
+                    if (opt.dataset.value === correctAnswer) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Atualiza e mostra o botão de navegação
+            if (currentQuestionIndex < questionPages.length - 1) {
+                navBtn.textContent = 'Próximo';
+            } else {
+                navBtn.textContent = 'Ver Resultado';
+            }
+            navBtn.classList.remove('hidden');
+        }
+
+        function showNext() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questionPages.length) {
+                showQuestion(currentQuestionIndex);
+                navBtn.classList.add('hidden');
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            quizArea.classList.add('hidden');
+            navBtn.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
 
             let message = '';
             if (score >= 8) {
                 message = `Parabéns! 🥳 Você acertou ${score} de 10! Jeová fica muito feliz com seu esforço!`;
-                resultsContainer.style.color = '#155724';
-                resultsContainer.style.backgroundColor = '#d4edda';
             } else if (score >= 5) {
                 message = `Muito bem! 👍 Você acertou ${score} de 10! Continue estudando a Bíblia!`;
-                resultsContainer.style.color = '#856404';
-                resultsContainer.style.backgroundColor = '#fff3cd';
             } else {
                 message = `Bom esforço! 😊 Você acertou ${score} de 10. Que tal ler a matéria de novo com seus pais?`;
-                 resultsContainer.style.color = '#721c24';
-                 resultsContainer.style.backgroundColor = '#f8d7da';
             }
-            
             resultsContainer.textContent = message;
-        });
+        }
+
+        // Adiciona os eventos
+        quizArea.addEventListener('click', handleOptionSelect);
+        navBtn.addEventListener('click', showNext);
+
+        // Inicia o quiz
+        showQuestion(currentQuestionIndex);
     </script>
 
 </body>
