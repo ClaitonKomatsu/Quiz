@@ -3,241 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESTUDO 19 - O exemplo dos anjos!</title>
+    <title>Quiz: Adão e Eva</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #eaf2f8;
+            font-family: sans-serif;
+            background-color: #f0f8ff;
             color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #005a9c;
         }
         .quiz-container {
-            background-color: #fff;
-            padding: 20px 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
+            margin-top: 20px;
         }
-        h1 {
-            color: #2980b9;
+        .pergunta {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
             margin-bottom: 20px;
         }
-        .question-page {
-            text-align: left;
-        }
-        .question-page.hidden {
-            display: none;
-        }
-        .question p {
-            font-size: 1.2em;
+        .pergunta p {
             font-weight: bold;
-            margin-bottom: 15px;
-            border-left: 4px solid #3498db;
-            padding-left: 15px;
+            font-size: 1.1em;
+            margin-top: 0;
         }
-        .options div {
+        .alternativa {
+            display: block;
             margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
+            padding: 8px;
+            border: 2px solid transparent;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .options div:hover {
-            background-color: #f1f1f1;
-        }
         input[type="radio"] {
             margin-right: 10px;
         }
-        label {
-            font-size: 1.1em;
-            cursor: pointer;
-        }
-        #nav-btn {
-            display: block;
-            width: 50%;
-            padding: 15px;
-            background-color: #27ae60;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            cursor: pointer;
-            margin: 20px auto 0;
-        }
-        #nav-btn.hidden {
-            display: none;
-        }
-        #results {
-            font-size: 1.3em;
-            font-weight: bold;
+        #resultado {
+            text-align: center;
+            margin-top: 30px;
             padding: 20px;
+            background-color: #e9ecef;
             border-radius: 8px;
         }
-        .correct {
-            background-color: #d4edda !important;
-            border-color: #c3e6cb !important;
+        /* Estilos para a correção */
+        .resposta-correta {
+            background-color: #d4edda; /* Verde claro */
+            border-color: #c3e6cb;
             color: #155724;
             font-weight: bold;
         }
-        .incorrect {
-            background-color: #f8d7da !important;
-            border-color: #f5c6cb !important;
+        .resposta-errada {
+            background-color: #f8d7da; /* Vermelho claro */
+            border-color: #f5c6cb;
             color: #721c24;
-            font-weight: bold;
+            text-decoration: line-through;
         }
     </style>
 </head>
 <body>
 
-    <div class="quiz-container">
-        <h1>Quiz: O Exemplo dos Anjos! 😇</h1>
+    <h1>Quiz de Recapitulação</h1>
+    <h2>História de Adão e Eva</h2>
 
-        <div id="quiz-area">
-            <div class="question-page" data-question-index="0">
-                <div class="question">
-                    <p>1. O que deixa os anjos muito felizes no céu?</p>
-                    <div class="options">
-                        <div data-value="a"><input type="radio" name="q1" id="q1a"><label for="q1a">A) Quando as estrelas brilham</label></div>
-                        <div data-value="b"><input type="radio" name="q1" id="q1b"><label for="q1b">B) Quando um pecador se arrepende</label></div>
-                        <div data-value="c"><input type="radio" name="q1" id="q1c"><label for="q1c">C) Quando um novo anjo é criado</label></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="question-page hidden" data-question-index="1">
-                <div class="question">
-                    <p>2. O que um anjo humilde disse para o apóstolo João adorar?</p>
-                    <div class="options">
-                        <div data-value="a"><input type="radio" name="q2" id="q2a"><label for="q2a">A) O próprio anjo</label></div>
-                        <div data-value="b"><input type="radio" name="q2" id="q2b"><label for="q2b">B) Os apóstolos</label></div>
-                        <div data-value="c"><input type="radio" name="q2" id="q2c"><label for="q2c">C) Somente e Jeová</label></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="question-page hidden" data-question-index="2">
-                <div class="question"><p>3. Em qual trabalho importante os anjos ajudam a gente?</p><div class="options"><div data-value="a"><input type="radio" name="q3" id="q3a"><label for="q3a">A) No trabalho de pregação</label></div><div data-value="b"><input type="radio" name="q3" id="q3b"><label for="q3b">B) Em construir casas</label></div><div data-value="c"><input type="radio" name="q3" id="q3c"><label for="q3c">C) Em fazer as lições da escola</label></div></div></div>
-            </div>
-            <div class="question-page hidden" data-question-index="3">
-                <div class="question"><p>4. Mesmo sendo muito poderosos, o que os anjos fiéis sempre fazem?</p><div class="options"><div data-value="a"><input type="radio" name="q4" id="q4a"><label for="q4a">A) Mostram seus poderes para todos</label></div><div data-value="b"><input type="radio" name="q4" id="q4b"><label for="q4b">B) Obedecem a Jeová</label></div><div data-value="c"><input type="radio" name="q4" id="q4c"><label for="q4c">C) Fazem o que acham melhor</label></div></div></div>
-            </div>
-            <div class="question-page hidden" data-question-index="4">
-                <div class="question"><p>5. A Bíblia fala o nome de quantos anjos?</p><div class="options"><div data-value="a"><input type="radio" name="q5" id="q5a"><label for="q5a">A) Milhares</label></div><div data-value="b"><input type="radio" name="q5" id="q5b"><label for="q5b">B) Apenas dois (Miguel e Gabriel)</label></div><div data-value="c"><input type="radio" name="q5" id="q5c"><label for="q5c">C) Nenhum</label></div></div></div>
-            </div>
-            <div class="question-page hidden" data-question-index="5">
-                <div class="question"><p>6. Se um amigo faz algo muito errado, o que devemos incentivá-lo a fazer?</p><div class="options"><div data-value="a"><input type="radio" name="q6" id="q6a"><label for="q6a">A) Falar com os pais e os anciãos</label></div><div data-value="b"><input type="radio" name="q6" id="q6b"><label for="q6b">B) Esconder o erro</label></div><div data-value="c"><input type="radio" name="q6" id="q6c"><label for="q6c">C) Contar para outros amigos</label></div></div></div>
-            </div>
-            <div class="question-page hidden" data-question-index="6">
-                <div class="question"><p>7. Qual é uma das qualidades mais bonitas dos anjos que podemos imitar?</p><div class="options"><div data-value="a"><input type="radio" name="q7" id="q7a"><label for="q7a">A) A capacidade de voar</label></div><div data-value="b"><input type="radio" name="q7" id="q7b"><label for="q7b">B) A sua humildade</label></div><div data-value="c"><input type="radio" name="q7" id="q7c"><label for="q7c">C) A sua super força</label></div></div></div>
-            </div>
-            <div class="question-page hidden" data-question-index="7">
-                <div class="question"><p>8. Além dos nossos irmãos na Terra, quem também faz parte da nossa família espiritual?</p><div class="options"><div data-value="a"><input type="radio" name="q8" id="q8a"><label for="q8a">A) As nuvens</label></div><div data-value="b"><input type="radio" name="q8" id="q8b"><label for="q8b">B) Os anjos fiéis no céu</label></div><div data-value="c"><input type="radio" name="q8" id="q8c"><label for="q8c">C) Apenas as pessoas que vemos</label></div></div></div>
-            </div>
-            <div class="question-page hidden" data-question-index="8">
-                <div class="question"><p>9. O que o anjo disse que ele era, mostrando sua humildade para João?</p><div class="options"><div data-value="a"><input type="radio" name="q9" id="q9a"><label for="q9a">A) Um rei</label></div><div data-value="b"><input type="radio" name="q9" id="q9b"><label for="q9b">B) O chefe dos apóstolos</label></div><div data-value="c"><input type="radio" name="q9" id="q9c"><label for="q9c">C) Um escravo igual a ele</label></div></div></div>
-            </div>
-            <div class="question-page hidden" data-question-index="9">
-                <div class="question"><p>10. Os anjos fiéis continuaram servindo a Jeová mesmo depois de ver algo muito triste acontecer. O que foi?</p><div class="options"><div data-value="a"><input type="radio" name="q10" id="q10a"><label for="q10a">A) Satanás e outros anjos se rebelarem</label></div><div data-value="b"><input type="radio" name="q10" id="q10b"><label for="q10b">B) Uma chuva de meteoros</label></div><div data-value="c"><input type="radio" name="q10" id="q10c"><label for="q10c">C) O sol se apagar por um dia</label></div></div></div>
-            </div>
+    <div id="quiz">
+        <div class="pergunta">
+            <p>1. Quem conversou com Eva quando ela estava sozinha no jardim?</p>
+            <label class="alternativa"><input type="radio" name="q1" value="errada"> A) Adão</label>
+            <label class="alternativa"><input type="radio" name="q1" value="correta"> B) Uma cobra</label>
+            <label class="alternativa"><input type="radio" name="q1" value="errada"> C) Um anjo bom</label>
         </div>
 
-        <button id="nav-btn" class="hidden">Próximo</button>
-        <div id="results" class="hidden"></div>
+        <div class="pergunta">
+            <p>2. O que a cobra mentiu que aconteceria se Eva comesse a fruta?</p>
+            <label class="alternativa"><input type="radio" name="q2" value="errada"> A) Eles iam ficar com dor de barriga</label>
+            <label class="alternativa"><input type="radio" name="q2" value="errada"> B) A fruta ia acabar</label>
+            <label class="alternativa"><input type="radio" name="q2" value="correta"> C) Eles seriam iguaizinhos a Deus</label>
+        </div>
+
+        <div class="pergunta">
+            <p>3. Eva comeu a fruta. O que ela fez depois?</p>
+            <label class="alternativa"><input type="radio" name="q3" value="correta"> A) Deu a fruta para Adão comer também</label>
+            <label class="alternativa"><input type="radio" name="q3" value="errada"> B) Escondeu a fruta</label>
+            <label class="alternativa"><input type="radio" name="q3" value="errada"> C) Pediu desculpas para a cobra</label>
+        </div>
+
+        <div class="pergunta">
+            <p>4. Adão sabia que era errado comer a fruta?</p>
+            <label class="alternativa"><input type="radio" name="q4" value="errada"> A) Não, Eva não contou para ele</label>
+            <label class="alternativa"><input type="radio" name="q4" value="correta"> B) Sim, mas ele comeu mesmo assim</label>
+            <label class="alternativa"><input type="radio" name="q4" value="errada"> C) Não, ele esqueceu da regra</label>
+        </div>
+        
+        <div class="pergunta">
+            <p>5. Quando Jeová perguntou o que aconteceu, Adão colocou a culpa em quem?</p>
+            <label class="alternativa"><input type="radio" name="q5" value="errada"> A) Na cobra</label>
+            <label class="alternativa"><input type="radio" name="q5" value="errada"> B) Nele mesmo</label>
+            <label class="alternativa"><input type="radio" name="q5" value="correta"> C) Em Eva</label>
+        </div>
+
+        <div class="pergunta">
+            <p>6. Qual foi o castigo que Adão e Eva receberam por não obedecerem?</p>
+            <label class="alternativa"><input type="radio" name="q6" value="correta"> A) Foram expulsos do jardim do Éden</label>
+            <label class="alternativa"><input type="radio" name="q6" value="errada"> B) Ficaram de castigo no jardim</label>
+            <label class="alternativa"><input type="radio" name="q6" value="errada"> C) Tiveram que plantar mais árvores</label>
+        </div>
+
+        <div class="pergunta">
+            <p>7. O que Jeová colocou na entrada do jardim para Adão e Eva não voltarem?</p>
+            <label class="alternativa"><input type="radio" name="q7" value="errada"> A) Um portão com cadeado</label>
+            <label class="alternativa"><input type="radio" name="q7" value="correta"> B) Anjos e uma espada de fogo</label>
+            <label class="alternativa"><input type="radio" name="q7" value="errada"> C) Uma parede bem alta</label>
+        </div>
+
+        <div class="pergunta">
+            <p>8. As cobras podem falar de verdade?</p>
+            <label class="alternativa"><input type="radio" name="q8" value="errada"> A) Sim, as do jardim do Éden falavam</label>
+            <label class="alternativa"><input type="radio" name="q8" value="errada"> B) Sim, se elas quiserem</label>
+            <label class="alternativa"><input type="radio" name="q8" value="correta"> C) Não, elas não falam</label>
+        </div>
+
+        <div class="pergunta">
+            <p>9. Quem realmente fez a cobra falar para enganar Eva?</p>
+            <label class="alternativa"><input type="radio" name="q9" value="correta"> A) Satanás, o Diabo</label>
+            <label class="alternativa"><input type="radio" name="q9" value="errada"> B) A própria cobra</label>
+            <label class="alternativa"><input type="radio" name="q9" value="errada"> C) Adão</label>
+        </div>
+        
+        <div class="pergunta">
+            <p>10. O que Jeová disse que vai acontecer com Satanás no futuro?</p>
+            <label class="alternativa"><input type="radio" name="q10" value="errada"> A) Ele vai virar amigo de Jeová</label>
+            <label class="alternativa"><input type="radio" name="q10" value="correta"> B) Ele vai ser destruído</label>
+            <label class="alternativa"><input type="radio" name="q10" value="errada"> C) Ele vai morar em outro planeta</label>
+        </div>
+
+        <div id="resultado"></div>
     </div>
 
     <script>
-        const quizArea = document.getElementById('quiz-area');
-        const questionPages = document.querySelectorAll('.question-page');
-        const navBtn = document.getElementById('nav-btn');
-        const resultsContainer = document.getElementById('results');
+        let quizFinalizado = false; // Variável para controlar se o quiz já terminou
 
-        const correctAnswers = ['b', 'c', 'a', 'b', 'b', 'a', 'b', 'b', 'c', 'a'];
-        let currentQuestionIndex = 0;
-        let score = 0;
-
-        function showQuestion(index) {
-            questionPages.forEach((page, i) => {
-                page.classList.toggle('hidden', i !== index);
-            });
-        }
-
-        function handleOptionSelect(event) {
-            const selectedOptionDiv = event.target.closest('div[data-value]');
-            if (!selectedOptionDiv) return;
-
-            const currentPage = questionPages[currentQuestionIndex];
-            const options = currentPage.querySelectorAll('.options div');
-            
-            // Impede cliques múltiplos
-            if (currentPage.dataset.answered === 'true') {
+        function mostrarResultado() {
+            // Se o resultado já foi mostrado, não faz nada.
+            if (quizFinalizado) {
                 return;
             }
-            currentPage.dataset.answered = 'true';
+            quizFinalizado = true; // Marca o quiz como finalizado
 
-            const selectedValue = selectedOptionDiv.dataset.value;
-            const correctAnswer = correctAnswers[currentQuestionIndex];
+            let pontuacao = 0;
+            const totalPerguntas = 10;
+            const nomesPerguntas = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'];
 
-            if (selectedValue === correctAnswer) {
-                score++;
-                selectedOptionDiv.classList.add('correct');
-            } else {
-                selectedOptionDiv.classList.add('incorrect');
-                // Mostra a resposta correta
-                options.forEach(opt => {
-                    if (opt.dataset.value === correctAnswer) {
-                        opt.classList.add('correct');
+            // Itera sobre cada grupo de perguntas (q1 a q10)
+            nomesPerguntas.forEach(function(nomePergunta) {
+                const radios = document.getElementsByName(nomePergunta);
+                
+                radios.forEach(function(radio) {
+                    const label = radio.parentElement;
+                    
+                    // Destaca a resposta CORRETA em verde
+                    if (radio.value === 'correta') {
+                        label.classList.add('resposta-correta');
+                    }
+                    
+                    // Verifica a resposta do usuário
+                    if (radio.checked) {
+                        if (radio.value === 'correta') {
+                            pontuacao++;
+                        } else {
+                            // Destaca a resposta ERRADA (se selecionada) em vermelho
+                            label.classList.add('resposta-errada');
+                        }
                     }
                 });
+            });
+
+            const elementoResultado = document.getElementById('resultado');
+            let mensagem = '';
+
+            if (pontuacao >= 8) {
+                mensagem = 'Parabéns! Você prestou muita atenção na história! ✅';
+            } else if (pontuacao >= 5) {
+                mensagem = 'Muito bem! Continue estudando para aprender ainda mais. 👍';
+            } else {
+                mensagem = 'Que tal ler a história de novo? Você consegue! 😊';
             }
+
+            elementoResultado.innerHTML = `
+                <h2>Seu Resultado</h2>
+                <p>Você acertou <strong>${pontuacao}</strong> de <strong>${totalPerguntas}</strong> perguntas.</p>
+                <p>${mensagem}</p>
+            `;
             
-            // Atualiza e mostra o botão de navegação
-            if (currentQuestionIndex < questionPages.length - 1) {
-                navBtn.textContent = 'Próximo';
-            } else {
-                navBtn.textContent = 'Ver Resultado';
-            }
-            navBtn.classList.remove('hidden');
+            // Leva o usuário até a área de resultado
+            elementoResultado.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function showNext() {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questionPages.length) {
-                showQuestion(currentQuestionIndex);
-                navBtn.classList.add('hidden');
-            } else {
-                showResults();
-            }
-        }
-
-        function showResults() {
-            quizArea.classList.add('hidden');
-            navBtn.classList.add('hidden');
-            resultsContainer.classList.remove('hidden');
-
-            let message = '';
-            if (score >= 8) {
-                message = `Parabéns! 🥳 Você acertou ${score} de 10! Jeová fica muito feliz com seu esforço!`;
-            } else if (score >= 5) {
-                message = `Muito bem! 👍 Você acertou ${score} de 10! Continue estudando a Bíblia!`;
-            } else {
-                message = `Bom esforço! 😊 Você acertou ${score} de 10. Que tal ler a matéria de novo com seus pais?`;
-            }
-            resultsContainer.textContent = message;
-        }
-
-        // Adiciona os eventos
-        quizArea.addEventListener('click', handleOptionSelect);
-        navBtn.addEventListener('click', showNext);
-
-        // Inicia o quiz
-        showQuestion(currentQuestionIndex);
+        // --- NOVA IMPLEMENTAÇÃO ---
+        // Adiciona um "ouvinte" para o clique nas respostas da última pergunta
+        const radiosUltimaPergunta = document.querySelectorAll('input[name="q10"]');
+        radiosUltimaPergunta.forEach(function(radio) {
+            radio.addEventListener('click', mostrarResultado);
+        });
     </script>
 
 </body>
