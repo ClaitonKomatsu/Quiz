@@ -25,9 +25,6 @@
             padding-bottom: 5px;
             margin-top: 30px;
         }
-        .quiz-container {
-            margin-top: 20px;
-        }
         .pergunta {
             background-color: #ffffff;
             border: 1px solid #ddd;
@@ -47,210 +44,223 @@
             border: 2px solid transparent;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color: 0.3s;
+            transition: background-color 0.3s;
         }
         input[type="radio"] {
             margin-right: 10px;
         }
-        #resultado {
+        .resultado {
             text-align: center;
             margin-top: 30px;
             padding: 20px;
             background-color: #e9ecef;
             border-radius: 8px;
         }
-        /* Estilos para a correção */
         .resposta-correta {
-            background-color: #d4edda; /* Verde claro */
+            background-color: #d4edda;
             border-color: #c3e6cb;
             color: #155724;
             font-weight: bold;
         }
         .resposta-errada {
-            background-color: #f8d7da; /* Vermelho claro */
+            background-color: #f8d7da;
             border-color: #f5c6cb;
             color: #721c24;
             text-decoration: line-through;
+        }
+        .language-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .language-selector button {
+            padding: 10px 15px;
+            border: 1px solid #005a9c;
+            background-color: #fff;
+            color: #005a9c;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 1em;
+        }
+        .language-selector button.active {
+            background-color: #005a9c;
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
-    <h1>Quiz das Histórias 14 e 15</h1>
-    <h2>UM JOVEM QUE OBEDECEU A DEUS / JEOVÁ NUNCA ESQUECEU DE JOSÉ</h2>
-
-    <div id="quiz">
-        
-        <h3>História 14: Um jovem que obedeceu a Deus</h3>
-
-        <div class="pergunta">
-            <p>1. Por que os irmãos de José tinham ciúme dele?</p>
-            <label class="alternativa"><input type="radio" name="q1" value="errada"> A) Porque ele era o mais forte de todos</label>
-            <label class="alternativa"><input type="radio" name="q1" value="errada"> B) Porque ele tinha mais ovelhas que eles</label>
-            <label class="alternativa"><input type="radio" name="q1" value="correta"> C) Porque ele era o filho que Jacó mais amava</label>
-        </div>
-
-        <div class="pergunta">
-            <p>2. O que os irmãos de José fizeram com ele?</p>
-            <label class="alternativa"><input type="radio" name="q2" value="correta"> A) Venderam ele para virar escravo</label>
-            <label class="alternativa"><input type="radio" name="q2" value="errada"> B) Mandaram ele de volta para casa</label>
-            <label class="alternativa"><input type="radio" name="q2" value="errada"> C) Deixaram ele perdido no deserto</label>
-        </div>
-
-        <div class="pergunta">
-            <p>3. Os irmãos de José venderam ele por quantas moedas?</p>
-            <label class="alternativa"><input type="radio" name="q3" value="correta"> A) 20 moedas</label>
-            <label class="alternativa"><input type="radio" name="q3" value="errada"> B) 100 moedas</label>
-            <label class="alternativa"><input type="radio" name="q3" value="errada"> C) 5 moedas</label>
-        </div>
-
-        <div class="pergunta">
-            <p>4. Que mentira os irmãos contaram para Jacó sobre o que aconteceu com José?</p>
-            <label class="alternativa"><input type="radio" name="q4" value="errada"> A) Que José tinha fugido de casa</label>
-            <label class="alternativa"><input type="radio" name="q4" value="errada"> B) Que José caiu num buraco bem fundo</label>
-            <label class="alternativa"><input type="radio" name="q4" value="correta"> C) Que um animal tinha matado José</label>
-        </div>
-        
-        <div class="pergunta">
-            <p>5. No Egito, José virou escravo de um homem importante chamado...</p>
-            <label class="alternativa"><input type="radio" name="q5" value="correta"> A) Potifar</label>
-            <label class="alternativa"><input type="radio" name="q5" value="errada"> B) Faraó</label>
-            <label class="alternativa"><input type="radio" name="q5" value="errada"> C) Jacó</label>
-        </div>
-
-        <div class="pergunta">
-            <p>6. O que a esposa de Potifar queria que José fizesse de errado?</p>
-            <label class="alternativa"><input type="radio" name="q6" value="errada"> A) Que ele roubasse dinheiro de Potifar</label>
-            <label class="alternativa"><input type="radio" name="q6" value="correta"> B) Que ele se deitasse com ela</label>
-            <label class="alternativa"><input type="radio" name="q6" value="errada"> C) Que ele mentisse para o rei</label>
-        </div>
-
-        <div class="pergunta">
-            <p>7. Por que José não fez o que a esposa de Potifar pediu?</p>
-            <label class="alternativa"><input type="radio" name="q7" value="errada"> A) Porque ele estava com medo dela</label>
-            <label class="alternativa"><input type="radio" name="q7" value="errada"> B) Porque ele não gostava dela</label>
-            <label class="alternativa"><input type="radio" name="q7" value="correta"> C) Porque Jeová ia ficar muito triste com ele</label>
-        </div>
-
-        <div class="pergunta">
-            <p>8. Como a esposa de Potifar reagiu quando José fugiu dela?</p>
-            <label class="alternativa"><input type="radio" name="q8" value="errada"> A) Ela pediu desculpas para José</label>
-            <label class="alternativa"><input type="radio" name="q8" value="correta"> B) Ela mentiu para Potifar, dizendo que José tentou agarrá-la</label>
-            <label class="alternativa"><input type="radio" name="q8" value="errada"> C) Ela contou a verdade para todo mundo</label>
-        </div>
-        
-        <div class="pergunta">
-            <p>9. O que aconteceu com José por causa da mentira da esposa de Potifar?</p>
-            <label class="alternativa"><input type="radio" name="q9" value="errada"> A) Ele foi expulso do Egito</label>
-            <label class="alternativa"><input type="radio" name="q9" value="correta"> B) Ele foi mandado para a prisão</label>
-            <label class="alternativa"><input type="radio" name="q9" value="errada"> C) Ele foi obrigado a trabalhar mais</label>
-        </div>
-
-        <div class="pergunta">
-            <p>10. Quem continuou ajudando José mesmo quando ele estava na prisão?</p>
-            <label class="alternativa"><input type="radio" name="q10" value="correta"> A) Jeová</label>
-            <label class="alternativa"><input type="radio" name="q10" value="errada"> B) Seus irmãos</label>
-            <label class="alternativa"><input type="radio" name="q10" value="errada"> C) Potifar</label>
-        </div>
-        
-        <h3>História 15: Jeová nunca esqueceu de José</h3>
-
-        <div class="pergunta">
-            <p>11. Por que Faraó, o rei do Egito, mandou buscar José na prisão?</p>
-            <label class="alternativa"><input type="radio" name="q11" value="errada"> A) Porque Faraó queria que José construísse um palácio novo</label>
-            <label class="alternativa"><input type="radio" name="q11" value="errada"> B) Porque Faraó sentiu pena de José</label>
-            <label class="alternativa"><input type="radio" name="q11" value="correta"> C) Porque Faraó teve sonhos que ninguém conseguia entender, mas José podia explicar</label>
-        </div>
-
-        <div class="pergunta">
-            <p>12. O que os sonhos de Faraó significavam?</p>
-            <label class="alternativa"><input type="radio" name="q12" value="correta"> A) Que o Egito ia ter 7 anos com muita comida e depois 7 anos de muita fome</label>
-            <label class="alternativa"><input type="radio" name="q12" value="errada"> B) Que ia ter uma grande guerra</label>
-            <label class="alternativa"><input type="radio" name="q12" value="errada"> C) Que Faraó ia ficar muito rico</label>
-        </div>
-
-        <div class="pergunta">
-            <p>13. Que trabalho importante Faraó deu para José?</p>
-            <label class="alternativa"><input type="radio" name="q13" value="errada"> A) Chefe de todos os soldados</label>
-            <label class="alternativa"><input type="radio" name="q13" value="errada"> B) O construtor das pirâmides</label>
-            <label class="alternativa"><input type="radio" name="q13" value="correta"> C) O segundo homem mais importante do Egito, responsável por guardar alimento</label>
-        </div>
-
-        <div class="pergunta">
-            <p>14. Quando os irmãos de José o viram no Egito, eles o reconheceram?</p>
-            <label class="alternativa"><input type="radio" name="q14" value="errada"> A) Sim, e ficaram com muito medo</label>
-            <label class="alternativa"><input type="radio" name="q14" value="correta"> B) Não, eles se ajoelharam na frente dele sem saber que era José</label>
-            <label class="alternativa"><input type="radio" name="q14" value="errada"> C) Sim, e pediram desculpas na mesma hora</label>
-        </div>
-
-        <div class="pergunta">
-            <p>15. Como José fez um teste para ver se seus irmãos tinham mudado?</p>
-            <label class="alternativa"><input type="radio" name="q15" value="errada"> A) Ele se escondeu deles</label>
-            <label class="alternativa"><input type="radio" name="q15" value="errada"> B) Ele pediu para eles contarem o que fizeram</label>
-            <label class="alternativa"><input type="radio" name="q15" value="correta"> C) Ele escondeu um copo de prata nas coisas de Benjamim</label>
-        </div>
-
-        <div class="pergunta">
-            <p>16. Os irmãos foram malvados com Benjamim, como tinham sido com José?</p>
-            <label class="alternativa"><input type="radio" name="q16" value="errada"> A) Sim, eles o culparam pelo copo</label>
-            <label class="alternativa"><input type="radio" name="q16" value="correta"> B) Não, eles imploraram para que Benjamim não fosse castigado</label>
-            <label class="alternativa"><input type="radio" name="q16" value="errada"> C) Eles fugiram e deixaram Benjamim para trás</label>
-        </div>
-
-        <div class="pergunta">
-            <p>17. Quando José viu que seus irmãos mudaram, o que ele fez?</p>
-            <label class="alternativa"><input type="radio" name="q17" value="correta"> A) Ele chorou muito e disse: "Eu sou José! Irmão de vocês."</label>
-            <label class="alternativa"><input type="radio" name="q17" value="errada"> B) Mandou prender todos eles</label>
-            <label class="alternativa"><input type="radio" name="q17" value="errada"> C) Ele fingiu que não os conhecia</label>
-        </div>
-
-        <div class="pergunta">
-            <p>18. José estava com raiva de seus irmãos pelo que eles fizeram?</p>
-            <label class="alternativa"><input type="radio" name="q18" value="errada"> A) Sim, ele estava muito bravo</label>
-            <label class="alternativa"><input type="radio" name="q18" value="errada"> B) Ele perdoou a todos, menos a Judá</label>
-            <label class="alternativa"><input type="radio" name="q18" value="correta"> C) Não, ele perdoou todos eles</label>
-        </div>
-        
-        <div class="pergunta">
-            <p>19. O que José disse que provou que ele tinha perdoado os irmãos?</p>
-            <label class="alternativa"><input type="radio" name="q19" value="correta"> A) "Deus me mandou pra cá pra salvar a vida de vocês."</label>
-            <label class="alternativa"><input type="radio" name="q19" value="errada"> B) "Vocês vão pagar pelo que fizeram."</label>
-            <label class="alternativa"><input type="radio" name="q19" value="errada"> C) "Eu nunca mais quero ver vocês."</label>
-        </div>
-
-        <div class="pergunta">
-            <p>20. Depois de muitos anos, quem José pôde ver e abraçar de novo?</p>
-            <label class="alternativa"><input type="radio" name="q20" value="errada" onclick="mostrarResultado()"> A) O rei Faraó</label>
-            <label class="alternativa"><input type="radio" name="q20" value="correta" onclick="mostrarResultado()"> B) Seu pai, Jacó</label>
-            <label class="alternativa"><input type="radio" name="q20" value="errada" onclick="mostrarResultado()"> C) Seu amigo Potifar</label>
-        </div>
-
-        <div id="resultado"></div>
+    <div class="language-selector">
+        <button id="lang-pt-btn" class="active" onclick="mudarIdioma('pt')">Português</button>
+        <button id="lang-es-btn" onclick="mudarIdioma('es')">Español</button>
+        <button id="lang-ht-btn" onclick="mudarIdioma('ht')">Kreyòl Ayisyen</button>
     </div>
 
-    <script>
-        let quizFinalizado = false;
+    <div id="quiz-pt" class="quiz-lang-container">
+        <h1>Quiz das Histórias 14 e 15</h1>
+        <h2>UM JOVEM QUE OBEDECEU A DEUS / JEOVÁ NUNCA ESQUECEU DE JOSÉ</h2>
+        
+        <h3>História 14: Um jovem que obedeceu a Deus</h3>
+        <div class="pergunta"><p>1. Por que os irmãos de José tinham ciúme dele?</p><label class="alternativa"><input type="radio" name="q0-pt" value="errada"> A) Porque ele era o mais forte de todos</label><label class="alternativa"><input type="radio" name="q0-pt" value="errada"> B) Porque ele tinha mais ovelhas que eles</label><label class="alternativa"><input type="radio" name="q0-pt" value="correta"> C) Porque ele era o filho que Jacó mais amava</label></div>
+        <div class="pergunta"><p>2. O que os irmãos de José fizeram com ele?</p><label class="alternativa"><input type="radio" name="q1-pt" value="correta"> A) Venderam ele para virar escravo</label><label class="alternativa"><input type="radio" name="q1-pt" value="errada"> B) Mandaram ele de volta para casa</label><label class="alternativa"><input type="radio" name="q1-pt" value="errada"> C) Deixaram ele perdido no deserto</label></div>
+        <div class="pergunta"><p>3. Os irmãos de José venderam ele por quantas moedas?</p><label class="alternativa"><input type="radio" name="q2-pt" value="correta"> A) 20 moedas</label><label class="alternativa"><input type="radio" name="q2-pt" value="errada"> B) 100 moedas</label><label class="alternativa"><input type="radio" name="q2-pt" value="errada"> C) 5 moedas</label></div>
+        <div class="pergunta"><p>4. Que mentira os irmãos contaram para Jacó sobre o que aconteceu com José?</p><label class="alternativa"><input type="radio" name="q3-pt" value="errada"> A) Que José tinha fugido de casa</label><label class="alternativa"><input type="radio" name="q3-pt" value="errada"> B) Que José caiu num buraco bem fundo</label><label class="alternativa"><input type="radio" name="q3-pt" value="correta"> C) Que um animal tinha matado José</label></div>
+        <div class="pergunta"><p>5. No Egito, José virou escravo de um homem importante chamado...</p><label class="alternativa"><input type="radio" name="q4-pt" value="correta"> A) Potifar</label><label class="alternativa"><input type="radio" name="q4-pt" value="errada"> B) Faraó</label><label class="alternativa"><input type="radio" name="q4-pt" value="errada"> C) Jacó</label></div>
+        <div class="pergunta"><p>6. O que a esposa de Potifar queria que José fizesse de errado?</p><label class="alternativa"><input type="radio" name="q5-pt" value="errada"> A) Que ele roubasse dinheiro de Potifar</label><label class="alternativa"><input type="radio" name="q5-pt" value="correta"> B) Que ele se deitasse com ela</label><label class="alternativa"><input type="radio" name="q5-pt" value="errada"> C) Que ele mentisse para o rei</label></div>
+        <div class="pergunta"><p>7. Por que José não fez o que a esposa de Potifar pediu?</p><label class="alternativa"><input type="radio" name="q6-pt" value="errada"> A) Porque ele estava com medo dela</label><label class="alternativa"><input type="radio" name="q6-pt" value="errada"> B) Porque ele não gostava dela</label><label class="alternativa"><input type="radio" name="q6-pt" value="correta"> C) Porque Jeová ia ficar muito triste com ele</label></div>
+        <div class="pergunta"><p>8. Como a esposa de Potifar reagiu quando José fugiu dela?</p><label class="alternativa"><input type="radio" name="q7-pt" value="errada"> A) Ela pediu desculpas para José</label><label class="alternativa"><input type="radio" name="q7-pt" value="correta"> B) Ela mentiu para Potifar, dizendo que José tentou agarrá-la</label><label class="alternativa"><input type="radio" name="q7-pt" value="errada"> C) Ela contou a verdade para todo mundo</label></div>
+        <div class="pergunta"><p>9. O que aconteceu com José por causa da mentira da esposa de Potifar?</p><label class="alternativa"><input type="radio" name="q8-pt" value="errada"> A) Ele foi expulso do Egito</label><label class="alternativa"><input type="radio" name="q8-pt" value="correta"> B) Ele foi mandado para a prisão</label><label class="alternativa"><input type="radio" name="q8-pt" value="errada"> C) Ele foi obrigado a trabalhar mais</label></div>
+        <div class="pergunta"><p>10. Quem continuou ajudando José mesmo quando ele estava na prisão?</p><label class="alternativa"><input type="radio" name="q9-pt" value="correta"> A) Jeová</label><label class="alternativa"><input type="radio" name="q9-pt" value="errada"> B) Seus irmãos</label><label class="alternativa"><input type="radio" name="q9-pt" value="errada"> C) Potifar</label></div>
+        
+        <h3>História 15: Jeová nunca esqueceu de José</h3>
+        <div class="pergunta"><p>11. Por que Faraó, o rei do Egito, mandou buscar José na prisão?</p><label class="alternativa"><input type="radio" name="q10-pt" value="errada"> A) Porque Faraó queria que José construísse um palácio novo</label><label class="alternativa"><input type="radio" name="q10-pt" value="errada"> B) Porque Faraó sentiu pena de José</label><label class="alternativa"><input type="radio" name="q10-pt" value="correta"> C) Porque Faraó teve sonhos que ninguém conseguia entender, mas José podia explicar</label></div>
+        <div class="pergunta"><p>12. O que os sonhos de Faraó significavam?</p><label class="alternativa"><input type="radio" name="q11-pt" value="correta"> A) Que o Egito ia ter 7 anos com muita comida e depois 7 anos de muita fome</label><label class="alternativa"><input type="radio" name="q11-pt" value="errada"> B) Que ia ter uma grande guerra</label><label class="alternativa"><input type="radio" name="q11-pt" value="errada"> C) Que Faraó ia ficar muito rico</label></div>
+        <div class="pergunta"><p>13. Que trabalho importante Faraó deu para José?</p><label class="alternativa"><input type="radio" name="q12-pt" value="errada"> A) Chefe de todos os soldados</label><label class="alternativa"><input type="radio" name="q12-pt" value="errada"> B) O construtor das pirâmides</label><label class="alternativa"><input type="radio" name="q12-pt" value="correta"> C) O segundo homem mais importante do Egito, responsável por guardar alimento</label></div>
+        <div class="pergunta"><p>14. Quando os irmãos de José o viram no Egito, eles o reconheceram?</p><label class="alternativa"><input type="radio" name="q13-pt" value="errada"> A) Sim, e ficaram com muito medo</label><label class="alternativa"><input type="radio" name="q13-pt" value="correta"> B) Não, eles se ajoelharam na frente dele sem saber que era José</label><label class="alternativa"><input type="radio" name="q13-pt" value="errada"> C) Sim, e pediram desculpas na mesma hora</label></div>
+        <div class="pergunta"><p>15. Como José fez um teste para ver se seus irmãos tinham mudado?</p><label class="alternativa"><input type="radio" name="q14-pt" value="errada"> A) Ele se escondeu deles</label><label class="alternativa"><input type="radio" name="q14-pt" value="errada"> B) Ele pediu para eles contarem o que fizeram</label><label class="alternativa"><input type="radio" name="q14-pt" value="correta"> C) Ele escondeu um copo de prata nas coisas de Benjamim</label></div>
+        <div class="pergunta"><p>16. Os irmãos foram malvados com Benjamim, como tinham sido com José?</p><label class="alternativa"><input type="radio" name="q15-pt" value="errada"> A) Sim, eles o culparam pelo copo</label><label class="alternativa"><input type="radio" name="q15-pt" value="correta"> B) Não, eles imploraram para que Benjamim não fosse castigado</label><label class="alternativa"><input type="radio" name="q15-pt" value="errada"> C) Eles fugiram e deixaram Benjamim para trás</label></div>
+        <div class="pergunta"><p>17. Quando José viu que seus irmãos mudaram, o que ele fez?</p><label class="alternativa"><input type="radio" name="q16-pt" value="correta"> A) Ele chorou muito e disse: "Eu sou José! Irmão de vocês."</label><label class="alternativa"><input type="radio" name="q16-pt" value="errada"> B) Mandou prender todos eles</label><label class="alternativa"><input type="radio" name="q16-pt" value="errada"> C) Ele fingiu que não os conhecia</label></div>
+        <div class="pergunta"><p>18. José estava com raiva de seus irmãos pelo que eles fizeram?</p><label class="alternativa"><input type="radio" name="q17-pt" value="errada"> A) Sim, ele estava muito bravo</label><label class="alternativa"><input type="radio" name="q17-pt" value="errada"> B) Ele perdoou a todos, menos a Judá</label><label class="alternativa"><input type="radio" name="q17-pt" value="correta"> C) Não, ele perdoou todos eles</label></div>
+        <div class="pergunta"><p>19. O que José disse que provou que ele tinha perdoado os irmãos?</p><label class="alternativa"><input type="radio" name="q18-pt" value="correta"> A) "Deus me mandou pra cá pra salvar a vida de vocês."</label><label class="alternativa"><input type="radio" name="q18-pt" value="errada"> B) "Vocês vão pagar pelo que fizeram."</label><label class="alternativa"><input type="radio" name="q18-pt" value="errada"> C) "Eu nunca mais quero ver vocês."</label></div>
+        <div class="pergunta"><p>20. Depois de muitos anos, quem José pôde ver e abraçar de novo?</p><label class="alternativa"><input type="radio" name="q19-pt" value="errada" onclick="mostrarResultado('pt')"> A) O rei Faraó</label><label class="alternativa"><input type="radio" name="q19-pt" value="correta" onclick="mostrarResultado('pt')"> B) Seu pai, Jacó</label><label class="alternativa"><input type="radio" name="q19-pt" value="errada" onclick="mostrarResultado('pt')"> C) Seu amigo Potifar</label></div>
 
-        function mostrarResultado() {
-            if (quizFinalizado) {
+        <div id="resultado-pt" class="resultado"></div>
+    </div>
+
+    <div id="quiz-es" class="quiz-lang-container" style="display:none;">
+        <h1>Quiz de las Historias 14 y 15</h1>
+        <h2>UN JOVEN QUE OBEDECIÓ A DIOS / JEHOVÁ NUNCA OLVIDÓ A JOSÉ</h2>
+        
+        <h3>Historia 14: Un joven que obedeció a Dios</h3>
+        <div class="pergunta"><p>1. ¿Por qué los hermanos de José estaban celosos de él?</p><label class="alternativa"><input type="radio" name="q0-es" value="errada"> A) Porque era el más fuerte de todos</label><label class="alternativa"><input type="radio" name="q0-es" value="errada"> B) Porque tenía más ovejas que ellos</label><label class="alternativa"><input type="radio" name="q0-es" value="correta"> C) Porque era el hijo que Jacob más amaba</label></div>
+        <div class="pergunta"><p>2. ¿Qué le hicieron los hermanos de José?</p><label class="alternativa"><input type="radio" name="q1-es" value="correta"> A) Lo vendieron como esclavo</label><label class="alternativa"><input type="radio" name="q1-es" value="errada"> B) Lo enviaron de vuelta a casa</label><label class="alternativa"><input type="radio" name="q1-es" value="errada"> C) Lo dejaron perdido en el desierto</label></div>
+        <div class="pergunta"><p>3. ¿Por cuántas monedas vendieron los hermanos de José?</p><label class="alternativa"><input type="radio" name="q2-es" value="correta"> A) 20 monedas</label><label class="alternativa"><input type="radio" name="q2-es" value="errada"> B) 100 monedas</label><label class="alternativa"><input type="radio" name="q2-es" value="errada"> C) 5 monedas</label></div>
+        <div class="pergunta"><p>4. ¿Qué mentira le contaron los hermanos a Jacob sobre lo que le pasó a José?</p><label class="alternativa"><input type="radio" name="q3-es" value="errada"> A) Que José se había escapado de casa</label><label class="alternativa"><input type="radio" name="q3-es" value="errada"> B) Que José se había caído en un pozo profundo</label><label class="alternativa"><input type="radio" name="q3-es" value="correta"> C) Que un animal había matado a José</label></div>
+        <div class="pergunta"><p>5. En Egipto, José se convirtió en esclavo de un hombre importante llamado...</p><label class="alternativa"><input type="radio" name="q4-es" value="correta"> A) Potifar</label><label class="alternativa"><input type="radio" name="q4-es" value="errada"> B) Faraón</label><label class="alternativa"><input type="radio" name="q4-es" value="errada"> C) Jacob</label></div>
+        <div class="pergunta"><p>6. ¿Qué cosa mala quería la esposa de Potifar que José hiciera?</p><label class="alternativa"><input type="radio" name="q5-es" value="errada"> A) Que le robara dinero a Potifar</label><label class="alternativa"><input type="radio" name="q5-es" value="correta"> B) Que se acostaría con ella</label><label class="alternativa"><input type="radio" name="q5-es" value="errada"> C) Que le mintiera al rey</label></div>
+        <div class="pergunta"><p>7. ¿Por qué José no hizo lo que le pidió la esposa de Potifar?</p><label class="alternativa"><input type="radio" name="q6-es" value="errada"> A) Porque le tenía miedo a ella</label><label class="alternativa"><input type="radio" name="q6-es" value="errada"> B) Porque a él no le gustaba ella</label><label class="alternativa"><input type="radio" name="q6-es" value="correta"> C) Porque Jehová se habría puesto muy triste con él</label></div>
+        <div class="pergunta"><p>8. ¿Cómo reaccionó la esposa de Potifar cuando José huyó de ella?</p><label class="alternativa"><input type="radio" name="q7-es" value="errada"> A) Le pidió disculpas a José</label><label class="alternativa"><input type="radio" name="q7-es" value="correta"> B) Le mintió a Potifar, diciendo que José intentó agarrarla</label><label class="alternativa"><input type="radio" name="q7-es" value="errada"> C) Contó la verdad a todo el mundo</label></div>
+        <div class="pergunta"><p>9. ¿Qué le pasó a José por la mentira de la esposa de Potifar?</p><label class="alternativa"><input type="radio" name="q8-es" value="errada"> A) Fue expulsado de Egipto</label><label class="alternativa"><input type="radio" name="q8-es" value="correta"> B) Fue enviado a la cárcel</label><label class="alternativa"><input type="radio" name="q8-es" value="errada"> C) Fue obligado a trabajar más</label></div>
+        <div class="pergunta"><p>10. ¿Quién siguió ayudando a José incluso cuando estaba en la cárcel?</p><label class="alternativa"><input type="radio" name="q9-es" value="correta"> A) Jehová</label><label class="alternativa"><input type="radio" name="q9-es" value="errada"> B) Sus hermanos</label><label class="alternativa"><input type="radio" name="q9-es" value="errada"> C) Potifar</label></div>
+
+        <h3>Historia 15: Jehová nunca olvidó a José</h3>
+        <div class="pergunta"><p>11. ¿Por qué Faraón, el rey de Egipto, mandó a buscar a José en la cárcel?</p><label class="alternativa"><input type="radio" name="q10-es" value="errada"> A) Porque Faraón quería que José construyera un nuevo palacio</label><label class="alternativa"><input type="radio" name="q10-es" value="errada"> B) Porque Faraón sintió lástima por José</label><label class="alternativa"><input type="radio" name="q10-es" value="correta"> C) Porque Faraón tuvo sueños que nadie podía entender, pero José podía explicarlos</label></div>
+        <div class="pergunta"><p>12. ¿Qué significaban los sueños de Faraón?</p><label class="alternativa"><input type="radio" name="q11-es" value="correta"> A) Que Egipto tendría 7 años con mucha comida y después 7 años de mucha hambre</label><label class="alternativa"><input type="radio" name="q11-es" value="errada"> B) Que habría una gran guerra</label><label class="alternativa"><input type="radio" name="q11-es" value="errada"> C) Que Faraón se haría muy rico</label></div>
+        <div class="pergunta"><p>13. ¿Qué trabajo importante le dio Faraón a José?</p><label class="alternativa"><input type="radio" name="q12-es" value="errada"> A) Jefe de todos los soldados</label><label class="alternativa"><input type="radio" name="q12-es" value="errada"> B) El constructor de las pirámides</label><label class="alternativa"><input type="radio" name="q12-es" value="correta"> C) El segundo hombre más importante de Egipto, responsable de almacenar alimentos</label></div>
+        <div class="pergunta"><p>14. Cuando los hermanos de José lo vieron en Egipto, ¿lo reconocieron?</p><label class="alternativa"><input type="radio" name="q13-es" value="errada"> A) Sí, y tuvieron mucho miedo</label><label class="alternativa"><input type="radio" name="q13-es" value="correta"> B) No, se arrodillaron ante él sin saber que era José</label><label class="alternativa"><input type="radio" name="q13-es" value="errada"> C) Sí, y se disculparon de inmediato</label></div>
+        <div class="pergunta"><p>15. ¿Cómo probó José para ver si sus hermanos habían cambiado?</p><label class="alternativa"><input type="radio" name="q14-es" value="errada"> A) Se escondió de ellos</label><label class="alternativa"><input type="radio" name="q14-es" value="errada"> B) Les pidió que contaran lo que habían hecho</label><label class="alternativa"><input type="radio" name="q14-es" value="correta"> C) Escondió una copa de plata en las cosas de Benjamín</label></div>
+        <div class="pergunta"><p>16. ¿Fueron los hermanos malos con Benjamín, como lo habían sido con José?</p><label class="alternativa"><input type="radio" name="q15-es" value="errada"> A) Sí, lo culparon por la copa</label><label class="alternativa"><input type="radio" name="q15-es" value="correta"> B) No, suplicaron que no se castigara a Benjamín</label><label class="alternativa"><input type="radio" name="q15-es" value="errada"> C) Huyeron y dejaron a Benjamín atrás</label></div>
+        <div class="pergunta"><p>17. Cuando José vio que sus hermanos habían cambiado, ¿qué hizo?</p><label class="alternativa"><input type="radio" name="q16-es" value="correta"> A) Lloró mucho y dijo: '¡Yo soy José, su hermano!'</label><label class="alternativa"><input type="radio" name="q16-es" value="errada"> B) Mandó a arrestarlos a todos</label><label class="alternativa"><input type="radio" name="q16-es" value="errada"> C) Fingió no conocerlos</label></div>
+        <div class="pergunta"><p>18. ¿Estaba José enojado con sus hermanos por lo que le hicieron?</p><label class="alternativa"><input type="radio" name="q17-es" value="errada"> A) Sí, estaba muy enojado</label><label class="alternativa"><input type="radio" name="q17-es" value="errada"> B) Perdonó a todos, excepto a Judá</label><label class="alternativa"><input type="radio" name="q17-es" value="correta"> C) No, los perdonó a todos</label></div>
+        <div class="pergunta"><p>19. ¿Qué dijo José que demostró que había perdonado a sus hermanos?</p><label class="alternativa"><input type="radio" name="q18-es" value="correta"> A) 'Dios me envió aquí para salvarles la vida.'</label><label class="alternativa"><input type="radio" name="q18-es" value="errada"> B) 'Pagarán por lo que han hecho.'</label><label class="alternativa"><input type="radio" name="q18-es" value="errada"> C) 'No quiero volver a verlos nunca más.'</label></div>
+        <div class="pergunta"><p>20. Después de muchos años, ¿a quién pudo ver y abrazar José de nuevo?</p><label class="alternativa"><input type="radio" name="q19-es" value="errada" onclick="mostrarResultado('es')"> A) Al rey Faraón</label><label class="alternativa"><input type="radio" name="q19-es" value="correta" onclick="mostrarResultado('es')"> B) A su padre, Jacob</label><label class="alternativa"><input type="radio" name="q19-es" value="errada" onclick="mostrarResultado('es')"> C) A su amigo Potifar</label></div>
+
+        <div id="resultado-es" class="resultado"></div>
+    </div>
+
+    <div id="quiz-ht" class="quiz-lang-container" style="display:none;">
+        <h1>Kwiz sou Istwa 14 ak 15</h1>
+        <h2>YON JÈN GASON KI TE OBEYI BONDYE / JEWOVA PA T JANM BLIYE JÒZÈF</h2>
+
+        <h3>Istwa 14: Yon jèn gason ki te obeyi Bondye</h3>
+        <div class="pergunta"><p>1. Poukisa frè Jòzèf yo te jalou pou li?</p><label class="alternativa"><input type="radio" name="q0-ht" value="errada"> A) Paske li te pi fò pase yo tout</label><label class="alternativa"><input type="radio" name="q0-ht" value="errada"> B) Paske li te gen plis mouton pase yo</label><label class="alternativa"><input type="radio" name="q0-ht" value="correta"> C) Paske se li menm Jakòb te pi renmen</label></div>
+        <div class="pergunta"><p>2. Kisa frè Jòzèf yo te fè avè l?</p><label class="alternativa"><input type="radio" name="q1-ht" value="correta"> A) Yo te vann li kòm esklav</label><label class="alternativa"><input type="radio" name="q1-ht" value="errada"> B) Yo te voye l tounen lakay li</label><label class="alternativa"><input type="radio" name="q1-ht" value="errada"> C) Yo te kite l pèdi nan dezè a</label></div>
+        <div class="pergunta"><p>3. Pou konbyen pyès lajan frè Jòzèf yo te vann li?</p><label class="alternativa"><input type="radio" name="q2-ht" value="correta"> A) 20 pyès lajan</label><label class="alternativa"><input type="radio" name="q2-ht" value="errada"> B) 100 pyès lajan</label><label class="alternativa"><input type="radio" name="q2-ht" value="errada"> C) 5 pyès lajan</label></div>
+        <div class="pergunta"><p>4. Ki manti frè yo te bay Jakòb konsènan sa k te rive Jòzèf?</p><label class="alternativa"><input type="radio" name="q3-ht" value="errada"> A) Jòzèf te sove kite kay la</label><label class="alternativa"><input type="radio" name="q3-ht" value="errada"> B) Jòzèf te tonbe nan yon gwo twou</label><label class="alternativa"><input type="radio" name="q3-ht" value="correta"> C) Yon bèt te touye Jòzèf</label></div>
+        <div class="pergunta"><p>5. Ann Ejip, Jòzèf te vin esklav yon mesye enpòtan ki te rele...</p><label class="alternativa"><input type="radio" name="q4-ht" value="correta"> A) Potifa</label><label class="alternativa"><input type="radio" name="q4-ht" value="errada"> B) Farawon</label><label class="alternativa"><input type="radio" name="q4-ht" value="errada"> C) Jakòb</label></div>
+        <div class="pergunta"><p>6. Ki move bagay madan Potifa te vle Jòzèf fè?</p><label class="alternativa"><input type="radio" name="q5-ht" value="errada"> A) Pou l vòlè lajan Potifa</label><label class="alternativa"><input type="radio" name="q5-ht" value="correta"> B) Ki i ti pou dormi avek li</label><label class="alternativa"><input type="radio" name="q5-ht" value="errada"> C) Pou l bay wa a manti</label></div>
+        <div class="pergunta"><p>7. Poukisa Jòzèf pa t fè sa madan Potifa te mande l la?</p><label class="alternativa"><input type="radio" name="q6-ht" value="errada"> A) Paske li te pè l</label><label class="alternativa"><input type="radio" name="q6-ht" value="errada"> B) Paske li pa t renmen l</label><label class="alternativa"><input type="radio" name="q6-ht" value="correta"> C) Paske Jewova t ap tris anpil</label></div>
+        <div class="pergunta"><p>8. Kòman madan Potifa te reyaji lè Jòzèf te kouri pou li?</p><label class="alternativa"><input type="radio" name="q7-ht" value="errada"> A) Li te mande Jòzèf padon</label><label class="alternativa"><input type="radio" name="q7-ht" value="correta"> B) Li te bay Potifa manti, li te di Jòzèf te eseye fòse l</label><label class="alternativa"><input type="radio" name="q7-ht" value="errada"> C) Li te di tout moun verite a</label></div>
+        <div class="pergunta"><p>9. Kisa k te rive Jòzèf akoz manti madan Potifa a?</p><label class="alternativa"><input type="radio" name="q8-ht" value="errada"> A) Yo te mete l deyò ann Ejip</label><label class="alternativa"><input type="radio" name="q8-ht" value="correta"> B) Yo te mete l nan prizon</label><label class="alternativa"><input type="radio" name="q8-ht" value="errada"> C) Yo te fòse l travay plis</label></div>
+        <div class="pergunta"><p>10. Kiyès ki te kontinye ede Jòzèf menm lè l te nan prizon?</p><label class="alternativa"><input type="radio" name="q9-ht" value="correta"> A) Jewova</label><label class="alternativa"><input type="radio" name="q9-ht" value="errada"> B) Frè l yo</label><label class="alternativa"><input type="radio" name="q9-ht" value="errada"> C) Potifa</label></div>
+
+        <h3>Istwa 15: Jewova pa t janm bliye Jòzèf</h3>
+        <div class="pergunta"><p>11. Poukisa Farawon, wa peyi Ejip la, te voye chèche Jòzèf nan prizon?</p><label class="alternativa"><input type="radio" name="q10-ht" value="errada"> A) Paske Farawon te vle Jòzèf bati yon nouvo palè</label><label class="alternativa"><input type="radio" name="q10-ht" value="errada"> B) Paske Farawon te gen pitye pou Jòzèf</label><label class="alternativa"><input type="radio" name="q10-ht" value="correta"> C) Paske Farawon te fè rèv pèsonn pa t konprann, men Jòzèf te ka esplike yo</label></div>
+        <div class="pergunta"><p>12. Kisa rèv Farawon yo te vle di?</p><label class="alternativa"><input type="radio" name="q11-ht" value="correta"> A) Peyi Ejip t apral gen 7 ane ak anpil manje epi 7 ane grangou</label><label class="alternativa"><input type="radio" name="q11-ht" value="errada"> B) T apral gen yon gwo lagè</label><label class="alternativa"><input type="radio" name="q11-ht" value="errada"> C) Farawon t apral vin rich anpil</label></div>
+        <div class="pergunta"><p>13. Ki travay enpòtan Farawon te bay Jòzèf fè?</p><label class="alternativa"><input type="radio" name="q12-ht" value="errada"> A) Chèf tout sòlda yo</label><label class="alternativa"><input type="radio" name="q12-ht" value="errada"> B) Konstiktè piramid yo</label><label class="alternativa"><input type="radio" name="q12-ht" value="correta"> C) Dezyèm moun ki pi enpòtan ann Ejip, responsab pou sere manje</label></div>
+        <div class="pergunta"><p>14. Lè frè Jòzèf yo te wè l ann Ejip, èske yo te rekonèt li?</p><label class="alternativa"><input type="radio" name="q13-ht" value="errada"> A) Wi, epi yo te pè anpil</label><label class="alternativa"><input type="radio" name="q13-ht" value="correta"> B) Non, yo te met ajenou devan l san yo pa t konnen se te Jòzèf</label><label class="alternativa"><input type="radio" name="q13-ht" value="errada"> C) Wi, epi yo te mande padon tousuit</label></div>
+        <div class="pergunta"><p>15. Kòman Jòzèf te fè yon tès pou l wè si frè l yo te chanje?</p><label class="alternativa"><input type="radio" name="q14-ht" value="errada"> A) Li te kache pou yo</label><label class="alternativa"><input type="radio" name="q14-ht" value="errada"> B) Li te mande yo pou yo rakonte sa yo te fè a</label><label class="alternativa"><input type="radio" name="q14-ht" value="correta"> C) Li te kache yon koup an ajan nan bagay Benjamen yo</label></div>
+        <div class="pergunta"><p>16. Èske frè yo te mechan ak Benjamen, menm jan yo te mechan ak Jòzèf?</p><label class="alternativa"><input type="radio" name="q15-ht" value="errada"> A) Wi, yo te akize l pou koup la</label><label class="alternativa"><input type="radio" name="q15-ht" value="correta"> B) Non, yo te sipliye pou yo pa pini Benjamen</label><label class="alternativa"><input type="radio" name="q15-ht" value="errada"> C) Yo te kouri ale epi yo te kite Benjamen dèyè</label></div>
+        <div class="pergunta"><p>17. Lè Jòzèf wè frè l yo chanje, kisa l te fè?</p><label class="alternativa"><input type="radio" name="q16-ht" value="correta"> A) Li te kriye anpil epi li di: 'Se mwen menm Jòzèf, frè nou an!'</label><label class="alternativa"><input type="radio" name="q16-ht" value="errada"> B) Li te bay lòd pou arete yo tout</label><label class="alternativa"><input type="radio" name="q16-ht" value="errada"> C) Li te fè kòmsi li pa t konnen yo</label></div>
+        <div class="pergunta"><p>18. Èske Jòzèf te an kòlè kont frè l yo pou sa yo te fè l?</p><label class="alternativa"><input type="radio" name="q17-ht" value="errada"> A) Wi, li te fache anpil</label><label class="alternativa"><input type="radio" name="q17-ht" value="errada"> B) Li te padone yo tout, eksepte Jida</label><label class="alternativa"><input type="radio" name="q17-ht" value="correta"> C) Non, li te padone yo tout</label></div>
+        <div class="pergunta"><p>19. Kisa Jòzèf te di ki te pwouve li te padone frè l yo?</p><label class="alternativa"><input type="radio" name="q18-ht" value="correta"> A) 'Se Bondye ki te voye m isit la pou m sove lavi nou.'</label><label class="alternativa"><input type="radio" name="q18-ht" value="errada"> B) 'Nou pral peye pou sa nou te fè a.'</label><label class="alternativa"><input type="radio" name="q18-ht" value="errada"> C) 'Mwen pa janm vle wè nou ankò.'</label></div>
+        <div class="pergunta"><p>20. Apre anpil ane, kiyès Jòzèf te ka wè epi anbrase ankò?</p><label class="alternativa"><input type="radio" name="q19-ht" value="errada" onclick="mostrarResultado('ht')"> A) Wa Farawon</label><label class="alternativa"><input type="radio" name="q19-ht" value="correta" onclick="mostrarResultado('ht')"> B) Papa l, Jakòb</label><label class="alternativa"><input type="radio" name="q19-ht" value="errada" onclick="mostrarResultado('ht')"> C) Zanmi l, Potifa</label></div>
+
+        <div id="resultado-ht" class="resultado"></div>
+    </div>
+
+
+    <script>
+        // Objeto para armazenar o estado de finalização de cada quiz
+        const quizzesFinalizados = {
+            pt: false,
+            es: false,
+            ht: false
+        };
+
+        const mensagensResultado = {
+            pt: {
+                titulo: "Seu Resultado",
+                texto: (p, t) => `Você acertou <strong>${p}</strong> de <strong>${t}</strong> perguntas.`,
+                niveis: [
+                    'Que tal ler as histórias de novo? Você consegue! 😊',
+                    'Muito bem! Continue estudando para aprender ainda mais. 👍',
+                    'Parabéns! Você prestou muita atenção nas histórias! ✅'
+                ]
+            },
+            es: {
+                titulo: "Tu Resultado",
+                texto: (p, t) => `Acertaste <strong>${p}</strong> de <strong>${t}</strong> preguntas.`,
+                niveis: [
+                    '¿Qué tal si lees las historias de nuevo? ¡Tú puedes! 😊',
+                    '¡Muy bien! Sigue estudiando para aprender aún más. 👍',
+                    '¡Felicitaciones! ¡Prestaste mucha atención a las historias! ✅'
+                ]
+            },
+            ht: {
+                titulo: "Rezilta w",
+                texto: (p, t) => `Ou jwenn <strong>${p}</strong> sou <strong>${t}</strong> kesyon.`,
+                niveis: [
+                    'Sa w panse si w ta li istwa yo ankò? Ou kapab! 😊',
+                    'Trè byenv! Kontinye etidye pou w aprann plis toujou. 👍',
+                    'Felisitasyon! Ou te byen swiv istwa yo! ✅'
+                ]
+            }
+        };
+
+        function mudarIdioma(lang) {
+            // Esconde todos os containers de quiz
+            document.querySelectorAll('.quiz-lang-container').forEach(div => {
+                div.style.display = 'none';
+            });
+
+            // Mostra o container do idioma selecionado
+            document.getElementById(`quiz-${lang}`).style.display = 'block';
+
+            // Atualiza o botão ativo
+            document.querySelectorAll('.language-selector button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById(`lang-${lang}-btn`).classList.add('active');
+            document.documentElement.lang = lang;
+        }
+
+        function mostrarResultado(lang) {
+            if (quizzesFinalizados[lang]) {
                 return;
             }
-            quizFinalizado = true;
+            quizzesFinalizados[lang] = true;
 
             let pontuacao = 0;
             const totalPerguntas = 20;
-            const nomesPerguntas = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20'];
 
-            nomesPerguntas.forEach(function(nomePergunta) {
-                const radios = document.getElementsByName(nomePergunta);
-                
+            for (let i = 0; i < totalPerguntas; i++) {
+                const radios = document.getElementsByName(`q${i}-${lang}`);
                 radios.forEach(function(radio) {
                     const label = radio.parentElement;
-                    
                     if (radio.value === 'correta') {
                         label.classList.add('resposta-correta');
                     }
-                    
                     if (radio.checked) {
                         if (radio.value === 'correta') {
                             pontuacao++;
@@ -259,22 +269,23 @@
                         }
                     }
                 });
-            });
+            }
 
-            const elementoResultado = document.getElementById('resultado');
+            const elementoResultado = document.getElementById(`resultado-${lang}`);
+            const data = mensagensResultado[lang];
             let mensagem = '';
 
             if (pontuacao >= 17) {
-                mensagem = 'Parabéns! Você prestou muita atenção nas histórias! ✅';
+                mensagem = data.niveis[2];
             } else if (pontuacao >= 12) {
-                mensagem = 'Muito bem! Continue estudando para aprender ainda mais. 👍';
+                mensagem = data.niveis[1];
             } else {
-                mensagem = 'Que tal ler as histórias de novo? Você consegue! 😊';
+                mensagem = data.niveis[0];
             }
 
             elementoResultado.innerHTML = `
-                <h2>Seu Resultado</h2>
-                <p>Você acertou <strong>${pontuacao}</strong> de <strong>${totalPerguntas}</strong> perguntas.</p>
+                <h2>${data.titulo}</h2>
+                <p>${data.texto(pontuacao, totalPerguntas)}</p>
                 <p>${mensagem}</p>
             `;
             
