@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Histórias 46 e 47</title>
+    <title>Quiz: Histórias 48 e 49</title>
     <style>
         body {
             font-family: sans-serif;
@@ -55,6 +55,7 @@
             padding: 20px;
             background-color: #e9ecef;
             border-radius: 8px;
+            display: none; /* Começa oculto */
         }
         .resposta-correta {
             background-color: #d4edda;
@@ -86,6 +87,22 @@
             background-color: #005a9c;
             color: #fff;
         }
+        .btn-verificar {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #005a9c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .btn-verificar:hover {
+            background-color: #004070;
+        }
     </style>
 </head>
 <body>
@@ -97,95 +114,105 @@
     </div>
 
     <div id="quiz-pt" class="quiz-lang-container">
-        <h1>Quiz das Histórias 46 e 47</h1>
-        <h2>UM TESTE NO MONTE CARMELO / JEOVÁ CUIDOU DE ELIAS</h2>
+        <h1>Quiz das Histórias 48 e 49</h1>
+        <h2>O FILHO DE UMA VIÚVA VOLTA A VIVER / O FIM DE UMA RAINHA MÁ</h2>
 
-        <h3>História 46: Um teste no monte Carmelo</h3>
-        <div class="pergunta"><p>1. Quem eram o rei e a rainha maus que fizeram Israel adorar Baal?</p><label class="alternativa"><input type="radio" name="q0-pt" value="errada"> A) Davi e Bate-Seba</label><label class="alternativa"><input type="radio" name="q0-pt" value="correta"> B) Acabe e Jezabel</label><label class="alternativa"><input type="radio" name="q0-pt" value="errada"> C) Salomão e a rainha de Sabá</label></div>
-        <div class="pergunta"><p>2. O que aconteceu em Israel por mais de três anos por causa da maldade do rei?</p><label class="alternativa"><input type="radio" name="q1-pt" value="correta"> A) Não choveu</label><label class="alternativa"><input type="radio" name="q1-pt" value="errada"> B) Choveu fogo</label><label class="alternativa"><input type="radio" name="q1-pt" value="errada"> C) Teve um terremoto</label></div>
-        <div class="pergunta"><p>3. Onde Elias disse para o povo se reunir para fazer um teste?</p><label class="alternativa"><input type="radio" name="q2-pt" value="errada"> A) No monte Sinai</label><label class="alternativa"><input type="radio" name="q2-pt" value="errada"> B) Em Jerusalém</label><label class="alternativa"><input type="radio" name="q2-pt" value="correta"> C) No monte Carmelo</label></div>
-        <div class="pergunta"><p>4. Quantos profetas de Baal estavam lá?</p><label class="alternativa"><input type="radio" name="q3-pt" value="correta"> A) 450</label><label class="alternativa"><input type="radio" name="q3-pt" value="errada"> B) 10</label><label class="alternativa"><input type="radio" name="q3-pt" value="errada"> C) 1000</label></div>
-        <div class="pergunta"><p>5. O que Baal fez quando seus profetas gritaram o dia todo?</p><label class="alternativa"><input type="radio" name="q4-pt" value="errada"> A) Mandou fogo</label><label class="alternativa"><input type="radio" name="q4-pt" value="correta"> B) Nada, ele não respondeu</label><label class="alternativa"><input type="radio" name="q4-pt" value="errada"> C) Mandou chuva</label></div>
-        <div class="pergunta"><p>6. O que Elias jogou em volta do seu altar antes de orar?</p><label class="alternativa"><input type="radio" name="q5-pt" value="errada"> A) Azeite</label><label class="alternativa"><input type="radio" name="q5-pt" value="errada"> B) Areia</label><label class="alternativa"><input type="radio" name="q5-pt" value="correta"> C) Água</label></div>
-        <div class="pergunta"><p>7. O que Jeová mandou do céu para queimar o sacrifício de Elias?</p><label class="alternativa"><input type="radio" name="q6-pt" value="correta"> A) Fogo</label><label class="alternativa"><input type="radio" name="q6-pt" value="errada"> B) Um raio de sol</label><label class="alternativa"><input type="radio" name="q6-pt" value="errada"> C) Vento forte</label></div>
-        <div class="pergunta"><p>8. O que aconteceu com os profetas de Baal depois do teste?</p><label class="alternativa"><input type="radio" name="q7-pt" value="errada"> A) Fugiram</label><label class="alternativa"><input type="radio" name="q7-pt" value="correta"> B) Foram mortos</label><label class="alternativa"><input type="radio" name="q7-pt" value="errada"> C) Viraram profetas de Jeová</label></div>
-        <div class="pergunta"><p>9. Depois do teste, o que Elias disse para Acabe que ia acontecer?</p><label class="alternativa"><input type="radio" name="q8-pt" value="correta"> A) Que uma chuva forte estava vindo</label><label class="alternativa"><input type="radio" name="q8-pt" value="errada"> B) Que o sol ia brilhar</label><label class="alternativa"><input type="radio" name="q8-pt" value="errada"> C) Que ia nevar</label></div>
-        <div class="pergunta"><p>10. Como Elias conseguiu correr mais rápido que o carro de Acabe?</p><label class="alternativa"><input type="radio" name="q9-pt" value="errada"> A) Ele tinha um cavalo</label><label class="alternativa"><input type="radio" name="q9-pt" value="correta"> B) Com a ajuda de Jeová</label><label class="alternativa"><input type="radio" name="q9-pt" value="errada"> C) Ele pegou um atalho</label></div>
+        <h3>História 48: O filho de uma viúva volta a viver</h3>
+        <div class="pergunta"><p>1. Para onde Jeová mandou Elias ir durante a seca?</p><label class="alternativa"><input type="radio" name="q0-pt" value="correta"> A) Para a cidade de Sarefá</label><label class="alternativa"><input type="radio" name="q0-pt" value="errada"> B) Para o Egito</label><label class="alternativa"><input type="radio" name="q0-pt" value="errada"> C) Para o deserto</label></div>
+        
+        <div class="pergunta"><p>2. Quem Elias encontrou na entrada da cidade?</p><label class="alternativa"><input type="radio" name="q1-pt" value="errada"> A) Um soldado</label><label class="alternativa"><input type="radio" name="q1-pt" value="correta"> B) Uma viúva pegando lenha</label><label class="alternativa"><input type="radio" name="q1-pt" value="errada"> C) O rei Acabe</label></div>
+        <div class="pergunta"><p>3. O que Elias pediu para a viúva?</p><label class="alternativa"><input type="radio" name="q2-pt" value="errada"> A) Dinheiro</label><label class="alternativa"><input type="radio" name="q2-pt" value="errada"> B) Roupas novas</label><label class="alternativa"><input type="radio" name="q2-pt" value="correta"> C) Água e pão</label></div>
+        <div class="pergunta"><p>4. Por que a viúva estava preocupada?</p><label class="alternativa"><input type="radio" name="q3-pt" value="correta"> A) Porque tinha pouca farinha e azeite</label><label class="alternativa"><input type="radio" name="q3-pt" value="errada"> B) Porque não gostava de Elias</label><label class="alternativa"><input type="radio" name="q3-pt" value="errada"> C) Porque estava cansada</label></div>
+        <div class="pergunta"><p>5. Que milagre Jeová fez na casa da viúva?</p><label class="alternativa"><input type="radio" name="q4-pt" value="errada"> A) Fez chover ouro</label><label class="alternativa"><input type="radio" name="q4-pt" value="correta"> B) A farinha e o azeite não acabaram</label><label class="alternativa"><input type="radio" name="q4-pt" value="errada"> C) A casa ficou maior</label></div>
+        <div class="pergunta"><p>6. O que aconteceu com o filho da viúva depois de um tempo?</p><label class="alternativa"><input type="radio" name="q5-pt" value="errada"> A) Ele fugiu</label><label class="alternativa"><input type="radio" name="q5-pt" value="correta"> B) Ele ficou doente e morreu</label><label class="alternativa"><input type="radio" name="q5-pt" value="errada"> C) Ele se tornou rei</label></div>
+        <div class="pergunta"><p>7. O que Elias fez quando o menino morreu?</p><label class="alternativa"><input type="radio" name="q6-pt" value="correta"> A) Orou a Jeová pedindo para ele viver de novo</label><label class="alternativa"><input type="radio" name="q6-pt" value="errada"> B) Chorou e foi embora</label><label class="alternativa"><input type="radio" name="q6-pt" value="errada"> C) Chamou um médico</label></div>
+        <div class="pergunta"><p>8. Jeová ouviu a oração de Elias?</p><label class="alternativa"><input type="radio" name="q7-pt" value="errada"> A) Não</label><label class="alternativa"><input type="radio" name="q7-pt" value="correta"> B) Sim, e o menino voltou a viver</label><label class="alternativa"><input type="radio" name="q7-pt" value="errada"> C) Sim, mas o menino continuou doente</label></div>
+        <div class="pergunta"><p>9. O que a viúva disse quando viu seu filho vivo?</p><label class="alternativa"><input type="radio" name="q8-pt" value="errada"> A) Que Elias era um mágico</label><label class="alternativa"><input type="radio" name="q8-pt" value="correta"> B) Que Elias era um homem de Deus</label><label class="alternativa"><input type="radio" name="q8-pt" value="errada"> C) Que estava com fome</label></div>
+        <div class="pergunta"><p>10. O que aprendemos sobre Jeová nessa história?</p><label class="alternativa"><input type="radio" name="q9-pt" value="correta"> A) Que Ele tem poder para ressuscitar pessoas</label><label class="alternativa"><input type="radio" name="q9-pt" value="errada"> B) Que Ele gosta de secas</label><label class="alternativa"><input type="radio" name="q9-pt" value="errada"> C) Que Ele não ouve orações</label></div>
 
-        <h3>História 47: Jeová cuidou de Elias</h3>
-        <div class="pergunta"><p>11. Por que Elias fugiu para o deserto?</p><label class="alternativa"><input type="radio" name="q10-pt" value="errada"> A) Porque ele queria passear</label><label class="alternativa"><input type="radio" name="q10-pt" value="correta"> B) Porque a rainha Jezabel queria matá-lo</label><label class="alternativa"><input type="radio" name="q10-pt" value="errada"> C) Porque ele queria ver camelos</label></div>
-        <div class="pergunta"><p>12. Como Elias estava se sentindo quando sentou debaixo de uma árvore?</p><label class="alternativa"><input type="radio" name="q11-pt" value="correta"> A) Cansado e triste</label><label class="alternativa"><input type="radio" name="q11-pt" value="errada"> B) Feliz e animado</label><label class="alternativa"><input type="radio" name="q11-pt" value="errada"> C) Com raiva</label></div>
-        <div class="pergunta"><p>13. Quem acordou Elias e deu comida para ele?</p><label class="alternativa"><input type="radio" name="q12-pt" value="errada"> A) Um corvo</label><label class="alternativa"><input type="radio" name="q12-pt" value="correta"> B) Um anjo</label><label class="alternativa"><input type="radio" name="q12-pt" value="errada"> C) Eliseu</label></div>
-        <div class="pergunta"><p>14. O que o anjo deu para Elias comer e beber?</p><label class="alternativa"><input type="radio" name="q13-pt" value="correta"> A) Pão quentinho e água</label><label class="alternativa"><input type="radio" name="q13-pt" value="errada"> B) Frutas e suco</label><label class="alternativa"><input type="radio" name="q13-pt" value="errada"> C) Carne e leite</label></div>
-        <div class="pergunta"><p>15. Para onde Elias viajou por 40 dias?</p><label class="alternativa"><input type="radio" name="q14-pt" value="errada"> A) Para o Egito</label><label class="alternativa"><input type="radio" name="q14-pt" value="errada"> B) Para Jericó</label><label class="alternativa"><input type="radio" name="q14-pt" value="correta"> C) Para o monte Horebe</label></div>
-        <div class="pergunta"><p>16. Onde Elias se escondeu quando chegou no monte?</p><label class="alternativa"><input type="radio" name="q15-pt" value="correta"> A) Numa caverna</label><label class="alternativa"><input type="radio" name="q15-pt" value="errada"> B) Numa casa</label><label class="alternativa"><input type="radio" name="q15-pt" value="errada"> C) Numa tenda</label></div>
-        <div class="pergunta"><p>17. O que Elias disse para Jeová?</p><label class="alternativa"><input type="radio" name="q16-pt" value="errada"> A) Que ele era muito corajoso</label><label class="alternativa"><input type="radio" name="q16-pt" value="correta"> B) Que ele achava que estava sozinho e ninguém mais adorava a Jeová</label><label class="alternativa"><input type="radio" name="q16-pt" value="errada"> C) Que ele queria voltar para casa</label></div>
-        <div class="pergunta"><p>18. Como Jeová mostrou seu poder para Elias?</p><label class="alternativa"><input type="radio" name="q17-pt" value="errada"> A) Com chuva e neve</label><label class="alternativa"><input type="radio" name="q17-pt" value="correta"> B) Com vento forte, terremoto e fogo</label><label class="alternativa"><input type="radio" name="q17-pt" value="errada"> C) Com trovões apenas</label></div>
-        <div class="pergunta"><p>19. Quantas pessoas Jeová disse que ainda o adoravam em Israel?</p><label class="alternativa"><input type="radio" name="q18-pt" value="correta"> A) 7 mil pessoas</label><label class="alternativa"><input type="radio" name="q18-pt" value="errada"> B) Ninguém</label><label class="alternativa"><input type="radio" name="q18-pt" value="errada"> C) 100 pessoas</label></div>
-        <div class="pergunta"><p>20. Quem Jeová mandou Elias escolher para ser profeta no lugar dele?</p><label class="alternativa"><input type="radio" name="q19-pt" value="errada" onclick="mostrarResultado('pt')"> A) Samuel</label><label class="alternativa"><input type="radio" name="q19-pt" value="correta" onclick="mostrarResultado('pt')"> B) Eliseu</label><label class="alternativa"><input type="radio" name="q19-pt" value="errada" onclick="mostrarResultado('pt')"> C) Jonas</label></div>
+        <h3>História 49: O fim de uma rainha má</h3>
+        <div class="pergunta"><p>11. Quem era Nabote?</p><label class="alternativa"><input type="radio" name="q10-pt" value="errada"> A) Um rei mau</label><label class="alternativa"><input type="radio" name="q10-pt" value="correta"> B) Um homem bom que tinha um vinhedo</label><label class="alternativa"><input type="radio" name="q10-pt" value="errada"> C) Um profeta</label></div>
+        <div class="pergunta"><p>12. O que o rei Acabe queria de Nabote?</p><label class="alternativa"><input type="radio" name="q11-pt" value="correta"> A) O vinhedo (plantação de uvas) dele</label><label class="alternativa"><input type="radio" name="q11-pt" value="errada"> B) A casa dele</label><label class="alternativa"><input type="radio" name="q11-pt" value="errada"> C) As ovelhas dele</label></div>
+        <div class="pergunta"><p>13. Por que Nabote não vendeu o vinhedo?</p><label class="alternativa"><input type="radio" name="q12-pt" value="errada"> A) Porque queria mais dinheiro</label><label class="alternativa"><input type="radio" name="q12-pt" value="correta"> B) Porque era herança de família e a lei de Jeová proibia</label><label class="alternativa"><input type="radio" name="q12-pt" value="errada"> C) Porque ele não gostava do rei</label></div>
+        <div class="pergunta"><p>14. Quem planejou a morte de Nabote?</p><label class="alternativa"><input type="radio" name="q13-pt" value="errada"> A) Acabe</label><label class="alternativa"><input type="radio" name="q13-pt" value="correta"> B) A rainha Jezabel</label><label class="alternativa"><input type="radio" name="q13-pt" value="errada"> C) Elias</label></div>
+        <div class="pergunta"><p>15. Como Nabote morreu?</p><label class="alternativa"><input type="radio" name="q14-pt" value="correta"> A) Foi apedrejado por causa de mentiras</label><label class="alternativa"><input type="radio" name="q14-pt" value="errada"> B) De doença</label><label class="alternativa"><input type="radio" name="q14-pt" value="errada"> C) Num acidente</label></div>
+        <div class="pergunta"><p>16. Quem Jeová escolheu para castigar a família de Acabe?</p><label class="alternativa"><input type="radio" name="q15-pt" value="errada"> A) Eliseu</label><label class="alternativa"><input type="radio" name="q15-pt" value="errada"> B) Jonas</label><label class="alternativa"><input type="radio" name="q15-pt" value="correta"> C) Jeú</label></div>
+        
+        <div class="pergunta"><p>17. O que Jeú fez com Jeorão, filho de Acabe?</p><label class="alternativa"><input type="radio" name="q16-pt" value="correta"> A) Deu uma flechada nele</label><label class="alternativa"><input type="radio" name="q16-pt" value="errada"> B) Mandou prendê-lo</label><label class="alternativa"><input type="radio" name="q16-pt" value="errada"> C) Conversou com ele</label></div>
+        
+        <div class="pergunta"><p>18. O que Jezabel fez quando soube que Jeú estava chegando?</p><label class="alternativa"><input type="radio" name="q17-pt" value="correta"> A) Passou maquiagem e arrumou o cabelo</label><label class="alternativa"><input type="radio" name="q17-pt" value="errada"> B) Fugiu correndo</label><label class="alternativa"><input type="radio" name="q17-pt" value="errada"> C) Foi orar</label></div>
+        <div class="pergunta"><p>19. Como Jezabel morreu?</p><label class="alternativa"><input type="radio" name="q18-pt" value="errada"> A) Jeú deu veneno a ela</label><label class="alternativa"><input type="radio" name="q18-pt" value="correta"> B) Foi empurrada da janela</label><label class="alternativa"><input type="radio" name="q18-pt" value="errada"> C) Morreu dormindo</label></div>
+        <div class="pergunta"><p>20. O que aprendemos com o fim de Jezabel?</p><label class="alternativa"><input type="radio" name="q19-pt" value="errada"> A) Que ser mau compensa</label><label class="alternativa"><input type="radio" name="q19-pt" value="errada"> B) Que podemos mentir à vontade</label><label class="alternativa"><input type="radio" name="q19-pt" value="correta"> C) Que Jeová pune a maldade</label></div>
 
+        <button class="btn-verificar" onclick="verificarEExibirResultado('pt')">Ver Resultado</button>
         <div id="resultado-pt" class="resultado"></div>
     </div>
 
     <div id="quiz-es" class="quiz-lang-container" style="display:none;">
-        <h1>Quiz de las Historias 46 y 47</h1>
-        <h2>UNA PRUEBA EN EL MONTE CARMELO / JEHOVÁ CUIDA DE ELÍAS</h2>
+        <h1>Quiz de las Historias 48 y 49</h1>
+        <h2>EL HIJO DE UNA VIUDA REVIVE / EL FIN DE UNA REINA MALVADA</h2>
 
-        <h3>Historia 46: Una prueba en el monte Carmelo</h3>
-        <div class="pergunta"><p>1. ¿Quiénes eran el rey y la reina malvados que hicieron que Israel adorara a Baal?</p><label class="alternativa"><input type="radio" name="q0-es" value="errada"> A) David y Bat-seba</label><label class="alternativa"><input type="radio" name="q0-es" value="correta"> B) Acab y Jezabel</label><label class="alternativa"><input type="radio" name="q0-es" value="errada"> C) Salomón y la reina de Saba</label></div>
-        <div class="pergunta"><p>2. ¿Qué pasó en Israel por más de tres años debido a la maldad del rey?</p><label class="alternativa"><input type="radio" name="q1-es" value="correta"> A) No llovió</label><label class="alternativa"><input type="radio" name="q1-es" value="errada"> B) Llovió fuego</label><label class="alternativa"><input type="radio" name="q1-es" value="errada"> C) Hubo un terremoto</label></div>
-        <div class="pergunta"><p>3. ¿Dónde dijo Elías al pueblo que se reuniera para hacer una prueba?</p><label class="alternativa"><input type="radio" name="q2-es" value="errada"> A) En el monte Sinaí</label><label class="alternativa"><input type="radio" name="q2-es" value="errada"> B) En Jerusalén</label><label class="alternativa"><input type="radio" name="q2-es" value="correta"> C) En el monte Carmelo</label></div>
-        <div class="pergunta"><p>4. ¿Cuántos profetas de Baal estaban allí?</p><label class="alternativa"><input type="radio" name="q3-es" value="correta"> A) 450</label><label class="alternativa"><input type="radio" name="q3-es" value="errada"> B) 10</label><label class="alternativa"><input type="radio" name="q3-es" value="errada"> C) 1000</label></div>
-        <div class="pergunta"><p>5. ¿Qué hizo Baal cuando sus profetas gritaron todo el día?</p><label class="alternativa"><input type="radio" name="q4-es" value="errada"> A) Mandó fuego</label><label class="alternativa"><input type="radio" name="q4-es" value="correta"> B) Nada, no respondió</label><label class="alternativa"><input type="radio" name="q4-es" value="errada"> C) Mandó lluvia</label></div>
-        <div class="pergunta"><p>6. ¿Qué echó Elías alrededor de su altar antes de orar?</p><label class="alternativa"><input type="radio" name="q5-es" value="errada"> A) Aceite</label><label class="alternativa"><input type="radio" name="q5-es" value="errada"> B) Arena</label><label class="alternativa"><input type="radio" name="q5-es" value="correta"> C) Agua</label></div>
-        <div class="pergunta"><p>7. ¿Qué envió Jehová desde el cielo para quemar el sacrificio de Elías?</p><label class="alternativa"><input type="radio" name="q6-es" value="correta"> A) Fuego</label><label class="alternativa"><input type="radio" name="q6-es" value="errada"> B) Un rayo de sol</label><label class="alternativa"><input type="radio" name="q6-es" value="errada"> C) Viento fuerte</label></div>
-        <div class="pergunta"><p>8. ¿Qué pasó con los profetas de Baal después de la prueba?</p><label class="alternativa"><input type="radio" name="q7-es" value="errada"> A) Huyeron</label><label class="alternativa"><input type="radio" name="q7-es" value="correta"> B) Fueron muertos</label><label class="alternativa"><input type="radio" name="q7-es" value="errada"> C) Se hicieron profetas de Jehová</label></div>
-        <div class="pergunta"><p>9. Después de la prueba, ¿qué le dijo Elías a Acab que iba a pasar?</p><label class="alternativa"><input type="radio" name="q8-es" value="correta"> A) Que venía una lluvia fuerte</label><label class="alternativa"><input type="radio" name="q8-es" value="errada"> B) Que el sol iba a brillar</label><label class="alternativa"><input type="radio" name="q8-es" value="errada"> C) Que iba a nevar</label></div>
-        <div class="pergunta"><p>10. ¿Cómo pudo Elías correr más rápido que el carro de Acab?</p><label class="alternativa"><input type="radio" name="q9-es" value="errada"> A) Tenía un caballo</label><label class="alternativa"><input type="radio" name="q9-es" value="correta"> B) Con la ayuda de Jehová</label><label class="alternativa"><input type="radio" name="q9-es" value="errada"> C) Tomó un atajo</label></div>
+        <h3>Historia 48: El hijo de una viuda revive</h3>
+        <div class="pergunta"><p>1. ¿A dónde envió Jehová a Elías durante la sequía?</p><label class="alternativa"><input type="radio" name="q0-es" value="correta"> A) A Sarepta</label><label class="alternativa"><input type="radio" name="q0-es" value="errada"> B) A Egipto</label><label class="alternativa"><input type="radio" name="q0-es" value="errada"> C) Al desierto</label></div>
+        <div class="pergunta"><p>2. ¿A quién encontró Elías en la entrada de la ciudad?</p><label class="alternativa"><input type="radio" name="q1-es" value="errada"> A) Un soldado</label><label class="alternativa"><input type="radio" name="q1-es" value="correta"> B) Una viuda recogiendo leña</label><label class="alternativa"><input type="radio" name="q1-es" value="errada"> C) Al rey Acab</label></div>
+        <div class="pergunta"><p>3. ¿Qué le pidió Elías a la viuda?</p><label class="alternativa"><input type="radio" name="q2-es" value="correta"> A) Agua y pan</label><label class="alternativa"><input type="radio" name="q2-es" value="errada"> B) Dinero</label><label class="alternativa"><input type="radio" name="q2-es" value="errada"> C) Ropa nueva</label></div>
+        <div class="pergunta"><p>4. ¿Por qué estaba preocupada la viuda?</p><label class="alternativa"><input type="radio" name="q3-es" value="correta"> A) Porque tenía poca harina y aceite</label><label class="alternativa"><input type="radio" name="q3-es" value="errada"> B) Porque no le gustaba Elías</label><label class="alternativa"><input type="radio" name="q3-es" value="errada"> C) Porque estaba cansada</label></div>
+        <div class="pergunta"><p>5. ¿Qué milagro hizo Jehová en casa de la viuda?</p><label class="alternativa"><input type="radio" name="q4-es" value="errada"> A) Hizo llover oro</label><label class="alternativa"><input type="radio" name="q4-es" value="correta"> B) La harina y el aceite no se acabaron</label><label class="alternativa"><input type="radio" name="q4-es" value="errada"> C) La casa se hizo más grande</label></div>
+        <div class="pergunta"><p>6. ¿Qué le pasó al hijo de la viuda después de un tiempo?</p><label class="alternativa"><input type="radio" name="q5-es" value="errada"> A) Se escapó</label><label class="alternativa"><input type="radio" name="q5-es" value="correta"> B) Se enfermó y murió</label><label class="alternativa"><input type="radio" name="q5-es" value="errada"> C) Se convirtió en rey</label></div>
+        <div class="pergunta"><p>7. ¿Qué hizo Elías cuando el niño murió?</p><label class="alternativa"><input type="radio" name="q6-es" value="correta"> A) Oró a Jehová pidiendo que viviera de nuevo</label><label class="alternativa"><input type="radio" name="q6-es" value="errada"> B) Lloró y se fue</label><label class="alternativa"><input type="radio" name="q6-es" value="errada"> C) Llamó a un médico</label></div>
+        <div class="pergunta"><p>8. ¿Escuchó Jehová la oración de Elías?</p><label class="alternativa"><input type="radio" name="q7-es" value="errada"> A) No</label><label class="alternativa"><input type="radio" name="q7-es" value="correta"> B) Sí, y el niño volvió a vivir</label><label class="alternativa"><input type="radio" name="q7-es" value="errada"> C) Sí, pero el niño siguió enfermo</label></div>
+        <div class="pergunta"><p>9. ¿Qué dijo la viuda cuando vio a su hijo vivo?</p><label class="alternativa"><input type="radio" name="q8-es" value="errada"> A) Que Elías era un mago</label><label class="alternativa"><input type="radio" name="q8-es" value="correta"> B) Que Elías era un hombre de Dios</label><label class="alternativa"><input type="radio" name="q8-es" value="errada"> C) Que tenía hambre</label></div>
+        <div class="pergunta"><p>10. ¿Qué aprendemos sobre Jehová en esta historia?</p><label class="alternativa"><input type="radio" name="q9-es" value="correta"> A) Que tiene poder para resucitar personas</label><label class="alternativa"><input type="radio" name="q9-es" value="errada"> B) Que le gustan las sequías</label><label class="alternativa"><input type="radio" name="q9-es" value="errada"> C) Que no escucha oraciones</label></div>
 
-        <h3>Historia 47: Jehová cuida de Elías</h3>
-        <div class="pergunta"><p>11. ¿Por qué huyó Elías al desierto?</p><label class="alternativa"><input type="radio" name="q10-es" value="errada"> A) Porque quería pasear</label><label class="alternativa"><input type="radio" name="q10-es" value="correta"> B) Porque la reina Jezabel quería matarlo</label><label class="alternativa"><input type="radio" name="q10-es" value="errada"> C) Porque quería ver camellos</label></div>
-        <div class="pergunta"><p>12. ¿Cómo se sentía Elías cuando se sentó debajo de un árbol?</p><label class="alternativa"><input type="radio" name="q11-es" value="correta"> A) Cansado y triste</label><label class="alternativa"><input type="radio" name="q11-es" value="errada"> B) Feliz y animado</label><label class="alternativa"><input type="radio" name="q11-es" value="errada"> C) Enojado</label></div>
-        <div class="pergunta"><p>13. ¿Quién despertó a Elías y le dio comida?</p><label class="alternativa"><input type="radio" name="q12-es" value="errada"> A) Un cuervo</label><label class="alternativa"><input type="radio" name="q12-es" value="correta"> B) Un ángel</label><label class="alternativa"><input type="radio" name="q12-es" value="errada"> C) Eliseo</label></div>
-        <div class="pergunta"><p>14. ¿Qué le dio el ángel a Elías para comer y beber?</p><label class="alternativa"><input type="radio" name="q13-es" value="correta"> A) Pan caliente y agua</label><label class="alternativa"><input type="radio" name="q13-es" value="errada"> B) Frutas y jugo</label><label class="alternativa"><input type="radio" name="q13-es" value="errada"> C) Carne y leche</label></div>
-        <div class="pergunta"><p>15. ¿Hacia dónde viajó Elías por 40 días?</p><label class="alternativa"><input type="radio" name="q14-es" value="errada"> A) A Egipto</label><label class="alternativa"><input type="radio" name="q14-es" value="errada"> B) A Jericó</label><label class="alternativa"><input type="radio" name="q14-es" value="correta"> C) Al monte Horeb</label></div>
-        <div class="pergunta"><p>16. ¿Dónde se escondió Elías cuando llegó al monte?</p><label class="alternativa"><input type="radio" name="q15-es" value="correta"> A) En una cueva</label><label class="alternativa"><input type="radio" name="q15-es" value="errada"> B) En una casa</label><label class="alternativa"><input type="radio" name="q15-es" value="errada"> C) En una tienda de campaña</label></div>
-        <div class="pergunta"><p>17. ¿Qué le dijo Elías a Jehová?</p><label class="alternativa"><input type="radio" name="q16-es" value="errada"> A) Que era muy valiente</label><label class="alternativa"><input type="radio" name="q16-es" value="correta"> B) Que pensaba que estaba solo y nadie más adoraba a Jehová</label><label class="alternativa"><input type="radio" name="q16-es" value="errada"> C) Que quería volver a casa</label></div>
-        <div class="pergunta"><p>18. ¿Cómo mostró Jehová su poder a Elías?</p><label class="alternativa"><input type="radio" name="q17-es" value="errada"> A) Con lluvia y nieve</label><label class="alternativa"><input type="radio" name="q17-es" value="correta"> B) Con viento fuerte, terremoto y fuego</label><label class="alternativa"><input type="radio" name="q17-es" value="errada"> C) Solo con truenos</label></div>
-        <div class="pergunta"><p>19. ¿Cuántas personas dijo Jehová que todavía lo adoraban en Israel?</p><label class="alternativa"><input type="radio" name="q18-es" value="correta"> A) 7 mil personas</label><label class="alternativa"><input type="radio" name="q18-es" value="errada"> B) Nadie</label><label class="alternativa"><input type="radio" name="q18-es" value="errada"> C) 100 personas</label></div>
-        <div class="pergunta"><p>20. ¿A quién mandó Jehová que Elías eligiera para ser profeta en su lugar?</p><label class="alternativa"><input type="radio" name="q19-es" value="errada" onclick="mostrarResultado('es')"> A) Samuel</label><label class="alternativa"><input type="radio" name="q19-es" value="correta" onclick="mostrarResultado('es')"> B) Eliseo</label><label class="alternativa"><input type="radio" name="q19-es" value="errada" onclick="mostrarResultado('es')"> C) Jonás</label></div>
+        <h3>Historia 49: El fin de una reina malvada</h3>
+        <div class="pergunta"><p>11. ¿Quién era Nabot?</p><label class="alternativa"><input type="radio" name="q10-es" value="errada"> A) Un rey malo</label><label class="alternativa"><input type="radio" name="q10-es" value="correta"> B) Un hombre bueno que tenía una viña</label><label class="alternativa"><input type="radio" name="q10-es" value="errada"> C) Un profeta</label></div>
+        <div class="pergunta"><p>12. ¿Qué quería el rey Acab de Nabot?</p><label class="alternativa"><input type="radio" name="q11-es" value="correta"> A) Su viña (plantación de uvas)</label><label class="alternativa"><input type="radio" name="q11-es" value="errada"> B) Su casa</label><label class="alternativa"><input type="radio" name="q11-es" value="errada"> C) Sus ovejas</label></div>
+        <div class="pergunta"><p>13. ¿Por qué Nabot no vendió la viña?</p><label class="alternativa"><input type="radio" name="q12-es" value="errada"> A) Porque quería más dinero</label><label class="alternativa"><input type="radio" name="q12-es" value="correta"> B) Porque era herencia familiar y la ley de Jehová lo prohibía</label><label class="alternativa"><input type="radio" name="q12-es" value="errada"> C) Porque no le caía bien el rey</label></div>
+        <div class="pergunta"><p>14. ¿Quién planeó la muerte de Nabot?</p><label class="alternativa"><input type="radio" name="q13-es" value="errada"> A) Acab</label><label class="alternativa"><input type="radio" name="q13-es" value="correta"> B) La reina Jezabel</label><label class="alternativa"><input type="radio" name="q13-es" value="errada"> C) Elías</label></div>
+        <div class="pergunta"><p>15. ¿Cómo murió Nabot?</p><label class="alternativa"><input type="radio" name="q14-es" value="correta"> A) Fue apedreado por causa de mentiras</label><label class="alternativa"><input type="radio" name="q14-es" value="errada"> B) De enfermedad</label><label class="alternativa"><input type="radio" name="q14-es" value="errada"> C) En un accidente</label></div>
+        <div class="pergunta"><p>16. ¿A quién eligió Jehová para castigar a la familia de Acab?</p><label class="alternativa"><input type="radio" name="q15-es" value="errada"> A) Eliseo</label><label class="alternativa"><input type="radio" name="q15-es" value="errada"> B) Jonás</label><label class="alternativa"><input type="radio" name="q15-es" value="correta"> C) Jehú</label></div>
+        
+        <div class="pergunta"><p>17. ¿Qué le hizo Jehú a Jehoram, hijo de Acab?</p><label class="alternativa"><input type="radio" name="q16-es" value="correta"> A) Le disparó una flecha</label><label class="alternativa"><input type="radio" name="q16-es" value="errada"> B) Lo metió en prisión</label><label class="alternativa"><input type="radio" name="q16-es" value="errada"> C) Habló con él</label></div>
+        
+        <div class="pergunta"><p>18. ¿Qué hizo Jezabel cuando supo que Jehú llegaba?</p><label class="alternativa"><input type="radio" name="q17-es" value="correta"> A) Se maquilló y se arregló el pelo</label><label class="alternativa"><input type="radio" name="q17-es" value="errada"> B) Huyó corriendo</label><label class="alternativa"><input type="radio" name="q17-es" value="errada"> C) Fue a orar</label></div>
+        <div class="pergunta"><p>19. ¿Cómo murió Jezabel?</p><label class="alternativa"><input type="radio" name="q18-es" value="errada"> A) Jehú le dio veneno</label><label class="alternativa"><input type="radio" name="q18-es" value="correta"> B) Fue empujada desde la ventana</label><label class="alternativa"><input type="radio" name="q18-es" value="errada"> C) Murió durmiendo</label></div>
+        <div class="pergunta"><p>20. ¿Qué aprendemos con el fin de Jezabel?</p><label class="alternativa"><input type="radio" name="q19-es" value="errada"> A) Que ser malo compensa</label><label class="alternativa"><input type="radio" name="q19-es" value="errada"> B) Que podemos mentir libremente</label><label class="alternativa"><input type="radio" name="q19-es" value="correta"> C) Que Jehová castiga la maldad</label></div>
 
+        <button class="btn-verificar" onclick="verificarEExibirResultado('es')">Ver Resultado</button>
         <div id="resultado-es" class="resultado"></div>
     </div>
 
     <div id="quiz-ht" class="quiz-lang-container" style="display:none;">
-        <h1>Kwiz sou Istwa 46 ak 47</h1>
-        <h2>YON TÈS SOU MÒN KAMÈL / JEWOVA TE PRAN SWEN ELI</h2>
+        <h1>Kwiz sou Istwa 48 ak 49</h1>
+        <h2>PITIT GASON YON VÈV TE TOUNEN VIV / FEN YON RÈN KI TE MECHAN</h2>
 
-        <h3>Istwa 46: Yon tès sou mòn Kamèl</h3>
-        <div class="pergunta"><p>1. Kiyès ki te wa ak rèn mechan ki te fè Izrayèl adore Baal?</p><label class="alternativa"><input type="radio" name="q0-ht" value="errada"> A) David ak Batcheba</label><label class="alternativa"><input type="radio" name="q0-ht" value="correta"> B) Akab ak Jezabèl</label><label class="alternativa"><input type="radio" name="q0-ht" value="errada"> C) Salomon ak rèn Saba</label></div>
-        <div class="pergunta"><p>2. Kisa k te pase ann Izrayèl pandan plis pase twazan akoz mechanste wa a?</p><label class="alternativa"><input type="radio" name="q1-ht" value="correta"> A) Pa t gen lapli</label><label class="alternativa"><input type="radio" name="q1-ht" value="errada"> B) Dife te tonbe</label><label class="alternativa"><input type="radio" name="q1-ht" value="errada"> C) Te gen yon tranblemanntè</label></div>
-        <div class="pergunta"><p>3. Ki kote Eli te di pèp la rasanble pou yo fè yon tès?</p><label class="alternativa"><input type="radio" name="q2-ht" value="errada"> A) Sou mòn Sinayi</label><label class="alternativa"><input type="radio" name="q2-ht" value="errada"> B) Jerizalèm</label><label class="alternativa"><input type="radio" name="q2-ht" value="correta"> C) Sou mòn Kamèl</label></div>
-        <div class="pergunta"><p>4. Konbyen pwofèt Baal ki te la?</p><label class="alternativa"><input type="radio" name="q3-ht" value="correta"> A) 450</label><label class="alternativa"><input type="radio" name="q3-ht" value="errada"> B) 10</label><label class="alternativa"><input type="radio" name="q3-ht" value="errada"> C) 1000</label></div>
-        <div class="pergunta"><p>5. Kisa Baal te fè lè pwofèt li yo t ap rele tout jounen an?</p><label class="alternativa"><input type="radio" name="q4-ht" value="errada"> A) Li te voye dife</label><label class="alternativa"><input type="radio" name="q4-ht" value="correta"> B) Anyen, li pa t reponn</label><label class="alternativa"><input type="radio" name="q4-ht" value="errada"> C) Li te voye lapli</label></div>
-        <div class="pergunta"><p>6. Kisa Eli te vide toutotou lotèl li a anvan l te priye?</p><label class="alternativa"><input type="radio" name="q5-ht" value="errada"> A) Luil</label><label class="alternativa"><input type="radio" name="q5-ht" value="errada"> B) Sab</label><label class="alternativa"><input type="radio" name="q5-ht" value="correta"> C) Dlo</label></div>
-        <div class="pergunta"><p>7. Kisa Jewova te voye sot nan syèl la pou boule sakrifis Eli a?</p><label class="alternativa"><input type="radio" name="q6-ht" value="correta"> A) Dife</label><label class="alternativa"><input type="radio" name="q6-ht" value="errada"> B) Yon reyon solèy</label><label class="alternativa"><input type="radio" name="q6-ht" value="errada"> C) Gwo van</label></div>
-        <div class="pergunta"><p>8. Kisa k te rive pwofèt Baal yo apre tès la?</p><label class="alternativa"><input type="radio" name="q7-ht" value="errada"> A) Yo te sove</label><label class="alternativa"><input type="radio" name="q7-ht" value="correta"> B) Yo te touye yo</label><label class="alternativa"><input type="radio" name="q7-ht" value="errada"> C) Yo te vin pwofèt Jewova</label></div>
-        <div class="pergunta"><p>9. Apre tès la, kisa Eli te di Akab ki t apral rive?</p><label class="alternativa"><input type="radio" name="q8-ht" value="correta"> A) Ke yon gwo lapli t ap vini</label><label class="alternativa"><input type="radio" name="q8-ht" value="errada"> B) Ke solèy la t apral klere</label><label class="alternativa"><input type="radio" name="q8-ht" value="errada"> C) Ke t apral fè nèj</label></div>
-        <div class="pergunta"><p>10. Kijan Eli te fè kouri pi vit pase cha Akab la?</p><label class="alternativa"><input type="radio" name="q9-ht" value="errada"> A) Li te gen yon chwal</label><label class="alternativa"><input type="radio" name="q9-ht" value="correta"> B) Avèk èd Jewova</label><label class="alternativa"><input type="radio" name="q9-ht" value="errada"> C) Li te pran yon chemen kout</label></div>
+        <h3>Istwa 48: Pitit gason yon vèv te tounen viv</h3>
+        <div class="pergunta"><p>1. Ki kote Jewova te voye Eli ale pandan sechrès la?</p><label class="alternativa"><input type="radio" name="q0-ht" value="correta"> A) Nan vil Sarepta</label><label class="alternativa"><input type="radio" name="q0-ht" value="errada"> B) Ann Ejip</label><label class="alternativa"><input type="radio" name="q0-ht" value="errada"> C) Nan dezè a</label></div>
+        <div class="pergunta"><p>2. Kiyès Eli te rankontre nan antre vil la?</p><label class="alternativa"><input type="radio" name="q1-ht" value="errada"> A) Yon sòlda</label><label class="alternativa"><input type="radio" name="q1-ht" value="correta"> B) Yon vèv ki t ap ranmase bwa</label><label class="alternativa"><input type="radio" name="q1-ht" value="errada"> C) Wa Akab</label></div>
+        <div class="pergunta"><p>3. Kisa Eli te mande vèv la?</p><label class="alternativa"><input type="radio" name="q2-ht" value="errada"> A) Lajan</label><label class="alternativa"><input type="radio" name="q2-ht" value="errada"> B) Rad nèf</label><label class="alternativa"><input type="radio" name="q2-ht" value="correta"> C) Dlo ak pen</label></div>
+        <div class="pergunta"><p>4. Poukisa vèv la te enkyete?</p><label class="alternativa"><input type="radio" name="q3-ht" value="correta"> A) Paske li te gen yon ti ponyen farin ak yon ti lwil sèlman</label><label class="alternativa"><input type="radio" name="q3-ht" value="errada"> B) Paske li pa t renmen Eli</label><label class="alternativa"><input type="radio" name="q3-ht" value="errada"> C) Paske li te fatige</label></div>
+        <div class="pergunta"><p>5. Ki mirak Jewova te fè lakay vèv la?</p><label class="alternativa"><input type="radio" name="q4-ht" value="errada"> A) Li te fè lapli lò tonbe</label><label class="alternativa"><input type="radio" name="q4-ht" value="correta"> B) Farin nan ak lwil la pa t fini</label><label class="alternativa"><input type="radio" name="q4-ht" value="errada"> C) Kay la te vin pi gwo</label></div>
+        <div class="pergunta"><p>6. Kisa k te rive pitit gason vèv la apre yon tan?</p><label class="alternativa"><input type="radio" name="q5-ht" value="errada"> A) Li te sove</label><label class="alternativa"><input type="radio" name="q5-ht" value="correta"> B) Li te malad epi li mouri</label><label class="alternativa"><input type="radio" name="q5-ht" value="errada"> C) Li te vin wa</label></div>
+        <div class="pergunta"><p>7. Kisa Eli te fè lè tigason an te mouri?</p><label class="alternativa"><input type="radio" name="q6-ht" value="correta"> A) Li te priye Jewova pou l fè l viv ankò</label><label class="alternativa"><input type="radio" name="q6-ht" value="errada"> B) Li te kriye epi l ale</label><label class="alternativa"><input type="radio" name="q6-ht" value="errada"> C) Li te rele yon doktè</label></div>
+        <div class="pergunta"><p>8. Èske Jewova te koute priyè Eli a?</p><label class="alternativa"><input type="radio" name="q7-ht" value="errada"> A) Non</label><label class="alternativa"><input type="radio" name="q7-ht" value="correta"> B) Wi, epi tigason an te tounen viv ankò</label><label class="alternativa"><input type="radio" name="q7-ht" value="errada"> C) Wi, men tigason an te ret malad</label></div>
+        <div class="pergunta"><p>9. Kisa vèv la te di lè l te wè pitit li a vivan?</p><label class="alternativa"><input type="radio" name="q8-ht" value="errada"> A) Eli se yon majisyen</label><label class="alternativa"><input type="radio" name="q8-ht" value="correta"> B) Eli se yon sèvitè Bondye</label><label class="alternativa"><input type="radio" name="q8-ht" value="errada"> C) Li te grangou</label></div>
+        <div class="pergunta"><p>10. Kisa nou aprann sou Jewova nan istwa sa a?</p><label class="alternativa"><input type="radio" name="q9-ht" value="correta"> A) Ke li gen pouvwa pou l resisite moun</label><label class="alternativa"><input type="radio" name="q9-ht" value="errada"> B) Ke li renmen sechrès</label><label class="alternativa"><input type="radio" name="q9-ht" value="errada"> C) Ke li pa koute lapriyè</label></div>
 
-        <h3>Istwa 47: Jewova te pran swen Eli</h3>
-        <div class="pergunta"><p>11. Poukisa Eli te sove al nan dezè a?</p><label class="alternativa"><input type="radio" name="q10-ht" value="errada"> A) Paske li te vle al promennen</label><label class="alternativa"><input type="radio" name="q10-ht" value="correta"> B) Paske rèn Jezabèl te vle touye l</label><label class="alternativa"><input type="radio" name="q10-ht" value="errada"> C) Paske li te vle wè chamo</label></div>
-        <div class="pergunta"><p>12. Kijan Eli te santi l lè l te chita anba yon pyebwa?</p><label class="alternativa"><input type="radio" name="q11-ht" value="correta"> A) Li te fatige e li te tris</label><label class="alternativa"><input type="radio" name="q11-ht" value="errada"> B) Li te kontan e li te an fòm</label><label class="alternativa"><input type="radio" name="q11-ht" value="errada"> C) Li te fache</label></div>
-        <div class="pergunta"><p>13. Kiyès ki te reveye Eli epi ki te ba l manje?</p><label class="alternativa"><input type="radio" name="q12-ht" value="errada"> A) Yon kòbo</label><label class="alternativa"><input type="radio" name="q12-ht" value="correta"> B) Yon zanj</label><label class="alternativa"><input type="radio" name="q12-ht" value="errada"> C) Elize</label></div>
-        <div class="pergunta"><p>14. Kisa zanj lan te bay Eli pou l manje ak bwè?</p><label class="alternativa"><input type="radio" name="q13-ht" value="correta"> A) Pen cho ak dlo</label><label class="alternativa"><input type="radio" name="q13-ht" value="errada"> B) Fwi ak ji</label><label class="alternativa"><input type="radio" name="q13-ht" value="errada"> C) Vyann ak lèt</label></div>
-        <div class="pergunta"><p>15. Ki kote Eli te vwayaje pandan 40 jou?</p><label class="alternativa"><input type="radio" name="q14-ht" value="errada"> A) Ann Ejip</label><label class="alternativa"><input type="radio" name="q14-ht" value="errada"> B) Jeriko</label><label class="alternativa"><input type="radio" name="q14-ht" value="correta"> C) Sou mòn Orèb</label></div>
-        <div class="pergunta"><p>16. Ki kote Eli te kache lè l te rive sou mòn nan?</p><label class="alternativa"><input type="radio" name="q15-ht" value="correta"> A) Nan yon gwòt</label><label class="alternativa"><input type="radio" name="q15-ht" value="errada"> B) Nan yon kay</label><label class="alternativa"><input type="radio" name="q15-ht" value="errada"> C) Nan yon tant</label></div>
-        <div class="pergunta"><p>17. Kisa Eli te di Jewova?</p><label class="alternativa"><input type="radio" name="q16-ht" value="errada"> A) Ke li te gen anpil kouraj</label><label class="alternativa"><input type="radio" name="q16-ht" value="correta"> B) Ke li te panse li te poukont li e pèsonn lòt moun pa t ap adore Jewova</label><label class="alternativa"><input type="radio" name="q16-ht" value="errada"> C) Ke li te vle tounen lakay li</label></div>
-        <div class="pergunta"><p>18. Kijan Jewova te montre Eli pouvwa l?</p><label class="alternativa"><input type="radio" name="q17-ht" value="errada"> A) Avèk lapli ak nèj</label><label class="alternativa"><input type="radio" name="q17-ht" value="correta"> B) Avèk gwo van, tranblemanntè ak dife</label><label class="alternativa"><input type="radio" name="q17-ht" value="errada"> C) Avèk loray sèlman</label></div>
-        <div class="pergunta"><p>19. Konbyen moun Jewova te di ki t ap adore l toujou ann Izrayèl?</p><label class="alternativa"><input type="radio" name="q18-ht" value="correta"> A) 7 mil moun</label><label class="alternativa"><input type="radio" name="q18-ht" value="errada"> B) Pèsonn</label><label class="alternativa"><input type="radio" name="q18-ht" value="errada"> C) 100 moun</label></div>
-        <div class="pergunta"><p>20. Kiyès Jewova te voye Eli al chwazi pou vin pwofèt nan plas li?</p><label class="alternativa"><input type="radio" name="q19-ht" value="errada" onclick="mostrarResultado('ht')"> A) Samyèl</label><label class="alternativa"><input type="radio" name="q19-ht" value="correta" onclick="mostrarResultado('ht')"> B) Elize</label><label class="alternativa"><input type="radio" name="q19-ht" value="errada" onclick="mostrarResultado('ht')"> C) Jonas</label></div>
+        <h3>Istwa 49: Fen yon rèn ki te mechan</h3>
+        <div class="pergunta"><p>11. Kiyès Nabòt te ye?</p><label class="alternativa"><input type="radio" name="q10-ht" value="errada"> A) Yon wa mechan</label><label class="alternativa"><input type="radio" name="q10-ht" value="correta"> B) Yon bon moun ki te gen yon jaden rezen</label><label class="alternativa"><input type="radio" name="q10-ht" value="errada"> C) Yon pwofèt</label></div>
+        <div class="pergunta"><p>12. Kisa wa Akab te vle nan men Nabòt?</p><label class="alternativa"><input type="radio" name="q11-ht" value="correta"> A) Jaden rezen li an</label><label class="alternativa"><input type="radio" name="q11-ht" value="errada"> B) Kay li</label><label class="alternativa"><input type="radio" name="q11-ht" value="errada"> C) Mouton li yo</label></div>
+        <div class="pergunta"><p>13. Poukisa Nabòt pa t vann jaden an?</p><label class="alternativa"><input type="radio" name="q12-ht" value="errada"> A) Paske li te vle plis lajan</label><label class="alternativa"><input type="radio" name="q12-ht" value="correta"> B) Paske se te eritaj fanmi l epi lwa Jewova te entèdi sa</label><label class="alternativa"><input type="radio" name="q12-ht" value="errada"> C) Paske li pa t renmen wa a</label></div>
+        <div class="pergunta"><p>14. Kiyès ki te fè plan pou touye Nabòt?</p><label class="alternativa"><input type="radio" name="q13-ht" value="errada"> A) Akab</label><label class="alternativa"><input type="radio" name="q13-ht" value="correta"> B) Rèn Jezabèl</label><label class="alternativa"><input type="radio" name="q13-ht" value="errada"> C) Eli</label></div>
+        <div class="pergunta"><p>15. Kijan Nabòt te mouri?</p><label class="alternativa"><input type="radio" name="q14-ht" value="correta"> A) Yo te kalonnen l ak kout wòch akoz manti</label><label class="alternativa"><input type="radio" name="q14-ht" value="errada"> B) Maladi</label><label class="alternativa"><input type="radio" name="q14-ht" value="errada"> C) Nan yon aksidan</label></div>
+        <div class="pergunta"><p>16. Kiyès Jewova te chwazi pou pini fanmi Akab la?</p><label class="alternativa"><input type="radio" name="q15-ht" value="errada"> A) Elize</label><label class="alternativa"><input type="radio" name="q15-ht" value="errada"> B) Jonas</label><label class="alternativa"><input type="radio" name="q15-ht" value="correta"> C) Jeyi</label></div>
+        
+        <div class="pergunta"><p>17. Kisa Jeyi te fè Joram, pitit gason Akab la?</p><label class="alternativa"><input type="radio" name="q16-ht" value="correta"> A) Li te touye l ak yon flèch</label><label class="alternativa"><input type="radio" name="q16-ht" value="errada"> B) Li te mete l nan prizon</label><label class="alternativa"><input type="radio" name="q16-ht" value="errada"> C) Li te pale avèk li</label></div>
+        
+        <div class="pergunta"><p>18. Kisa Jezabèl te fè lè l te konnen Jeyi t ap vini?</p><label class="alternativa"><input type="radio" name="q17-ht" value="correta"> A) Li te make figi l epi li ranje cheve l</label><label class="alternativa"><input type="radio" name="q17-ht" value="errada"> B) Li te sove kouri</label><label class="alternativa"><input type="radio" name="q17-ht" value="errada"> C) Li t al priye</label></div>
+        <div class="pergunta"><p>19. Kijan Jezabèl te mouri?</p><label class="alternativa"><input type="radio" name="q18-ht" value="errada"> A) Jeyi te ba l pwazon</label><label class="alternativa"><input type="radio" name="q18-ht" value="correta"> B) Yo te pouse l sot nan fenèt la</label><label class="alternativa"><input type="radio" name="q18-ht" value="errada"> C) Li te mouri nan dòmi</label></div>
+        <div class="pergunta"><p>20. Kisa nou aprann nan fen Jezabèl la?</p><label class="alternativa"><input type="radio" name="q19-ht" value="errada"> A) Ke mechanste peye</label><label class="alternativa"><input type="radio" name="q19-ht" value="errada"> B) Ke nou mèt bay manti jan nou vle</label><label class="alternativa"><input type="radio" name="q19-ht" value="correta"> C) Ke Jewova pini mechanste</label></div>
 
+        <button class="btn-verificar" onclick="verificarEExibirResultado('ht')">Gade Rezilta a</button>
         <div id="resultado-ht" class="resultado"></div>
     </div>
 
@@ -202,6 +229,7 @@
             pt: {
                 titulo: "Seu Resultado",
                 texto: (p, t) => `Você acertou <strong>${p}</strong> de <strong>${t}</strong> perguntas.`,
+                aviso: "Por favor, responda todas as perguntas antes de ver o resultado!",
                 niveis: [
                     'Que tal ler as histórias de novo? Você consegue! 😊',
                     'Muito bem! Continue estudando para aprender ainda mais. 👍',
@@ -211,6 +239,7 @@
             es: {
                 titulo: "Tu Resultado",
                 texto: (p, t) => `Acertaste <strong>${p}</strong> de <strong>${t}</strong> preguntas.`,
+                aviso: "¡Por favor, responde todas las preguntas antes de ver el resultado!",
                 niveis: [
                     '¿Qué tal si lees las historias de nuevo? ¡Tú puedes! 😊',
                     '¡Muy bien! Sigue estudiando para aprender aún más. 👍',
@@ -220,6 +249,7 @@
             ht: {
                 titulo: "Rezilta w",
                 texto: (p, t) => `Ou jwenn <strong>${p}</strong> sou <strong>${t}</strong> kesyon.`,
+                aviso: "Tanpri, reponn tout kesyon yo anvan ou gade rezilta a!",
                 niveis: [
                     'Sa w panse si w ta li istwa yo ankò? Ou kapab! 😊',
                     'Trè byenv! Kontinye etidye pou w aprann plis toujou. 👍',
@@ -245,66 +275,99 @@
             document.documentElement.lang = lang;
         }
 
-        function mostrarResultado(lang) {
-            if (quizzesFinalizados[lang]) {
+        function verificarEExibirResultado(lang) {
+            // Se já finalizou, não faz nada (ou poderia reexibir o resultado)
+            if (quizzesFinalizados[lang]) return;
+
+            const totalPerguntas = 20;
+            let todasRespondidas = true;
+            let pontuacao = 0;
+
+            // 1. Verificar se todas foram respondidas e calcular pontuação preliminar
+            for (let i = 0; i < totalPerguntas; i++) {
+                const radios = document.getElementsByName(`q${i}-${lang}`);
+                let respondida = false;
+                
+                for (const radio of radios) {
+                    if (radio.checked) {
+                        respondida = true;
+                        if (radio.value === 'correta') {
+                            pontuacao++;
+                        }
+                        break;
+                    }
+                }
+
+                if (!respondida) {
+                    todasRespondidas = false;
+                    // Opcional: Poderíamos destacar a pergunta não respondida aqui
+                }
+            }
+
+            // 2. Se alguma não foi respondida, alertar e sair
+            if (!todasRespondidas) {
+                alert(mensagensResultado[lang].aviso);
                 return;
             }
-            quizzesFinalizados[lang] = true;
 
-            let pontuacao = 0;
-            const totalPerguntas = 20;
+            // 3. Se todas respondidas, processar visualmente (colorir) e exibir resultado
+            quizzesFinalizados[lang] = true;
 
             for (let i = 0; i < totalPerguntas; i++) {
                 const radios = document.getElementsByName(`q${i}-${lang}`);
                 radios.forEach(function(radio) {
                     const label = radio.parentElement;
-                    if (radio.checked) { // Only evaluate checked radios
+                    
+                    if (radio.checked) {
                         if (radio.value === 'correta') {
-                            pontuacao++;
-                            label.classList.add('resposta-correta'); // Mark correct answer only if selected
+                            label.classList.add('resposta-correta');
                         } else {
-                            label.classList.add('resposta-errada'); // Mark incorrect answer if selected
-                            // Also find and mark the actual correct answer for this question
-                            radios.forEach(function(innerRadio){
-                                if (innerRadio.value === 'correta'){
-                                    innerRadio.parentElement.classList.add('resposta-correta');
+                            label.classList.add('resposta-errada');
+                            // Marcar a correta também para feedback
+                             radios.forEach(r => {
+                                if (r.value === 'correta') {
+                                    r.parentElement.classList.add('resposta-correta');
                                 }
                             });
                         }
-                    } else if (radio.value === 'correta') {
-                        // If the correct answer wasn't checked, still mark it green so the user learns
-                        // But only if *some* answer was selected for this question
-                         let anAnswerWasSelected = false;
-                         radios.forEach(r => { if(r.checked) anAnswerWasSelected = true; });
-                         if (anAnswerWasSelected) {
-                             label.classList.add('resposta-correta');
-                         }
+                    } else {
+                        // Se não foi a escolhida, mas é a correta, marca para mostrar qual era
+                        if (radio.value === 'correta') {
+                             // Opcional: só mostramos a correta se o usuário errou? 
+                             // No código anterior, mostrávamos a correta se o usuário errou a questão.
+                             // A lógica acima (dentro do if radio.checked) já cobre isso.
+                        }
                     }
-                     // Disable radio buttons after submission
+                    // Desabilitar para não mudar mais
                     radio.disabled = true;
                 });
             }
 
-
+            // 4. Mostrar div de resultado
             const elementoResultado = document.getElementById(`resultado-${lang}`);
             const data = mensagensResultado[lang];
-            let mensagem = '';
+            let mensagemNivel = '';
 
             if (pontuacao >= 17) {
-                mensagem = data.niveis[2];
+                mensagemNivel = data.niveis[2];
             } else if (pontuacao >= 12) {
-                mensagem = data.niveis[1];
+                mensagemNivel = data.niveis[1];
             } else {
-                mensagem = data.niveis[0];
+                mensagemNivel = data.niveis[0];
             }
 
+            elementoResultado.style.display = 'block';
             elementoResultado.innerHTML = `
                 <h2>${data.titulo}</h2>
                 <p>${data.texto(pontuacao, totalPerguntas)}</p>
-                <p>${mensagem}</p>
+                <p>${mensagemNivel}</p>
             `;
 
             elementoResultado.scrollIntoView({ behavior: 'smooth' });
+            
+            // Ocultar o botão de verificar após o uso
+            const btn = document.querySelector(`#quiz-${lang} .btn-verificar`);
+            if(btn) btn.style.display = 'none';
         }
 
         // Initialize the page with the default language
