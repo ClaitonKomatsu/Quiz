@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Histórias 48 e 49</title>
+    <title>Quiz: Histórias 50 e 51</title>
     <style>
         body {
             font-family: sans-serif;
@@ -34,347 +34,503 @@
         }
         .pergunta p {
             font-weight: bold;
-            font-size: 1.1em;
             margin-top: 0;
         }
-        .alternativa {
+        .opcoes label {
             display: block;
-            margin-bottom: 10px;
-            padding: 8px;
-            border: 2px solid transparent;
-            border-radius: 8px;
+            margin-bottom: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
-        input[type="radio"] {
-            margin-right: 10px;
-        }
-        .resultado {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #e9ecef;
-            border-radius: 8px;
-            display: none; /* Começa oculto */
-        }
-        .resposta-correta {
-            background-color: #d4edda;
-            border-color: #c3e6cb;
-            color: #155724;
+        .feedback {
+            margin-top: 10px;
             font-weight: bold;
-        }
-        .resposta-errada {
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-            color: #721c24;
-            text-decoration: line-through;
-        }
-        .language-selector {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .language-selector button {
-            padding: 10px 15px;
-            border: 1px solid #005a9c;
-            background-color: #fff;
-            color: #005a9c;
-            cursor: pointer;
+            display: none;
+            padding: 8px;
             border-radius: 5px;
-            margin: 0 5px;
-            font-size: 1em;
         }
-        .language-selector button.active {
-            background-color: #005a9c;
-            color: #fff;
+        .correto {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorreto {
+            background-color: #f8d7da;
+            color: #721c24;
         }
         .btn-verificar {
             display: block;
             width: 100%;
-            padding: 15px;
+            padding: 10px;
             background-color: #005a9c;
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
+            border-radius: 5px;
+            font-size: 16px;
             cursor: pointer;
             margin-top: 20px;
-            transition: background-color 0.3s;
         }
         .btn-verificar:hover {
-            background-color: #004070;
+            background-color: #004080;
+        }
+        .resultado {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e2e3e5;
+            border-radius: 8px;
+            text-align: center;
+            display: none; 
+        }
+        .language-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .language-switch button {
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .language-switch button.active {
+            background-color: #005a9c;
+            color: white;
+            border-color: #005a9c;
         }
     </style>
 </head>
 <body>
 
-    <div class="language-selector">
-        <button id="lang-pt-btn" class="active" onclick="mudarIdioma('pt')">Português</button>
-        <button id="lang-es-btn" onclick="mudarIdioma('es')">Español</button>
-        <button id="lang-ht-btn" onclick="mudarIdioma('ht')">Kreyòl Ayisyen</button>
+    <div class="language-switch">
+        <button onclick="mudarIdioma('pt')" id="btn-pt" class="active">Português</button>
+        <button onclick="mudarIdioma('en')" id="btn-en">English</button>
     </div>
 
-    <div id="quiz-pt" class="quiz-lang-container">
-        <h1>Quiz das Histórias 48 e 49</h1>
-        <h2>O FILHO DE UMA VIÚVA VOLTA A VIVER / O FIM DE UMA RAINHA MÁ</h2>
-
-        <h3>História 48: O filho de uma viúva volta a viver</h3>
-        <div class="pergunta"><p>1. Para onde Jeová mandou Elias ir durante a seca?</p><label class="alternativa"><input type="radio" name="q0-pt" value="correta"> A) Para a cidade de Sarefá</label><label class="alternativa"><input type="radio" name="q0-pt" value="errada"> B) Para o Egito</label><label class="alternativa"><input type="radio" name="q0-pt" value="errada"> C) Para o deserto</label></div>
+    <div id="conteudo-pt">
+        <h1>Quiz: Histórias 50 e 51</h1>
+        <p style="text-align: center;">Baseado no livro <em>Aprenda com as Histórias da Bíblia</em></p>
         
-        <div class="pergunta"><p>2. Quem Elias encontrou na entrada da cidade?</p><label class="alternativa"><input type="radio" name="q1-pt" value="errada"> A) Um soldado</label><label class="alternativa"><input type="radio" name="q1-pt" value="correta"> B) Uma viúva pegando lenha</label><label class="alternativa"><input type="radio" name="q1-pt" value="errada"> C) O rei Acabe</label></div>
-        <div class="pergunta"><p>3. O que Elias pediu para a viúva?</p><label class="alternativa"><input type="radio" name="q2-pt" value="errada"> A) Dinheiro</label><label class="alternativa"><input type="radio" name="q2-pt" value="errada"> B) Roupas novas</label><label class="alternativa"><input type="radio" name="q2-pt" value="correta"> C) Água e pão</label></div>
-        <div class="pergunta"><p>4. Por que a viúva estava preocupada?</p><label class="alternativa"><input type="radio" name="q3-pt" value="correta"> A) Porque tinha pouca farinha e azeite</label><label class="alternativa"><input type="radio" name="q3-pt" value="errada"> B) Porque não gostava de Elias</label><label class="alternativa"><input type="radio" name="q3-pt" value="errada"> C) Porque estava cansada</label></div>
-        <div class="pergunta"><p>5. Que milagre Jeová fez na casa da viúva?</p><label class="alternativa"><input type="radio" name="q4-pt" value="errada"> A) Fez chover ouro</label><label class="alternativa"><input type="radio" name="q4-pt" value="correta"> B) A farinha e o azeite não acabaram</label><label class="alternativa"><input type="radio" name="q4-pt" value="errada"> C) A casa ficou maior</label></div>
-        <div class="pergunta"><p>6. O que aconteceu com o filho da viúva depois de um tempo?</p><label class="alternativa"><input type="radio" name="q5-pt" value="errada"> A) Ele fugiu</label><label class="alternativa"><input type="radio" name="q5-pt" value="correta"> B) Ele ficou doente e morreu</label><label class="alternativa"><input type="radio" name="q5-pt" value="errada"> C) Ele se tornou rei</label></div>
-        <div class="pergunta"><p>7. O que Elias fez quando o menino morreu?</p><label class="alternativa"><input type="radio" name="q6-pt" value="correta"> A) Orou a Jeová pedindo para ele viver de novo</label><label class="alternativa"><input type="radio" name="q6-pt" value="errada"> B) Chorou e foi embora</label><label class="alternativa"><input type="radio" name="q6-pt" value="errada"> C) Chamou um médico</label></div>
-        <div class="pergunta"><p>8. Jeová ouviu a oração de Elias?</p><label class="alternativa"><input type="radio" name="q7-pt" value="errada"> A) Não</label><label class="alternativa"><input type="radio" name="q7-pt" value="correta"> B) Sim, e o menino voltou a viver</label><label class="alternativa"><input type="radio" name="q7-pt" value="errada"> C) Sim, mas o menino continuou doente</label></div>
-        <div class="pergunta"><p>9. O que a viúva disse quando viu seu filho vivo?</p><label class="alternativa"><input type="radio" name="q8-pt" value="errada"> A) Que Elias era um mágico</label><label class="alternativa"><input type="radio" name="q8-pt" value="correta"> B) Que Elias era um homem de Deus</label><label class="alternativa"><input type="radio" name="q8-pt" value="errada"> C) Que estava com fome</label></div>
-        <div class="pergunta"><p>10. O que aprendemos sobre Jeová nessa história?</p><label class="alternativa"><input type="radio" name="q9-pt" value="correta"> A) Que Ele tem poder para ressuscitar pessoas</label><label class="alternativa"><input type="radio" name="q9-pt" value="errada"> B) Que Ele gosta de secas</label><label class="alternativa"><input type="radio" name="q9-pt" value="errada"> C) Que Ele não ouve orações</label></div>
-
-        <h3>História 49: O fim de uma rainha má</h3>
-        <div class="pergunta"><p>11. Quem era Nabote?</p><label class="alternativa"><input type="radio" name="q10-pt" value="errada"> A) Um rei mau</label><label class="alternativa"><input type="radio" name="q10-pt" value="correta"> B) Um homem bom que tinha um vinhedo</label><label class="alternativa"><input type="radio" name="q10-pt" value="errada"> C) Um profeta</label></div>
-        <div class="pergunta"><p>12. O que o rei Acabe queria de Nabote?</p><label class="alternativa"><input type="radio" name="q11-pt" value="correta"> A) O vinhedo (plantação de uvas) dele</label><label class="alternativa"><input type="radio" name="q11-pt" value="errada"> B) A casa dele</label><label class="alternativa"><input type="radio" name="q11-pt" value="errada"> C) As ovelhas dele</label></div>
-        <div class="pergunta"><p>13. Por que Nabote não vendeu o vinhedo?</p><label class="alternativa"><input type="radio" name="q12-pt" value="errada"> A) Porque queria mais dinheiro</label><label class="alternativa"><input type="radio" name="q12-pt" value="correta"> B) Porque era herança de família e a lei de Jeová proibia</label><label class="alternativa"><input type="radio" name="q12-pt" value="errada"> C) Porque ele não gostava do rei</label></div>
-        <div class="pergunta"><p>14. Quem planejou a morte de Nabote?</p><label class="alternativa"><input type="radio" name="q13-pt" value="errada"> A) Acabe</label><label class="alternativa"><input type="radio" name="q13-pt" value="correta"> B) A rainha Jezabel</label><label class="alternativa"><input type="radio" name="q13-pt" value="errada"> C) Elias</label></div>
-        <div class="pergunta"><p>15. Como Nabote morreu?</p><label class="alternativa"><input type="radio" name="q14-pt" value="correta"> A) Foi apedrejado por causa de mentiras</label><label class="alternativa"><input type="radio" name="q14-pt" value="errada"> B) De doença</label><label class="alternativa"><input type="radio" name="q14-pt" value="errada"> C) Num acidente</label></div>
-        <div class="pergunta"><p>16. Quem Jeová escolheu para castigar a família de Acabe?</p><label class="alternativa"><input type="radio" name="q15-pt" value="errada"> A) Eliseu</label><label class="alternativa"><input type="radio" name="q15-pt" value="errada"> B) Jonas</label><label class="alternativa"><input type="radio" name="q15-pt" value="correta"> C) Jeú</label></div>
-        
-        <div class="pergunta"><p>17. O que Jeú fez com Jeorão, filho de Acabe?</p><label class="alternativa"><input type="radio" name="q16-pt" value="correta"> A) Deu uma flechada nele</label><label class="alternativa"><input type="radio" name="q16-pt" value="errada"> B) Mandou prendê-lo</label><label class="alternativa"><input type="radio" name="q16-pt" value="errada"> C) Conversou com ele</label></div>
-        
-        <div class="pergunta"><p>18. O que Jezabel fez quando soube que Jeú estava chegando?</p><label class="alternativa"><input type="radio" name="q17-pt" value="correta"> A) Passou maquiagem e arrumou o cabelo</label><label class="alternativa"><input type="radio" name="q17-pt" value="errada"> B) Fugiu correndo</label><label class="alternativa"><input type="radio" name="q17-pt" value="errada"> C) Foi orar</label></div>
-        <div class="pergunta"><p>19. Como Jezabel morreu?</p><label class="alternativa"><input type="radio" name="q18-pt" value="errada"> A) Jeú deu veneno a ela</label><label class="alternativa"><input type="radio" name="q18-pt" value="correta"> B) Foi empurrada da janela</label><label class="alternativa"><input type="radio" name="q18-pt" value="errada"> C) Morreu dormindo</label></div>
-        <div class="pergunta"><p>20. O que aprendemos com o fim de Jezabel?</p><label class="alternativa"><input type="radio" name="q19-pt" value="errada"> A) Que ser mau compensa</label><label class="alternativa"><input type="radio" name="q19-pt" value="errada"> B) Que podemos mentir à vontade</label><label class="alternativa"><input type="radio" name="q19-pt" value="correta"> C) Que Jeová pune a maldade</label></div>
-
-        <button class="btn-verificar" onclick="verificarEExibirResultado('pt')">Ver Resultado</button>
+        <div id="quiz-pt"></div>
+        <button class="btn-verificar" onclick="verificarRespostas('pt')">Verificar Respostas</button>
         <div id="resultado-pt" class="resultado"></div>
     </div>
 
-    <div id="quiz-es" class="quiz-lang-container" style="display:none;">
-        <h1>Quiz de las Historias 48 y 49</h1>
-        <h2>EL HIJO DE UNA VIUDA REVIVE / EL FIN DE UNA REINA MALVADA</h2>
+    <div id="conteudo-en" style="display: none;">
+        <h1>Quiz: Stories 50 and 51</h1>
+        <p style="text-align: center;">Based on the book <em>Lessons You Can Learn From the Bible</em></p>
 
-        <h3>Historia 48: El hijo de una viuda revive</h3>
-        <div class="pergunta"><p>1. ¿A dónde envió Jehová a Elías durante la sequía?</p><label class="alternativa"><input type="radio" name="q0-es" value="correta"> A) A Sarepta</label><label class="alternativa"><input type="radio" name="q0-es" value="errada"> B) A Egipto</label><label class="alternativa"><input type="radio" name="q0-es" value="errada"> C) Al desierto</label></div>
-        <div class="pergunta"><p>2. ¿A quién encontró Elías en la entrada de la ciudad?</p><label class="alternativa"><input type="radio" name="q1-es" value="errada"> A) Un soldado</label><label class="alternativa"><input type="radio" name="q1-es" value="correta"> B) Una viuda recogiendo leña</label><label class="alternativa"><input type="radio" name="q1-es" value="errada"> C) Al rey Acab</label></div>
-        <div class="pergunta"><p>3. ¿Qué le pidió Elías a la viuda?</p><label class="alternativa"><input type="radio" name="q2-es" value="correta"> A) Agua y pan</label><label class="alternativa"><input type="radio" name="q2-es" value="errada"> B) Dinero</label><label class="alternativa"><input type="radio" name="q2-es" value="errada"> C) Ropa nueva</label></div>
-        <div class="pergunta"><p>4. ¿Por qué estaba preocupada la viuda?</p><label class="alternativa"><input type="radio" name="q3-es" value="correta"> A) Porque tenía poca harina y aceite</label><label class="alternativa"><input type="radio" name="q3-es" value="errada"> B) Porque no le gustaba Elías</label><label class="alternativa"><input type="radio" name="q3-es" value="errada"> C) Porque estaba cansada</label></div>
-        <div class="pergunta"><p>5. ¿Qué milagro hizo Jehová en casa de la viuda?</p><label class="alternativa"><input type="radio" name="q4-es" value="errada"> A) Hizo llover oro</label><label class="alternativa"><input type="radio" name="q4-es" value="correta"> B) La harina y el aceite no se acabaron</label><label class="alternativa"><input type="radio" name="q4-es" value="errada"> C) La casa se hizo más grande</label></div>
-        <div class="pergunta"><p>6. ¿Qué le pasó al hijo de la viuda después de un tiempo?</p><label class="alternativa"><input type="radio" name="q5-es" value="errada"> A) Se escapó</label><label class="alternativa"><input type="radio" name="q5-es" value="correta"> B) Se enfermó y murió</label><label class="alternativa"><input type="radio" name="q5-es" value="errada"> C) Se convirtió en rey</label></div>
-        <div class="pergunta"><p>7. ¿Qué hizo Elías cuando el niño murió?</p><label class="alternativa"><input type="radio" name="q6-es" value="correta"> A) Oró a Jehová pidiendo que viviera de nuevo</label><label class="alternativa"><input type="radio" name="q6-es" value="errada"> B) Lloró y se fue</label><label class="alternativa"><input type="radio" name="q6-es" value="errada"> C) Llamó a un médico</label></div>
-        <div class="pergunta"><p>8. ¿Escuchó Jehová la oración de Elías?</p><label class="alternativa"><input type="radio" name="q7-es" value="errada"> A) No</label><label class="alternativa"><input type="radio" name="q7-es" value="correta"> B) Sí, y el niño volvió a vivir</label><label class="alternativa"><input type="radio" name="q7-es" value="errada"> C) Sí, pero el niño siguió enfermo</label></div>
-        <div class="pergunta"><p>9. ¿Qué dijo la viuda cuando vio a su hijo vivo?</p><label class="alternativa"><input type="radio" name="q8-es" value="errada"> A) Que Elías era un mago</label><label class="alternativa"><input type="radio" name="q8-es" value="correta"> B) Que Elías era un hombre de Dios</label><label class="alternativa"><input type="radio" name="q8-es" value="errada"> C) Que tenía hambre</label></div>
-        <div class="pergunta"><p>10. ¿Qué aprendemos sobre Jehová en esta historia?</p><label class="alternativa"><input type="radio" name="q9-es" value="correta"> A) Que tiene poder para resucitar personas</label><label class="alternativa"><input type="radio" name="q9-es" value="errada"> B) Que le gustan las sequías</label><label class="alternativa"><input type="radio" name="q9-es" value="errada"> C) Que no escucha oraciones</label></div>
-
-        <h3>Historia 49: El fin de una reina malvada</h3>
-        <div class="pergunta"><p>11. ¿Quién era Nabot?</p><label class="alternativa"><input type="radio" name="q10-es" value="errada"> A) Un rey malo</label><label class="alternativa"><input type="radio" name="q10-es" value="correta"> B) Un hombre bueno que tenía una viña</label><label class="alternativa"><input type="radio" name="q10-es" value="errada"> C) Un profeta</label></div>
-        <div class="pergunta"><p>12. ¿Qué quería el rey Acab de Nabot?</p><label class="alternativa"><input type="radio" name="q11-es" value="correta"> A) Su viña (plantación de uvas)</label><label class="alternativa"><input type="radio" name="q11-es" value="errada"> B) Su casa</label><label class="alternativa"><input type="radio" name="q11-es" value="errada"> C) Sus ovejas</label></div>
-        <div class="pergunta"><p>13. ¿Por qué Nabot no vendió la viña?</p><label class="alternativa"><input type="radio" name="q12-es" value="errada"> A) Porque quería más dinero</label><label class="alternativa"><input type="radio" name="q12-es" value="correta"> B) Porque era herencia familiar y la ley de Jehová lo prohibía</label><label class="alternativa"><input type="radio" name="q12-es" value="errada"> C) Porque no le caía bien el rey</label></div>
-        <div class="pergunta"><p>14. ¿Quién planeó la muerte de Nabot?</p><label class="alternativa"><input type="radio" name="q13-es" value="errada"> A) Acab</label><label class="alternativa"><input type="radio" name="q13-es" value="correta"> B) La reina Jezabel</label><label class="alternativa"><input type="radio" name="q13-es" value="errada"> C) Elías</label></div>
-        <div class="pergunta"><p>15. ¿Cómo murió Nabot?</p><label class="alternativa"><input type="radio" name="q14-es" value="correta"> A) Fue apedreado por causa de mentiras</label><label class="alternativa"><input type="radio" name="q14-es" value="errada"> B) De enfermedad</label><label class="alternativa"><input type="radio" name="q14-es" value="errada"> C) En un accidente</label></div>
-        <div class="pergunta"><p>16. ¿A quién eligió Jehová para castigar a la familia de Acab?</p><label class="alternativa"><input type="radio" name="q15-es" value="errada"> A) Eliseo</label><label class="alternativa"><input type="radio" name="q15-es" value="errada"> B) Jonás</label><label class="alternativa"><input type="radio" name="q15-es" value="correta"> C) Jehú</label></div>
-        
-        <div class="pergunta"><p>17. ¿Qué le hizo Jehú a Jehoram, hijo de Acab?</p><label class="alternativa"><input type="radio" name="q16-es" value="correta"> A) Le disparó una flecha</label><label class="alternativa"><input type="radio" name="q16-es" value="errada"> B) Lo metió en prisión</label><label class="alternativa"><input type="radio" name="q16-es" value="errada"> C) Habló con él</label></div>
-        
-        <div class="pergunta"><p>18. ¿Qué hizo Jezabel cuando supo que Jehú llegaba?</p><label class="alternativa"><input type="radio" name="q17-es" value="correta"> A) Se maquilló y se arregló el pelo</label><label class="alternativa"><input type="radio" name="q17-es" value="errada"> B) Huyó corriendo</label><label class="alternativa"><input type="radio" name="q17-es" value="errada"> C) Fue a orar</label></div>
-        <div class="pergunta"><p>19. ¿Cómo murió Jezabel?</p><label class="alternativa"><input type="radio" name="q18-es" value="errada"> A) Jehú le dio veneno</label><label class="alternativa"><input type="radio" name="q18-es" value="correta"> B) Fue empujada desde la ventana</label><label class="alternativa"><input type="radio" name="q18-es" value="errada"> C) Murió durmiendo</label></div>
-        <div class="pergunta"><p>20. ¿Qué aprendemos con el fin de Jezabel?</p><label class="alternativa"><input type="radio" name="q19-es" value="errada"> A) Que ser malo compensa</label><label class="alternativa"><input type="radio" name="q19-es" value="errada"> B) Que podemos mentir libremente</label><label class="alternativa"><input type="radio" name="q19-es" value="correta"> C) Que Jehová castiga la maldad</label></div>
-
-        <button class="btn-verificar" onclick="verificarEExibirResultado('es')">Ver Resultado</button>
-        <div id="resultado-es" class="resultado"></div>
+        <div id="quiz-en"></div>
+        <button class="btn-verificar" onclick="verificarRespostas('en')">Check Answers</button>
+        <div id="resultado-en" class="resultado"></div>
     </div>
-
-    <div id="quiz-ht" class="quiz-lang-container" style="display:none;">
-        <h1>Kwiz sou Istwa 48 ak 49</h1>
-        <h2>PITIT GASON YON VÈV TE TOUNEN VIV / FEN YON RÈN KI TE MECHAN</h2>
-
-        <h3>Istwa 48: Pitit gason yon vèv te tounen viv</h3>
-        <div class="pergunta"><p>1. Ki kote Jewova te voye Eli ale pandan sechrès la?</p><label class="alternativa"><input type="radio" name="q0-ht" value="correta"> A) Nan vil Sarepta</label><label class="alternativa"><input type="radio" name="q0-ht" value="errada"> B) Ann Ejip</label><label class="alternativa"><input type="radio" name="q0-ht" value="errada"> C) Nan dezè a</label></div>
-        <div class="pergunta"><p>2. Kiyès Eli te rankontre nan antre vil la?</p><label class="alternativa"><input type="radio" name="q1-ht" value="errada"> A) Yon sòlda</label><label class="alternativa"><input type="radio" name="q1-ht" value="correta"> B) Yon vèv ki t ap ranmase bwa</label><label class="alternativa"><input type="radio" name="q1-ht" value="errada"> C) Wa Akab</label></div>
-        <div class="pergunta"><p>3. Kisa Eli te mande vèv la?</p><label class="alternativa"><input type="radio" name="q2-ht" value="errada"> A) Lajan</label><label class="alternativa"><input type="radio" name="q2-ht" value="errada"> B) Rad nèf</label><label class="alternativa"><input type="radio" name="q2-ht" value="correta"> C) Dlo ak pen</label></div>
-        <div class="pergunta"><p>4. Poukisa vèv la te enkyete?</p><label class="alternativa"><input type="radio" name="q3-ht" value="correta"> A) Paske li te gen yon ti ponyen farin ak yon ti lwil sèlman</label><label class="alternativa"><input type="radio" name="q3-ht" value="errada"> B) Paske li pa t renmen Eli</label><label class="alternativa"><input type="radio" name="q3-ht" value="errada"> C) Paske li te fatige</label></div>
-        <div class="pergunta"><p>5. Ki mirak Jewova te fè lakay vèv la?</p><label class="alternativa"><input type="radio" name="q4-ht" value="errada"> A) Li te fè lapli lò tonbe</label><label class="alternativa"><input type="radio" name="q4-ht" value="correta"> B) Farin nan ak lwil la pa t fini</label><label class="alternativa"><input type="radio" name="q4-ht" value="errada"> C) Kay la te vin pi gwo</label></div>
-        <div class="pergunta"><p>6. Kisa k te rive pitit gason vèv la apre yon tan?</p><label class="alternativa"><input type="radio" name="q5-ht" value="errada"> A) Li te sove</label><label class="alternativa"><input type="radio" name="q5-ht" value="correta"> B) Li te malad epi li mouri</label><label class="alternativa"><input type="radio" name="q5-ht" value="errada"> C) Li te vin wa</label></div>
-        <div class="pergunta"><p>7. Kisa Eli te fè lè tigason an te mouri?</p><label class="alternativa"><input type="radio" name="q6-ht" value="correta"> A) Li te priye Jewova pou l fè l viv ankò</label><label class="alternativa"><input type="radio" name="q6-ht" value="errada"> B) Li te kriye epi l ale</label><label class="alternativa"><input type="radio" name="q6-ht" value="errada"> C) Li te rele yon doktè</label></div>
-        <div class="pergunta"><p>8. Èske Jewova te koute priyè Eli a?</p><label class="alternativa"><input type="radio" name="q7-ht" value="errada"> A) Non</label><label class="alternativa"><input type="radio" name="q7-ht" value="correta"> B) Wi, epi tigason an te tounen viv ankò</label><label class="alternativa"><input type="radio" name="q7-ht" value="errada"> C) Wi, men tigason an te ret malad</label></div>
-        <div class="pergunta"><p>9. Kisa vèv la te di lè l te wè pitit li a vivan?</p><label class="alternativa"><input type="radio" name="q8-ht" value="errada"> A) Eli se yon majisyen</label><label class="alternativa"><input type="radio" name="q8-ht" value="correta"> B) Eli se yon sèvitè Bondye</label><label class="alternativa"><input type="radio" name="q8-ht" value="errada"> C) Li te grangou</label></div>
-        <div class="pergunta"><p>10. Kisa nou aprann sou Jewova nan istwa sa a?</p><label class="alternativa"><input type="radio" name="q9-ht" value="correta"> A) Ke li gen pouvwa pou l resisite moun</label><label class="alternativa"><input type="radio" name="q9-ht" value="errada"> B) Ke li renmen sechrès</label><label class="alternativa"><input type="radio" name="q9-ht" value="errada"> C) Ke li pa koute lapriyè</label></div>
-
-        <h3>Istwa 49: Fen yon rèn ki te mechan</h3>
-        <div class="pergunta"><p>11. Kiyès Nabòt te ye?</p><label class="alternativa"><input type="radio" name="q10-ht" value="errada"> A) Yon wa mechan</label><label class="alternativa"><input type="radio" name="q10-ht" value="correta"> B) Yon bon moun ki te gen yon jaden rezen</label><label class="alternativa"><input type="radio" name="q10-ht" value="errada"> C) Yon pwofèt</label></div>
-        <div class="pergunta"><p>12. Kisa wa Akab te vle nan men Nabòt?</p><label class="alternativa"><input type="radio" name="q11-ht" value="correta"> A) Jaden rezen li an</label><label class="alternativa"><input type="radio" name="q11-ht" value="errada"> B) Kay li</label><label class="alternativa"><input type="radio" name="q11-ht" value="errada"> C) Mouton li yo</label></div>
-        <div class="pergunta"><p>13. Poukisa Nabòt pa t vann jaden an?</p><label class="alternativa"><input type="radio" name="q12-ht" value="errada"> A) Paske li te vle plis lajan</label><label class="alternativa"><input type="radio" name="q12-ht" value="correta"> B) Paske se te eritaj fanmi l epi lwa Jewova te entèdi sa</label><label class="alternativa"><input type="radio" name="q12-ht" value="errada"> C) Paske li pa t renmen wa a</label></div>
-        <div class="pergunta"><p>14. Kiyès ki te fè plan pou touye Nabòt?</p><label class="alternativa"><input type="radio" name="q13-ht" value="errada"> A) Akab</label><label class="alternativa"><input type="radio" name="q13-ht" value="correta"> B) Rèn Jezabèl</label><label class="alternativa"><input type="radio" name="q13-ht" value="errada"> C) Eli</label></div>
-        <div class="pergunta"><p>15. Kijan Nabòt te mouri?</p><label class="alternativa"><input type="radio" name="q14-ht" value="correta"> A) Yo te kalonnen l ak kout wòch akoz manti</label><label class="alternativa"><input type="radio" name="q14-ht" value="errada"> B) Maladi</label><label class="alternativa"><input type="radio" name="q14-ht" value="errada"> C) Nan yon aksidan</label></div>
-        <div class="pergunta"><p>16. Kiyès Jewova te chwazi pou pini fanmi Akab la?</p><label class="alternativa"><input type="radio" name="q15-ht" value="errada"> A) Elize</label><label class="alternativa"><input type="radio" name="q15-ht" value="errada"> B) Jonas</label><label class="alternativa"><input type="radio" name="q15-ht" value="correta"> C) Jeyi</label></div>
-        
-        <div class="pergunta"><p>17. Kisa Jeyi te fè Joram, pitit gason Akab la?</p><label class="alternativa"><input type="radio" name="q16-ht" value="correta"> A) Li te touye l ak yon flèch</label><label class="alternativa"><input type="radio" name="q16-ht" value="errada"> B) Li te mete l nan prizon</label><label class="alternativa"><input type="radio" name="q16-ht" value="errada"> C) Li te pale avèk li</label></div>
-        
-        <div class="pergunta"><p>18. Kisa Jezabèl te fè lè l te konnen Jeyi t ap vini?</p><label class="alternativa"><input type="radio" name="q17-ht" value="correta"> A) Li te make figi l epi li ranje cheve l</label><label class="alternativa"><input type="radio" name="q17-ht" value="errada"> B) Li te sove kouri</label><label class="alternativa"><input type="radio" name="q17-ht" value="errada"> C) Li t al priye</label></div>
-        <div class="pergunta"><p>19. Kijan Jezabèl te mouri?</p><label class="alternativa"><input type="radio" name="q18-ht" value="errada"> A) Jeyi te ba l pwazon</label><label class="alternativa"><input type="radio" name="q18-ht" value="correta"> B) Yo te pouse l sot nan fenèt la</label><label class="alternativa"><input type="radio" name="q18-ht" value="errada"> C) Li te mouri nan dòmi</label></div>
-        <div class="pergunta"><p>20. Kisa nou aprann nan fen Jezabèl la?</p><label class="alternativa"><input type="radio" name="q19-ht" value="errada"> A) Ke mechanste peye</label><label class="alternativa"><input type="radio" name="q19-ht" value="errada"> B) Ke nou mèt bay manti jan nou vle</label><label class="alternativa"><input type="radio" name="q19-ht" value="correta"> C) Ke Jewova pini mechanste</label></div>
-
-        <button class="btn-verificar" onclick="verificarEExibirResultado('ht')">Gade Rezilta a</button>
-        <div id="resultado-ht" class="resultado"></div>
-    </div>
-
 
     <script>
-        // Objeto para armazenar o estado de finalização de cada quiz
-        const quizzesFinalizados = {
-            pt: false,
-            es: false,
-            ht: false
-        };
-
         const mensagensResultado = {
             pt: {
-                titulo: "Seu Resultado",
-                texto: (p, t) => `Você acertou <strong>${p}</strong> de <strong>${t}</strong> perguntas.`,
-                aviso: "Por favor, responda todas as perguntas antes de ver o resultado!",
+                titulo: "Resultado",
+                texto: (pontuacao, total) => `Você acertou <strong>${pontuacao}</strong> de <strong>${total}</strong> perguntas!`,
                 niveis: [
-                    'Que tal ler as histórias de novo? Você consegue! 😊',
-                    'Muito bem! Continue estudando para aprender ainda mais. 👍',
-                    'Parabéns! Você prestou muita atenção nas histórias! ✅'
+                    "Continue lendo as histórias! Você pode aprender muito mais.",
+                    "Muito bem! Você prestou bastante atenção.",
+                    "Excelente! Você conhece muito bem essas histórias da Bíblia!"
                 ]
             },
-            es: {
-                titulo: "Tu Resultado",
-                texto: (p, t) => `Acertaste <strong>${p}</strong> de <strong>${t}</strong> preguntas.`,
-                aviso: "¡Por favor, responde todas las preguntas antes de ver el resultado!",
+            en: {
+                titulo: "Result",
+                texto: (pontuacao, total) => `You got <strong>${pontuacao}</strong> out of <strong>${total}</strong> questions right!`,
                 niveis: [
-                    '¿Qué tal si lees las historias de nuevo? ¡Tú puedes! 😊',
-                    '¡Muy bien! Sigue estudiando para aprender aún más. 👍',
-                    '¡Felicitaciones! ¡Prestaste mucha atención a las historias! ✅'
-                ]
-            },
-            ht: {
-                titulo: "Rezilta w",
-                texto: (p, t) => `Ou jwenn <strong>${p}</strong> sou <strong>${t}</strong> kesyon.`,
-                aviso: "Tanpri, reponn tout kesyon yo anvan ou gade rezilta a!",
-                niveis: [
-                    'Sa w panse si w ta li istwa yo ankò? Ou kapab! 😊',
-                    'Trè byenv! Kontinye etidye pou w aprann plis toujou. 👍',
-                    'Felisitasyon! Ou te byen swiv istwa yo! ✅'
+                    "Keep reading the stories! You can learn so much more.",
+                    "Very good! You paid close attention.",
+                    "Excellent! You know these Bible stories very well!"
                 ]
             }
+        };
+
+        const perguntas = {
+            pt: [
+                // HISTÓRIA 50 - Jeová defende Jeosafá
+                {
+                    pergunta: "1. Quem era Jeosafá?",
+                    opcoes: ["Rei de Israel", "Rei de Judá", "Rei do Egito"],
+                    correta: 1,
+                    feedback: "Correto! Jeosafá era o rei de Judá."
+                },
+                {
+                    pergunta: "2. O que Jeosafá fez quando soube que exércitos inimigos vinham atacar?",
+                    opcoes: ["Ficou com medo e orou a Jeová", "Fugiu para o deserto", "Fez um acordo com o inimigo"],
+                    correta: 0,
+                    feedback: "Isso mesmo! Ele ficou com medo, mas orou pedindo ajuda a Jeová."
+                },
+                {
+                    pergunta: "3. O que Jeová respondeu para o povo através de Jaaziel?",
+                    opcoes: ["Fujam para as montanhas!", "A batalha não é de vocês, é de Deus", "Peguem suas espadas e lutem"],
+                    correta: 1,
+                    feedback: "Certo! Jeová disse: 'Não tenham medo. A batalha não é de vocês, é de Deus'."
+                },
+                {
+                    pergunta: "4. Quem Jeosafá colocou na frente do exército?",
+                    opcoes: ["Os melhores arqueiros", "Os cantores", "Os cavalos"],
+                    correta: 1,
+                    feedback: "Exato! Ele colocou cantores na frente para louvar a Jeová."
+                },
+                {
+                    pergunta: "5. O que os cantores cantavam?",
+                    opcoes: ["Dê graças a Jeová", "Vamos vencer a guerra", "Fujam inimigos"],
+                    correta: 0,
+                    feedback: "Correto! Eles cantavam: 'Dê graças a Jeová'."
+                },
+                {
+                    pergunta: "6. O que aconteceu com os soldados inimigos?",
+                    opcoes: ["Eles fugiram assustados", "Eles atacaram uns aos outros", "Eles se renderam"],
+                    correta: 1,
+                    feedback: "Isso! Jeová fez com que eles atacassem uns aos outros."
+                },
+                {
+                    pergunta: "7. O exército de Jeosafá precisou lutar?",
+                    opcoes: ["Sim, foi uma luta difícil", "Não, Jeová lutou por eles", "Sim, mas só um pouco"],
+                    correta: 1,
+                    feedback: "Certo! Eles não precisaram lutar. Jeová os protegeu."
+                },
+                {
+                    pergunta: "8. Quantas nações se juntaram para atacar Jeosafá?",
+                    opcoes: ["Uma", "Duas", "Três (Amom, Moabe e Seir)"],
+                    correta: 2,
+                    feedback: "Muito bem! Eram três nações: Amom, Moabe e o povo de Seir."
+                },
+                {
+                    pergunta: "9. O que o povo fez quando voltou para Jerusalém?",
+                    opcoes: ["Foram dormir", "Tocaram harpas e trombetas felizes", "Ficaram tristes"],
+                    correta: 1,
+                    feedback: "Isso! Eles voltaram muito felizes, tocando música para Jeová."
+                },
+                {
+                    pergunta: "10. O que aprendemos com essa história?",
+                    opcoes: ["Que devemos ter armas fortes", "Que devemos confiar em Jeová quando temos medo", "Que não precisamos fazer nada"],
+                    correta: 1,
+                    feedback: "Exatamente! Devemos confiar que Jeová cuida de nós."
+                },
+                // HISTÓRIA 51 - Naamã e a menininha israelita
+                {
+                    pergunta: "11. Quem era Naamã?",
+                    opcoes: ["Um profeta de Israel", "Um chefe do exército da Síria", "Um rei de Judá"],
+                    correta: 1,
+                    feedback: "Correto! Naamã era um chefe importante do exército da Síria."
+                },
+                {
+                    pergunta: "12. Que doença grave Naamã tinha?",
+                    opcoes: ["Gripe", "Dor de cabeça", "Lepra"],
+                    correta: 2,
+                    feedback: "Isso mesmo! Ele tinha uma doença de pele chamada lepra."
+                },
+                {
+                    pergunta: "13. Quem disse que Naamã poderia ser curado?",
+                    opcoes: ["A esposa dele", "Uma menininha israelita", "O rei da Síria"],
+                    correta: 1,
+                    feedback: "Certo! A menininha israelita, que trabalhava na casa dele."
+                },
+                {
+                    pergunta: "14. Para onde a menininha disse que Naamã devia ir?",
+                    opcoes: ["Para o Egito", "Para Israel, ver o profeta de Jeová", "Para o deserto"],
+                    correta: 1,
+                    feedback: "Exato! Ela disse para ele ir ver o profeta de Jeová em Israel."
+                },
+                {
+                    pergunta: "15. Quem era o profeta de Jeová nessa história?",
+                    opcoes: ["Elias", "Eliseu", "Samuel"],
+                    correta: 1,
+                    feedback: "Correto! O profeta era Eliseu."
+                },
+                {
+                    pergunta: "16. O que Eliseu mandou Naamã fazer?",
+                    opcoes: ["Tomar um remédio", "Mergulhar 7 vezes no rio Jordão", "Dar muito dinheiro"],
+                    correta: 1,
+                    feedback: "Isso! Ele mandou Naamã mergulhar 7 vezes no rio Jordão."
+                },
+                {
+                    pergunta: "17. Como Naamã reagiu no começo?",
+                    opcoes: ["Ficou bravo e não queria ir", "Foi correndo para o rio", "Agradeceu ao profeta"],
+                    correta: 0,
+                    feedback: "Certo! Ele ficou orgulhoso e bravo, achando os rios da Síria melhores."
+                },
+                {
+                    pergunta: "18. O que aconteceu quando Naamã obedeceu e mergulhou 7 vezes?",
+                    opcoes: ["Nada aconteceu", "Ele ficou doente", "A pele dele ficou sã como a de um bebê"],
+                    correta: 2,
+                    feedback: "Muito bem! Ele foi curado e sua pele ficou limpinha."
+                },
+                {
+                    pergunta: "19. Quem correu atrás de Naamã para pegar presentes escondido?",
+                    opcoes: ["Eliseu", "Geazi, servo de Eliseu", "A menininha"],
+                    correta: 1,
+                    feedback: "Isso! Geazi foi ganancioso e correu atrás de Naamã."
+                },
+                {
+                    pergunta: "20. O que aconteceu com Geazi por causa de sua mentira?",
+                    opcoes: ["Ficou rico e feliz", "Pegou a lepra de Naamã", "Foi perdoado"],
+                    correta: 1,
+                    feedback: "Exatamente. Ele ficou leproso por ter sido ganancioso e mentiroso."
+                }
+            ],
+            en: [
+                // STORY 50 - Jehovah Defends Jehoshaphat
+                {
+                    pergunta: "1. Who was Jehoshaphat?",
+                    opcoes: ["King of Israel", "King of Judah", "King of Egypt"],
+                    correta: 1,
+                    feedback: "Correct! Jehoshaphat was the king of Judah."
+                },
+                {
+                    pergunta: "2. What did Jehoshaphat do when enemies came to attack?",
+                    opcoes: ["He was afraid and prayed to Jehovah", "He ran to the desert", "He made a deal with the enemy"],
+                    correta: 0,
+                    feedback: "That's right! He was afraid, but he prayed to Jehovah for help."
+                },
+                {
+                    pergunta: "3. What did Jehovah say to the people through Jahaziel?",
+                    opcoes: ["Run to the mountains!", "The battle is not yours, but God's", "Take your swords and fight"],
+                    correta: 1,
+                    feedback: "Correct! Jehovah said: 'Do not be afraid. The battle is not yours, but God's'."
+                },
+                {
+                    pergunta: "4. Who did Jehoshaphat put in front of the army?",
+                    opcoes: ["The best archers", "The singers", "The horses"],
+                    correta: 1,
+                    feedback: "Exactly! He put singers in front to praise Jehovah."
+                },
+                {
+                    pergunta: "5. What were the singers singing?",
+                    opcoes: ["Give thanks to Jehovah", "We will win the war", "Run away enemies"],
+                    correta: 0,
+                    feedback: "Correct! They sang: 'Give thanks to Jehovah'."
+                },
+                {
+                    pergunta: "6. What happened to the enemy soldiers?",
+                    opcoes: ["They ran away scared", "They attacked each other", "They surrendered"],
+                    correta: 1,
+                    feedback: "Yes! Jehovah caused them to attack one another."
+                },
+                {
+                    pergunta: "7. Did Jehoshaphat's army need to fight?",
+                    opcoes: ["Yes, it was a hard fight", "No, Jehovah fought for them", "Yes, but just a little"],
+                    correta: 1,
+                    feedback: "Right! They didn't need to fight. Jehovah protected them."
+                },
+                {
+                    pergunta: "8. How many nations joined to attack Jehoshaphat?",
+                    opcoes: ["One", "Two", "Three (Ammon, Moab, and Seir)"],
+                    correta: 2,
+                    feedback: "Very good! There were three nations: Ammon, Moab, and the people of Seir."
+                },
+                {
+                    pergunta: "9. What did the people do when they returned to Jerusalem?",
+                    opcoes: ["Went to sleep", "Played harps and trumpets happily", "Were sad"],
+                    correta: 1,
+                    feedback: "That's it! They returned very happy, playing music for Jehovah."
+                },
+                {
+                    pergunta: "10. What do we learn from this story?",
+                    opcoes: ["To have strong weapons", "To trust in Jehovah when we are afraid", "That we don't need to do anything"],
+                    correta: 1,
+                    feedback: "Exactly! We must trust that Jehovah cares for us."
+                },
+                // STORY 51 - Naaman and the Little Israelite Girl
+                {
+                    pergunta: "11. Who was Naaman?",
+                    opcoes: ["A prophet of Israel", "An army chief of Syria", "A king of Judah"],
+                    correta: 1,
+                    feedback: "Correct! Naaman was an important army chief of Syria."
+                },
+                {
+                    pergunta: "12. What bad disease did Naaman have?",
+                    opcoes: ["Flu", "Headache", "Leprosy"],
+                    correta: 2,
+                    feedback: "That's right! He had a skin disease called leprosy."
+                },
+                {
+                    pergunta: "13. Who said Naaman could be cured?",
+                    opcoes: ["His wife", "A little Israelite girl", "The king of Syria"],
+                    correta: 1,
+                    feedback: "Correct! The little Israelite girl who worked in his house."
+                },
+                {
+                    pergunta: "14. Where did the little girl say Naaman should go?",
+                    opcoes: ["To Egypt", "To Israel, to see Jehovah's prophet", "To the desert"],
+                    correta: 1,
+                    feedback: "Exactly! She said to go see Jehovah's prophet in Israel."
+                },
+                {
+                    pergunta: "15. Who was Jehovah's prophet in this story?",
+                    opcoes: ["Elijah", "Elisha", "Samuel"],
+                    correta: 1,
+                    feedback: "Correct! The prophet was Elisha."
+                },
+                {
+                    pergunta: "16. What did Elisha tell Naaman to do?",
+                    opcoes: ["Take medicine", "Dip 7 times in the Jordan River", "Give a lot of money"],
+                    correta: 1,
+                    feedback: "Yes! He told Naaman to dip 7 times in the Jordan River."
+                },
+                {
+                    pergunta: "17. How did Naaman react at first?",
+                    opcoes: ["He was angry and didn't want to go", "He ran to the river", "He thanked the prophet"],
+                    correta: 0,
+                    feedback: "Right! He was proud and angry, thinking the rivers in Syria were better."
+                },
+                {
+                    pergunta: "18. What happened when Naaman obeyed and dipped 7 times?",
+                    opcoes: ["Nothing happened", "He got sick", "His skin became healthy like a baby's"],
+                    correta: 2,
+                    feedback: "Very good! He was healed and his skin became clean."
+                },
+                {
+                    pergunta: "19. Who ran after Naaman to get gifts secretly?",
+                    opcoes: ["Elisha", "Gehazi, Elisha's servant", "The little girl"],
+                    correta: 1,
+                    feedback: "That's it! Gehazi was greedy and ran after Naaman."
+                },
+                {
+                    pergunta: "20. What happened to Gehazi because of his lie?",
+                    opcoes: ["He became rich and happy", "He got Naaman's leprosy", "He was forgiven"],
+                    correta: 1,
+                    feedback: "Exactly. He became a leper because he was greedy and lied."
+                }
+            ]
         };
 
         function mudarIdioma(lang) {
-            // Esconde todos os containers de quiz
-            document.querySelectorAll('.quiz-lang-container').forEach(div => {
-                div.style.display = 'none';
-            });
+            // Esconde todos os conteúdos
+            document.getElementById('conteudo-pt').style.display = 'none';
+            document.getElementById('conteudo-en').style.display = 'none';
+            
+            // Remove classe active dos botões
+            document.getElementById('btn-pt').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
 
-            // Mostra o container do idioma selecionado
-            document.getElementById(`quiz-${lang}`).style.display = 'block';
+            // Mostra conteúdo selecionado
+            document.getElementById(`conteudo-${lang}`).style.display = 'block';
+            document.getElementById(`btn-${lang}`).classList.add('active');
 
-            // Atualiza o botão ativo
-            document.querySelectorAll('.language-selector button').forEach(button => {
-                button.classList.remove('active');
-            });
-            document.getElementById(`lang-${lang}-btn`).classList.add('active');
-            document.documentElement.lang = lang;
+            // Renderiza o quiz no idioma selecionado
+            renderizarQuiz(lang);
         }
 
-        function verificarEExibirResultado(lang) {
-            // Se já finalizou, não faz nada (ou poderia reexibir o resultado)
-            if (quizzesFinalizados[lang]) return;
+        function renderizarQuiz(lang) {
+            const container = document.getElementById(`quiz-${lang}`);
+            const data = perguntas[lang];
+            const resultadoDiv = document.getElementById(`resultado-${lang}`);
+            
+            // Limpa resultado anterior se houver troca de idioma
+            resultadoDiv.style.display = 'none';
+            resultadoDiv.innerHTML = '';
+            
+            // Mostrar botão de verificar novamente
+            const btn = document.querySelector(`#conteudo-${lang} .btn-verificar`);
+            if(btn) btn.style.display = 'block';
 
-            const totalPerguntas = 20;
-            let todasRespondidas = true;
+            let html = '';
+            
+            data.forEach((item, index) => {
+                let opcoesHtml = '';
+                item.opcoes.forEach((opcao, i) => {
+                    opcoesHtml += `
+                        <label>
+                            <input type="radio" name="p-${lang}-${index}" value="${i}">
+                            ${opcao}
+                        </label>
+                    `;
+                });
+
+                html += `
+                    <div class="pergunta" id="pergunta-${lang}-${index}">
+                        <p>${item.pergunta}</p>
+                        <div class="opcoes">${opcoesHtml}</div>
+                        <div class="feedback" id="feedback-${lang}-${index}"></div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function verificarRespostas(lang) {
+            const data = perguntas[lang];
             let pontuacao = 0;
+            const totalPerguntas = data.length;
+            let todasRespondidas = true;
 
-            // 1. Verificar se todas foram respondidas e calcular pontuação preliminar
+            // Verificar se todas foram respondidas
             for (let i = 0; i < totalPerguntas; i++) {
-                const radios = document.getElementsByName(`q${i}-${lang}`);
-                let respondida = false;
-                
-                for (const radio of radios) {
-                    if (radio.checked) {
-                        respondida = true;
-                        if (radio.value === 'correta') {
-                            pontuacao++;
-                        }
-                        break;
-                    }
-                }
-
+                const respondida = document.querySelector(`input[name="p-${lang}-${i}"]:checked`);
                 if (!respondida) {
                     todasRespondidas = false;
-                    // Opcional: Poderíamos destacar a pergunta não respondida aqui
+                    break;
                 }
             }
 
-            // 2. Se alguma não foi respondida, alertar e sair
             if (!todasRespondidas) {
-                alert(mensagensResultado[lang].aviso);
+                alert(lang === 'pt' ? "Por favor, responda todas as perguntas." : "Please answer all questions.");
                 return;
             }
 
-            // 3. Se todas respondidas, processar visualmente (colorir) e exibir resultado
-            quizzesFinalizados[lang] = true;
-
+            // Processar respostas
             for (let i = 0; i < totalPerguntas; i++) {
-                const radios = document.getElementsByName(`q${i}-${lang}`);
-                radios.forEach(function(radio) {
-                    const label = radio.parentElement;
-                    
+                const radios = document.getElementsByName(`p-${lang}-${i}`);
+                const feedbackEl = document.getElementById(`feedback-${lang}-${i}`);
+                let respostaUsuario = -1;
+
+                radios.forEach(radio => {
                     if (radio.checked) {
-                        if (radio.value === 'correta') {
-                            label.classList.add('resposta-correta');
-                        } else {
-                            label.classList.add('resposta-errada');
-                            // Marcar a correta também para feedback
-                             radios.forEach(r => {
-                                if (r.value === 'correta') {
-                                    r.parentElement.classList.add('resposta-correta');
-                                }
-                            });
-                        }
-                    } else {
-                        // Se não foi a escolhida, mas é a correta, marca para mostrar qual era
-                        if (radio.value === 'correta') {
-                             // Opcional: só mostramos a correta se o usuário errou? 
-                             // No código anterior, mostrávamos a correta se o usuário errou a questão.
-                             // A lógica acima (dentro do if radio.checked) já cobre isso.
-                        }
+                        respostaUsuario = parseInt(radio.value);
                     }
-                    // Desabilitar para não mudar mais
-                    radio.disabled = true;
+                    radio.disabled = true; // Desabilita após verificar
                 });
+
+                const correta = data[i].correta;
+                
+                if (respostaUsuario === correta) {
+                    pontuacao++;
+                    feedbackEl.textContent = data[i].feedback; // Mensagem personalizada de acerto
+                    feedbackEl.className = "feedback correto";
+                } else {
+                    // Monta feedback de erro
+                    let msg = lang === 'pt' ? "Incorreto. A resposta certa era: " : "Incorrect. The right answer was: ";
+                    msg += data[i].opcoes[correta];
+                    feedbackEl.textContent = msg;
+                    feedbackEl.className = "feedback incorreto";
+                }
+                feedbackEl.style.display = 'block';
             }
 
-            // 4. Mostrar div de resultado
+            // Mostrar div de resultado
             const elementoResultado = document.getElementById(`resultado-${lang}`);
-            const data = mensagensResultado[lang];
+            const msgData = mensagensResultado[lang];
             let mensagemNivel = '';
 
+            // Ajuste dos níveis de pontuação baseado no total de 20 perguntas
             if (pontuacao >= 17) {
-                mensagemNivel = data.niveis[2];
+                mensagemNivel = msgData.niveis[2];
             } else if (pontuacao >= 12) {
-                mensagemNivel = data.niveis[1];
+                mensagemNivel = msgData.niveis[1];
             } else {
-                mensagemNivel = data.niveis[0];
+                mensagemNivel = msgData.niveis[0];
             }
 
             elementoResultado.style.display = 'block';
             elementoResultado.innerHTML = `
-                <h2>${data.titulo}</h2>
-                <p>${data.texto(pontuacao, totalPerguntas)}</p>
+                <h2>${msgData.titulo}</h2>
+                <p>${msgData.texto(pontuacao, totalPerguntas)}</p>
                 <p>${mensagemNivel}</p>
             `;
 
             elementoResultado.scrollIntoView({ behavior: 'smooth' });
             
             // Ocultar o botão de verificar após o uso
-            const btn = document.querySelector(`#quiz-${lang} .btn-verificar`);
+            const btn = document.querySelector(`#conteudo-${lang} .btn-verificar`);
             if(btn) btn.style.display = 'none';
         }
 
-        // Initialize the page with the default language
+        // Inicializa a página com o idioma padrão
         document.addEventListener('DOMContentLoaded', () => {
              mudarIdioma('pt');
         });
     </script>
-
 </body>
 </html>
