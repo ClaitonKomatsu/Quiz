@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Histórias 50 e 51</title>
+    <title>Quiz: Histórias 52 e 53</title>
     <style>
         body {
             font-family: sans-serif;
@@ -34,503 +34,436 @@
         }
         .pergunta p {
             font-weight: bold;
+            font-size: 1.1em;
             margin-top: 0;
         }
-        .opcoes label {
+        .alternativa {
             display: block;
-            margin-bottom: 8px;
-            cursor: pointer;
-        }
-        .feedback {
-            margin-top: 10px;
-            font-weight: bold;
-            display: none;
+            margin-bottom: 10px;
             padding: 8px;
-            border-radius: 5px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .correto {
+        .alternativa:hover {
+            background-color: #f8f9fa;
+            border-color: #dee2e6;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .resultado {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            display: none;
+        }
+        .resposta-correta {
             background-color: #d4edda;
+            border-color: #c3e6cb;
             color: #155724;
+            font-weight: bold;
         }
-        .incorreto {
+        .resposta-errada {
             background-color: #f8d7da;
+            border-color: #f5c6cb;
             color: #721c24;
+            text-decoration: line-through;
+        }
+        .language-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .language-selector button {
+            padding: 10px 15px;
+            border: 1px solid #005a9c;
+            background-color: #fff;
+            color: #005a9c;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        .language-selector button.active {
+            background-color: #005a9c;
+            color: #fff;
         }
         .btn-verificar {
             display: block;
             width: 100%;
-            padding: 10px;
+            padding: 15px;
             background-color: #005a9c;
             color: white;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 1.2em;
             cursor: pointer;
             margin-top: 20px;
+            transition: background-color 0.3s;
         }
         .btn-verificar:hover {
-            background-color: #004080;
+            background-color: #004070;
         }
-        .resultado {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #e2e3e5;
-            border-radius: 8px;
-            text-align: center;
-            display: none; 
+        .quiz-lang-container {
+            display: none;
         }
-        .language-switch {
-            text-align: right;
-            margin-bottom: 20px;
-        }
-        .language-switch button {
-            padding: 5px 10px;
-            cursor: pointer;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .language-switch button.active {
-            background-color: #005a9c;
-            color: white;
-            border-color: #005a9c;
+        .quiz-lang-container.active {
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <div class="language-switch">
-        <button onclick="mudarIdioma('pt')" id="btn-pt" class="active">Português</button>
-        <button onclick="mudarIdioma('en')" id="btn-en">English</button>
+    <div class="language-selector">
+        <button id="lang-pt-btn" class="active" onclick="mudarIdioma('pt')">Português</button>
+        <button id="lang-en-btn" onclick="mudarIdioma('en')">English</button>
     </div>
 
-    <div id="conteudo-pt">
-        <h1>Quiz: Histórias 50 e 51</h1>
-        <p style="text-align: center;">Baseado no livro <em>Aprenda com as Histórias da Bíblia</em></p>
+    <div id="quiz-pt" class="quiz-lang-container active">
+        <h1>Quiz das Histórias 52 e 53</h1>
+        <h2>O EXÉRCITO PODEROSO DE JEOVÁ / JEOIADA FOI CORAJOSO</h2>
+
+        <h3>História 52: O exército poderoso de Jeová</h3>
         
-        <div id="quiz-pt"></div>
+        <div class="pergunta"><p>1. Quem era o rei da Síria que tentava atacar Israel?</p>
+            <label class="alternativa"><input type="radio" name="q0-pt" value="correta"> A) Ben-Hadade</label>
+            <label class="alternativa"><input type="radio" name="q0-pt" value="errada"> B) Faraó</label>
+            <label class="alternativa"><input type="radio" name="q0-pt" value="errada"> C) Nabucodonosor</label>
+        </div>
+
+        <div class="pergunta"><p>2. Quem avisava o rei de Israel sobre os ataques?</p>
+            <label class="alternativa"><input type="radio" name="q1-pt" value="errada"> A) Elias</label>
+            <label class="alternativa"><input type="radio" name="q1-pt" value="correta"> B) Eliseu</label>
+            <label class="alternativa"><input type="radio" name="q1-pt" value="errada"> C) Samuel</label>
+        </div>
+
+        <div class="pergunta"><p>3. Para qual cidade o exército sírio foi para prender Eliseu?</p>
+            <label class="alternativa"><input type="radio" name="q2-pt" value="errada"> A) Jerusalém</label>
+            <label class="alternativa"><input type="radio" name="q2-pt" value="errada"> B) Jericó</label>
+            <label class="alternativa"><input type="radio" name="q2-pt" value="correta"> C) Dotã</label>
+        </div>
+
+        <div class="pergunta"><p>4. Quem ficou com muito medo ao ver o exército inimigo cercando a cidade?</p>
+            <label class="alternativa"><input type="radio" name="q3-pt" value="correta"> A) O servo de Eliseu</label>
+            <label class="alternativa"><input type="radio" name="q3-pt" value="errada"> B) O rei de Israel</label>
+            <label class="alternativa"><input type="radio" name="q3-pt" value="errada"> C) O próprio Eliseu</label>
+        </div>
+
+        <div class="pergunta"><p>5. O que Eliseu disse para acalmar seu servo?</p>
+            <label class="alternativa"><input type="radio" name="q4-pt" value="errada"> A) "Vamos fugir pelas montanhas"</label>
+            <label class="alternativa"><input type="radio" name="q4-pt" value="correta"> B) "Tem mais gente do nosso lado do que do lado deles"</label>
+            <label class="alternativa"><input type="radio" name="q4-pt" value="errada"> C) "Esconda-se rápido"</label>
+        </div>
+
+        <div class="pergunta"><p>6. O que o servo viu quando Jeová abriu seus olhos?</p>
+            <label class="alternativa"><input type="radio" name="q5-pt" value="errada"> A) Um exército de anjos gigantes</label>
+            <label class="alternativa"><input type="radio" name="q5-pt" value="correta"> B) As montanhas cheias de cavalos e carros de guerra de fogo</label>
+            <label class="alternativa"><input type="radio" name="q5-pt" value="errada"> C) Um muro de fogo ao redor da cidade</label>
+        </div>
+
+        <div class="pergunta"><p>7. O que Eliseu pediu para Jeová fazer com os soldados inimigos?</p>
+            <label class="alternativa"><input type="radio" name="q6-pt" value="correta"> A) Deixá-los cegos (sem saber onde estavam)</label>
+            <label class="alternativa"><input type="radio" name="q6-pt" value="errada"> B) Mandar fogo do céu</label>
+            <label class="alternativa"><input type="radio" name="q6-pt" value="errada"> C) Fazer a terra tremer</label>
+        </div>
+
+        <div class="pergunta"><p>8. Para onde Eliseu levou os soldados inimigos?</p>
+            <label class="alternativa"><input type="radio" name="q7-pt" value="errada"> A) De volta para a Síria</label>
+            <label class="alternativa"><input type="radio" name="q7-pt" value="correta"> B) Para Samaria, onde estava o rei de Israel</label>
+            <label class="alternativa"><input type="radio" name="q7-pt" value="errada"> C) Para o deserto</label>
+        </div>
+
+        <div class="pergunta"><p>9. O que o rei de Israel fez com os soldados inimigos?</p>
+            <label class="alternativa"><input type="radio" name="q8-pt" value="errada"> A) Matou todos eles</label>
+            <label class="alternativa"><input type="radio" name="q8-pt" value="correta"> B) Deu comida para eles e os mandou embora</label>
+            <label class="alternativa"><input type="radio" name="q8-pt" value="errada"> C) Prendeu todos na prisão</label>
+        </div>
+
+        <div class="pergunta"><p>10. O que aprendemos com a história de Eliseu?</p>
+            <label class="alternativa"><input type="radio" name="q9-pt" value="correta"> A) Que Jeová pode nos proteger com seu exército poderoso</label>
+            <label class="alternativa"><input type="radio" name="q9-pt" value="errada"> B) Que devemos ter medo dos inimigos</label>
+            <label class="alternativa"><input type="radio" name="q9-pt" value="errada"> C) Que devemos lutar sozinhos</label>
+        </div>
+
+        <h3>História 53: Jeoiada foi corajoso</h3>
+
+        <div class="pergunta"><p>11. Quem era a rainha má de Judá, filha de Jezabel?</p>
+            <label class="alternativa"><input type="radio" name="q10-pt" value="errada"> A) Rute</label>
+            <label class="alternativa"><input type="radio" name="q10-pt" value="correta"> B) Atalia</label>
+            <label class="alternativa"><input type="radio" name="q10-pt" value="errada"> C) Ester</label>
+        </div>
+
+        <div class="pergunta"><p>12. O que Atalia fez para tentar ser rainha para sempre?</p>
+            <label class="alternativa"><input type="radio" name="q11-pt" value="errada"> A) Construiu um castelo</label>
+            <label class="alternativa"><input type="radio" name="q11-pt" value="errada"> B) Deu presentes para o povo</label>
+            <label class="alternativa"><input type="radio" name="q11-pt" value="correta"> C) Mandou matar seus próprios netos</label>
+        </div>
+
+        <div class="pergunta"><p>13. Qual neto de Atalia sobreviveu?</p>
+            <label class="alternativa"><input type="radio" name="q12-pt" value="correta"> A) Jeoás</label>
+            <label class="alternativa"><input type="radio" name="q12-pt" value="errada"> B) Josias</label>
+            <label class="alternativa"><input type="radio" name="q12-pt" value="errada"> C) Davi</label>
+        </div>
+
+        <div class="pergunta"><p>14. Quem escondeu o bebê Jeoás?</p>
+            <label class="alternativa"><input type="radio" name="q13-pt" value="errada"> A) Uma serva da rainha</label>
+            <label class="alternativa"><input type="radio" name="q13-pt" value="correta"> B) Jeoiada e sua esposa Jeoseba</label>
+            <label class="alternativa"><input type="radio" name="q13-pt" value="errada"> C) O profeta Elias</label>
+        </div>
+
+        <div class="pergunta"><p>15. Onde Jeoás ficou escondido?</p>
+            <label class="alternativa"><input type="radio" name="q14-pt" value="correta"> A) No templo de Jeová</label>
+            <label class="alternativa"><input type="radio" name="q14-pt" value="errada"> B) Em uma caverna</label>
+            <label class="alternativa"><input type="radio" name="q14-pt" value="errada"> C) No Egito</label>
+        </div>
+
+        <div class="pergunta"><p>16. Por quanto tempo Jeoás ficou escondido?</p>
+            <label class="alternativa"><input type="radio" name="q15-pt" value="errada"> A) 1 ano</label>
+            <label class="alternativa"><input type="radio" name="q15-pt" value="correta"> B) 6 anos</label>
+            <label class="alternativa"><input type="radio" name="q15-pt" value="errada"> C) 10 anos</label>
+        </div>
+
+        <div class="pergunta"><p>17. Quantos anos Jeoás tinha quando Jeoiada o tornou rei?</p>
+            <label class="alternativa"><input type="radio" name="q16-pt" value="errada"> A) 20 anos</label>
+            <label class="alternativa"><input type="radio" name="q16-pt" value="errada"> B) 12 anos</label>
+            <label class="alternativa"><input type="radio" name="q16-pt" value="correta"> C) 7 anos</label>
+        </div>
+
+        <div class="pergunta"><p>18. Quem era Jeoiada?</p>
+            <label class="alternativa"><input type="radio" name="q17-pt" value="correta"> A) O sumo sacerdote corajoso</label>
+            <label class="alternativa"><input type="radio" name="q17-pt" value="errada"> B) O chefe do exército</label>
+            <label class="alternativa"><input type="radio" name="q17-pt" value="errada"> C) Um rei vizinho</label>
+        </div>
+
+        <div class="pergunta"><p>19. O que aconteceu com a rainha má Atalia?</p>
+            <label class="alternativa"><input type="radio" name="q18-pt" value="errada"> A) Ela fugiu para longe</label>
+            <label class="alternativa"><input type="radio" name="q18-pt" value="correta"> B) Ela foi morta pelos guardas</label>
+            <label class="alternativa"><input type="radio" name="q18-pt" value="errada"> C) Ela se arrependeu</label>
+        </div>
+
+        <div class="pergunta"><p>20. O que o povo fez depois que Jeoás virou rei?</p>
+            <label class="alternativa"><input type="radio" name="q19-pt" value="errada"> A) Ficou triste</label>
+            <label class="alternativa"><input type="radio" name="q19-pt" value="correta"> B) Destruiu o templo de Baal e adorou a Jeová</label>
+            <label class="alternativa"><input type="radio" name="q19-pt" value="errada"> C) Voltou para suas casas sem fazer nada</label>
+        </div>
+
         <button class="btn-verificar" onclick="verificarRespostas('pt')">Verificar Respostas</button>
         <div id="resultado-pt" class="resultado"></div>
     </div>
 
-    <div id="conteudo-en" style="display: none;">
-        <h1>Quiz: Stories 50 and 51</h1>
-        <p style="text-align: center;">Based on the book <em>Lessons You Can Learn From the Bible</em></p>
+    <div id="quiz-en" class="quiz-lang-container">
+        <h1>Quiz: Stories 52 and 53</h1>
+        <h2>JEHOVAH'S POWERFUL ARMY / JEHOIADA WAS COURAGEOUS</h2>
 
-        <div id="quiz-en"></div>
+        <h3>Story 52: Jehovah's Powerful Army</h3>
+        
+        <div class="pergunta"><p>1. Who was the king of Syria who wanted to attack Israel?</p>
+            <label class="alternativa"><input type="radio" name="q0-en" value="correta"> A) Ben-Hadad</label>
+            <label class="alternativa"><input type="radio" name="q0-en" value="errada"> B) Pharaoh</label>
+            <label class="alternativa"><input type="radio" name="q0-en" value="errada"> C) Nebuchadnezzar</label>
+        </div>
+
+        <div class="pergunta"><p>2. Who warned the king of Israel about the attacks?</p>
+            <label class="alternativa"><input type="radio" name="q1-en" value="errada"> A) Elijah</label>
+            <label class="alternativa"><input type="radio" name="q1-en" value="correta"> B) Elisha</label>
+            <label class="alternativa"><input type="radio" name="q1-en" value="errada"> C) Samuel</label>
+        </div>
+
+        <div class="pergunta"><p>3. To which city did the Syrian army go to capture Elisha?</p>
+            <label class="alternativa"><input type="radio" name="q2-en" value="errada"> A) Jerusalem</label>
+            <label class="alternativa"><input type="radio" name="q2-en" value="errada"> B) Jericho</label>
+            <label class="alternativa"><input type="radio" name="q2-en" value="correta"> C) Dothan</label>
+        </div>
+
+        <div class="pergunta"><p>4. Who was very afraid when he saw the enemy army surrounding the city?</p>
+            <label class="alternativa"><input type="radio" name="q3-en" value="correta"> A) Elisha's servant</label>
+            <label class="alternativa"><input type="radio" name="q3-en" value="errada"> B) The king of Israel</label>
+            <label class="alternativa"><input type="radio" name="q3-en" value="errada"> C) Elisha himself</label>
+        </div>
+
+        <div class="pergunta"><p>5. What did Elisha say to calm his servant?</p>
+            <label class="alternativa"><input type="radio" name="q4-en" value="errada"> A) "Let's run to the mountains"</label>
+            <label class="alternativa"><input type="radio" name="q4-en" value="correta"> B) "There are more with us than with them"</label>
+            <label class="alternativa"><input type="radio" name="q4-en" value="errada"> C) "Hide quickly"</label>
+        </div>
+
+        <div class="pergunta"><p>6. What did the servant see when Jehovah opened his eyes?</p>
+            <label class="alternativa"><input type="radio" name="q5-en" value="errada"> A) An army of giant angels</label>
+            <label class="alternativa"><input type="radio" name="q5-en" value="correta"> B) The mountains full of horses and chariots of fire</label>
+            <label class="alternativa"><input type="radio" name="q5-en" value="errada"> C) A wall of fire around the city</label>
+        </div>
+
+        <div class="pergunta"><p>7. What did Elisha ask Jehovah to do to the enemy soldiers?</p>
+            <label class="alternativa"><input type="radio" name="q6-en" value="correta"> A) Strike them with blindness (confusion)</label>
+            <label class="alternativa"><input type="radio" name="q6-en" value="errada"> B) Send fire from heaven</label>
+            <label class="alternativa"><input type="radio" name="q6-en" value="errada"> C) Shake the earth</label>
+        </div>
+
+        <div class="pergunta"><p>8. Where did Elisha lead the enemy soldiers?</p>
+            <label class="alternativa"><input type="radio" name="q7-en" value="errada"> A) Back to Syria</label>
+            <label class="alternativa"><input type="radio" name="q7-en" value="correta"> B) To Samaria, where the king of Israel was</label>
+            <label class="alternativa"><input type="radio" name="q7-en" value="errada"> C) To the desert</label>
+        </div>
+
+        <div class="pergunta"><p>9. What did the king of Israel do with the enemy soldiers?</p>
+            <label class="alternativa"><input type="radio" name="q8-en" value="errada"> A) He killed them all</label>
+            <label class="alternativa"><input type="radio" name="q8-en" value="correta"> B) He gave them food and sent them away</label>
+            <label class="alternativa"><input type="radio" name="q8-en" value="errada"> C) He put them in prison</label>
+        </div>
+
+        <div class="pergunta"><p>10. What do we learn from Elisha's story?</p>
+            <label class="alternativa"><input type="radio" name="q9-en" value="correta"> A) That Jehovah can protect us with his powerful army</label>
+            <label class="alternativa"><input type="radio" name="q9-en" value="errada"> B) That we should be afraid of enemies</label>
+            <label class="alternativa"><input type="radio" name="q9-en" value="errada"> C) That we must fight alone</label>
+        </div>
+
+        <h3>Story 53: Jehoiada Was Courageous</h3>
+
+        <div class="pergunta"><p>11. Who was the wicked queen of Judah, daughter of Jezebel?</p>
+            <label class="alternativa"><input type="radio" name="q10-en" value="errada"> A) Ruth</label>
+            <label class="alternativa"><input type="radio" name="q10-en" value="correta"> B) Athaliah</label>
+            <label class="alternativa"><input type="radio" name="q10-en" value="errada"> C) Esther</label>
+        </div>
+
+        <div class="pergunta"><p>12. What did Athaliah do to try to be queen forever?</p>
+            <label class="alternativa"><input type="radio" name="q11-en" value="errada"> A) Built a castle</label>
+            <label class="alternativa"><input type="radio" name="q11-en" value="errada"> B) Gave gifts to the people</label>
+            <label class="alternativa"><input type="radio" name="q11-en" value="correta"> C) Killed her own grandsons</label>
+        </div>
+
+        <div class="pergunta"><p>13. Which grandson of Athaliah survived?</p>
+            <label class="alternativa"><input type="radio" name="q12-en" value="correta"> A) Jehoash</label>
+            <label class="alternativa"><input type="radio" name="q12-en" value="errada"> B) Josiah</label>
+            <label class="alternativa"><input type="radio" name="q12-en" value="errada"> C) David</label>
+        </div>
+
+        <div class="pergunta"><p>14. Who hid baby Jehoash?</p>
+            <label class="alternativa"><input type="radio" name="q13-en" value="errada"> A) A servant of the queen</label>
+            <label class="alternativa"><input type="radio" name="q13-en" value="correta"> B) Jehoiada and his wife Jehosheba</label>
+            <label class="alternativa"><input type="radio" name="q13-en" value="errada"> C) The prophet Elijah</label>
+        </div>
+
+        <div class="pergunta"><p>15. Where was Jehoash hidden?</p>
+            <label class="alternativa"><input type="radio" name="q14-en" value="correta"> A) In Jehovah's temple</label>
+            <label class="alternativa"><input type="radio" name="q14-en" value="errada"> B) In a cave</label>
+            <label class="alternativa"><input type="radio" name="q14-en" value="errada"> C) In Egypt</label>
+        </div>
+
+        <div class="pergunta"><p>16. How long was Jehoash hidden?</p>
+            <label class="alternativa"><input type="radio" name="q15-en" value="errada"> A) 1 year</label>
+            <label class="alternativa"><input type="radio" name="q15-en" value="correta"> B) 6 years</label>
+            <label class="alternativa"><input type="radio" name="q15-en" value="errada"> C) 10 years</label>
+        </div>
+
+        <div class="pergunta"><p>17. How old was Jehoash when Jehoiada made him king?</p>
+            <label class="alternativa"><input type="radio" name="q16-en" value="errada"> A) 20 years old</label>
+            <label class="alternativa"><input type="radio" name="q16-en" value="errada"> B) 12 years old</label>
+            <label class="alternativa"><input type="radio" name="q16-en" value="correta"> C) 7 years old</label>
+        </div>
+
+        <div class="pergunta"><p>18. Who was Jehoiada?</p>
+            <label class="alternativa"><input type="radio" name="q17-en" value="correta"> A) The courageous High Priest</label>
+            <label class="alternativa"><input type="radio" name="q17-en" value="errada"> B) The army chief</label>
+            <label class="alternativa"><input type="radio" name="q17-en" value="errada"> C) A neighboring king</label>
+        </div>
+
+        <div class="pergunta"><p>19. What happened to the wicked Queen Athaliah?</p>
+            <label class="alternativa"><input type="radio" name="q18-en" value="errada"> A) She ran away</label>
+            <label class="alternativa"><input type="radio" name="q18-en" value="correta"> B) She was put to death by the guards</label>
+            <label class="alternativa"><input type="radio" name="q18-en" value="errada"> C) She repented</label>
+        </div>
+
+        <div class="pergunta"><p>20. What did the people do after Jehoash became king?</p>
+            <label class="alternativa"><input type="radio" name="q19-en" value="errada"> A) Became sad</label>
+            <label class="alternativa"><input type="radio" name="q19-en" value="correta"> B) Destroyed the temple of Baal and worshiped Jehovah</label>
+            <label class="alternativa"><input type="radio" name="q19-en" value="errada"> C) Went home and did nothing</label>
+        </div>
+
         <button class="btn-verificar" onclick="verificarRespostas('en')">Check Answers</button>
         <div id="resultado-en" class="resultado"></div>
     </div>
 
     <script>
-        const mensagensResultado = {
-            pt: {
-                titulo: "Resultado",
-                texto: (pontuacao, total) => `Você acertou <strong>${pontuacao}</strong> de <strong>${total}</strong> perguntas!`,
-                niveis: [
-                    "Continue lendo as histórias! Você pode aprender muito mais.",
-                    "Muito bem! Você prestou bastante atenção.",
-                    "Excelente! Você conhece muito bem essas histórias da Bíblia!"
-                ]
-            },
-            en: {
-                titulo: "Result",
-                texto: (pontuacao, total) => `You got <strong>${pontuacao}</strong> out of <strong>${total}</strong> questions right!`,
-                niveis: [
-                    "Keep reading the stories! You can learn so much more.",
-                    "Very good! You paid close attention.",
-                    "Excellent! You know these Bible stories very well!"
-                ]
-            }
-        };
-
-        const perguntas = {
-            pt: [
-                // HISTÓRIA 50 - Jeová defende Jeosafá
-                {
-                    pergunta: "1. Quem era Jeosafá?",
-                    opcoes: ["Rei de Israel", "Rei de Judá", "Rei do Egito"],
-                    correta: 1,
-                    feedback: "Correto! Jeosafá era o rei de Judá."
-                },
-                {
-                    pergunta: "2. O que Jeosafá fez quando soube que exércitos inimigos vinham atacar?",
-                    opcoes: ["Ficou com medo e orou a Jeová", "Fugiu para o deserto", "Fez um acordo com o inimigo"],
-                    correta: 0,
-                    feedback: "Isso mesmo! Ele ficou com medo, mas orou pedindo ajuda a Jeová."
-                },
-                {
-                    pergunta: "3. O que Jeová respondeu para o povo através de Jaaziel?",
-                    opcoes: ["Fujam para as montanhas!", "A batalha não é de vocês, é de Deus", "Peguem suas espadas e lutem"],
-                    correta: 1,
-                    feedback: "Certo! Jeová disse: 'Não tenham medo. A batalha não é de vocês, é de Deus'."
-                },
-                {
-                    pergunta: "4. Quem Jeosafá colocou na frente do exército?",
-                    opcoes: ["Os melhores arqueiros", "Os cantores", "Os cavalos"],
-                    correta: 1,
-                    feedback: "Exato! Ele colocou cantores na frente para louvar a Jeová."
-                },
-                {
-                    pergunta: "5. O que os cantores cantavam?",
-                    opcoes: ["Dê graças a Jeová", "Vamos vencer a guerra", "Fujam inimigos"],
-                    correta: 0,
-                    feedback: "Correto! Eles cantavam: 'Dê graças a Jeová'."
-                },
-                {
-                    pergunta: "6. O que aconteceu com os soldados inimigos?",
-                    opcoes: ["Eles fugiram assustados", "Eles atacaram uns aos outros", "Eles se renderam"],
-                    correta: 1,
-                    feedback: "Isso! Jeová fez com que eles atacassem uns aos outros."
-                },
-                {
-                    pergunta: "7. O exército de Jeosafá precisou lutar?",
-                    opcoes: ["Sim, foi uma luta difícil", "Não, Jeová lutou por eles", "Sim, mas só um pouco"],
-                    correta: 1,
-                    feedback: "Certo! Eles não precisaram lutar. Jeová os protegeu."
-                },
-                {
-                    pergunta: "8. Quantas nações se juntaram para atacar Jeosafá?",
-                    opcoes: ["Uma", "Duas", "Três (Amom, Moabe e Seir)"],
-                    correta: 2,
-                    feedback: "Muito bem! Eram três nações: Amom, Moabe e o povo de Seir."
-                },
-                {
-                    pergunta: "9. O que o povo fez quando voltou para Jerusalém?",
-                    opcoes: ["Foram dormir", "Tocaram harpas e trombetas felizes", "Ficaram tristes"],
-                    correta: 1,
-                    feedback: "Isso! Eles voltaram muito felizes, tocando música para Jeová."
-                },
-                {
-                    pergunta: "10. O que aprendemos com essa história?",
-                    opcoes: ["Que devemos ter armas fortes", "Que devemos confiar em Jeová quando temos medo", "Que não precisamos fazer nada"],
-                    correta: 1,
-                    feedback: "Exatamente! Devemos confiar que Jeová cuida de nós."
-                },
-                // HISTÓRIA 51 - Naamã e a menininha israelita
-                {
-                    pergunta: "11. Quem era Naamã?",
-                    opcoes: ["Um profeta de Israel", "Um chefe do exército da Síria", "Um rei de Judá"],
-                    correta: 1,
-                    feedback: "Correto! Naamã era um chefe importante do exército da Síria."
-                },
-                {
-                    pergunta: "12. Que doença grave Naamã tinha?",
-                    opcoes: ["Gripe", "Dor de cabeça", "Lepra"],
-                    correta: 2,
-                    feedback: "Isso mesmo! Ele tinha uma doença de pele chamada lepra."
-                },
-                {
-                    pergunta: "13. Quem disse que Naamã poderia ser curado?",
-                    opcoes: ["A esposa dele", "Uma menininha israelita", "O rei da Síria"],
-                    correta: 1,
-                    feedback: "Certo! A menininha israelita, que trabalhava na casa dele."
-                },
-                {
-                    pergunta: "14. Para onde a menininha disse que Naamã devia ir?",
-                    opcoes: ["Para o Egito", "Para Israel, ver o profeta de Jeová", "Para o deserto"],
-                    correta: 1,
-                    feedback: "Exato! Ela disse para ele ir ver o profeta de Jeová em Israel."
-                },
-                {
-                    pergunta: "15. Quem era o profeta de Jeová nessa história?",
-                    opcoes: ["Elias", "Eliseu", "Samuel"],
-                    correta: 1,
-                    feedback: "Correto! O profeta era Eliseu."
-                },
-                {
-                    pergunta: "16. O que Eliseu mandou Naamã fazer?",
-                    opcoes: ["Tomar um remédio", "Mergulhar 7 vezes no rio Jordão", "Dar muito dinheiro"],
-                    correta: 1,
-                    feedback: "Isso! Ele mandou Naamã mergulhar 7 vezes no rio Jordão."
-                },
-                {
-                    pergunta: "17. Como Naamã reagiu no começo?",
-                    opcoes: ["Ficou bravo e não queria ir", "Foi correndo para o rio", "Agradeceu ao profeta"],
-                    correta: 0,
-                    feedback: "Certo! Ele ficou orgulhoso e bravo, achando os rios da Síria melhores."
-                },
-                {
-                    pergunta: "18. O que aconteceu quando Naamã obedeceu e mergulhou 7 vezes?",
-                    opcoes: ["Nada aconteceu", "Ele ficou doente", "A pele dele ficou sã como a de um bebê"],
-                    correta: 2,
-                    feedback: "Muito bem! Ele foi curado e sua pele ficou limpinha."
-                },
-                {
-                    pergunta: "19. Quem correu atrás de Naamã para pegar presentes escondido?",
-                    opcoes: ["Eliseu", "Geazi, servo de Eliseu", "A menininha"],
-                    correta: 1,
-                    feedback: "Isso! Geazi foi ganancioso e correu atrás de Naamã."
-                },
-                {
-                    pergunta: "20. O que aconteceu com Geazi por causa de sua mentira?",
-                    opcoes: ["Ficou rico e feliz", "Pegou a lepra de Naamã", "Foi perdoado"],
-                    correta: 1,
-                    feedback: "Exatamente. Ele ficou leproso por ter sido ganancioso e mentiroso."
-                }
-            ],
-            en: [
-                // STORY 50 - Jehovah Defends Jehoshaphat
-                {
-                    pergunta: "1. Who was Jehoshaphat?",
-                    opcoes: ["King of Israel", "King of Judah", "King of Egypt"],
-                    correta: 1,
-                    feedback: "Correct! Jehoshaphat was the king of Judah."
-                },
-                {
-                    pergunta: "2. What did Jehoshaphat do when enemies came to attack?",
-                    opcoes: ["He was afraid and prayed to Jehovah", "He ran to the desert", "He made a deal with the enemy"],
-                    correta: 0,
-                    feedback: "That's right! He was afraid, but he prayed to Jehovah for help."
-                },
-                {
-                    pergunta: "3. What did Jehovah say to the people through Jahaziel?",
-                    opcoes: ["Run to the mountains!", "The battle is not yours, but God's", "Take your swords and fight"],
-                    correta: 1,
-                    feedback: "Correct! Jehovah said: 'Do not be afraid. The battle is not yours, but God's'."
-                },
-                {
-                    pergunta: "4. Who did Jehoshaphat put in front of the army?",
-                    opcoes: ["The best archers", "The singers", "The horses"],
-                    correta: 1,
-                    feedback: "Exactly! He put singers in front to praise Jehovah."
-                },
-                {
-                    pergunta: "5. What were the singers singing?",
-                    opcoes: ["Give thanks to Jehovah", "We will win the war", "Run away enemies"],
-                    correta: 0,
-                    feedback: "Correct! They sang: 'Give thanks to Jehovah'."
-                },
-                {
-                    pergunta: "6. What happened to the enemy soldiers?",
-                    opcoes: ["They ran away scared", "They attacked each other", "They surrendered"],
-                    correta: 1,
-                    feedback: "Yes! Jehovah caused them to attack one another."
-                },
-                {
-                    pergunta: "7. Did Jehoshaphat's army need to fight?",
-                    opcoes: ["Yes, it was a hard fight", "No, Jehovah fought for them", "Yes, but just a little"],
-                    correta: 1,
-                    feedback: "Right! They didn't need to fight. Jehovah protected them."
-                },
-                {
-                    pergunta: "8. How many nations joined to attack Jehoshaphat?",
-                    opcoes: ["One", "Two", "Three (Ammon, Moab, and Seir)"],
-                    correta: 2,
-                    feedback: "Very good! There were three nations: Ammon, Moab, and the people of Seir."
-                },
-                {
-                    pergunta: "9. What did the people do when they returned to Jerusalem?",
-                    opcoes: ["Went to sleep", "Played harps and trumpets happily", "Were sad"],
-                    correta: 1,
-                    feedback: "That's it! They returned very happy, playing music for Jehovah."
-                },
-                {
-                    pergunta: "10. What do we learn from this story?",
-                    opcoes: ["To have strong weapons", "To trust in Jehovah when we are afraid", "That we don't need to do anything"],
-                    correta: 1,
-                    feedback: "Exactly! We must trust that Jehovah cares for us."
-                },
-                // STORY 51 - Naaman and the Little Israelite Girl
-                {
-                    pergunta: "11. Who was Naaman?",
-                    opcoes: ["A prophet of Israel", "An army chief of Syria", "A king of Judah"],
-                    correta: 1,
-                    feedback: "Correct! Naaman was an important army chief of Syria."
-                },
-                {
-                    pergunta: "12. What bad disease did Naaman have?",
-                    opcoes: ["Flu", "Headache", "Leprosy"],
-                    correta: 2,
-                    feedback: "That's right! He had a skin disease called leprosy."
-                },
-                {
-                    pergunta: "13. Who said Naaman could be cured?",
-                    opcoes: ["His wife", "A little Israelite girl", "The king of Syria"],
-                    correta: 1,
-                    feedback: "Correct! The little Israelite girl who worked in his house."
-                },
-                {
-                    pergunta: "14. Where did the little girl say Naaman should go?",
-                    opcoes: ["To Egypt", "To Israel, to see Jehovah's prophet", "To the desert"],
-                    correta: 1,
-                    feedback: "Exactly! She said to go see Jehovah's prophet in Israel."
-                },
-                {
-                    pergunta: "15. Who was Jehovah's prophet in this story?",
-                    opcoes: ["Elijah", "Elisha", "Samuel"],
-                    correta: 1,
-                    feedback: "Correct! The prophet was Elisha."
-                },
-                {
-                    pergunta: "16. What did Elisha tell Naaman to do?",
-                    opcoes: ["Take medicine", "Dip 7 times in the Jordan River", "Give a lot of money"],
-                    correta: 1,
-                    feedback: "Yes! He told Naaman to dip 7 times in the Jordan River."
-                },
-                {
-                    pergunta: "17. How did Naaman react at first?",
-                    opcoes: ["He was angry and didn't want to go", "He ran to the river", "He thanked the prophet"],
-                    correta: 0,
-                    feedback: "Right! He was proud and angry, thinking the rivers in Syria were better."
-                },
-                {
-                    pergunta: "18. What happened when Naaman obeyed and dipped 7 times?",
-                    opcoes: ["Nothing happened", "He got sick", "His skin became healthy like a baby's"],
-                    correta: 2,
-                    feedback: "Very good! He was healed and his skin became clean."
-                },
-                {
-                    pergunta: "19. Who ran after Naaman to get gifts secretly?",
-                    opcoes: ["Elisha", "Gehazi, Elisha's servant", "The little girl"],
-                    correta: 1,
-                    feedback: "That's it! Gehazi was greedy and ran after Naaman."
-                },
-                {
-                    pergunta: "20. What happened to Gehazi because of his lie?",
-                    opcoes: ["He became rich and happy", "He got Naaman's leprosy", "He was forgiven"],
-                    correta: 1,
-                    feedback: "Exactly. He became a leper because he was greedy and lied."
-                }
-            ]
-        };
-
         function mudarIdioma(lang) {
-            // Esconde todos os conteúdos
-            document.getElementById('conteudo-pt').style.display = 'none';
-            document.getElementById('conteudo-en').style.display = 'none';
-            
+            // Esconde todas as divs de quiz
+            document.querySelectorAll('.quiz-lang-container').forEach(div => div.classList.remove('active'));
             // Remove classe active dos botões
-            document.getElementById('btn-pt').classList.remove('active');
-            document.getElementById('btn-en').classList.remove('active');
+            document.querySelectorAll('.language-selector button').forEach(btn => btn.classList.remove('active'));
 
-            // Mostra conteúdo selecionado
-            document.getElementById(`conteudo-${lang}`).style.display = 'block';
-            document.getElementById(`btn-${lang}`).classList.add('active');
-
-            // Renderiza o quiz no idioma selecionado
-            renderizarQuiz(lang);
-        }
-
-        function renderizarQuiz(lang) {
-            const container = document.getElementById(`quiz-${lang}`);
-            const data = perguntas[lang];
-            const resultadoDiv = document.getElementById(`resultado-${lang}`);
-            
-            // Limpa resultado anterior se houver troca de idioma
-            resultadoDiv.style.display = 'none';
-            resultadoDiv.innerHTML = '';
-            
-            // Mostrar botão de verificar novamente
-            const btn = document.querySelector(`#conteudo-${lang} .btn-verificar`);
-            if(btn) btn.style.display = 'block';
-
-            let html = '';
-            
-            data.forEach((item, index) => {
-                let opcoesHtml = '';
-                item.opcoes.forEach((opcao, i) => {
-                    opcoesHtml += `
-                        <label>
-                            <input type="radio" name="p-${lang}-${index}" value="${i}">
-                            ${opcao}
-                        </label>
-                    `;
-                });
-
-                html += `
-                    <div class="pergunta" id="pergunta-${lang}-${index}">
-                        <p>${item.pergunta}</p>
-                        <div class="opcoes">${opcoesHtml}</div>
-                        <div class="feedback" id="feedback-${lang}-${index}"></div>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = html;
+            // Mostra a div do idioma selecionado
+            document.getElementById(`quiz-${lang}`).classList.add('active');
+            // Ativa o botão correspondente
+            document.getElementById(`lang-${lang}-btn`).classList.add('active');
         }
 
         function verificarRespostas(lang) {
-            const data = perguntas[lang];
-            let pontuacao = 0;
-            const totalPerguntas = data.length;
-            let todasRespondidas = true;
+            let acertos = 0;
+            const totalPerguntas = 20;
+            const container = document.getElementById(`quiz-${lang}`);
+            const perguntas = container.querySelectorAll('.pergunta');
 
-            // Verificar se todas foram respondidas
+            // Itera sobre cada pergunta (0 a 19)
             for (let i = 0; i < totalPerguntas; i++) {
-                const respondida = document.querySelector(`input[name="p-${lang}-${i}"]:checked`);
-                if (!respondida) {
-                    todasRespondidas = false;
-                    break;
-                }
-            }
-
-            if (!todasRespondidas) {
-                alert(lang === 'pt' ? "Por favor, responda todas as perguntas." : "Please answer all questions.");
-                return;
-            }
-
-            // Processar respostas
-            for (let i = 0; i < totalPerguntas; i++) {
-                const radios = document.getElementsByName(`p-${lang}-${i}`);
-                const feedbackEl = document.getElementById(`feedback-${lang}-${i}`);
-                let respostaUsuario = -1;
-
-                radios.forEach(radio => {
-                    if (radio.checked) {
-                        respostaUsuario = parseInt(radio.value);
-                    }
-                    radio.disabled = true; // Desabilita após verificar
-                });
-
-                const correta = data[i].correta;
+                const radios = document.getElementsByName(`q${i}-${lang}`);
+                let respondida = false;
                 
-                if (respostaUsuario === correta) {
-                    pontuacao++;
-                    feedbackEl.textContent = data[i].feedback; // Mensagem personalizada de acerto
-                    feedbackEl.className = "feedback correto";
-                } else {
-                    // Monta feedback de erro
-                    let msg = lang === 'pt' ? "Incorreto. A resposta certa era: " : "Incorrect. The right answer was: ";
-                    msg += data[i].opcoes[correta];
-                    feedbackEl.textContent = msg;
-                    feedbackEl.className = "feedback incorreto";
+                // Verifica qual radio foi marcado
+                for (const radio of radios) {
+                    if (radio.checked) {
+                        respondida = true;
+                        if (radio.value === 'correta') {
+                            acertos++;
+                            // Marca o label pai como correto
+                            radio.parentElement.classList.add('resposta-correta');
+                        } else {
+                            // Marca o label pai como errado
+                            radio.parentElement.classList.add('resposta-errada');
+                        }
+                    }
+                    // Desabilita os radios após verificar
+                    radio.disabled = true;
                 }
-                feedbackEl.style.display = 'block';
+
+                // Se não respondeu, marca a correta para mostrar qual era
+                if (!respondida) {
+                    for (const radio of radios) {
+                         radio.disabled = true;
+                    }
+                }
+                
+                // Sempre destaca a correta visualmente para aprendizado
+                for (const radio of radios) {
+                    if (radio.value === 'correta') {
+                         radio.parentElement.classList.add('resposta-correta');
+                    }
+                }
             }
 
-            // Mostrar div de resultado
-            const elementoResultado = document.getElementById(`resultado-${lang}`);
-            const msgData = mensagensResultado[lang];
-            let mensagemNivel = '';
-
-            // Ajuste dos níveis de pontuação baseado no total de 20 perguntas
-            if (pontuacao >= 17) {
-                mensagemNivel = msgData.niveis[2];
-            } else if (pontuacao >= 12) {
-                mensagemNivel = msgData.niveis[1];
-            } else {
-                mensagemNivel = msgData.niveis[0];
-            }
-
-            elementoResultado.style.display = 'block';
-            elementoResultado.innerHTML = `
-                <h2>${msgData.titulo}</h2>
-                <p>${msgData.texto(pontuacao, totalPerguntas)}</p>
-                <p>${mensagemNivel}</p>
-            `;
-
-            elementoResultado.scrollIntoView({ behavior: 'smooth' });
+            const resultadoDiv = document.getElementById(`resultado-${lang}`);
+            resultadoDiv.style.display = 'block';
             
-            // Ocultar o botão de verificar após o uso
-            const btn = document.querySelector(`#conteudo-${lang} .btn-verificar`);
-            if(btn) btn.style.display = 'none';
+            let mensagem = '';
+            if (lang === 'pt') {
+                mensagem = `Você acertou <strong>${acertos}</strong> de <strong>${totalPerguntas}</strong> perguntas!`;
+                if (acertos === 20) mensagem += "<br>Excelente! Você conhece muito bem a Bíblia!";
+                else if (acertos > 15) mensagem += "<br>Muito bem!";
+                else mensagem += "<br>Continue estudando as histórias da Bíblia!";
+            } else {
+                mensagem = `You got <strong>${acertos}</strong> out of <strong>${totalPerguntas}</strong> questions right!`;
+                if (acertos === 20) mensagem += "<br>Excellent! You know the Bible very well!";
+                else if (acertos > 15) mensagem += "<br>Very good!";
+                else mensagem += "<br>Keep studying the Bible stories!";
+            }
+            
+            resultadoDiv.innerHTML = mensagem;
+            
+            // Esconde botão de verificar
+            container.querySelector('.btn-verificar').style.display = 'none';
         }
-
-        // Inicializa a página com o idioma padrão
-        document.addEventListener('DOMContentLoaded', () => {
-             mudarIdioma('pt');
-        });
     </script>
 </body>
 </html>
