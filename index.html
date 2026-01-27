@@ -85,15 +85,20 @@
             display: none; 
         }
         .language-switch {
-            text-align: right;
+            text-align: center;
             margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
         }
         .language-switch button {
-            padding: 5px 10px;
+            padding: 8px 12px;
             cursor: pointer;
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 14px;
         }
         .language-switch button.active {
             background-color: #005a9c;
@@ -107,161 +112,184 @@
     <div class="language-switch">
         <button onclick="mudarIdioma('pt')" id="btn-pt" class="active">Português</button>
         <button onclick="mudarIdioma('en')" id="btn-en">English</button>
+        <button onclick="mudarIdioma('es')" id="btn-es">Español</button>
+        <button onclick="mudarIdioma('ht')" id="btn-ht">Kreyòl Ayisyen</button>
     </div>
 
-    <div id="conteudo-pt">
-        <h1>Quiz: Histórias 56 e 57</h1>
-        <p style="text-align: center;">Baseado no livro <em>Aprenda com as Histórias da Bíblia</em></p>
+    <div id="conteudo-quiz">
+        <h1 id="titulo-principal">Quiz: Histórias 56 e 57</h1>
+        <p id="subtitulo" style="text-align: center;">Baseado no livro <em>Aprenda com as Histórias da Bíblia</em></p>
         
-        <div id="quiz-pt"></div>
-        <button class="btn-verificar" onclick="verificarRespostas('pt')">Verificar Respostas</button>
-        <div id="resultado-pt" class="resultado"></div>
-    </div>
-
-    <div id="conteudo-en" style="display: none;">
-        <h1>Quiz: Stories 56 and 57</h1>
-        <p style="text-align: center;">Based on the book <em>Lessons You Can Learn From the Bible</em></p>
-
-        <div id="quiz-en"></div>
-        <button class="btn-verificar" onclick="verificarRespostas('en')">Check Answers</button>
-        <div id="resultado-en" class="resultado"></div>
+        <div id="questoes-container"></div>
+        <button class="btn-verificar" id="btn-verificar-texto" onclick="verificarRespostas()">Verificar Respostas</button>
+        <div id="resultado-final" class="resultado"></div>
     </div>
 
     <script>
-        const mensagensResultado = {
-            pt: {
-                titulo: "Resultado",
-                texto: (pontuacao, total) => `Você acertou <strong>${pontuacao}</strong> de <strong>${total}</strong> perguntas!`,
-                niveis: ["Continue aprendendo! Ler a Bíblia é muito divertido.", "Muito bem! Você conhece bem essas histórias!", "Incrível! Você é um expert nessas histórias!"]
-            },
-            en: {
-                titulo: "Result",
-                texto: (pontuacao, total) => `You got <strong>${pontuacao}</strong> out of <strong>${total}</strong> questions right!`,
-                niveis: ["Keep learning! Reading the Bible is lots of fun.", "Well done! You know these stories well!", "Amazing! You are an expert on these stories!"]
-            }
+        let idiomaAtual = 'pt';
+
+        const labels = {
+            pt: { titulo: "Quiz: Histórias 56 e 57", subtitulo: "Baseado no livro Aprenda com as Histórias da Bíblia", verificar: "Verificar Respostas", erro_vazio: "Responda todas!", res_certa: "Resposta certa: ", res_alerta: "Resultado", res_texto: (p, t) => `Você acertou <strong>${p}</strong> de <strong>${t}</strong> perguntas!` },
+            en: { titulo: "Quiz: Stories 56 and 57", subtitulo: "Based on the book Lessons You Can Learn From the Bible", verificar: "Check Answers", erro_vazio: "Answer all!", res_certa: "Right answer: ", res_alerta: "Result", res_texto: (p, t) => `You got <strong>${p}</strong> out of <strong>${t}</strong> right!` },
+            es: { titulo: "Quiz: Historias 56 y 57", subtitulo: "Basado en el libro Lecciones que aprendo de la Biblia", verificar: "Comprobar respuestas", erro_vazio: "¡Responde todas!", res_certa: "Respuesta correcta: ", res_alerta: "Resultado", res_texto: (p, t) => `¡Acertaste <strong>${p}</strong> de <strong>${t}</strong> preguntas!` },
+            ht: { titulo: "Kiz: Istwa 56 ak 57", subtitulo: "Baze sou liv Sa w ka aprann nan Labib", verificar: "Tcheke repons yo", erro_vazio: "Reponn tout!", res_certa: "Bon repons lan: ", res_alerta: "Rezilta", res_texto: (p, t) => `Ou jwenn <strong>${p}</strong> sou <strong>${t}</strong> pwen!` }
         };
 
         const perguntas = {
             pt: [
-                // HISTÓRIA 56 - Josias amava aprender sobre Jeová
-                { pergunta: "1. Com quantos anos Josias se tornou rei de Judá?", opcoes: ["10 anos", "8 anos", "16 anos"], correta: 1, feedback: "Correto! Ele começou a reinar bem criancinha." },
-                { pergunta: "2. O que Josias fez quando tinha 20 anos?", opcoes: ["Destruiu imagens e altares de deuses falsos", "Construiu um novo palácio", "Viajou para o Egito"], correta: 0, feedback: "Isso mesmo! Ele limpou a terra da adoração falsa." },
-                { pergunta: "3. O que Josias mandou fazer quando tinha 26 anos?", opcoes: ["Mudar de cidade", "Organizar uma guerra", "Reformar o templo de Jeová"], correta: 2, feedback: "Certo! Ele quis cuidar da casa de Jeová." },
-                { pergunta: "4. Quem encontrou o rolo com as leis de Jeová durante a reforma?", opcoes: ["Josias", "Hilquias, o sumo sacerdote", "Safã, o secretário"], correta: 1, feedback: "Correto! Hilquias achou o rolo no templo." },
-                { pergunta: "5. Qual foi a reação de Josias ao ouvir a leitura das leis?", opcoes: ["Ele ficou muito triste e chorou", "Ele ficou muito feliz e deu risada", "Ele não deu importância"], correta: 0, feedback: "Exato! Ele ficou triste porque o povo não estava obedecendo." },
-                { pergunta: "6. Por que Jeová prometeu que o castigo de Judá só viria depois da morte de Josias?", opcoes: ["Porque Josias era muito rico", "Porque Judá era um lugar bonito", "Porque Josias quis fazer o que era certo"], correta: 2, feedback: "Certo! Jeová viu o coração bom de Josias." },
-                { pergunta: "7. Onde Josias reuniu o povo para ler as leis de Jeová?", opcoes: ["No templo", "Na praça da cidade", "No seu palácio"], correta: 0, feedback: "Isso! Ele reuniu todo mundo no templo." },
-                { pergunta: "8. Que festa importante Josias organizou para o povo comemorar?", opcoes: ["A Festividade das Barracas", "A Páscoa", "O Dia da Expiação"], correta: 1, feedback: "Correto! Foi uma Páscoa muito especial." },
-                { pergunta: "9. Por quanto tempo durou a Festividade dos Pães sem Fermento que eles fizeram?", opcoes: ["3 dias", "10 dias", "7 dias"], correta: 2, feedback: "Isso mesmo! Durou uma semana inteirinha." },
-                { pergunta: "10. O que aprendemos com a história de Josias?", opcoes: ["Que crianças não podem servir a Jeová", "Que devemos amar aprender sobre Jeová e suas leis", "Que reformar prédios é a coisa mais importante"], correta: 1, feedback: "Excelente! Devemos sempre querer aprender sobre Jeová." },
-                // HISTÓRIA 57 - Jeremias pregou com coragem
-                { pergunta: "11. Por que Jeremias ficou com receio quando Jeová o escolheu como profeta?", opcoes: ["Ele achava que era jovem demais e não sabia falar", "Ele não gostava de viajar", "Ele tinha medo de animais"], correta: 0, feedback: "Correto! Mas Jeová prometeu ajudá-lo." },
-                { pergunta: "12. Que objeto Jeová mandou Jeremias quebrar para ensinar uma lição?", opcoes: ["Uma cadeira de madeira", "Um jarro de barro", "Um escudo de metal"], correta: 1, feedback: "Exato! Ele quebrou o jarro na frente dos líderes." },
-                { pergunta: "13. Quem bateu em Jeremias e o prendeu por uma noite?", opcoes: ["O rei de Babilônia", "Um soldado assírio", "Pasur, o sacerdote"], correta: 2, feedback: "Certo! Pasur foi muito maldoso com ele." },
-                { pergunta: "14. Jeremias pensou em desistir de pregar, mas por que ele não parou?", opcoes: ["A mensagem era como um fogo dentro dele", "Ele precisava de dinheiro", "Ele não tinha mais nada para fazer"], correta: 0, feedback: "Isso! O amor por Jeová era mais forte que o cansaço." },
-                { pergunta: "15. Quem queria matar Jeremias porque odiava suas mensagens?", opcoes: ["Os egípcios", "Os sacerdotes e profetas falsos", "As crianças de Jerusalém"], correta: 1, feedback: "Correto! Eles não queriam ouvir a verdade." },
-                { pergunta: "16. Onde os príncipes jogaram Jeremias para que ele morresse?", opcoes: ["Numa jaula com leões", "Num buraco fundo cheio de lama", "No meio do mar"], correta: 1, feedback: "Exato! Ele começou a afundar na lama." },
-                { pergunta: "17. Quem foi o homem bondoso que salvou Jeremias do buraco?", opcoes: ["Ebede-Meleque", "Davi", "Ezequias"], correta: 0, feedback: "Certo! Ele foi falar com o rei para salvar Jeremias." },
-                { pergunta: "18. Quantos homens foram ajudar a tirar Jeremias do buraco?", opcoes: ["30 homens", "10 homens", "5 homens"], correta: 0, feedback: "Correto! Foi preciso muita ajuda." },
-                { pergunta: "19. Como Jeremias agia mesmo quando as pessoas eram ruins com ele?", opcoes: ["Ele chorava e se escondia", "Ele era corajoso e nunca parou de pregar", "Ele brigava com todo mundo"], correta: 1, feedback: "Muito bem! Ele foi um exemplo de coragem." },
-                { pergunta: "20. O que aprendemos com Jeremias?", opcoes: ["Que devemos ser corajosos ao falar de Jeová", "Que buracos de lama são perigosos", "Que não precisamos falar com quem é bravo"], correta: 0, feedback: "Isso mesmo! Devemos ter coragem como Jeremias." }
+                { p: "1. Com quantos anos Josias se tornou rei?", o: ["10 anos", "8 anos", "16 anos"], c: 1, f: "Correto! Ele começou bem criancinha." },
+                { p: "2. O que Josias fez aos 20 anos?", o: ["Destruiu imagens falsas", "Construiu um palácio", "Viajou"], c: 0, f: "Isso! Ele limpou a adoração falsa." },
+                { p: "3. O que Josias fez aos 26 anos?", o: ["Mudou de cidade", "Fez uma guerra", "Reformou o templo"], c: 2, f: "Certo! Ele cuidou da casa de Jeová." },
+                { p: "4. Quem achou o rolo da lei no templo?", o: ["Josias", "Hilquias, o sacerdote", "Safã"], c: 1, f: "Correto! Hilquias achou o rolo." },
+                { p: "5. Como Josias reagiu ao ouvir as leis?", o: ["Chorou de tristeza", "Riu de alegria", "Não ligou"], c: 0, f: "Exato! Ele ficou triste pelo povo." },
+                { p: "6. Por que Jeová amava Josias?", o: ["Era rico", "Tinha um palácio", "Quis fazer o certo"], c: 2, f: "Certo! Jeová viu seu bom coração." },
+                { p: "7. Onde o povo ouviu as leis?", o: ["No templo", "Na praça", "No palácio"], c: 0, f: "Isso! Todos foram ao templo." },
+                { p: "8. Que festa Josias organizou?", o: ["Barracas", "Páscoa", "Expiação"], c: 1, f: "Correto! Foi uma Páscoa especial." },
+                { p: "9. Quanto tempo durou a festividade?", o: ["3 dias", "10 dias", "7 dias"], c: 2, f: "Isso! Durou uma semana inteira." },
+                { p: "10. O que aprendemos com Josias?", o: ["Criança não serve a Deus", "Devemos amar aprender da Bíblia", "Prédio é o mais importante"], c: 1, f: "Excelente! Queremos aprender de Jeová." },
+                { p: "11. Por que Jeremias teve medo no início?", o: ["Achava-se jovem demais", "Tinha medo de animais", "Não gostava de andar"], c: 0, f: "Correto! Mas Jeová o ajudou." },
+                { p: "12. Que objeto Jeremias quebrou?", o: ["Cadeira", "Jarro de barro", "Escudo"], c: 1, f: "Exato! Um jarro para dar uma lição." },
+                { p: "13. Quem bateu em Jeremias?", o: ["Rei da Babilônia", "Soldado", "Pasur, o sacerdote"], c: 2, f: "Certo! Pasur foi maldoso." },
+                { p: "14. Por que Jeremias não parou de pregar?", o: ["Amor a Jeová era como fogo", "Precisava de dinheiro", "Estava à toa"], c: 0, f: "Isso! O amor era mais forte." },
+                { p: "15. Quem odiava as mensagens dele?", o: ["Egípcios", "Profetas falsos", "Crianças"], c: 1, f: "Correto! Não queriam ouvir a verdade." },
+                { p: "16. Onde jogaram Jeremias?", o: ["Jaula de leões", "Buraco com lama", "Mar"], c: 1, f: "Exato! Ele afundou na lama." },
+                { p: "17. Quem salvou Jeremias?", o: ["Ebede-Meleque", "Davi", "Ezequias"], c: 0, f: "Certo! Ele foi corajoso." },
+                { p: "18. Quantos homens ajudaram no resgate?", o: ["30 homens", "10 homens", "5 homens"], c: 0, f: "Correto! Muita ajuda." },
+                { p: "19. Como Jeremias era?", o: ["Chorão", "Corajoso", "Briguento"], c: 1, f: "Muito bem! Ele foi um exemplo." },
+                { p: "20. O que aprendemos com Jeremias?", o: ["Ter coragem ao falar de Jeová", "Lama é perigosa", "Não falar com bravos"], c: 0, f: "Isso! Coragem sempre." }
             ],
             en: [
-                // STORIES 56 & 57 ENGLISH
-                { pergunta: "1. How old was Josiah when he became king of Judah?", opcoes: ["10 years old", "8 years old", "16 years old"], correta: 1, feedback: "Correct! He was just a little boy." },
-                { pergunta: "2. What did Josiah do when he was 20 years old?", opcoes: ["Destroyed false images and altars", "Built a new palace", "Traveled to Egypt"], correta: 0, feedback: "That's right! He cleaned the land of false worship." },
-                { pergunta: "3. What did Josiah order to be done when he was 26?", opcoes: ["Move to another city", "Organize a war", "Repair Jehovah's temple"], correta: 2, feedback: "Right! He wanted to take care of Jehovah's house." },
-                { pergunta: "4. Who found the scroll of Jehovah's laws during the repairs?", opcoes: ["Josiah", "Hilkiah the high priest", "Shaphan the secretary"], correta: 1, feedback: "Correct! Hilkiah found it in the temple." },
-                { pergunta: "5. How did Josiah react when he heard the laws read?", opcoes: ["He was very sad and cried", "He was very happy and laughed", "He didn't care"], correta: 0, feedback: "Exactly! He was sad because the people were not obeying." },
-                { pergunta: "6. Why did Jehovah promise that Judah's punishment would come only after Josiah's death?", opcoes: ["Because Josiah was very rich", "Because Judah was a beautiful place", "Because Josiah wanted to do what was right"], correta: 2, feedback: "Right! Jehovah saw Josiah's good heart." },
-                { pergunta: "7. Where did Josiah gather the people to read the laws?", opcoes: ["At the temple", "In the city square", "In his palace"], correta: 0, feedback: "Yes! He gathered everyone at the temple." },
-                { pergunta: "8. What important festival did Josiah organize?", opcoes: ["Festival of Booths", "The Passover", "Day of Atonement"], correta: 1, feedback: "Correct! It was a very special Passover." },
-                { pergunta: "9. How long did the Festival of Unleavened Bread last?", opcoes: ["3 days", "10 days", "7 days"], correta: 2, feedback: "That's right! it lasted a whole week." },
-                { pergunta: "10. What do we learn from Josiah's story?", opcoes: ["Children cannot serve Jehovah", "We should love to learn about Jehovah and his laws", "Repairing buildings is the most important thing"], correta: 1, feedback: "Excellent! We should always want to learn about Jehovah." },
-                { pergunta: "11. Why was Jeremiah afraid when Jehovah chose him to be a prophet?", opcoes: ["He thought he was too young and didn't know how to speak", "He didn't like to travel", "He was afraid of animals"], correta: 0, feedback: "Correct! But Jehovah promised to help him." },
-                { pergunta: "12. What object did Jehovah tell Jeremiah to break to teach a lesson?", opcoes: ["A wooden chair", "A clay jar", "A metal shield"], correta: 1, feedback: "Exactly! He broke the jar in front of the leaders." },
-                { pergunta: "13. Who beat Jeremiah and locked him up for a night?", opcoes: ["The king of Babylon", "An Assyrian soldier", "Pashhur the priest"], correta: 2, feedback: "Right! Pashhur was very mean to him." },
-                { pergunta: "14. Jeremiah thought about quitting, but why didn't he stop?", opcoes: ["The message was like a fire inside him", "He needed money", "He had nothing else to do"], correta: 0, feedback: "Yes! Love for Jehovah was stronger than tiredness." },
-                { pergunta: "15. Who wanted to kill Jeremiah because they hated his messages?", opcoes: ["The Egyptians", "The priests and false prophets", "The children of Jerusalem"], correta: 1, feedback: "Correct! They didn't want to hear the truth." },
-                { pergunta: "16. Where did the princes throw Jeremiah to die?", opcoes: ["In a lion's cage", "In a deep, muddy pit", "In the middle of the sea"], correta: 1, feedback: "Exactly! He started to sink in the mud." },
-                { pergunta: "17. Who was the kind man who saved Jeremiah from the pit?", opcoes: ["Ebed-melech", "David", "Hezekiah"], correta: 0, feedback: "Right! He spoke to the king to save Jeremiah." },
-                { pergunta: "18. How many men went to help pull Jeremiah out of the pit?", opcoes: ["30 men", "10 men", "5 men"], correta: 0, feedback: "Correct! It took a lot of help." },
-                { pergunta: "19. How did Jeremiah act even when people were mean to him?", opcoes: ["He cried and hid", "He was courageous and never stopped preaching", "He fought with everyone"], correta: 1, feedback: "Well done! He was an example of courage." },
-                { pergunta: "20. What do we learn from Jeremiah?", opcoes: ["We should be courageous when speaking about Jehovah", "Muddy pits are dangerous", "We don't need to talk to mean people"], correta: 0, feedback: "That's it! We should have courage like Jeremiah." }
+                { p: "1. How old was Josiah when he became king?", o: ["10 years", "8 years", "16 years"], c: 1, f: "Correct! He was just a boy." },
+                { p: "2. What did Josiah do at age 20?", o: ["Destroyed false images", "Built a palace", "Traveled"], c: 0, f: "Yes! He cleaned up worship." },
+                { p: "3. What did Josiah do at age 26?", o: ["Moved city", "Made war", "Repaired the temple"], c: 2, f: "Right! He cared for God's house." },
+                { p: "4. Who found the scroll in the temple?", o: ["Josiah", "Hilkiah the priest", "Shaphan"], c: 1, f: "Correct! Hilkiah found it." },
+                { p: "5. How did Josiah react to the laws?", o: ["Cried with sadness", "Laughed", "Didn't care"], c: 0, f: "Exactly! He was sad for the people." },
+                { p: "6. Why did Jehovah love Josiah?", o: ["He was rich", "Had a palace", "Wanted to do right"], c: 2, f: "Right! God saw his heart." },
+                { p: "7. Where did people hear the laws?", o: ["At the temple", "In the square", "At the palace"], c: 0, f: "Yes! At the temple." },
+                { p: "8. What festival did Josiah organize?", o: ["Booths", "Passover", "Atonement"], c: 1, f: "Correct! A special Passover." },
+                { p: "9. How long did it last?", o: ["3 days", "10 days", "7 days"], c: 2, f: "Yes! A whole week." },
+                { p: "10. What do we learn from Josiah?", o: ["Kids can't serve God", "Love learning the Bible", "Buildings are key"], c: 1, f: "Excellent!" },
+                { p: "11. Why was Jeremiah afraid at first?", o: ["He felt too young", "Afraid of animals", "Hated walking"], c: 0, f: "Correct! But God helped." },
+                { p: "12. What object did he break?", o: ["Chair", "Clay jar", "Shield"], c: 1, f: "Exactly! A jar." },
+                { p: "13. Who beat Jeremiah?", o: ["King of Babylon", "Soldier", "Pashhur the priest"], c: 2, f: "Right! Pashhur was mean." },
+                { p: "14. Why didn't he stop preaching?", o: ["Love was like fire", "Needed money", "Bored"], c: 0, f: "Yes! Love was stronger." },
+                { p: "15. Who hated his messages?", o: ["Egyptians", "False prophets", "Kids"], c: 1, f: "Correct!" },
+                { p: "16. Where was he thrown?", o: ["Lion's cage", "Muddy pit", "The sea"], c: 1, f: "Exactly! In the mud." },
+                { p: "17. Who saved him?", o: ["Ebed-melech", "David", "Hezekiah"], c: 0, f: "Right! He was brave." },
+                { p: "18. How many men helped him?", o: ["30 men", "10 men", "5 men"], c: 0, f: "Correct!" },
+                { p: "19. How was Jeremiah?", o: ["Crybaby", "Courageous", "Grumpy"], c: 1, f: "Well done!" },
+                { p: "20. What do we learn?", o: ["Be brave speaking of God", "Mud is dangerous", "Don't talk to meanies"], c: 0, f: "That's it!" }
+            ],
+            es: [
+                { p: "1. ¿A qué edad fue Josías rey?", o: ["10 años", "8 años", "16 anos"], c: 1, f: "¡Correcto! Era muy pequeño." },
+                { p: "2. ¿Qué hizo Josías a los 20 años?", o: ["Destruyó ídolos", "Hizo un palacio", "Viajó"], c: 0, f: "¡Sí! Limpió la adoración." },
+                { p: "3. ¿Qué fez aos 26 anos?", o: ["Mudó de ciudad", "Hizo guerra", "Reparó el templo"], c: 2, f: "¡Bien! Cuidó la casa de Dios." },
+                { p: "4. ¿Quién halló el rollo?", o: ["Josías", "Hilquías, el sacerdote", "Safán"], c: 1, f: "¡Correcto! Fue Hilquías." },
+                { p: "5. ¿Qué hizo Josías ao oír la ley?", o: ["Lloró de tristeza", "Rió", "No le importó"], c: 0, f: "¡Exacto! Por el pueblo." },
+                { p: "6. ¿Por qué Dios amaba a Josías?", o: ["Era rico", "Tenía palacio", "Hizo lo correcto"], c: 2, f: "¡Sí! Vio su corazón." },
+                { p: "7. ¿Dónde oyó el pueblo la ley?", o: ["En el templo", "En la plaza", "En el palacio"], c: 0, f: "¡Sí! En el templo." },
+                { p: "8. ¿Qué fiesta organizó?", o: ["Cabañas", "Pascua", "Expiación"], c: 1, f: "¡Correcto! Una Pascua especial." },
+                { p: "9. ¿Cuánto duró la fiesta?", o: ["3 días", "10 días", "7 días"], c: 2, f: "¡Sí! Una semana entera." },
+                { p: "10. ¿Qué aprendemos?", o: ["Niños no sirven a Dios", "Amar aprender la Biblia", "Edificios son clave"], c: 1, f: "¡Excelente!" },
+                { p: "11. ¿Por qué temía Jeremías?", o: ["Se sentía muy joven", "Miedo a animales", "No hablaba bien"], c: 0, f: "¡Correcto! Dios le ayudó." },
+                { p: "12. ¿Qué objeto rompió?", o: ["Silla", "Jarra de barro", "Escudo"], c: 1, f: "¡Exacto! Una jarra." },
+                { p: "13. ¿Quién le pegó?", o: ["Rey de Babilonia", "Soldado", "Pasur, el sacerdote"], c: 2, f: "¡Bien! Pasur fue malo." },
+                { p: "14. ¿Por qué no paró de predicar?", o: ["Amor era como fuego", "Dinero", "Aburrimiento"], c: 0, f: "¡Sí! Amor fuerte." },
+                { p: "15. ¿Quién odiaba su mensaje?", o: ["Egipcios", "Profetas falsos", "Niños"], c: 1, f: "¡Correcto!" },
+                { p: "16. ¿Dónde lo tiraron?", o: ["Leones", "Hoyo con lodo", "Mar"], c: 1, f: "¡Exacto! En el lodo." },
+                { p: "17. ¿Quién lo salvó?", o: ["Ébed-mélec", "David", "Ezequías"], c: 0, f: "¡Bien! Fue valiente." },
+                { p: "18. ¿Cuántos hombres ayudaron?", o: ["30 hombres", "10 hombres", "5 hombres"], c: 0, f: "¡Correcto!" },
+                { p: "19. ¿Cómo era Jeremías?", o: ["Llorón", "Valiente", "Enojón"], c: 1, f: "¡Muy bien!" },
+                { p: "20. ¿Qué aprendemos?", o: ["Hablar de Dios con valor", "Lodo es peligroso", "No hablar con malos"], c: 0, f: "¡Eso!" }
+            ],
+            ht: [
+                { p: "1. Ki laj Jozyas te genyen lè l te vin wa?", o: ["10 an", "8 an", "16 an"], c: 1, f: "Bravo! Li te tou piti." },
+                { p: "2. Kisa Jozyas te fè lè l te gen 20 an?", o: ["Li te kraze fo zidòl", "Li te bati yon palè", "Li te vwayaje"], c: 0, f: "Wi! Li te netwaye peyi a." },
+                { p: "3. Kisa l te fè lè l te gen 26 an?", o: ["Chanje lavil", "Fè lagè", "Repare tanp lan"], c: 2, f: "Bon! Li te pran swen kay Jewova." },
+                { p: "4. Kilès ki te jwenn woulo lalwa a?", o: ["Jozyas", "Ilkiya, prèt la", "Chafan"], c: 1, f: "Bravo! Se te Ilkiya." },
+                { p: "5. Kisa Jozyas te fè lè l tande lalwa a?", o: ["Li te kriye tèlman l tris", "Li te ri", "Li pa t okipe sa"], c: 0, f: "Egzakteman! Li te tris pou pèp la." },
+                { p: "6. Poukisa Jewova te renmen Jozyas?", o: ["Li te rich", "Li te gen palè", "Li te vle fè sa k dwat"], c: 2, f: "Wi! Jewova te wè kè l." },
+                { p: "7. Ki kote pèp la te tande lalwa a?", o: ["Nan tanp lan", "Sou plas la", "Nan palè a"], c: 0, f: "Wi! Nan tanp lan." },
+                { p: "8. Ki fèt Jozyas te òganize?", o: ["Fèt Joumou", "Pak", "Fèt Padon"], c: 1, f: "Bravo! Yon Pak espesyal." },
+                { p: "9. Konbe tan fèt la te dire?", o: ["3 jou", "10 jou", "7 jou"], c: 2, f: "Wi! Yon senmenn antye." },
+                { p: "10. Kisa n aprann nan Jozyas?", o: ["Timoun pa ka sèvi Bondye", "Nou dwe renmen aprann Labib", "Bati kay pi enpòtan"], c: 1, f: "Ekselan!" },
+                { p: "11. Poukisa Jeremi te pè nan kòmansman?", o: ["Li te santi l twò jèn", "Li pè bèt", "Li pa renmen mache"], c: 0, f: "Bravo! Men Jewova te ede l." },
+                { p: "12. Ki objè Jeremi te kraze?", o: ["Yon chèz", "Yon krich an tè", "Yon bouclier"], c: 1, f: "Egzakteman! Yon krich." },
+                { p: "13. Kilès ki te bat Jeremi?", o: ["Wa Babilòn", "Yon sòlda", "Pachou, prèt la"], c: 2, f: "Bon! Pachou te mechan." },
+                { p: "14. Poukisa Jeremi pa t sispann preche?", o: ["Lanmou pou Jewova te tankou dife", "Li bezwen lajan", "Li pa t gen anyen pou l fè"], c: 0, f: "Wi! Lanmou an te pi fò." },
+                { p: "15. Kilès ki te rayi mesaj li yo?", o: ["Ejipsyen yo", "Fo pwofèt yo", "Timoun yo"], c: 1, f: "Bravo!" },
+                { p: "16. Ki kote yo te jete Jeremi?", o: ["Nan twou lyon", "Nan yon pi ki gen labou", "Nan lanmè"], c: 1, f: "Egzakteman! Nan labou a." },
+                { p: "17. Kilès ki te sove Jeremi?", o: ["Ebèdmèlèk", "David", "Ezekyas"], c: 0, f: "Bon! Li te gen kran." },
+                { p: "18. Konbe moun ki te ede l soti nan twou a?", o: ["30 moun", "10 moun", "5 moun"], c: 0, f: "Bravo!" },
+                { p: "19. Ki jan Jeremi te ye?", o: ["Li te yon plezir", "Li te gen kran", "Li te renmen goumen"], c: 1, f: "Trè byen!" },
+                { p: "20. Kisa n aprann nan Jeremi?", o: ["Pale de Jewova ak kran", "Labou danjere", "Pa pale ak moun mechan"], c: 0, f: "Sa nèt!" }
             ]
         };
 
         function mudarIdioma(lang) {
-            document.getElementById('conteudo-pt').style.display = 'none';
-            document.getElementById('conteudo-en').style.display = 'none';
-            document.getElementById('btn-pt').classList.remove('active');
-            document.getElementById('btn-en').classList.remove('active');
-            document.getElementById(`conteudo-${lang}`).style.display = 'block';
+            idiomaAtual = lang;
+            document.querySelectorAll('.language-switch button').forEach(b => b.classList.remove('active'));
             document.getElementById(`btn-${lang}`).classList.add('active');
-            renderizarQuiz(lang);
+            
+            document.getElementById('titulo-principal').textContent = labels[lang].titulo;
+            document.getElementById('subtitulo').innerHTML = labels[lang].subtitulo;
+            document.getElementById('btn-verificar-texto').textContent = labels[lang].verificar;
+            
+            renderizarQuiz();
         }
 
-        function renderizarQuiz(lang) {
-            const container = document.getElementById(`quiz-${lang}`);
-            const data = perguntas[lang];
-            const resultadoDiv = document.getElementById(`resultado-${lang}`);
-            resultadoDiv.style.display = 'none';
-            document.querySelector(`#conteudo-${lang} .btn-verificar`).style.display = 'block';
+        function renderizarQuiz() {
+            const container = document.getElementById('questoes-container');
+            const data = perguntas[idiomaAtual];
+            const resFinal = document.getElementById('resultado-final');
+            resFinal.style.display = 'none';
+            document.getElementById('btn-verificar-texto').style.display = 'block';
 
             let html = '';
             data.forEach((item, index) => {
                 let opcoesHtml = '';
-                item.opcoes.forEach((opcao, i) => {
-                    opcoesHtml += `<label><input type="radio" name="p-${lang}-${index}" value="${i}"> ${opcao}</label>`;
+                item.o.forEach((opcao, i) => {
+                    opcoesHtml += `<label><input type="radio" name="p-${index}" value="${i}"> ${opcao}</label>`;
                 });
-                html += `<div class="pergunta"><p>${item.pergunta}</p><div class="opcoes">${opcoesHtml}</div><div class="feedback" id="feedback-${lang}-${index}"></div></div>`;
+                html += `<div class="pergunta"><p>${item.p}</p><div class="opcoes">${opcoesHtml}</div><div class="feedback" id="feedback-${index}"></div></div>`;
             });
             container.innerHTML = html;
         }
 
-        function verificarRespostas(lang) {
-            const data = perguntas[lang];
+        function verificarRespostas() {
+            const data = perguntas[idiomaAtual];
+            const lab = labels[idiomaAtual];
             let pontuacao = 0;
-            let todasRespondidas = true;
+            let todas = true;
 
             for (let i = 0; i < data.length; i++) {
-                const respondida = document.querySelector(`input[name="p-${lang}-${i}"]:checked`);
-                if (!respondida) { todasRespondidas = false; break; }
+                if (!document.querySelector(`input[name="p-${i}"]:checked`)) { todas = false; break; }
             }
 
-            if (!todasRespondidas) {
-                alert(lang === 'pt' ? "Responda todas!" : "Answer all!");
-                return;
-            }
+            if (!todas) { alert(lab.erro_vazio); return; }
 
             data.forEach((item, i) => {
-                const checked = document.querySelector(`input[name="p-${lang}-${i}"]:checked`);
-                const feedbackEl = document.getElementById(`feedback-${lang}-${i}`);
-                const val = parseInt(checked.value);
-                
-                document.getElementsByName(`p-${lang}-${i}`).forEach(r => r.disabled = true);
+                const sel = document.querySelector(`input[name="p-${i}"]:checked`);
+                const fEl = document.getElementById(`feedback-${i}`);
+                const val = parseInt(sel.value);
+                document.getElementsByName(`p-${i}`).forEach(r => r.disabled = true);
 
-                if (val === item.correta) {
+                if (val === item.c) {
                     pontuacao++;
-                    feedbackEl.textContent = item.feedback;
-                    feedbackEl.className = "feedback correto";
+                    fEl.textContent = item.f;
+                    fEl.className = "feedback correto";
                 } else {
-                    feedbackEl.textContent = (lang === 'pt' ? "Resposta certa: " : "Right answer: ") + item.opcoes[item.correta];
-                    feedbackEl.className = "feedback incorreto";
+                    fEl.textContent = lab.res_certa + item.o[item.c];
+                    fEl.className = "feedback incorreto";
                 }
-                feedbackEl.style.display = 'block';
+                fEl.style.display = 'block';
             });
 
-            const res = document.getElementById(`resultado-${lang}`);
+            const res = document.getElementById('resultado-final');
             res.style.display = 'block';
-            let nivelMsg = '';
-            if (pontuacao >= 17) nivelMsg = mensagensResultado[lang].niveis[2];
-            else if (pontuacao >= 12) nivelMsg = mensagensResultado[lang].niveis[1];
-            else nivelMsg = mensagensResultado[lang].niveis[0];
-
-            res.innerHTML = `<h2>${mensagensResultado[lang].titulo}</h2><p>${mensagensResultado[lang].texto(pontuacao, data.length)}</p><p>${nivelMsg}</p>`;
+            res.innerHTML = `<h2>${lab.res_alerta}</h2><p>${lab.res_texto(pontuacao, data.length)}</p>`;
             res.scrollIntoView({ behavior: 'smooth' });
-            document.querySelector(`#conteudo-${lang} .btn-verificar`).style.display = 'none';
+            document.getElementById('btn-verificar-texto').style.display = 'none';
         }
 
         document.addEventListener('DOMContentLoaded', () => mudarIdioma('pt'));
