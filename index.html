@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Histórias 54 e 55</title>
+    <title>Quiz: Histórias 56 e 57</title>
     <style>
         body {
             font-family: sans-serif;
@@ -110,7 +110,7 @@
     </div>
 
     <div id="conteudo-pt">
-        <h1>Quiz: Histórias 54 e 55</h1>
+        <h1>Quiz: Histórias 56 e 57</h1>
         <p style="text-align: center;">Baseado no livro <em>Aprenda com as Histórias da Bíblia</em></p>
         
         <div id="quiz-pt"></div>
@@ -119,7 +119,7 @@
     </div>
 
     <div id="conteudo-en" style="display: none;">
-        <h1>Quiz: Stories 54 and 55</h1>
+        <h1>Quiz: Stories 56 and 57</h1>
         <p style="text-align: center;">Based on the book <em>Lessons You Can Learn From the Bible</em></p>
 
         <div id="quiz-en"></div>
@@ -132,62 +132,62 @@
             pt: {
                 titulo: "Resultado",
                 texto: (pontuacao, total) => `Você acertou <strong>${pontuacao}</strong> de <strong>${total}</strong> perguntas!`,
-                niveis: ["Continue estudando! Jeová fica feliz com seu esforço.", "Muito bem! Você conhece bem essas histórias!", "Incrível! Parabéns pelo ótimo resultado!"]
+                niveis: ["Continue aprendendo! Ler a Bíblia é muito divertido.", "Muito bem! Você conhece bem essas histórias!", "Incrível! Você é um expert nessas histórias!"]
             },
             en: {
                 titulo: "Result",
-                texto: (pontuacao, total) => `You got <strong>${pontuacao}</strong> out of <strong>${total}</strong> right!`,
-                niveis: ["Keep studying! Jehovah is happy with your effort.", "Well done! You know these stories well!", "Amazing! Congratulations on the great result!"]
+                texto: (pontuacao, total) => `You got <strong>${pontuacao}</strong> out of <strong>${total}</strong> questions right!`,
+                niveis: ["Keep learning! Reading the Bible is lots of fun.", "Well done! You know these stories well!", "Amazing! You are an expert on these stories!"]
             }
         };
 
         const perguntas = {
             pt: [
-                // HISTÓRIA 54
-                { pergunta: "1. Para qual cidade Jeová mandou Jonas ir pregar?", opcoes: ["Jerusalém", "Nínive", "Tarsis"], correta: 1, feedback: "Correto! Nínive era uma cidade muito grande." },
-                { pergunta: "2. O que Jonas fez ao receber a missão?", opcoes: ["Fugiu em um barco para Tarsis", "Foi correndo para Nínive", "Escondeu-se numa caverna"], correta: 0, feedback: "Isso mesmo, ele tentou fugir pelo mar." },
-                { pergunta: "3. O que Jeová enviou enquanto Jonas estava no barco?", opcoes: ["Um vento suave", "Uma chuva de pedras", "Uma grande tempestade"], correta: 2, feedback: "Certo! A tempestade quase quebrou o barco." },
-                { pergunta: "4. Quando os marinheiros jogaram Jonas no mar, o que aconteceu?", opcoes: ["O mar virou gelo", "A tempestade parou", "Jonas nadou até a praia"], correta: 1, feedback: "Exato! O mar se acalmou imediatamente." },
-                { pergunta: "5. Quem salvou Jonas de se afogar?", opcoes: ["Um grande peixe", "Um navio vizinho", "Um anjo"], correta: 0, feedback: "Correto! O peixe engoliu Jonas para salvá-lo." },
-                { pergunta: "6. Por quanto tempo Jonas ficou dentro do peixe?", opcoes: ["1 dia", "5 dias", "3 dias"], correta: 2, feedback: "Isso! 3 dias e 3 noites." },
-                { pergunta: "7. Jonas orou dentro do peixe. O que ele prometeu?", opcoes: ["Que nunca mais viajaria de barco", "Que obedeceria a Jeová", "Que ficaria morando no mar"], correta: 1, feedback: "Certo! Ele se arrependeu e prometeu obedecer." },
-                { pergunta: "8. Os moradores de Nínive mudaram de atitude?", opcoes: ["Não, eles continuaram maus", "Sim, eles se arrependeram", "Eles fugiram da cidade"], correta: 1, feedback: "Sim! Eles pararam de fazer coisas erradas." },
-                { pergunta: "9. Que planta Jeová usou para dar sombra a Jonas?", opcoes: ["Um pé de maçã", "Uma palmeira", "Um cabaceiro"], correta: 2, feedback: "Isso mesmo! Jeová usou a planta para ensinar Jonas." },
-                { pergunta: "10. O que aprendemos sobre Jeová aqui?", opcoes: ["Ele é impaciente", "Ele é paciente e misericordioso", "Ele desiste das pessoas"], correta: 1, feedback: "Excelente! Jeová dá chances para mudarmos." },
-                // HISTÓRIA 55
-                { pergunta: "11. Como era o rei Ezequias?", opcoes: ["Um rei bom que amava a Jeová", "Um rei que adorava ídolos", "Um rei que tinha medo de tudo"], correta: 0, feedback: "Correto! Ele foi um dos melhores reis de Judá." },
-                { pergunta: "12. Quem enviou cartas ameaçando Jerusalém?", opcoes: ["Os egípcios", "Senaqueribe, rei da Assíria", "Os babilônios"], correta: 1, feedback: "Isso! Senaqueribe queria que o povo se rendesse." },
-                { pergunta: "13. O que Ezequias fez com as cartas ameaçadoras?", opcoes: ["Rasgou e jogou fora", "Escondeu do povo", "Levou ao templo e orou a Jeová"], correta: 2, feedback: "Exato! Ele buscou a ajuda de Jeová no templo." },
-                { pergunta: "14. Qual profeta disse que Jeová protegeria a cidade?", opcoes: ["Isaías", "Jonas", "Daniel"], correta: 0, feedback: "Certo! Isaías trouxe a mensagem de consolo." },
-                { pergunta: "15. Como Jeová derrotou o enorme exército assírio?", opcoes: ["Mandou um dilúvio", "Enviou um anjo para lutar", "Fez a terra se abrir"], correta: 1, feedback: "Correto! Um anjo derrotou o exército em uma noite." },
-                { pergunta: "16. Quantos soldados o anjo destruiu?", opcoes: ["50.000", "100.000", "185.000"], correta: 2, feedback: "Isso mesmo! 185 mil soldados." },
-                { pergunta: "17. Ezequias ficou muito doente. O que ele fez?", opcoes: ["Pediu ajuda a outros deuses", "Orou a Jeová chorando", "Desistiu de viver"], correta: 1, feedback: "Isso! Ele confiou em Jeová até na doença." },
-                { pergunta: "18. Quantos anos a mais de vida Jeová deu a ele?", opcoes: ["15 anos", "10 anos", "5 anos"], correta: 0, feedback: "Correto! Jeová ouviu a oração e o curou." },
-                { pergunta: "19. Que sinal Jeová deu para mostrar que ele seria curado?", opcoes: ["Fez chover fogo", "Fez a sombra recuar dez degraus", "Fez o sol parar"], correta: 1, feedback: "Exato! Um milagre incrível na sombra." },
-                { pergunta: "20. O que aprendemos sobre a oração?", opcoes: ["Só os reis são ouvidos", "Jeová ouve as orações de quem confia nele", "Orar não muda nada"], correta: 1, feedback: "Muito bem! A oração nos aproxima de Jeová." }
+                // HISTÓRIA 56 - Josias amava aprender sobre Jeová
+                { pergunta: "1. Com quantos anos Josias se tornou rei de Judá?", opcoes: ["10 anos", "8 anos", "16 anos"], correta: 1, feedback: "Correto! Ele começou a reinar bem criancinha." },
+                { pergunta: "2. O que Josias fez quando tinha 20 anos?", opcoes: ["Destruiu imagens e altares de deuses falsos", "Construiu um novo palácio", "Viajou para o Egito"], correta: 0, feedback: "Isso mesmo! Ele limpou a terra da adoração falsa." },
+                { pergunta: "3. O que Josias mandou fazer quando tinha 26 anos?", opcoes: ["Mudar de cidade", "Organizar uma guerra", "Reformar o templo de Jeová"], correta: 2, feedback: "Certo! Ele quis cuidar da casa de Jeová." },
+                { pergunta: "4. Quem encontrou o rolo com as leis de Jeová durante a reforma?", opcoes: ["Josias", "Hilquias, o sumo sacerdote", "Safã, o secretário"], correta: 1, feedback: "Correto! Hilquias achou o rolo no templo." },
+                { pergunta: "5. Qual foi a reação de Josias ao ouvir a leitura das leis?", opcoes: ["Ele ficou muito triste e chorou", "Ele ficou muito feliz e deu risada", "Ele não deu importância"], correta: 0, feedback: "Exato! Ele ficou triste porque o povo não estava obedecendo." },
+                { pergunta: "6. Por que Jeová prometeu que o castigo de Judá só viria depois da morte de Josias?", opcoes: ["Porque Josias era muito rico", "Porque Judá era um lugar bonito", "Porque Josias quis fazer o que era certo"], correta: 2, feedback: "Certo! Jeová viu o coração bom de Josias." },
+                { pergunta: "7. Onde Josias reuniu o povo para ler as leis de Jeová?", opcoes: ["No templo", "Na praça da cidade", "No seu palácio"], correta: 0, feedback: "Isso! Ele reuniu todo mundo no templo." },
+                { pergunta: "8. Que festa importante Josias organizou para o povo comemorar?", opcoes: ["A Festividade das Barracas", "A Páscoa", "O Dia da Expiação"], correta: 1, feedback: "Correto! Foi uma Páscoa muito especial." },
+                { pergunta: "9. Por quanto tempo durou a Festividade dos Pães sem Fermento que eles fizeram?", opcoes: ["3 dias", "10 dias", "7 dias"], correta: 2, feedback: "Isso mesmo! Durou uma semana inteirinha." },
+                { pergunta: "10. O que aprendemos com a história de Josias?", opcoes: ["Que crianças não podem servir a Jeová", "Que devemos amar aprender sobre Jeová e suas leis", "Que reformar prédios é a coisa mais importante"], correta: 1, feedback: "Excelente! Devemos sempre querer aprender sobre Jeová." },
+                // HISTÓRIA 57 - Jeremias pregou com coragem
+                { pergunta: "11. Por que Jeremias ficou com receio quando Jeová o escolheu como profeta?", opcoes: ["Ele achava que era jovem demais e não sabia falar", "Ele não gostava de viajar", "Ele tinha medo de animais"], correta: 0, feedback: "Correto! Mas Jeová prometeu ajudá-lo." },
+                { pergunta: "12. Que objeto Jeová mandou Jeremias quebrar para ensinar uma lição?", opcoes: ["Uma cadeira de madeira", "Um jarro de barro", "Um escudo de metal"], correta: 1, feedback: "Exato! Ele quebrou o jarro na frente dos líderes." },
+                { pergunta: "13. Quem bateu em Jeremias e o prendeu por uma noite?", opcoes: ["O rei de Babilônia", "Um soldado assírio", "Pasur, o sacerdote"], correta: 2, feedback: "Certo! Pasur foi muito maldoso com ele." },
+                { pergunta: "14. Jeremias pensou em desistir de pregar, mas por que ele não parou?", opcoes: ["A mensagem era como um fogo dentro dele", "Ele precisava de dinheiro", "Ele não tinha mais nada para fazer"], correta: 0, feedback: "Isso! O amor por Jeová era mais forte que o cansaço." },
+                { pergunta: "15. Quem queria matar Jeremias porque odiava suas mensagens?", opcoes: ["Os egípcios", "Os sacerdotes e profetas falsos", "As crianças de Jerusalém"], correta: 1, feedback: "Correto! Eles não queriam ouvir a verdade." },
+                { pergunta: "16. Onde os príncipes jogaram Jeremias para que ele morresse?", opcoes: ["Numa jaula com leões", "Num buraco fundo cheio de lama", "No meio do mar"], correta: 1, feedback: "Exato! Ele começou a afundar na lama." },
+                { pergunta: "17. Quem foi o homem bondoso que salvou Jeremias do buraco?", opcoes: ["Ebede-Meleque", "Davi", "Ezequias"], correta: 0, feedback: "Certo! Ele foi falar com o rei para salvar Jeremias." },
+                { pergunta: "18. Quantos homens foram ajudar a tirar Jeremias do buraco?", opcoes: ["30 homens", "10 homens", "5 homens"], correta: 0, feedback: "Correto! Foi preciso muita ajuda." },
+                { pergunta: "19. Como Jeremias agia mesmo quando as pessoas eram ruins com ele?", opcoes: ["Ele chorava e se escondia", "Ele era corajoso e nunca parou de pregar", "Ele brigava com todo mundo"], correta: 1, feedback: "Muito bem! Ele foi um exemplo de coragem." },
+                { pergunta: "20. O que aprendemos com Jeremias?", opcoes: ["Que devemos ser corajosos ao falar de Jeová", "Que buracos de lama são perigosos", "Que não precisamos falar com quem é bravo"], correta: 0, feedback: "Isso mesmo! Devemos ter coragem como Jeremias." }
             ],
             en: [
-                // STORIES 54 & 55 ENGLISH
-                { pergunta: "1. Where did Jehovah send Jonah to preach?", opcoes: ["Jerusalem", "Nineveh", "Tarshish"], correta: 1, feedback: "Correct!" },
-                { pergunta: "2. What did Jonah do?", opcoes: ["Ran away on a boat", "Ran to Nineveh", "Hid in a cave"], correta: 0, feedback: "That's right, he tried to run away." },
-                { pergunta: "3. What did Jehovah send to the boat?", opcoes: ["Soft wind", "Hailstorm", "A great storm"], correta: 2, feedback: "Correct!" },
-                { pergunta: "4. When Jonah was thrown overboard, what happened?", opcoes: ["Sea turned to ice", "Storm stopped", "He swam to shore"], correta: 1, feedback: "Exactly!" },
-                { pergunta: "5. Who saved Jonah from drowning?", opcoes: ["A big fish", "A nearby ship", "An angel"], correta: 0, feedback: "Correct!" },
-                { pergunta: "6. How long was Jonah inside the fish?", opcoes: ["1 day", "5 days", "3 days"], correta: 2, feedback: "Yes! 3 days." },
-                { pergunta: "7. What did Jonah promise Jehovah?", opcoes: ["No more boats", "To obey him", "To live at sea"], correta: 1, feedback: "Correct!" },
-                { pergunta: "8. Did the people of Nineveh change?", opcoes: ["No", "Yes, they repented", "They ran away"], correta: 1, feedback: "Yes!" },
-                { pergunta: "9. What plant gave Jonah shade?", opcoes: ["Apple tree", "Palm tree", "Bottle-gourd plant"], correta: 2, feedback: "Correct!" },
-                { pergunta: "10. What do we learn about Jehovah?", opcoes: ["He is impatient", "He is patient and merciful", "He gives up"], correta: 1, feedback: "Excellent!" },
-                { pergunta: "11. What kind of king was Hezekiah?", opcoes: ["A good king", "An idol worshiper", "A fearful king"], correta: 0, feedback: "Correct!" },
-                { pergunta: "12. Who threatened Jerusalem?", opcoes: ["Egyptians", "Sennacherib, king of Assyria", "Babylonians"], correta: 1, feedback: "Correct!" },
-                { pergunta: "13. What did Hezekiah do with the letters?", opcoes: ["Burned them", "Hid them", "Prayed to Jehovah"], correta: 2, feedback: "Exactly!" },
-                { pergunta: "14. Which prophet brought comfort?", opcoes: ["Isaiah", "Jonah", "Daniel"], correta: 0, feedback: "Correct!" },
-                { pergunta: "15. How did Jehovah defeat the army?", opcoes: ["A flood", "Sent an angel", "Opened the earth"], correta: 1, feedback: "Correct!" },
-                { pergunta: "16. How many soldiers did the angel destroy?", opcoes: ["50,000", "100,000", "185,000"], correta: 2, feedback: "Correct!" },
-                { pergunta: "17. Hezekiah got sick. What did he do?", opcoes: ["Asked other gods", "Prayed to Jehovah", "Gave up"], correta: 1, feedback: "Correct!" },
-                { pergunta: "18. How many more years did he live?", opcoes: ["15 years", "10 years", "5 years"], correta: 0, feedback: "Correct!" },
-                { pergunta: "19. What sign did Jehovah give?", opcoes: ["Fire rain", "The shadow went back", "Sun stopped"], correta: 1, feedback: "Correct!" },
-                { pergunta: "20. What do we learn about prayer?", opcoes: ["Only kings are heard", "Jehovah hears those who trust him", "Prayer doesn't work"], correta: 1, feedback: "Well done!" }
+                // STORIES 56 & 57 ENGLISH
+                { pergunta: "1. How old was Josiah when he became king of Judah?", opcoes: ["10 years old", "8 years old", "16 years old"], correta: 1, feedback: "Correct! He was just a little boy." },
+                { pergunta: "2. What did Josiah do when he was 20 years old?", opcoes: ["Destroyed false images and altars", "Built a new palace", "Traveled to Egypt"], correta: 0, feedback: "That's right! He cleaned the land of false worship." },
+                { pergunta: "3. What did Josiah order to be done when he was 26?", opcoes: ["Move to another city", "Organize a war", "Repair Jehovah's temple"], correta: 2, feedback: "Right! He wanted to take care of Jehovah's house." },
+                { pergunta: "4. Who found the scroll of Jehovah's laws during the repairs?", opcoes: ["Josiah", "Hilkiah the high priest", "Shaphan the secretary"], correta: 1, feedback: "Correct! Hilkiah found it in the temple." },
+                { pergunta: "5. How did Josiah react when he heard the laws read?", opcoes: ["He was very sad and cried", "He was very happy and laughed", "He didn't care"], correta: 0, feedback: "Exactly! He was sad because the people were not obeying." },
+                { pergunta: "6. Why did Jehovah promise that Judah's punishment would come only after Josiah's death?", opcoes: ["Because Josiah was very rich", "Because Judah was a beautiful place", "Because Josiah wanted to do what was right"], correta: 2, feedback: "Right! Jehovah saw Josiah's good heart." },
+                { pergunta: "7. Where did Josiah gather the people to read the laws?", opcoes: ["At the temple", "In the city square", "In his palace"], correta: 0, feedback: "Yes! He gathered everyone at the temple." },
+                { pergunta: "8. What important festival did Josiah organize?", opcoes: ["Festival of Booths", "The Passover", "Day of Atonement"], correta: 1, feedback: "Correct! It was a very special Passover." },
+                { pergunta: "9. How long did the Festival of Unleavened Bread last?", opcoes: ["3 days", "10 days", "7 days"], correta: 2, feedback: "That's right! it lasted a whole week." },
+                { pergunta: "10. What do we learn from Josiah's story?", opcoes: ["Children cannot serve Jehovah", "We should love to learn about Jehovah and his laws", "Repairing buildings is the most important thing"], correta: 1, feedback: "Excellent! We should always want to learn about Jehovah." },
+                { pergunta: "11. Why was Jeremiah afraid when Jehovah chose him to be a prophet?", opcoes: ["He thought he was too young and didn't know how to speak", "He didn't like to travel", "He was afraid of animals"], correta: 0, feedback: "Correct! But Jehovah promised to help him." },
+                { pergunta: "12. What object did Jehovah tell Jeremiah to break to teach a lesson?", opcoes: ["A wooden chair", "A clay jar", "A metal shield"], correta: 1, feedback: "Exactly! He broke the jar in front of the leaders." },
+                { pergunta: "13. Who beat Jeremiah and locked him up for a night?", opcoes: ["The king of Babylon", "An Assyrian soldier", "Pashhur the priest"], correta: 2, feedback: "Right! Pashhur was very mean to him." },
+                { pergunta: "14. Jeremiah thought about quitting, but why didn't he stop?", opcoes: ["The message was like a fire inside him", "He needed money", "He had nothing else to do"], correta: 0, feedback: "Yes! Love for Jehovah was stronger than tiredness." },
+                { pergunta: "15. Who wanted to kill Jeremiah because they hated his messages?", opcoes: ["The Egyptians", "The priests and false prophets", "The children of Jerusalem"], correta: 1, feedback: "Correct! They didn't want to hear the truth." },
+                { pergunta: "16. Where did the princes throw Jeremiah to die?", opcoes: ["In a lion's cage", "In a deep, muddy pit", "In the middle of the sea"], correta: 1, feedback: "Exactly! He started to sink in the mud." },
+                { pergunta: "17. Who was the kind man who saved Jeremiah from the pit?", opcoes: ["Ebed-melech", "David", "Hezekiah"], correta: 0, feedback: "Right! He spoke to the king to save Jeremiah." },
+                { pergunta: "18. How many men went to help pull Jeremiah out of the pit?", opcoes: ["30 men", "10 men", "5 men"], correta: 0, feedback: "Correct! It took a lot of help." },
+                { pergunta: "19. How did Jeremiah act even when people were mean to him?", opcoes: ["He cried and hid", "He was courageous and never stopped preaching", "He fought with everyone"], correta: 1, feedback: "Well done! He was an example of courage." },
+                { pergunta: "20. What do we learn from Jeremiah?", opcoes: ["We should be courageous when speaking about Jehovah", "Muddy pits are dangerous", "We don't need to talk to mean people"], correta: 0, feedback: "That's it! We should have courage like Jeremiah." }
             ]
         };
 
@@ -246,7 +246,7 @@
                     feedbackEl.textContent = item.feedback;
                     feedbackEl.className = "feedback correto";
                 } else {
-                    feedbackEl.textContent = (lang === 'pt' ? "Resposta: " : "Answer: ") + item.opcoes[item.correta];
+                    feedbackEl.textContent = (lang === 'pt' ? "Resposta certa: " : "Right answer: ") + item.opcoes[item.correta];
                     feedbackEl.className = "feedback incorreto";
                 }
                 feedbackEl.style.display = 'block';
@@ -254,7 +254,13 @@
 
             const res = document.getElementById(`resultado-${lang}`);
             res.style.display = 'block';
-            res.innerHTML = `<h2>${mensagensResultado[lang].titulo}</h2><p>${mensagensResultado[lang].texto(pontuacao, data.length)}</p>`;
+            let nivelMsg = '';
+            if (pontuacao >= 17) nivelMsg = mensagensResultado[lang].niveis[2];
+            else if (pontuacao >= 12) nivelMsg = mensagensResultado[lang].niveis[1];
+            else nivelMsg = mensagensResultado[lang].niveis[0];
+
+            res.innerHTML = `<h2>${mensagensResultado[lang].titulo}</h2><p>${mensagensResultado[lang].texto(pontuacao, data.length)}</p><p>${nivelMsg}</p>`;
+            res.scrollIntoView({ behavior: 'smooth' });
             document.querySelector(`#conteudo-${lang} .btn-verificar`).style.display = 'none';
         }
 
