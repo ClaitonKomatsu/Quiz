@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Histórias 58 e 59</title>
+    <title>Quiz: Histórias 60 e 61</title>
     <style>
         body {
             font-family: sans-serif;
@@ -14,6 +14,13 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .idioma-container {
+            text-align: right;
+            margin-bottom: 20px;
+            background: #e2f3ff;
+            padding: 10px;
+            border-radius: 8px;
         }
         h1, h2 {
             text-align: center;
@@ -70,19 +77,35 @@
             text-align: center;
             display: none;
         }
+        select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #005a9c;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Quiz Bíblico para Crianças</h1>
-    <p style="text-align: center;">Vamos testar o que você aprendeu nas histórias 58 e 59!</p>
+    <div class="idioma-container">
+        <label for="select-idioma">🌐 </label>
+        <select id="select-idioma" onchange="mudarIdioma()">
+            <option value="pt">Português</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="ht">Kreyòl Ayisyen</option>
+        </select>
+    </div>
+
+    <h1 id="txt-titulo">Quiz Bíblico para Crianças</h1>
+    <p id="txt-subtitulo" style="text-align: center;">Vamos testar o que você aprendeu!</p>
 
     <div id="quiz-container">
-        <h3>História 58: A destruição de Jerusalém</h3>
-        <div id="questoes-58"></div>
+        <h3 id="txt-h60">História 60: O sonho da estátua</h3>
+        <div id="questoes-60"></div>
 
-        <h3>História 59: Quatro jovens obedecem a Jeová</h3>
-        <div id="questoes-59"></div>
+        <h3 id="txt-h61">História 61: Três jovens no fogo</h3>
+        <div id="questoes-61"></div>
     </div>
 
     <button id="btn-verificar" onclick="verificarRespostas()">Verificar Respostas</button>
@@ -90,96 +113,197 @@
     <div id="resultado-final"></div>
 
     <script>
-        const dadosQuiz = [
-            // História 58
-            { q: "Por que Jeová deixou Jerusalém ser destruída?", o: ["Porque o povo adorava deuses falsos e não ouvia os profetas", "Porque o templo era muito velho", "Porque o rei Nabucodonosor era amigo de Jeová"], c: 0, f: "Isso mesmo! O povo se afastou de Jeová e ignorou os avisos dos profetas. [História 58, parágrafo 1]" },
-            { q: "Quem era o rei de Babilônia que invadiu Jerusalém?", o: ["Davi", "Nabucodonosor", "Saul"], c: 1, f: "Correto! Nabucodonosor era o poderoso rei de Babilônia. [História 58, parágrafo 5]" },
-            { q: "O que Nabucodonosor levou do templo de Jeová?", o: ["Apenas as pedras", "Nada, ele deixou tudo lá", "Todos os tesouros"], c: 2, f: "Certinho! Ele levou as coisas valiosas do templo para Babilônia. [História 58, parágrafo 6]" },
-            { q: "Quem foi o profeta que avisou o rei Zedequias para se entregar?", o: ["Jeremias", "Elias", "Samuel"], c: 0, f: "Muito bem! Jeremias foi corajoso e deu o aviso de Jeová. [História 58, parágrafo 11]" },
-            { q: "O rei Zedequias ouviu o conselho de Jeremias?", o: ["Sim, ele se entregou na hora", "Não, ele disse que nunca se entregaria", "Ele pediu um tempo para pensar"], f_err: "Incorreto. Zedequias foi teimoso e não quis ouvir o aviso de Deus. [História 58, parágrafo 17]", c: 1, f: "Isso. Infelizmente, Zedequias foi teimoso e não obedeceu. [História 58, parágrafo 17]" },
-            { q: "Quanto tempo durou o cerco contra Jerusalém antes de ela ser queimada?", o: ["Um mês", "Um ano e meio", "Dez anos"], c: 1, f: "Correto! Foi um tempo muito difícil para as pessoas dentro da cidade. [História 58, parágrafo 18]" },
-            { q: "O que aconteceu com o lindo templo de Jeová?", o: ["Nabucodonosor o transformou em palácio", "Ele ficou protegido", "Os babilônios o queimaram"], c: 2, f: "Infelizmente os babilônios queimaram o templo e a cidade. [História 58, parágrafo 19]" },
-            { q: "Qual foi o triste fim de Zedequias?", o: ["Ele fugiu e viveu feliz no Egito", "Ele foi cegado e levado preso para Babilônia", "Ele se tornou o melhor amigo de Nabucodonosor"], c: 1, f: "Exato. Ele foi capturado e sofreu muito por ter desobedecido. [História 58, parágrafo 22]" },
-            { q: "Quantos anos o povo de Judá ficaria preso antes de voltar para casa?", o: ["7 anos", "700 anos", "70 anos"], c: 2, f: "Isso mesmo! Jeová prometeu trazê-los de volta depois de 70 anos. [História 58, parágrafo 23]" },
-            { q: "Deus abandonou seu povo para sempre?", o: ["Sim, ele nunca mais falou com eles", "Não, ele prometeu trazê-los de volta", "Ele esqueceu que eles existiam"], c: 1, f: "Correto! Jeová é fiel e sempre cumpre suas promessas. [História 58, parágrafo 23]" },
+        const uiTextos = {
+            pt: { titulo: "Quiz Bíblico para Crianças", subtitulo: "Histórias 60 e 61", h60: "História 60: O sonho da estátua", h61: "História 61: A fornalha de fogo", btn: "Verificar Respostas", erro: "Por favor, responda todas as perguntas!", fim: "Fim do Quiz!", acertou: "Você acertou", de: "de", corretaEra: "A resposta certa era: " },
+            en: { titulo: "Bible Quiz for Kids", subtitulo: "Stories 60 and 61", h60: "Story 60: The Dream of the Statue", h61: "Story 61: The Fiery Furnace", btn: "Check Answers", erro: "Please answer all questions!", fim: "Quiz Finished!", acertou: "You got", de: "out of", corretaEra: "The correct answer was: " },
+            es: { titulo: "Quiz Bíblico para Niños", subtitulo: "Historias 60 y 61", h60: "Historia 60: El sueño de la estatua", h61: "Historia 61: El horno de fuego", btn: "Verificar", erro: "¡Responde todas!", fim: "¡Fin del Quiz!", acertou: "Acertaste", de: "de", corretaEra: "La respuesta era: " },
+            ht: { titulo: "Kwiz Biblik pou Timoun", subtitulo: "Istwa 60 ak 61", h60: "Istwa 60: Rèv gwo estati a", h61: "Istwa 61: Founèz dife a", btn: "Tcheke Repons yo", erro: "Tanpri reponn tout!", fim: "Kwiz la fini!", acertou: "Ou jwenn", de: "sou", corretaEra: "Bon repons lan se te: " }
+        };
 
-            // História 59
-            { q: "Quem o rei Nabucodonosor mandou escolher para trabalhar no palácio?", o: ["Pessoas velhas e cansadas", "Os jovens mais saudáveis e espertos", "Apenas soldados"], c: 1, f: "Correto! Ele queria os melhores jovens para serem treinados. [História 59, parágrafo 2]" },
-            { q: "Quanto tempo duraria o treinamento desses jovens?", o: ["Três anos", "Três meses", "A vida toda"], c: 0, f: "Isso! Eles teriam que aprender a língua e a cultura de Babilônia por 3 anos. [História 59, parágrafo 3]" },
-            { q: "Quais eram os nomes dos quatro jovens amigos?", o: ["Pedro, Tiago, João e André", "Saul, Davi, Salomão e Josias", "Daniel, Hananias, Misael e Azarias"], c: 2, f: "Certinho! Esses quatro jovens eram muito amigos e amavam a Jeová. [História 59, parágrafo 6]" },
-            { q: "Por que eles não queriam comer a comida do rei?", o: ["Porque a comida era ruim", "Porque a lei de Jeová não permitia comer aquelas coisas", "Porque eles não estavam com fome"], c: 1, f: "Muito bem! Eles queriam obedecer a Jeová acima de tudo. [História 59, parágrafo 10]" },
-            { q: "Qual foi o teste que Daniel sugeriu ao guarda?", o: ["Comer apenas carnes diferentes", "Ficar sem comer nada", "Comer apenas verduras e beber água por 10 dias"], c: 2, f: "Exato! Daniel confiou que Jeová cuidaria deles com essa alimentação simples. [História 59, parágrafo 14]" },
-            { q: "O que aconteceu depois dos 10 dias de teste?", o: ["Eles ficaram doentes", "Eles pareciam ter mais saúde do que os outros jovens", "Eles continuaram iguais a todos"], c: 1, f: "Incrível! Jeová os abençoou e eles ficaram mais fortes e saudáveis. [História 59, parágrafo 16]" },
-            { q: "Que presente especial Jeová deu para Daniel?", o: ["Muita riqueza", "Poder para voar", "Sabedoria para entender sonhos"], c: 2, f: "Isso mesmo! Essa habilidade ajudaria Daniel muitas vezes no palácio. [História 59, parágrafo 18]" },
-            { q: "Quando o rei conversou com os quatro jovens, o que ele percebeu?", o: ["Que eles eram os mais inteligentes e atentos", "Que eles eram preguiçosos", "Que eles queriam voltar para casa"], c: 0, f: "Correto! O rei ficou impressionado com a inteligência deles. [História 59, parágrafo 20]" },
-            { q: "Daniel e seus amigos esqueceram de Jeová por estarem longe de casa?", o: ["Sim, eles começaram a adorar os deuses de Babilônia", "Não, eles continuaram leais a Jeová", "Eles esqueceram o nome de Deus"], c: 1, f: "Excelente! Eles são ótimos exemplos de lealdade para nós hoje. [História 59, parágrafo 25]" },
-            { q: "O que aprendemos com esses quatro jovens?", o: ["Que devemos fazer o que todo mundo faz", "Que devemos ser obedientes a Jeová mesmo longe dos pais", "Que estudar é chato"], c: 1, f: "Essa é a grande lição! Jeová fica feliz quando jovens como você escolhem o que é certo. [História 59, parágrafo 26]" }
+        const dadosQuiz = [
+            // HISTÓRIA 60 (10 QUESTÕES)
+            { 
+                q: { pt: "Por que o rei Nabucodonosor não conseguia dormir?", en: "Why couldn't King Nebuchadnezzar sleep?", es: "¿Por qué el rey Nabucodonosor no podía dormir?", ht: "Poukisa wa Nebikadneza pa t ka dòmi?" },
+                o: { pt: ["Ele estava doente", "Ele teve um sonho que o assustou", "Ele estava com fome"], en: ["He was sick", "He had a scary dream", "He was hungry"], es: ["Estaba enfermo", "Tuvo un sueño que lo asustó", "Tenía hambre"], ht: ["Li te malad", "Li te fè yon rèv ki te fè l pè", "Li te grangou"] },
+                c: 1, f: { pt: "Isso! O sonho o deixou muito preocupado.", en: "Right! The dream made him very worried.", es: "¡Sí! El sueño lo dejó muy preocupado.", ht: "Wi! Rèv la te boulvèse l anpil." }
+            },
+            { 
+                q: { pt: "Quem contou o sonho e o significado ao rei?", en: "Who told the dream and its meaning to the king?", es: "¿Quién contó el sueño y su significado al rey?", ht: "Kilès ki te esplike wa a rèv la ak sa l vle di?" },
+                o: { pt: ["Os magos de Babilônia", "Daniel", "Os soldados"], en: ["The magicians", "Daniel", "The soldiers"], es: ["Los magos", "Daniel", "Los soldados"], ht: ["Moun ki fè maji yo", "Danyèl", "Sòlda yo"] },
+                c: 1, f: { pt: "Correto! Jeová revelou o segredo a Daniel.", en: "Correct! Jehovah revealed the secret to Daniel.", es: "¡Correcto! Jehová le reveló el secreto a Daniel.", ht: "Kòrèk! Jewova te fè Danyèl konnen sekrè a." }
+            },
+            { 
+                q: { pt: "De que era feita a cabeça da estátua?", en: "What was the head of the statue made of?", es: "¿De qué era la cabeza de la estatua?", ht: "Ak kisa tèt estati a te fèt?" },
+                o: { pt: ["Prata", "Ferro", "Ouro"], en: ["Silver", "Iron", "Gold"], es: ["Plata", "Hierro", "Oro"], ht: ["Ajan", "Fè", "Lò"] },
+                c: 2, f: { pt: "Certo! O ouro representava Nabucodonosor.", en: "Right! The gold represented Nebuchadnezzar.", es: "¡Bien! El oro representaba a Nabucodonosor.", ht: "Wi! Lò a te reprezante Nebikadneza." }
+            },
+            { 
+                q: { pt: "O que os braços e o peito de prata representavam?", en: "What did the silver arms and chest represent?", es: "¿Qué representaban los brazos y el pecho de plata?", ht: "Kisa bra ak pwatrin an ajan yo te reprezante?" },
+                o: { pt: ["O reino que viria depois de Babilônia", "O reino de Daniel", "O fim do mundo"], en: ["The kingdom after Babylon", "Daniel's kingdom", "The end of the world"], es: ["El reino después de Babilonia", "El reino de Daniel", "El fin del mundo"], ht: ["Wayòm ki t apral vin apre Babilòn lan", "Wayòm Danyèl la", "Lafen mond lan"] },
+                c: 0, f: { pt: "Isso mesmo! Cada parte era um reino diferente.", en: "That's right! Each part was a different kingdom.", es: "¡Así es! Cada parte era un reino diferente.", ht: "Se sa! Chak pati te reprezante yon wayòm diferan." }
+            },
+            { 
+                q: { pt: "O que aconteceu com a estátua no sonho?", en: "What happened to the statue in the dream?", es: "¿Qué le pasó a la estatua en el sueño?", ht: "Kisa k te rive estati a nan rèv la?" },
+                o: { pt: ["Ela caiu sozinha", "Uma pedra bateu nos pés dela e a destruiu", "Ela derreteu no sol"], en: ["It fell by itself", "A stone hit its feet and destroyed it", "It melted in the sun"], es: ["Se cayó sola", "Una piedra golpeó sus pies y la destruyó", "Se derritió al sol"], ht: ["Li tonbe pou kont li", "Yon ròch frape pye l epi l kraze l", "Li fonde anba solèy la"] },
+                c: 1, f: { pt: "Correto! A pedra virou uma grande montanha.", en: "Correct! The stone became a large mountain.", es: "¡Correcto! La piedra se convirtió en una gran montaña.", ht: "Kòrèk! Ròch la te vin tounen yon gwo mòn." }
+            },
+            { 
+                q: { pt: "A pedra que destruiu a estátua representa o quê?", en: "What does the stone that destroyed the statue represent?", es: "¿Qué representa la piedra que destruyó la estatua?", ht: "Ròch ki te kraze estati a reprezante kisa?" },
+                o: { pt: ["O Reino de Deus", "Um grande exército", "Uma chuva de pedras"], en: ["God's Kingdom", "A large army", "A hailstorm"], es: ["El Reino de Dios", "Un gran ejército", "Una lluvia de piedras"], ht: ["Wayòm Bondye a", "Yon gwo lame", "Yon lapli ròch"] },
+                c: 0, f: { pt: "Exato! O Reino de Deus nunca será destruído.", en: "Exactly! God's Kingdom will never be destroyed.", es: "¡Exacto! El Reino de Dios nunca será destruido.", ht: "Egzak! Wayòm Bondye a pap janm detwi." }
+            },
+            { 
+                q: { pt: "O que Nabucodonosor queria fazer com os sábios antes de Daniel aparecer?", en: "What did Nebuchadnezzar want to do to the wise men?", es: "¿Qué quería hacer el rey con los sabios?", ht: "Kisa wa a te vle fè moun saj yo?" },
+                o: { pt: ["Dar presentes", "Mandar matar todos", "Fazer uma festa"], en: ["Give gifts", "Have them all killed", "Have a party"], es: ["Darles regalos", "Mandarlos a matar", "Hacer una fiesta"], ht: ["Ba yo kado", "Touye yo tout", "Fè yon fèt"] },
+                c: 1, f: { pt: "Sim, ele estava muito furioso.", en: "Yes, he was very furious.", es: "Sí, estaba muy furioso.", ht: "Wi, li te fache anpil." }
+            },
+            { 
+                q: { pt: "Daniel pediu glória para si mesmo por explicar o sonho?", en: "Did Daniel take credit for explaining the dream?", es: "¿Daniel pidió gloria para sí mismo?", ht: "Èske Danyèl te pran glwa pou tèt li?" },
+                o: { pt: ["Sim", "Não, ele deu o crédito a Deus", "Ele fugiu"], en: ["Yes", "No, he gave credit to God", "He ran away"], es: ["Sí", "No, le dio el crédito a Dios", "Huyó"], ht: ["Wi", "Non, li te bay Bondye glwa a", "Li te kouri"] },
+                c: 1, f: { pt: "Isso! Daniel foi humilde.", en: "Right! Daniel was humble.", es: "¡Sí! Daniel fue humilde.", ht: "Wi! Danyèl te gen imilite." }
+            },
+            { 
+                q: { pt: "Qual foi o cargo que Daniel recebeu do rei?", en: "What position did Daniel receive from the king?", es: "¿Qué cargo recibió Daniel del rey?", ht: "Ki pozisyon wa a te bay Danyèl?" },
+                o: { pt: ["Soldado", "Cozinheiro", "Governador de Babilônia"], en: ["Soldier", "Cook", "Ruler of Babylon"], es: ["Soldado", "Cocinero", "Gobernador de Babilonia"], ht: ["Sòlda", "Kizinye", "Gouvènè Babilòn"] },
+                c: 2, f: { pt: "Correto! Ele se tornou um homem importante.", en: "Correct! He became an important man.", es: "¡Correcto! Se convirtió en un hombre importante.", ht: "Kòrèk! Li te vin yon moun enpòtan." }
+            },
+            { 
+                q: { pt: "O que aprendemos com Daniel nessa história?", en: "What do we learn from Daniel in this story?", es: "¿Qué aprendemos de Daniel en esta historia?", ht: "Kisa nou aprann sou Danyèl nan istwa sa a?" },
+                o: { pt: ["Que devemos orar a Jeová por ajuda", "Que sonhar é perigoso", "Que devemos ser reis"], en: ["That we should pray to Jehovah for help", "That dreaming is dangerous", "That we should be kings"], es: ["Que debemos orar a Jehová", "Que soñar es peligroso", "Que debemos ser reyes"], ht: ["Nou dwe priye Jewova pou n jwenn èd", "Fè rèv se yon bagay ki pè", "Nou dwe wa"] },
+                c: 0, f: { pt: "Com certeza! Jeová ouve nossas orações.", en: "Certainly! Jehovah hears our prayers.", es: "¡Claro! Jehová escucha nuestras oraciones.", ht: "Se sa menm! Jewova tande priyè nou." }
+            },
+
+            // HISTÓRIA 61 (10 QUESTÕES)
+            { 
+                q: { pt: "O que Nabucodonosor fez na planície de Dura?", en: "What did Nebuchadnezzar build in the plain of Dura?", es: "¿Qué hizo Nabucodonosor en la llanura de Dura?", ht: "Kisa Nebikadneza te fè nan plèn Dura a?" },
+                o: { pt: ["Uma torre", "Uma estátua de ouro gigante", "Um jardim"], en: ["A tower", "A giant gold statue", "A garden"], es: ["Una torre", "Una estatua de oro gigante", "Un jardín"], ht: ["Yon fòtrès", "Yon gwo estati an lò", "Yon jaden"] },
+                c: 1, f: { pt: "Isso! Ela era muito alta e brilhante.", en: "Right! It was very tall and shiny.", es: "¡Sí! Era muy alta y brillante.", ht: "Wi! Li te wo anpil epi l te klere." }
+            },
+            { 
+                q: { pt: "O que as pessoas tinham que fazer quando a música tocasse?", en: "What did people have to do when the music played?", es: "¿Qué tenía que hacer la gente al oír la música?", ht: "Kisa moun yo te dwe fè lè mizik la kòmanse jwe?" },
+                o: { pt: ["Dançar", "Cantar", "Curvar-se e adorar a estátua"], en: ["Dance", "Sing", "Bow down and worship the statue"], es: ["Bailar", "Cantar", "Inclinarse y adorar la estatua"], ht: ["Danse", "Chante", "Pwostène epi adore estati a"] },
+                c: 2, f: { pt: "Correto. Era uma ordem do rei.", en: "Correct. It was the king's order.", es: "Correcto. Era una orden del rey.", ht: "Kòrèk. Se te lòd wa a." }
+            },
+            { 
+                q: { pt: "Quem foram os três jovens que não se curvaram?", en: "Who were the three young men who didn't bow down?", es: "¿Quiénes no se inclinaron ante la estatua?", ht: "Kilès ki te twa jèn gason ki pa t vle pwostène yo?" },
+                o: { pt: ["Pedro, Tiago e João", "Sadraque, Mesaque e Abednego", "Davi e seus irmãos"], en: ["Peter, James, and John", "Shadrach, Meshach, and Abednego", "David and his brothers"], es: ["Pedro, Santiago y Juan", "Sadrac, Mesac y Abednego", "David y sus hermanos"], ht: ["Pyè, Jak ak Jan", "Chadrak, Mechak ak Abèdnego", "David ak frè l yo"] },
+                c: 1, f: { pt: "Exato! Eles eram muito corajosos.", en: "Exactly! They were very brave.", es: "¡Exacto! Eran muy valientes.", ht: "Egzak! Yo te gen anpil kouraj." }
+            },
+            { 
+                q: { pt: "Qual era o castigo para quem não adorasse a estátua?", en: "What was the punishment for not worshiping the statue?", es: "¿Cuál era el castigo por no adorar la estatua?", ht: "Ki pinisyon ki te genyen pou moun ki pa t adore estati a?" },
+                o: { pt: ["Prisão", "Ficar sem comer", "Ser jogado numa fornalha de fogo"], en: ["Prison", "No food", "Being thrown into a fiery furnace"], es: ["Prisión", "No comer", "Ser arrojado a un horno de fuego"], ht: ["Prizon", "Pa manje", "Lage yo nan yon founèz dife"] },
+                c: 2, f: { pt: "Sim, um castigo terrível.", en: "Yes, a terrible punishment.", es: "Sí, un castigo terrible.", ht: "Wi, se te yon pinisyon terib." }
+            },
+            { 
+                q: { pt: "Os três jovens tiveram medo do rei?", en: "Were the three young men afraid of the king?", es: "¿Tuvieron miedo los jóvenes del rey?", ht: "Èske twa jèn gason yo te pè wa a?" },
+                o: { pt: ["Sim, eles choraram", "Não, eles confiaram em Jeová", "Eles tentaram fugir"], en: ["Yes, they cried", "No, they trusted Jehovah", "They tried to escape"], es: ["Sí, lloraron", "No, confiaron en Jehová", "Intentaron huir"], ht: ["Wi, yo te kriye", "Non, yo te fè Jewova konfyans", "Yo te eseye kouri"] },
+                c: 1, f: { pt: "Correto! Eles amavam a Jeová.", en: "Correct! They loved Jehovah.", es: "¡Correcto! Amaban a Jehová.", ht: "Kòrèk! Yo te renmen Jewova." }
+            },
+            { 
+                q: { pt: "O que o rei mandou fazer com a fornalha?", en: "What did the king order to be done to the furnace?", es: "¿Qué ordenó el rey hacer con el horno?", ht: "Kisa wa a te bay lòd pou yo fè founèz la?" },
+                o: { pt: ["Apagar o fogo", "Esfriar com água", "Aquecer 7 vezes mais"], en: ["Put out the fire", "Cool it with water", "Heat it 7 times hotter"], es: ["Apagar el fuego", "Enfriarlo con agua", "Calentarlo 7 veces más"], ht: ["Tenyen dife a", "Refwadi l ak dlo", "Chofe l 7 fwa plis"] },
+                c: 2, f: { pt: "Isso! Ficou tão quente que os soldados morreram.", en: "Yes! It was so hot the soldiers died.", es: "¡Sí! Estaba tan caliente que los soldados murieron.", ht: "Wi! Li te tèlman cho, sòlda yo te mouri." }
+            },
+            { 
+                q: { pt: "Quantas pessoas o rei viu andando no fogo?", en: "How many people did the king see in the fire?", es: "¿Cuántas personas vio el rey en el fuego?", ht: "Konbe moun wa a te wè k ap mache nan dife a?" },
+                o: { pt: ["Três", "Quatro", "Nenhuma"], en: ["Three", "Four", "None"], es: ["Tres", "Cuatro", "Ninguna"], ht: ["Twa", "Kat", "Pesonn"] },
+                c: 1, f: { pt: "Exato! Jeová enviou um anjo.", en: "Exactly! Jehovah sent an angel.", es: "¡Exacto! Jehová envió un ángel.", ht: "Egzak! Jewova te voye yon zanj." }
+            },
+            { 
+                q: { pt: "O fogo queimou o cabelo ou as roupas deles?", en: "Did the fire burn their hair or clothes?", es: "¿Quemó el fuego su pelo o su ropa?", ht: "Èske dife a te boule cheve yo oswa rad yo?" },
+                o: { pt: ["Sim, tudo", "Só os sapatos", "Não, nada se queimou"], en: ["Yes, everything", "Only their shoes", "No, nothing was burned"], es: ["Sí, todo", "Solo los zapatos", "No, nada se quemó"], ht: ["Wi, tout", "Sèlman soulye yo", "Non, anyen pa t boule"] },
+                c: 2, f: { pt: "Incrível! Nem cheiro de fumaça eles tinham.", en: "Incredible! They didn't even smell like smoke.", es: "¡Increíble! Ni siquiera olían a humo.", ht: "Sa te bèl anpil! Yo pa t menm gen sant lafimen sou yo." }
+            },
+            { 
+                q: { pt: "O que o rei fez depois desse milagre?", en: "What did the king do after this miracle?", es: "¿Qué hizo el rey después del milagro?", ht: "Kisa wa a te fè apre mirak sa a?" },
+                o: { pt: ["Ficou com raiva", "Fez uma lei protegendo quem adora o Deus deles", "Mandou Daniel embora"], en: ["He got angry", "He made a law to protect those who worship their God", "He sent Daniel away"], es: ["Se enojó", "Hizo una ley para proteger a quienes adoran a su Dios", "Echó a Daniel"], ht: ["Li te fache", "Li te fè yon lwa pou pwoteje moun k ap sèvi Bondye yo a", "Li te voye Danyèl ale"] },
+                c: 1, f: { pt: "Isso mesmo! O rei reconheceu o poder de Jeová.", en: "That's right! The king recognized Jehovah's power.", es: "¡Así es! El rey reconoció el poder de Jehová.", ht: "Se sa! Wa a te rekonèt pouvwa Jewova." }
+            },
+            { 
+                q: { pt: "Qual é a lição dessa história?", en: "What is the lesson of this story?", es: "¿Cuál es la lección de esta historia?", ht: "Kisa nou aprann nan istwa sa a?" },
+                o: { pt: ["Que devemos ser sempre leais a Jeová", "Que o fogo é bonito", "Que devemos ter estátuas"], en: ["That we should always be loyal to Jehovah", "That fire is pretty", "That we should have statues"], es: ["Que debemos ser siempre leales a Jehová", "Que el fuego es bonito", "Que debemos tener estatuas"], ht: ["Nou dwe toujou fidèl ak Jewova", "Dife se yon bèl bagay", "Nou dwe gen estati"] },
+                c: 0, f: { pt: "Excelente! Jeová abençoa quem é leal.", en: "Excellent! Jehovah blesses those who are loyal.", es: "¡Excelente! Jehová bendice a los leales.", ht: "Ekselan! Jewova beni moun ki fidèl." }
+            }
         ];
 
-        function carregarQuiz() {
-            const container58 = document.getElementById('questoes-58');
-            const container59 = document.getElementById('questoes-59');
+        let idioma = 'pt';
+
+        function mudarIdioma() {
+            idioma = document.getElementById('select-idioma').value;
+            renderizar();
+        }
+
+        function renderizar() {
+            const t = uiTextos[idioma];
+            document.getElementById('txt-titulo').innerText = t.titulo;
+            document.getElementById('txt-subtitulo').innerText = t.subtitulo;
+            document.getElementById('txt-h60').innerText = t.h60;
+            document.getElementById('txt-h61').innerText = t.h61;
+            document.getElementById('btn-verificar').innerText = t.btn;
+
+            const c60 = document.getElementById('questoes-60');
+            const c61 = document.getElementById('questoes-61');
+            c60.innerHTML = ''; c61.innerHTML = '';
 
             dadosQuiz.forEach((item, i) => {
                 const div = document.createElement('div');
                 div.className = 'pergunta';
-                div.innerHTML = `
-                    <p>${i + 1}. ${item.q}</p>
-                    ${item.o.map((opt, idx) => `
+                div.innerHTML = `<p>${i+1}. ${item.q[idioma]}</p>` + 
+                    item.o[idioma].map((opt, idx) => `
                         <label>
                             <input type="radio" name="p-${i}" value="${idx}"> ${opt}
                         </label>
-                    `).join('')}
-                    <div id="feedback-${i}" class="feedback"></div>
-                `;
-                if (i < 10) container58.appendChild(div);
-                else container59.appendChild(div);
+                    `).join('') +
+                    `<div id="feedback-${i}" class="feedback"></div>`;
+                
+                if(i < 10) c60.appendChild(div);
+                else c61.appendChild(div);
             });
         }
 
         function verificarRespostas() {
-            let pontuacao = 0;
+            const t = uiTextos[idioma];
+            let total = 0;
             let todasRespondidas = true;
 
-            for (let i = 0; i < dadosQuiz.length; i++) {
-                if (!document.querySelector(`input[name="p-${i}"]:checked`)) {
+            for(let i=0; i<dadosQuiz.length; i++) {
+                if(!document.querySelector(`input[name="p-${i}"]:checked`)) {
                     todasRespondidas = false;
                     break;
                 }
             }
 
-            if (!todasRespondidas) {
-                alert("Por favor, responda todas as perguntas antes de verificar!");
+            if(!todasRespondidas) {
+                alert(t.erro);
                 return;
             }
 
             dadosQuiz.forEach((item, i) => {
-                const selecionada = document.querySelector(`input[name="p-${i}"]:checked`);
-                const feedbackEl = document.getElementById(`feedback-${i}`);
-                const valor = parseInt(selecionada.value);
+                const sel = document.querySelector(`input[name="p-${i}"]:checked`);
+                const feedback = document.getElementById(`feedback-${i}`);
+                const valor = parseInt(sel.value);
                 
-                // Desabilita as opções após verificar
                 document.getElementsByName(`p-${i}`).forEach(r => r.disabled = true);
 
-                if (valor === item.c) {
-                    pontuacao++;
-                    feedbackEl.textContent = "✅ " + item.f;
-                    feedbackEl.className = "feedback correto";
+                if(valor === item.c) {
+                    total++;
+                    feedback.className = "feedback correto";
+                    feedback.innerText = "✅ " + item.f[idioma];
                 } else {
-                    feedbackEl.textContent = "❌ Que pena! A resposta certa era: " + item.o[item.c];
-                    feedbackEl.className = "feedback incorreto";
+                    feedback.className = "feedback incorreto";
+                    feedback.innerText = "❌ " + t.corretaEra + item.o[idioma][item.c];
                 }
-                feedbackEl.style.display = 'block';
+                feedback.style.display = 'block';
             });
 
-            const resultado = document.getElementById('resultado-final');
-            resultado.style.display = 'block';
-            resultado.innerHTML = `<h2>Fim do Quiz!</h2><p>Você acertou ${pontuacao} de ${dadosQuiz.length} perguntas.</p>`;
-            resultado.scrollIntoView({ behavior: 'smooth' });
+            const res = document.getElementById('resultado-final');
+            res.style.display = 'block';
+            res.innerHTML = `<h2>${t.fim}</h2><p>${t.acertou} ${total} ${t.de} ${dadosQuiz.length}</p>`;
+            res.scrollIntoView({ behavior: 'smooth' });
             document.getElementById('btn-verificar').style.display = 'none';
         }
 
-        carregarQuiz();
+        renderizar();
     </script>
 </body>
 </html>
