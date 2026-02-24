@@ -3,56 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Histórias 62 e 63</title>
+    <title>Quiz: Histórias 64 e 65</title>
     <style>
         body {
             font-family: sans-serif;
-            background-color: #f0f8ff;
+            background-color: #fff5f8;
             color: #333;
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .idioma-container {
             text-align: right;
             margin-bottom: 20px;
-            background: #e2f3ff;
+            background: #ffe2ec;
             padding: 10px;
             border-radius: 8px;
         }
         h1, h2 {
             text-align: center;
-            color: #005a9c;
+            color: #b01e47;
         }
         h3 {
-            color: #005a9c;
-            border-bottom: 2px solid #e9ecef;
+            color: #b01e47;
+            border-bottom: 2px solid #ffd1df;
             padding-bottom: 5px;
             margin-top: 30px;
         }
         .pergunta {
             background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            border: 1px solid #ffcadb;
+            border-radius: 12px;
             padding: 15px;
             margin-bottom: 20px;
         }
         .pergunta p {
             font-weight: bold;
             margin-bottom: 10px;
+            color: #444;
         }
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
         }
+        label:hover { background-color: #fff0f5; }
         .feedback {
             margin-top: 10px;
             padding: 10px;
             border-radius: 5px;
             display: none;
+            font-weight: bold;
         }
         .correto { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .incorreto { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
@@ -60,7 +65,7 @@
             display: block;
             width: 100%;
             padding: 15px;
-            background-color: #005a9c;
+            background-color: #b01e47;
             color: white;
             border: none;
             border-radius: 8px;
@@ -68,11 +73,11 @@
             cursor: pointer;
             margin-top: 20px;
         }
-        #btn-verificar:hover { background-color: #004a80; }
+        #btn-verificar:hover { background-color: #8a1738; }
         #resultado-final {
             margin-top: 30px;
             padding: 20px;
-            background-color: #e2f3ff;
+            background-color: #ffe2ec;
             border-radius: 8px;
             text-align: center;
             display: none;
@@ -80,8 +85,7 @@
         select {
             padding: 5px;
             border-radius: 4px;
-            border: 1px solid #005a9c;
-            font-size: 14px;
+            border: 1px solid #b01e47;
         }
     </style>
 </head>
@@ -98,14 +102,14 @@
     </div>
 
     <h1 id="txt-titulo">Quiz Bíblico para Crianças</h1>
-    <p id="txt-subtitulo" style="text-align: center;">Vamos testar o que você aprendeu!</p>
+    <p id="txt-subtitulo" style="text-align: center;">Aprenda sobre Daniel e a Rainha Ester!</p>
 
     <div id="quiz-container">
-        <h3 id="txt-h62">História 62: Uma árvore muito alta</h3>
-        <div id="questoes-62"></div>
+        <h3 id="txt-h64">História 64: Daniel na cova dos leões</h3>
+        <div id="questoes-64"></div>
 
-        <h3 id="txt-h63">História 63: As palavras na parede</h3>
-        <div id="questoes-63"></div>
+        <h3 id="txt-h65">História 65: Ester salva o seu povo</h3>
+        <div id="questoes-65"></div>
     </div>
 
     <button id="btn-verificar" onclick="verificarRespostas()">Verificar Respostas</button>
@@ -114,115 +118,115 @@
 
     <script>
         const uiTextos = {
-            pt: { titulo: "Quiz Bíblico para Crianças", subtitulo: "Histórias 62 e 63", h62: "História 62: Uma árvore muito alta", h63: "História 63: As palavras na parede", btn: "Verificar Respostas", erro: "Por favor, responda todas as perguntas!", fim: "Fim do Quiz!", acertou: "Você acertou", de: "de", corretaEra: "A resposta certa era: " },
-            en: { titulo: "Bible Quiz for Kids", subtitulo: "Stories 62 and 63", h62: "Story 62: A Very Tall Tree", h63: "Story 63: The Writing on the Wall", btn: "Check Answers", erro: "Please answer all questions!", fim: "Quiz Finished!", acertou: "You got", de: "out of", corretaEra: "The correct answer was: " },
-            es: { titulo: "Quiz Bíblico para Niños", subtitulo: "Historias 62 y 63", h62: "Historia 62: Un árbol muy alto", h63: "Historia 63: Las palabras en la pared", btn: "Verificar", erro: "¡Responde todas!", fim: "¡Fin del Quiz!", acertou: "Acertaste", de: "de", corretaEra: "La respuesta era: " },
-            ht: { titulo: "Kwiz Biblik pou Timoun", subtitulo: "Istwa 62 ak 63", h62: "Istwa 62: Yon gwo pyebwa ki wo anpil", h63: "Istwa 63: Pawòl ki te parèt sou miray la", btn: "Tcheke Repons yo", erro: "Tanpri reponn tout!", fim: "Kwiz la fini!", acertou: "Ou jwenn", de: "sou", corretaEra: "Bon repons lan se te: " }
+            pt: { titulo: "Quiz Bíblico para Crianças", subtitulo: "Histórias 64 e 65", h64: "História 64: Daniel na cova dos leões", h65: "História 65: Ester salva o seu povo", btn: "Verificar Respostas", erro: "Responda todas as perguntinhas!", fim: "Muito bem!", acertou: "Você acertou", de: "de", corretaEra: "A resposta certa era: " },
+            en: { titulo: "Bible Quiz for Kids", subtitulo: "Stories 64 and 65", h64: "Story 64: Daniel in the Lions’ Pit", h65: "Story 65: Esther Saves Her People", btn: "Check Answers", erro: "Please answer all questions!", fim: "Great job!", acertou: "You got", de: "out of", corretaEra: "The correct answer was: " },
+            es: { titulo: "Quiz Bíblico para Niños", subtitulo: "Historias 64 y 65", h64: "Historia 64: Daniel en el foso de los leones", h65: "Historia 65: Ester salva a su pueblo", btn: "Verificar", erro: "¡Responde todas las preguntas!", fim: "¡Excelente!", acertou: "Acertaste", de: "de", corretaEra: "La respuesta era: " },
+            ht: { titulo: "Kwiz Biblik pou Timoun", subtitulo: "Istwa 64 ak 65", h64: "Istwa 64: Danyèl nan twou lyon an", h65: "Istwa 65: Estè sove pèp li a", btn: "Tcheke Repons yo", erro: "Tanpri reponn tout kesyon yo!", fim: "Bon travay!", acertou: "Ou jwenn", de: "sou", corretaEra: "Bon repons lan se te: " }
         };
 
         const dadosQuiz = [
-            // HISTÓRIA 62
+            // HISTÓRIA 64 - POSIÇÕES ALTERNADAS
             { 
-                q: { pt: "Com o que o rei Nabucodonosor sonhou desta vez?", en: "What did King Nebuchadnezzar dream about this time?", es: "¿Com qué soñó el rey Nabucodonosor esta vez?", ht: "Ak kisa wa a te fè rèv fwa sa a?" },
-                o: { pt: ["Uma montanha de ouro", "Uma árvore muito alta", "Um leão gigante"], en: ["A mountain of gold", "A very tall tree", "A giant lion"], es: ["Una montaña de oro", "Un árbol muy alto", "Un león gigante"], ht: ["Yon mòn an lò", "Yon gwo pyebwa ki wo anpil", "Yon gwo lyon"] },
-                c: 1, f: { pt: "Isso! A árvore era tão alta que chegava no céu.", en: "Right! The tree was so tall it reached the sky.", es: "¡Sí! El árbol era tan alto que llegaba al cielo.", ht: "Wi! Pyebwa a te tèlman wo li te rive nan syèl la." }
+                q: { pt: "Por que os homens importantes tinham inveja de Daniel?", en: "Why were the important men jealous of Daniel?", es: "¿Por qué los hombres importantes tenían envidia de Daniel?", ht: "Poukisa mesye enpòtan yo te gen jalouzi pou Danyèl?" },
+                o: { pt: ["Porque o rei Dario gostava dele e o fez chefe", "Porque ele era muito forte", "Porque ele era muito rico"], en: ["Because King Darius liked him and made him chief", "Because he was very strong", "Because he was very rich"], es: ["Porque al rey Darío le caía bien y lo hizo jefe", "Porque era muy fuerte", "Porque era muy rico"], ht: ["Paske wa Dariyis te renmen l e l te mete l chèf", "Paske l te fò anpil", "Paske l te rich anpil"] },
+                c: 0, f: { pt: "Isso! Dario sabia que Daniel era especial.", en: "Correct! Darius knew Daniel was special.", es: "¡Sí! Darío sabía que Daniel era especial.", ht: "Wi! Dariyis te konnen Danyèl espesyal." }
             },
             { 
-                q: { pt: "O que o anjo mandou fazer com a árvore?", en: "What did the angel order to be done to the tree?", es: "¿Qué mandó hacer el ángel con el árbol?", ht: "Kisa zanj lan te di pou yo fè pyebwa a?" },
-                o: { pt: ["Regar a árvore", "Derrubar e deixar só o toco", "Pintar a árvore de ouro"], en: ["Water the tree", "Cut it down and leave the stump", "Paint the tree gold"], es: ["Regar el árbol", "Derribarlo y dejar solo el tocón", "Pintar el árbol de oro"], ht: ["Wouze pyebwa a", "Koupe l epi kite kòk la sèlman", "Penn pyebwa a an lò"] },
-                c: 1, f: { pt: "Correto! As raízes deveriam ficar no chão.", en: "Correct! The roots were to stay in the ground.", es: "¡Correcto! Las raíces debían quedar en el suelo.", ht: "Kòrèk! Rasin yo te dwe rete nan tè a." }
+                q: { pt: "Quantas vezes por dia Daniel orava a Jeová?", en: "How many times a day did Daniel pray to Jehovah?", es: "¿Cuántas veces al día oraba Daniel a Jehová?", ht: "Konbe fwa pa jou Danyèl te konn priye Jewova?" },
+                o: { pt: ["Uma vez", "Cinco vezes", "Três vezes"], en: ["Once", "Five times", "Three times"], es: ["Una vez", "Cinco veces", "Tres veces"], ht: ["Yon fwa", "Senk fwa", "Twa fwa"] },
+                c: 2, f: { pt: "Certo! Ele orava mesmo quando era perigoso.", en: "Right! He prayed even when it was dangerous.", es: "¡Bien! Oraba incluso cuando era peligroso.", ht: "Wi! Li te priye menm lè sa te danjere." }
             },
             { 
-                q: { pt: "Quem a árvore grande representava?", en: "Who did the big tree represent?", es: "¿A quién representaba el gran árbol?", ht: "Kilès gwo pyebwa a te reprezante?" },
-                o: { pt: ["Daniel", "Nabucodonosor", "Um anjo"], en: ["Daniel", "Nebuchadnezzar", "An angel"], es: ["Daniel", "Nabucodonosor", "Un ángel"], ht: ["Danyèl", "Nebikadneza", "Yon zanj"] },
-                c: 1, f: { pt: "Certo! Daniel explicou que a árvore era o rei.", en: "Right! Daniel explained the tree was the king.", es: "¡Bien! Daniel explicó que el árbol era el rey.", ht: "Wi! Danyèl te esplike wa a se li k te pyebwa a." }
+                q: { pt: "Qual foi a lei que o rei Dario assinou?", en: "What law did King Darius sign?", es: "¿Qué ley firmó el rey Darío?", ht: "Ki lwa wa Dariyis te siyen?" },
+                o: { pt: ["Ninguém podia sair de casa", "Todos deviam orar apenas para o rei por 30 dias", "Todos deviam dar presentes ao rei"], en: ["No one could leave home", "Everyone had to pray only to the king for 30 days", "Everyone had to give gifts to the king"], es: ["Nadie podía salir de casa", "Todos debían orar solo al rey por 30 días", "Todos debían dar regalos al rey"], ht: ["Pèsonn pa ka soti deyò", "Tout moun dwe priye wa a sèlman pandan 30 jou", "Tout moun dwe bay wa a kado"] },
+                c: 1, f: { pt: "Exato! Os inimigos de Daniel armaram essa armadilha.", en: "Exactly! Daniel's enemies set this trap.", es: "¡Exacto! Los enemigos de Daniel armaron esa trampa.", ht: "Egzak! Ènmi Danyèl yo te mare pyèj sa a." }
             },
             { 
-                q: { pt: "Quanto tempo passaria até o rei voltar ao normal?", en: "How much time would pass until the king returned to normal?", es: "¿Cuánto tiempo pasaría hasta que el rey volviera a la normalidad?", ht: "Konbe tan ki t ap pase anvan wa a vin nòmal ankò?" },
-                o: { pt: ["Sete dias", "Sete meses", "Sete tempos (anos)"], en: ["Seven days", "Seven months", "Seven times (years)"], es: ["Siete días", "Siete meses", "Siete tiempos (años)"], ht: ["Sèt jou", "Sèt mwa", "Sèt tan (ane)"] },
-                c: 2, f: { pt: "Isso mesmo! Foram sete tempos.", en: "That's right! It was seven times.", es: "¡Así es! Fueron siete tiempos.", ht: "Se sa! Se te sèt tan." }
+                q: { pt: "O que Daniel fez quando soube da nova lei?", en: "What did Daniel do when he heard about the new law?", es: "¿Qué hizo Daniel cuando supo de la nueva ley?", ht: "Kisa Danyèl te fè lè l te konn lwa a?" },
+                o: { pt: ["Parou de orar", "Orou em frente à janela aberta", "Orou escondido no porão"], en: ["Stopped praying", "Prayed in front of the open window", "Prayed hidden in the basement"], es: ["Dejó de orar", "Oró frente a la ventana abierta", "Oró escondido en el sótano"], ht: ["Li te sispann priye", "Li te priye devan fenèt li ki te ouvè", "Li te priye an kachèt nan kav"] },
+                c: 1, f: { pt: "Isso! Daniel foi corajoso e não mudou seu costume.", en: "Yes! Daniel was brave and didn't change his habit.", es: "¡Sí! Daniel fue valiente y no cambió su costumbre.", ht: "Wi! Danyèl te gen kouray e li pa t chanje abitid li." }
             },
             { 
-                q: { pt: "O que Nabucodonosor estava fazendo quando perdeu o reino?", en: "What was Nebuchadnezzar doing when he lost the kingdom?", es: "¿Qué hacía Nabucodonosor cuando perdió el reino?", ht: "Kisa Nebikadneza t ap fè lè l te pèdi wayòm nan?" },
-                o: { pt: ["Lutando numa guerra", "Sendo orgulhoso e se gabando", "Dormindo"], en: ["Fighting a war", "Being proud and boasting", "Sleeping"], es: ["Luchando en una guerra", "Siendo orgulloso y presumiendo", "Durmiendo"], ht: ["Li t ap fè lagè", "Li t ap vante tèt li ak lògèy", "Li t ap dòmi"] },
-                c: 1, f: { pt: "Correto! Ele achava que era o melhor rei de todos.", en: "Correct! He thought he was the best king of all.", es: "¡Correcto! Creía que era el mejor rey de todos.", ht: "Kòrèk! Li te panse li se pi gwo wa ki te genyen." }
+                q: { pt: "Como o rei Dario se sentiu ao ter que jogar Daniel nos leões?", en: "How did King Darius feel about throwing Daniel to the lions?", es: "¿Cómo se sintió el rey Darío al tener que lanzar a Daniel?", ht: "Ki jan wa Dariyis te santi l lè l te dwe jete Danyèl nan lyon yo?" },
+                o: { pt: ["Ficou muito triste e tentou salvá-lo", "Ficou feliz porque era a lei", "Não se importou nem um pouco"], en: ["He was very sad and tried to save him", "He was happy because it was the law", "He didn't care at all"], es: ["Se puso muy triste e intentó salvarlo", "Estaba feliz porque era la ley", "No le importó para nada"], ht: ["Li te tris anpil e li te chèche sove l", "Li te kontan paske se te lwa a", "Sa pa t di l anyen menm"] },
+                c: 0, f: { pt: "Correto! Ele gostava muito de Daniel.", en: "Correct! He liked Daniel very much.", es: "¡Correcto! Le gustaba mucho Daniel.", ht: "Kòrèk! Li te renmen Danyèl anpil." }
             },
             { 
-                q: { pt: "Como o rei ficou enquanto estava 'louco'?", en: "How did the king look while he was 'mad'?", es: "¿Cómo se veía el rey mientras estava 'loco'?", ht: "Ki jan wa a te parèt lè l te pèdi tèt li a?" },
-                o: { pt: ["Como um animal, com unhas de águia", "Como um soldado forte", "Como um gigante"], en: ["Like an animal, with eagle claws", "Like a strong soldier", "Like a giant"], es: ["Como un animal, con garras de águila", "Como un soldado fuerte", "Como un gigante"], ht: ["Tankou yon bèt, ak grif malfini", "Tankou yon sòlda vanyan", "Tankou yon jeyan"] },
-                c: 0, f: { pt: "Exato! Ele viveu no campo e comeu mato.", en: "Exactly! He lived in the field and ate grass.", es: "¡Exacto! Vivió en el campo y comió hierba.", ht: "Egzak! Li te viv nan savann epi l te manje zèb." }
+                q: { pt: "Como Daniel sobreviveu aos leões ferozes?", en: "How did Daniel survive the fierce lions?", es: "¿Cómo sobrevivió Daniel a los leones feroces?", ht: "Ki jan Danyèl te fè chape anba lyon yo?" },
+                o: { pt: ["Os leões estavam com sono", "Ele deu comida para eles", "Jeová enviou um anjo para fechar a boca dos leões"], en: ["The lions were sleepy", "He gave them food", "Jehovah sent an angel to shut the lions' mouths"], es: ["Los leones tenían sueño", "Les dio comida", "Jehová envió un ángel para cerrar la boca de los leones"], ht: ["Lyon yo te anvi dòmi", "Li te ba yo manje", "Jewova te voye yon zanj fèmen bouch lyon yo"] },
+                c: 2, f: { pt: "Muito bem! O anjo protegeu Daniel a noite toda.", en: "Very well! The angel protected Daniel all night.", es: "¡Muy bien! El ángel protegió a Daniel toda la noche.", ht: "Bon travay! Zanj lan te pwoteje Danyèl tout lannuit la." }
             },
             { 
-                q: { pt: "Por que Jeová ensinou essa lição ao rei?", en: "Why did Jehovah teach this lesson to the king?", es: "¿Por qué Jehová le dio esa lección al rey?", ht: "Poukisa Jewova te bay wa a leson sa a?" },
-                o: { pt: ["Para ele ficar doente", "Para ele aprender a ser humilde", "Para ele fugir"], en: ["To make him sick", "To teach him to be humble", "To make him run away"], es: ["Para que se enfermara", "Para que aprendiera a ser humilde", "Para que huyera"], ht: ["Pou l te ka malad", "Pou l te ka aprann gen imilite", "Pou l te ka kouri ale"] },
-                c: 1, f: { pt: "Sim! Jeová ensina os orgulhosos a serem humildes.", en: "Yes! Jehovah teaches the proud to be humble.", es: "¡Sí! Jehová enseña a los orgullosos a ser humildes.", ht: "Wi! Jewova montre moun ki gen lògèy yo jan pou yo gen imilite." }
+                q: { pt: "O que aconteceu com Daniel na manhã seguinte?", en: "What happened to Daniel the next morning?", es: "¿Qué le pasó a Daniel a la mañana siguiente?", ht: "Kisa k te rive Danyèl nan maten?" },
+                o: { pt: ["Saiu da cova sem nenhum arranhão", "Ficou preso para sempre", "Os leões fugiram dele"], en: ["He came out of the pit without a scratch", "He stayed trapped forever", "The lions ran away from him"], es: ["Salió del foso sin un rasguño", "Se quedó atrapado para siempre", "Los leones huyeron de él"], ht: ["Li te soti nan twou a san yon grafouy", "Li te rete fèmen pou toutan", "Lyon yo te kouri pou li"] },
+                c: 0, f: { pt: "Exato! Jeová o livrou completamente.", en: "Exactly! Jehovah delivered him completely.", es: "¡Exacto! Jehová lo libró por completo.", ht: "Egzak! Jewova te delivre l nèt." }
             },
             { 
-                q: { pt: "O que o rei disse quando voltou ao normal?", en: "What did the king say when he returned to normal?", es: "¿Qué dijo el rey cuando volvió a la normalidad?", ht: "Kisa wa a te di lè l te vin nòmal ankò?" },
-                o: { pt: ["Que ele ainda era o melhor", "Que Jeová merece toda a adoração", "Que não lembrava de nada"], en: ["That he was still the best", "That Jehovah deserves all worship", "That he remembered nothing"], es: ["Que aún era el mejor", "Que Jehová merece toda la adoración", "Que no recordaba nada"], ht: ["Li te toujou pi bon an", "Jewova merite tout adorasyon", "Li pa t sonje anyen"] },
-                c: 1, f: { pt: "Isso! Ele reconheceu que Jeová é o Governante.", en: "Right! He recognized Jehovah as the Ruler.", es: "¡Sí! Reconoció que Jehová es el Gobernante.", ht: "Wi! Li te rekonèt Jewova se Chèf la." }
+                q: { pt: "O que aconteceu com os homens maus que enganaram o rei?", en: "What happened to the evil men who tricked the king?", es: "¿Qué les pasó a los hombres malos que engañaron al rey?", ht: "Kisa k te rive move mesye ki te twonpe wa a?" },
+                o: { pt: ["Tiveram que pedir desculpas", "Foram jogados na cova e os leões os comeram", "Foram mandados para outra cidade"], en: ["They had to apologize", "They were thrown into the pit and the lions ate them", "They were sent to another city"], es: ["Tuvieron que pedir disculpas", "Fueron lanzados al foso y los leones se los comieron", "Fueron enviados a otra ciudad"], ht: ["Yo te dwe mande padon", "Yo te jete yo nan twou a e lyon yo te manje yo", "Yo te voye yo nan yon lòt vil"] },
+                c: 1, f: { pt: "Isso! Quem faz mal aos outros sofre as consequências.", en: "Right! Those who harm others face the consequences.", es: "¡Sí! Quien hace mal a otros sufre las consecuencias.", ht: "Wi! Moun k ap fè lòt moun mal ap jwenn pinisyon yo." }
             },
             { 
-                q: { pt: "Onde o toco da árvore deveria ser preso?", en: "Where was the tree stump to be bound?", es: "¿Con qué debía sujetarse el tocón del árbol?", ht: "Ak kisa yo te dwe mare kòk pyebwa a?" },
-                o: { pt: ["Com cordas de lã", "Com faixas de ferro e cobre", "Com correntes de ouro"], en: ["With wool ropes", "With bands of iron and copper", "With gold chains"], es: ["Con cuerdas de lana", "Con bandas de hierro y cobre", "Con cadenas de oro"], ht: ["Ak kòd lenn", "Ak sèk an fè ak an kwiv", "Ak chenn an lò"] },
-                c: 1, f: { pt: "Correto! Isso garantia que o reino voltaria.", en: "Correct! This guaranteed the kingdom would return.", es: "¡Correcto! Esto garantizaba que el reino volvería.", ht: "Kòrèk! Sa te montre wayòm nan t ap retounen." }
+                q: { pt: "O que o rei Dario escreveu para todos os povos?", en: "What did King Darius write to all the peoples?", es: "¿Qué escribió el rey Darío a todos los pueblos?", ht: "Kisa wa Dariyis te ekri tout pèp yo?" },
+                o: { pt: ["Que Daniel era o novo rei", "Que todos deviam respeitar o Deus de Daniel", "Que os leões eram perigosos"], en: ["That Daniel was the new king", "That everyone should respect Daniel's God", "That lions were dangerous"], es: ["Que Daniel era el nuevo rey", "Que todos debían respetar al Dios de Daniel", "Que los leones eran peligrosos"], ht: ["Danyèl se nouvo wa a", "Tout moun dwe respekte Bondye Danyèl la", "Lyon yo danjere"] },
+                c: 1, f: { pt: "Sim! Ele viu o grande poder de Jeová.", en: "Yes! He saw the great power of Jehovah.", es: "¡Sí! Vio el gran poder de Jehová.", ht: "Wi! Li te wè gwo pouvwa Jewova genyen." }
             },
             { 
-                q: { pt: "O que aprendemos sobre o orgulho nessa história?", en: "What do we learn about pride in this story?", es: "¿Qué aprendemos sobre el orgullo en esta historia?", ht: "Kisa nou aprann sou lògèy nan istwa sa a?" },
-                o: { pt: ["Que o orgulho vem antes da queda", "Que o orgulho nos faz fortes", "Que é bom ser orgulhoso"], en: ["That pride comes before a fall", "That pride makes us strong", "That it's good to be proud"], es: ["Que el orgullo viene antes de la caída", "Que el orgullo nos hace fuertes", "Que es bueno ser orgulloso"], ht: ["Lògèy parèt anvan yon moun tonbe", "Lògèy fè nou fò", "Li bon pou n gen lògèy"] },
-                c: 0, f: { pt: "Excelente! Provérbios 16:18 ensina exatamente isso.", en: "Excellent! Proverbs 16:18 teaches exactly that.", es: "¡Excelente! Proverbios 16:18 enseña exactamente eso.", ht: "Ekselan! Pwovèb 16:18 montre sa aklè." }
+                q: { pt: "O que aprendemos com a coragem de Daniel?", en: "What do we learn from Daniel's courage?", es: "¿Qué aprendemos de la valentía de Daniel?", ht: "Kisa nou aprann nan kouray Danyèl?" },
+                o: { pt: ["Que não precisamos orar sempre", "Que devemos ser fortes apenas sozinhos", "Que Jeová protege quem é fiel a Ele"], en: ["That we don't need to pray always", "That we should be strong only alone", "That Jehovah protects those faithful to Him"], es: ["Que no hace falta orar siempre", "Que debemos ser fuertes solo a solas", "Que Jehová protege a quien le es fiel"], ht: ["Nou pa bezwen priye tout tan", "Nou dwe fò sèlman lè n poukont nou", "Jewova pwoteje moun ki fidèl avè l"] },
+                c: 2, f: { pt: "Excelente! Jeová é nosso melhor protetor.", en: "Excellent! Jehovah is our best protector.", es: "¡Excelente! Jehová es nuestro mejor protector.", ht: "Ekselan! Jewova se pi gwo pwoteksyon nou." }
             },
 
-            // HISTÓRIA 63
+            // HISTÓRIA 65 - POSIÇÕES ALTERNADAS
             { 
-                q: { pt: "Quem era o rei de Babilônia na noite da grande festa?", en: "Who was the king of Babylon on the night of the great feast?", es: "¿Quién era el rey de Babilonia en la noche de la gran fiesta?", ht: "Kilès ki te wa Babilòn nan lannuit gwo fèt la?" },
-                o: { pt: ["Nabucodonosor", "Belsazar", "Ciro"], en: ["Nebuchadnezzar", "Belshazzar", "Cyrus"], es: ["Nabucodonosor", "Belsasar", "Ciro"], ht: ["Nebikadneza", "Bèlchaza", "Siris"] },
-                c: 1, f: { pt: "Isso! Belsazar era o rei naquela época.", en: "Right! Belshazzar was the king at that time.", es: "¡Sí! Belsasar era el rey en ese tiempo.", ht: "Wi! Bèlchaza te wa nan tan sa a." }
+                q: { pt: "Quem era Ester?", en: "Who was Esther?", es: "¿Quién era Ester?", ht: "Kilès Estè te ye?" },
+                o: { pt: ["Uma princesa de Babilônia", "Uma moça judia que se tornou rainha da Pérsia", "A filha de Hamã"], en: ["A Babylonian princess", "A Jewish girl who became queen of Persia", "Haman's daughter"], es: ["Una princesa de Babilonia", "Una joven judía que fue reina de Persia", "La hija de Amán"], ht: ["Yon prensès Babilòn", "Yon jèn Juif ki te vin rèn nan peyi Pès", "Pitit fi Aman"] },
+                c: 1, f: { pt: "Isso! Jeová a escolheu para um momento especial.", en: "Right! Jehovah chose her for a special moment.", es: "¡Sí! Jehová la eligió para un momento especial.", ht: "Wi! Jewova te chwazi l pou yon moman espesyal." }
             },
             { 
-                q: { pt: "O que o rei usou para beber vinho na festa?", en: "What did the king use to drink wine at the feast?", es: "¿Qué usó el rey para beber vino en la fiesta?", ht: "Kisa wa a te sèvi pou l bwè diven nan fèt la?" },
-                o: { pt: ["Copos de plástico", "Copos de ouro do templo de Jeová", "Copos de barro"], en: ["Plastic cups", "Gold cups from Jehovah's temple", "Clay cups"], es: ["Vasos de plástico", "Copos de oro del templo de Jehová", "Vasos de barro"], ht: ["Gode plastik", "Gode an lò ki te nan tanp Jewova a", "Gode tè"] },
-                c: 1, f: { pt: "Correto. Ele foi muito desrespeitoso com Jeová.", en: "Correct. He was very disrespectful to Jehovah.", es: "Correcto. Fue muy irrespetuoso con Jehová.", ht: "Kòrèk. Li pa t gen respè pou Jewova menm." }
+                q: { pt: "Quem era Mordecai para Ester?", en: "Who was Mordecai to Esther?", es: "¿Quién era Mardoqueo para Ester?", ht: "Kilès Mòdekay te ye pou Estè?" },
+                o: { pt: ["Seu tio", "Seu irmão", "Seu primo que a criou"], en: ["Her uncle", "Her brother", "Her cousin who raised her"], es: ["Su tío", "Su hermano", "Su primo que la crió"], ht: ["Tonton l", "Frè l", "Kouzen l ki te elve l"] },
+                c: 2, f: { pt: "Correto! Ele a amava como uma filha.", en: "Correct! He loved her like a daughter.", es: "¡Correcto! La amaba como a una hija.", ht: "Kòrèk! Li te renmen l tankou pitit fi li." }
             },
             { 
-                q: { pt: "O que apareceu de repente na parede?", en: "What suddenly appeared on the wall?", es: "¿Qué apareció de repente en la pared?", ht: "Kisa k te parèt sou miray la tou daprè?" },
-                o: { pt: ["Um quadro", "A mão de um homem escrevendo", "Uma janela"], en: ["A painting", "A man's hand writing", "A window"], es: ["Un cuadro", "La mano de un hombre escribiendo", "Una ventana"], ht: ["Yon tablo", "Yon men moun k ap ekri", "Yon fenèt"] },
-                c: 1, f: { pt: "Exato! Isso deixou o rei com muito medo.", en: "Exactly! This made the king very afraid.", es: "¡Exacto! Eso dejó al rey muy asustado.", ht: "Egzak! Sa te fè wa a pè anpil." }
+                q: { pt: "Por que Hamã queria destruir os judeus?", en: "Why did Haman want to destroy the Jews?", es: "¿Por qué quería Amán destruir a los judíos?", ht: "Poukisa Aman te vle detwi Juif yo?" },
+                o: { pt: ["Porque Mordecai não se ajoelhava para ele", "Porque ele queria o dinheiro deles", "Porque ele não gostava de Mordecai"], en: ["Because Mordecai would not bow to him", "Because he wanted their money", "Because he didn't like Mordecai"], es: ["Porque Mardoqueo no se arrodillaba ante él", "Porque quería su dinero", "Porque no le caía bien Mardoqueo"], ht: ["Paske Mòdekay pa t vle met ajenou devan l", "Paske l te vle lajan yo", "Paske l pa t renmen Mòdekay"] },
+                c: 0, f: { pt: "Exato! Hamã era muito orgulhoso.", en: "Exactly! Haman was very proud.", es: "¡Exacto! Amán era muy orgulloso.", ht: "Egzak! Aman te gen lògèy anpil." }
             },
             { 
-                q: { pt: "Quem conseguiu explicar as palavras na parede?", en: "Who was able to explain the words on the wall?", es: "¿Quién pudo explicar las palabras en la pared?", ht: "Kilès ki te ka esplike pawòl ki te sou miray la?" },
-                o: { pt: ["Os magos", "Daniel", "Os soldados"], en: ["The magicians", "Daniel", "The soldiers"], es: ["Los magos", "Daniel", "Los soldados"], ht: ["Moun ki fè maji yo", "Danyèl", "Sòlda yo"] },
-                c: 1, f: { pt: "Sim! Daniel explicou a mensagem de Deus.", en: "Yes! Daniel explained God's message.", es: "¡Sí! Daniel explicó el mensaje de Dios.", ht: "Wi! Danyèl te esplike mesaj Bondye a." }
+                q: { pt: "O que Mordecai pediu para Ester fazer?", en: "What did Mordecai ask Esther to do?", es: "¿Qué le pidió Mardoqueo a Ester?", ht: "Kisa Mòdekay te mande Estè fè?" },
+                o: { pt: ["Fugir do palácio", "Pedir ajuda ao rei Assuero", "Mudar de nome"], en: ["Run away from the palace", "Ask King Ahasuerus for help", "Change her name"], es: ["Huir del palacio", "Pedir ayuda al rey Asuero", "Cambiarse el nombre"], ht: ["Kouri kite palè a", "Mande wa Asiyerid sekou", "Chanje non l"] },
+                c: 1, f: { pt: "Isso! Só ela poderia falar com o rei.", en: "Yes! Only she could speak with the king.", es: "¡Sí! Solo ella podía hablar con el rey.", ht: "Wi! Se li sèl ki te ka pale ak wa a." }
             },
             { 
-                q: { pt: "Quais eram as palavras escritas na parede?", en: "What were the words written on the wall?", es: "¿Qué palabras estaban escritas en la pared?", ht: "Ki pawòl ki te ekri sou miray la?" },
-                o: { pt: ["Mene, Mene, Tequel e Parsim", "Babilônia é grande", "O rei é bom"], en: ["Mene, Mene, Tekel, and Parsin", "Babylon is great", "The king is good"], es: ["Mene, Mene, Tekel y Parsin", "Babilonia es grande", "El rey es bueno"], ht: ["Mene, Mene, Tekèl ak Pachin", "Babilòn se yon gwo lavil", "Wa a bon"] },
-                c: 0, f: { pt: "Correto! Palavras com um significado sério.", en: "Correct! Words with a serious meaning.", es: "¡Correcto! Palabras con un significado serio.", ht: "Kòrèk! Pawòl sa yo te gen yon gwo sans." }
+                q: { pt: "Qual era o perigo de ir falar com o rei?", en: "What was the danger of speaking to the king?", es: "¿Cuál era el peligro de hablar con el rey?", ht: "Ki danje sa te genyen pou moun al pale ak wa a?" },
+                o: { pt: ["Poderia ser preso", "Poderia ser morto se o rei não estendesse o cetro", "O rei ficaria triste"], en: ["Could be imprisoned", "Could be killed if the king didn't hold out the scepter", "The king would be sad"], es: ["Podía ir preso", "Podía morir si el rey no extendía el cetro", "El rey se pondría triste"], ht: ["Yo te ka mete l nan prizon", "Yo te ka touye moun nan si wa a pa lonje sèp la", "Wa a t ap tris"] },
+                c: 1, f: { pt: "Certo! Ester teve muita coragem.", en: "Right! Esther had great courage.", es: "¡Bien! Ester tuvo mucha valentía.", ht: "Wi! Estè te gen anpil kouray." }
             },
             { 
-                q: { pt: "O que Daniel disse que ia acontecer com o reino?", en: "What did Daniel say would happen to the kingdom?", es: "¿Qué dijo Daniel que pasaría con el reino?", ht: "Kisa Danyèl te di ki t apral rive wayòm nan?" },
-                o: { pt: ["Ia ficar mais rico", "Ia ser invadido pela Média e Pérsia", "Ia mudar de lugar"], en: ["It would get richer", "It would be invaded by Media and Persia", "It would move"], es: ["Sería más rico", "Sería invadido por Media y Persia", "Se mudaría"], ht: ["Li t ap vin pi rich", "Moun peyi Medi ak Pès t apral anvayi l", "Li t apral chanje plas"] },
-                c: 1, f: { pt: "Isso! Jeová não estava feliz com Belsazar.", en: "Yes! Jehovah was not happy with Belshazzar.", es: "¡Sí! Jehová no estaba contento con Belsasar.", ht: "Wi! Jewova pa t kontan ak Bèlchaza." }
+                q: { pt: "Como Ester convidou o rei para conversar?", en: "How did Esther invite the king to talk?", es: "¿Cómo invitó Ester al rey a conversar?", ht: "Ki jan Estè te envite wa a pale?" },
+                o: { pt: ["Gritando no corredor", "Mandando um bilhete", "Preparando um banquete especial"], en: ["Shouting in the hallway", "Sending a note", "Preparing a special banquet"], es: ["Gritando en el pasillo", "Enviando una nota", "Preparando un banquete especial"], ht: ["Li te rele nan koulwa a", "Li te voye yon ti lèt", "Li te prepare yon gwo soupe espesyal"] },
+                c: 2, f: { pt: "Correto! Ela preparou dois jantares.", en: "Correct! She prepared two dinners.", es: "¡Correcto! Preparó dos banquetes.", ht: "Kòrèk! Li te prepare de soupe." }
             },
             { 
-                q: { pt: "Como os soldados de Ciro entraram em Babilônia?", en: "How did Cyrus's soldiers enter Babylon?", es: "¿Cómo entraron los soldados de Ciro en Babilonia?", ht: "Ki jan sòlda Siris yo te fè antre nan Babilòn?" },
-                o: { pt: ["Escalando os muros", "Pelo rio, porque os portões estavam abertos", "Pedindo licença"], en: ["Climbing the walls", "Through the river, because the gates were open", "Asking permission"], es: ["Escalando los muros", "Por el río, porque las puertas estaban abiertas", "Pidiendo permiso"], ht: ["Yo te grenpe miray yo", "Nan rivyè a, paske pòtay yo te ouvè", "Yo te mande pèmisyon"] },
-                c: 1, f: { pt: "Exato! Ciro desviou o rio para passar.", en: "Exactly! Cyrus diverted the river to pass through.", es: "¡Exacto! Ciro desvió el río para pasar.", ht: "Egzak! Siris te detounen dlo rivyè a pou yo pase." }
+                q: { pt: "O que aconteceu com o malvado Hamã?", en: "What happened to the evil Haman?", es: "¿Qué le pasó al malvado Amán?", ht: "Kisa k te rive Aman, move moun nan?" },
+                o: { pt: ["O rei mandou matá-lo", "Ele fugiu para sempre", "Ele virou escravo"], en: ["The king ordered him killed", "He ran away forever", "He became a slave"], es: ["El rey mandó matarlo", "Huyó para siempre", "Se convirtió en esclavo"], ht: ["Wa a te bay lòd pou yo touye l", "Li te kouri ale pou toutan", "Li te vin tounen esklav"] },
+                c: 0, f: { pt: "Exato! O plano dele se virou contra ele.", en: "Exactly! His plan turned against him.", es: "¡Exacto! Su plan se volvió contra él.", ht: "Egzak! Move plan l lan te tonbe sou tèt li." }
             },
             { 
-                q: { pt: "O que aconteceu com Belsazar naquela noite?", en: "What happened to Belshazzar that night?", es: "¿Qué le pasó a Belsasar esa noche?", ht: "Kisa k te rive Bèlchaza lannuit sa a?" },
-                o: { pt: ["Ele fugiu", "Ele foi morto", "Ele virou amigo de Ciro"], en: ["He ran away", "He was killed", "He became Cyrus's friend"], es: ["Huyó", "Murió", "Se hizo amigo de Ciro"], ht: ["Li te kouri", "Yo te touye l", "Li te vin zanmi Siris"] },
-                c: 1, f: { pt: "Incrível como a profecia se cumpriu rápido!", en: "Incredible how fast the prophecy came true!", es: "¡Increíble lo rápido que se cumplió la profecía!", ht: "Se yon bagay estraòdinè jan pwofesi a te akonpli vit!" }
+                q: { pt: "Quem se tornou o novo segundo no reino?", en: "Who became the new second in the kingdom?", es: "¿Quién fue el nuevo segundo en el reino?", ht: "Kilès ki te vin dezyèm moun nan wayòm nan?" },
+                o: { pt: ["Ester", "Um príncipe da Pérsia", "Mordecai"], en: ["Esther", "A Persian prince", "Mordecai"], es: ["Ester", "Un príncipe de Persia", "Mardoqueo"], ht: ["Estè", "Yon prens peyi Pès", "Mòdekay"] },
+                c: 2, f: { pt: "Sim! Jeová recompensou a fé de Mordecai.", en: "Yes! Jehovah rewarded Mordecai's faith.", es: "¡Sí! Jehová recompensó la fe de Mardoqueo.", ht: "Wi! Jewova te rekonpanse lafwa Mòdekay." }
             },
             { 
-                q: { pt: "O que o rei Ciro deixou os judeus fazerem?", en: "What did King Cyrus let the Jews do?", es: "¿Qué dejó el rey Ciro que hicieran los judíos?", ht: "Kisa wa Siris te kite juif yo fè?" },
-                o: { pt: ["Trabalhar para ele", "Voltar para Jerusalém e reconstruir o templo", "Ficar em Babilônia"], en: ["Work for him", "Return to Jerusalem and rebuild the temple", "Stay in Babylon"], es: ["Trabajar para él", "Volver a Jerusalén y reconstruir el templo", "Quedarse en Babilonia"], ht: ["Travay pou li", "Tounen Jerizalèm pou yo rebati tanp lan", "Ret nan Babilòn"] },
-                c: 1, f: { pt: "Isso mesmo! Jeová usou Ciro para ajudar seu povo.", en: "That's right! Jehovah used Cyrus to help his people.", es: "¡Así es! Jehová usó a Ciro para ayudar a su pueblo.", ht: "Se sa! Jewova te sèvi ak Siris pou l ede pèp li a." }
+                q: { pt: "O que os judeus puderam fazer com a nova lei?", en: "What could the Jews do with the new law?", es: "¿Qué pudieron hacer los judíos con la nueva ley?", ht: "Kisa Juif yo te ka fè ak nouvo lwa a?" },
+                o: { pt: ["Lutar e se defender dos inimigos", "Ir embora da Pérsia", "Ficar no palácio"], en: ["Fight and defend themselves from enemies", "Leave Persia", "Stay in the palace"], es: ["Luchar y defenderse de los enemigos", "Irse de Persia", "Quedarse en el palacio"], ht: ["Goumen ak defann tèt yo kont ènmi yo", "Kite peyi Pès", "Ret nan palè a"] },
+                c: 0, f: { pt: "Correto! Eles venceram e ficaram salvos.", en: "Correct! They won and were saved.", es: "¡Correcto! Vencieron y se salvaron.", ht: "Kòrèk! Yo te genyen e yo te sove." }
             },
             { 
-                q: { pt: "Quantos anos depois da destruição os judeus voltaram?", en: "How many years after the destruction did the Jews return?", es: "¿Cuántos años después de la destrucción regresaron los judíos?", ht: "Konbe tan apre destriksyon an juif yo te tounen?" },
-                o: { pt: ["10 anos", "70 anos", "100 anos"], en: ["10 years", "70 years", "100 years"], es: ["10 años", "70 años", "100 años"], ht: ["10 ane", "70 ane", "100 ane"] },
-                c: 1, f: { pt: "Excelente! Exatamente como Jeová tinha prometido.", en: "Excellent! Exactly as Jehovah had promised.", es: "¡Excelente! Exactamente como Jehová había prometido.", ht: "Ekselan! Jan Jewova te pwomèt la menm." }
+                q: { pt: "Como os judeus comemoraram a vitória?", en: "How did the Jews celebrate the victory?", es: "¿Cómo celebraron los judíos la victoria?", ht: "Ki jan Juif yo te fete laviktwa a?" },
+                o: { pt: ["Dormindo muito", "Com uma grande festa de alegria", "Trabalhando mais"], en: ["Sleeping a lot", "With a great feast of joy", "Working harder"], es: ["Durmiendo mucho", "Con una gran fiesta de alegría", "Trabajando más"], ht: ["Yo te dòmi anpil", "Ak yon gwo fèt ak kè kontan", "Yo te travay pi rèd"] },
+                c: 1, f: { pt: "Isso! Eles ficaram muito felizes com a ajuda de Jeová.", en: "Yes! They were very happy with Jehovah's help.", es: "¡Sí! Estaban muy felices con la ayuda de Jehová.", ht: "Wi! Yo te kontan anpil pou jan Jewova te ede yo." }
             }
         ];
 
@@ -237,13 +241,13 @@
             const t = uiTextos[idioma];
             document.getElementById('txt-titulo').innerText = t.titulo;
             document.getElementById('txt-subtitulo').innerText = t.subtitulo;
-            document.getElementById('txt-h62').innerText = t.h62;
-            document.getElementById('txt-h63').innerText = t.h63;
+            document.getElementById('txt-h64').innerText = t.h64;
+            document.getElementById('txt-h65').innerText = t.h65;
             document.getElementById('btn-verificar').innerText = t.btn;
 
-            const c62 = document.getElementById('questoes-62');
-            const c63 = document.getElementById('questoes-63');
-            c62.innerHTML = ''; c63.innerHTML = '';
+            const c64 = document.getElementById('questoes-64');
+            const c65 = document.getElementById('questoes-65');
+            c64.innerHTML = ''; c65.innerHTML = '';
 
             dadosQuiz.forEach((item, i) => {
                 const div = document.createElement('div');
@@ -256,8 +260,8 @@
                     `).join('') +
                     `<div id="feedback-${i}" class="feedback"></div>`;
                 
-                if(i < 10) c62.appendChild(div);
-                else c63.appendChild(div);
+                if(i < 10) c64.appendChild(div);
+                else c65.appendChild(div);
             });
         }
 
@@ -288,7 +292,7 @@
                 if(valor === item.c) {
                     total++;
                     feedback.className = "feedback correto";
-                    feedback.innerText = "✅ " + item.f[idioma];
+                    feedback.innerText = "⭐ " + item.f[idioma];
                 } else {
                     feedback.className = "feedback incorreto";
                     feedback.innerText = "❌ " + t.corretaEra + item.o[idioma][item.c];
@@ -298,7 +302,7 @@
 
             const res = document.getElementById('resultado-final');
             res.style.display = 'block';
-            res.innerHTML = `<h2>${t.fim}</h2><p>${t.acertou} ${total} ${t.de} ${dadosQuiz.length}</p>`;
+            res.innerHTML = `<h2>${t.fim}</h2><p>${t.acertou} ${total} ${t.de} ${dadosQuiz.length}!</p>`;
             res.scrollIntoView({ behavior: 'smooth' });
             document.getElementById('btn-verificar').style.display = 'none';
         }
