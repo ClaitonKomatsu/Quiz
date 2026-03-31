@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Histórias 72 e 73</title>
+    <title>Quiz: Celebração da Morte de Jesus</title>
     <style>
         body {
             font-family: sans-serif;
@@ -102,14 +102,11 @@
     </div>
 
     <h1 id="txt-titulo">Quiz Bíblico para Crianças</h1>
-    <p id="txt-subtitulo" style="text-align: center;">Aprenda sobre Jesus e João Batista!</p>
+    <p id="txt-subtitulo" style="text-align: center;">O dia mais importante do ano!</p>
 
     <div id="quiz-container">
-        <h3 id="txt-h72">História 72: Jesus vai ao templo</h3>
-        <div id="questoes-72"></div>
-
-        <h3 id="txt-h73">História 73: A mensagem de João Batista</h3>
-        <div id="questoes-73"></div>
+        <h3 id="txt-h74">A Celebração da Morte de Jesus</h3>
+        <div id="questoes-gerais"></div>
     </div>
 
     <button id="btn-verificar" onclick="verificarRespostas()">Verificar Respostas</button>
@@ -118,115 +115,87 @@
 
     <script>
         const uiTextos = {
-            pt: { titulo: "Quiz Bíblico para Crianças", subtitulo: "Histórias 72 e 73", h72: "História 72: Jesus vai ao templo", h73: "História 73: A mensagem de João Batista", btn: "Verificar Respostas", erro: "Responda todas as perguntinhas!", fim: "Muito bem!", acertou: "Você acertou", de: "de", corretaEra: "A resposta certa era: " },
-            en: { titulo: "Bible Quiz for Kids", subtitulo: "Stories 72 and 73", h72: "Story 72: Jesus Goes to the Temple", h73: "Story 73: John the Baptist's Message", btn: "Check Answers", erro: "Please answer all questions!", fim: "Great job!", acertou: "You got", de: "out of", corretaEra: "The correct answer was: " },
-            es: { titulo: "Quiz Bíblico para Niños", subtitulo: "Historias 72 y 73", h72: "Historia 72: Jesús va al templo", h73: "Historia 73: El mensaje de Juan el Bautista", btn: "Verificar", erro: "¡Responde todas las preguntas!", fim: "¡Excelente!", acertou: "Acertaste", de: "de", corretaEra: "La respuesta era: " },
-            ht: { titulo: "Kwiz Biblik pou Timoun", subtitulo: "Istwa 72 ak 73", h72: "Istwa 72: Jezi t al nan tanp lan", h73: "Istwa 73: Mesaj Jan Batis la", btn: "Tcheke Repons yo", erro: "Tanpri reponn tout kesyon yo!", fim: "Bon travay!", acertou: "Ou jwenn", de: "sou", corretaEra: "Bon repons lan se te: " }
+            pt: { titulo: "Quiz Bíblico para Crianças", subtitulo: "Aprenda sobre o Memorial", h74: "Celebração da Morte de Jesus", btn: "Verificar Respostas", erro: "Responda todas as perguntinhas!", fim: "Muito bem!", acertou: "Você acertou", de: "de", corretaEra: "A resposta certa era: " },
+            en: { titulo: "Bible Quiz for Kids", subtitulo: "Learn about the Memorial", h74: "Memorial of Jesus' Death", btn: "Check Answers", erro: "Please answer all questions!", fim: "Great job!", acertou: "You got", de: "out of", corretaEra: "The correct answer was: " },
+            es: { titulo: "Quiz Bíblico para Niños", subtitulo: "Aprende sobre la Conmemoración", h74: "Conmemoración de la muerte de Jesús", btn: "Verificar", erro: "¡Responde todas las preguntas!", fim: "¡Excelente!", acertou: "Acertaste", de: "de", corretaEra: "La respuesta era: " },
+            ht: { titulo: "Kwiz Biblik pou Timoun", subtitulo: "Aprann sou Memoryal la", h74: "Memoryal lanmò Jezi", btn: "Tcheke Repons yo", erro: "Tanpri reponn tout kesyon yo!", fim: "Bon travay!", acertou: "Ou jwenn", de: "sou", corretaEra: "Bon repons lan se te: " }
         };
 
         const dadosQuiz = [
-            // HISTÓRIA 72
             { 
-                q: { pt: "Onde Jesus e sua família moravam?", en: "Where did Jesus and his family live?", es: "¿Dónde vivían Jesús y su familia?", ht: "Ki kote Jezi ak fanmi l te rete?" },
-                o: { pt: ["Jerusalém", "Nazaré", "Egito"], en: ["Jerusalem", "Nazareth", "Egypt"], es: ["Jerusalén", "Nazaret", "Egipto"], ht: ["Jerizalèm", "Nazarèt", "Lejip"] },
-                c: 1, f: { pt: "Isso! José e Maria moravam em Nazaré.", en: "Right! Joseph and Mary lived in Nazareth.", es: "¡Sí! José y María vivían en Nazaret.", ht: "Wi! Jozèf ak Mari te rete Nazarèt." }
+                q: { pt: "Por que celebramos a morte de Jesus?", en: "Why do we celebrate Jesus' death?", es: "¿Por qué conmemoramos la muerte de Jesús?", ht: "Poukisa nou fete lanmò Jezi?" },
+                o: { pt: ["Para ganhar presentes", "Para lembrar que Jesus deu a vida por nós", "Porque é um feriado comum"], en: ["To get presents", "To remember Jesus gave his life for us", "Because it's a common holiday"], es: ["Para recibir regalos", "Para recordar que Jesús dio su vida por nosotros", "Porque es un día festivo común"], ht: ["Pou nou jwenn kado", "Pou nou sonje Jezi te bay lavi l pou nou", "Paske se yon jou konje nòmal"] },
+                c: 1, f: { pt: "Isso! Jesus pediu para lembrarmos do seu sacrifício.", en: "Right! Jesus asked us to remember his sacrifice.", es: "¡Bien! Jesús nos pidió que recordáramos su sacrificio.", ht: "Wi! Jezi te mande pou nou sonje sakrifis li a." }
             },
             { 
-                q: { pt: "Qual era o trabalho de José?", en: "What was Joseph's job?", es: "¿Cuál era el trabajo de José?", ht: "Ki travay Jozèf te konn fè?" },
-                o: { pt: ["Carpinteiro", "Pescador", "Sacerdote"], en: ["Carpenter", "Fisherman", "Priest"], es: ["Carpintero", "Pescador", "Sacerdote"], ht: ["Chapantye", "Pechè pwason", "Prèt"] },
-                c: 0, f: { pt: "Correto! Ele trabalhava com madeira e ensinou Jesus.", en: "Correct! He worked with wood and taught Jesus.", es: "¡Correcto! Trabajaba con madera y le enseñó a Jesús.", ht: "Kòrèk! Li te konn travay bwa e li te anseye Jezi." }
+                q: { pt: "Quem começou essa celebração?", en: "Who started this celebration?", es: "¿Quién empezó esta celebración?", ht: "Kilès ki te kòmanse fèt sa a?" },
+                o: { pt: ["O próprio Jesus", "Os anjos", "O rei Herodes"], en: ["Jesus himself", "The angels", "King Herod"], es: ["El propio Jesús", "Los ángeles", "El rey Herodes"], ht: ["Jezi li menm", "Zanj yo", "Wa Ewòd"] },
+                c: 0, f: { pt: "Exato! Ele fez isso na noite antes de morrer.", en: "Exactly! He did this the night before he died.", es: "¡Exacto! Lo hizo la noche antes de morir.", ht: "Egzak! Li te fè sa nan nwit anvan l mouri a." }
             },
             { 
-                q: { pt: "Para onde a família viajava todo ano para a Páscoa?", en: "Where did the family travel every year for Passover?", es: "¿A dónde viajaba la familia cada año para la Pascua?", ht: "Ki kote fanmi an te konn ale chak ane pou fèt Pak la?" },
-                o: { pt: ["Belém", "Jericó", "Jerusalém"], en: ["Bethlehem", "Jericho", "Jerusalem"], es: ["Belén", "Jericó", "Jerusalén"], ht: ["Betleyèm", "Jeriko", "Jerizalèm"] },
-                c: 2, f: { pt: "Exato! Era uma longa viagem para adorar a Deus.", en: "Exactly! It was a long journey to worship God.", es: "¡Exacto! Era un viaje largo para adorar a Dios.", ht: "Egzak! Se te yon vwayaj byen long pou yo t al adore Bondye." }
+                q: { pt: "Quais são os dois símbolos usados no Memorial?", en: "What are the two symbols used at the Memorial?", es: "¿Cuáles son los dos símbolos que se usan?", ht: "Ki de senbòl yo sèvi nan Memoryal la?" },
+                o: { pt: ["Água e suco", "Pão e vinho", "Frutas e pão"], en: ["Water and juice", "Bread and wine", "Fruit and bread"], es: ["Agua y jugo", "Pan y vino", "Fruta y pan"], ht: ["Dlo ak ji", "Pen ak diven", "Fwi ak pen"] },
+                c: 1, f: { pt: "Correto! O pão e o vinho representam coisas importantes.", en: "Correct! The bread and wine represent important things.", es: "¡Correcto! El pan y el vino representan cosas importantes.", ht: "Kòrèk! Pen an ak diven an reprezante bagay ki enpòtan." }
             },
             { 
-                q: { pt: "Quantos anos Jesus tinha nessa viagem especial?", en: "How old was Jesus on this special trip?", es: "¿Cuántos años tenía Jesús en este viaje especial?", ht: "Ki laj Jezi te genyen nan vwayaj espesyal sa a?" },
-                o: { pt: ["12 anos", "5 anos", "18 anos"], en: ["12 years old", "5 years old", "18 years old"], es: ["12 años", "5 años", "18 años"], ht: ["12 an", "5 an", "18 an"] },
-                c: 0, f: { pt: "Isso! Ele já estava crescendo bastante.", en: "Right! He was growing up a lot.", es: "¡Sí! Ya estaba creciendo mucho.", ht: "Wi! Li te kòmanse grandi anpil." }
+                q: { pt: "O que o pão representa?", en: "What does the bread represent?", es: "¿Qué representa el pan?", ht: "Kisa pen an reprezante?" },
+                o: { pt: ["A Terra inteira", "As leis de Deus", "O corpo perfeito de Jesus"], en: ["The whole Earth", "God's laws", "Jesus' perfect body"], es: ["Toda la Tierra", "Las leyes de Dios", "El cuerpo perfecto de Jesús"], ht: ["Tout tè a", "Lwa Bondye yo", "Kò pafè Jezi a"] },
+                c: 2, f: { pt: "Isso! O pão sem fermento lembra o corpo de Jesus.", en: "Yes! Unleavened bread reminds us of Jesus' body.", es: "¡Sí! El pan sin levadura recuerda el cuerpo de Jesús.", ht: "Wi! Pen san ledven an fè nou sonje kò Jezi." }
             },
             { 
-                q: { pt: "Por quanto tempo José e Maria procuraram Jesus?", en: "How long did Joseph and Mary look for Jesus?", es: "¿Por cuánto tiempo buscaron José y María a Jesús?", ht: "Konbe tan Jozèf ak Mari te fè ap chèche Jezi?" },
-                o: { pt: ["Uma hora", "Três dias", "Uma semana"], en: ["One hour", "Three days", "One week"], es: ["Una hora", "Tres días", "Una semana"], ht: ["Yon sèl lè", "Twa jou", "Yon semèn"] },
-                c: 1, f: { pt: "Correto! Eles ficaram muito preocupados por três dias.", en: "Correct! They were very worried for three days.", es: "¡Correcto! Estuvieron muy preocupados por tres días.", ht: "Kòrèk! Yo te enkyè anpil pandan twa jou." }
+                q: { pt: "O que o vinho representa?", en: "What does the wine represent?", es: "¿Qué representa el vino?", ht: "Kisa diven an reprezante?" },
+                o: { pt: ["O sangue de Jesus", "A água do batismo", "O mel que João comia"], en: ["Jesus' blood", "Baptism water", "The honey John ate"], es: ["La sangre de Jesús", "El agua del bautismo", "La miel que comía Juan"], ht: ["San Jezi", "Dlo batèm nan", "Siwo myèl Jan te konn manje a"] },
+                c: 0, f: { pt: "Certo! O vinho tinto lembra o sangue que Jesus derramou.", en: "Right! Red wine reminds us of the blood Jesus shed.", es: "¡Bien! El vino tinto recuerda la sangre que Jesús derramó.", ht: "Wi! Diven wouj la fè nou sonje san Jezi te koule a." }
             },
             { 
-                q: { pt: "Onde encontraram Jesus no final?", en: "Where did they finally find Jesus?", es: "¿Dónde encontraron finalmente a Jesús?", ht: "Ki kote yo te jwenn Jezi finalman?" },
-                o: { pt: ["No mercado", "Na casa de um amigo", "No templo"], en: ["At the market", "At a friend's house", "At the temple"], es: ["En el mercado", "En casa de un amigo", "En el templo"], ht: ["Nan mache a", "Lakay yon zanmi", "Nan tanp lan"] },
-                c: 2, f: { pt: "Isso mesmo! Ele estava na casa de seu Pai.", en: "That's right! He was in his Father's house.", es: "¡Así es! Estaba en la casa de su Padre.", ht: "Se sa! Li te nan kay Papa l." }
+                q: { pt: "Como deve ser o pão do Memorial?", en: "What should the Memorial bread be like?", es: "¿Cómo debe ser el pan de la Conmemoración?", ht: "Ki jan pen Memoryal la dwe ye?" },
+                o: { pt: ["Com muito açúcar", "Com fermento", "Sem fermento"], en: ["With lots of sugar", "With yeast", "Unleavened (no yeast)"], es: ["Con mucha azúcar", "Con levadura", "Sin levadura"], ht: ["Ak anpil sik", "Ak ledven", "San ledven"] },
+                c: 2, f: { pt: "Exato! Sem fermento significa puro, como Jesus.", en: "Exactly! Without yeast means pure, like Jesus.", es: "¡Exacto! Sin levadura significa puro, como Jesús.", ht: "Egzak! San ledven vle di li pwòp, menm jan ak Jezi." }
             },
             { 
-                q: { pt: "O que Jesus estava fazendo com os instrutores?", en: "What was Jesus doing with the teachers?", es: "¿Qué estaba haciendo Jesús con los maestros?", ht: "Kisa Jezi t ap fè ak moun ki t ap anseye yo?" },
-                o: { pt: ["Brincando", "Ouvindo e fazendo perguntas", "Dormindo"], en: ["Playing", "Listening and asking questions", "Sleeping"], es: ["Jugando", "Escuchando y haciendo preguntas", "Durmiendo"], ht: ["L t ap jwe", "L t ap koute e l t ap poze keksyon", "L t ap dòmi"] },
-                c: 1, f: { pt: "Exato! Ele amava aprender sobre Jeová.", en: "Exactly! He loved learning about Jehovah.", es: "¡Exacto! Le encantaba aprender sobre Jehová.", ht: "Egzak! Li te renmen aprann sou Jewova." }
+                q: { pt: "Quantas vezes por ano celebramos o Memorial?", en: "How many times a year do we celebrate the Memorial?", es: "¿Cuántas veces al año celebramos la Conmemoración?", ht: "Konbe fwa pa ane nou fete Memoryal la?" },
+                o: { pt: ["Uma vez por ano", "Todos os meses", "Toda semana"], en: ["Once a year", "Every month", "Every week"], es: ["Una vez al año", "Todos los meses", "Cada semana"], ht: ["Yon fwa pa ane", "Chak mwa", "Chak semèn"] },
+                c: 0, f: { pt: "Isso! Fazemos no mesmo dia em que Jesus morreu (14 de nisã).", en: "Right! We do it on the same day Jesus died (Nisan 14).", es: "¡Bien! Lo hacemos el mismo día que murió Jesús (14 de nisán).", ht: "Wi! Nou fè l menm jou Jezi te mouri a (14 nizan)." }
             },
             { 
-                q: { pt: "Como os instrutores se sentiram com Jesus?", en: "How did the teachers feel about Jesus?", es: "¿Cómo se sintieron los maestros con Jesús?", ht: "Ki jan moun ki t ap anseye yo te santi yo devan Jezi?" },
-                o: { pt: ["Ficaram bravos", "Ficaram impressionados", "Não deram atenção"], en: ["They were angry", "They were impressed", "They didn't pay attention"], es: ["Se enojaron", "Se quedaron impresionados", "No prestaron atención"], ht: ["Yo te fache", "Yo te sezi anpil", "Yo pa t okipe l"] },
-                c: 1, f: { pt: "Certo! Eles gostaram muito das respostas dele.", en: "Right! They really liked his answers.", es: "¡Bien! Les gustaron mucho sus respuestas.", ht: "Wi! Yo te renmen repons li yo anpil." }
+                q: { pt: "O que Jesus disse ao dar o pão e o vinho?", en: "What did Jesus say when giving the bread and wine?", es: "¿Qué dijo Jesús al dar el pan y el vino?", ht: "Kisa Jezi te di lè l t ap bay pen an ak diven an?" },
+                o: { pt: ["'Não esqueçam de comer'", "'Persistam em fazer isso em memória de mim'", "'Isso é apenas um lanche'"], en: ["'Don't forget to eat'", "'Keep doing this in remembrance of me'", "'This is just a snack'"], es: ["'No olviden comer'", "'Sigan haciendo esto en memoria de mí'", "'Esto es solo una merienda'"], ht: ["'Pa bliye manje'", "'Kontinye fè sa pou nou sonje m'", "'Sa se yon ti goute sèlman'"] },
+                c: 1, f: { pt: "Perfeito! Essas palavras estão em Lucas 22:19.", en: "Perfect! These words are in Luke 22:19.", es: "¡Perfecto! Esas palabras están en Lucas 22:19.", ht: "Pafè! Pawòl sa yo nan Lik 22:19." }
             },
             { 
-                q: { pt: "O que Jesus respondeu quando Maria o encontrou?", en: "What did Jesus answer when Mary found him?", es: "¿Qué respondió Jesús cuando María lo encontró?", ht: "Kisa Jezi te reponn lè Mari te jwenn li?" },
-                o: { pt: ["Eu me perdi", "Eu estava aqui, na casa do meu Pai", "Eu queria ficar sozinho"], en: ["I got lost", "I was here, in my Father's house", "I wanted to be alone"], es: ["Me perdí", "Estaba aquí, en la casa de mi Padre", "Quería estar solo"], ht: ["Mwen te pèdi", "Mwen te isit la, nan kay Papa m nan", "Mwen te vle rete pou kont mwen"] },
-                c: 1, f: { pt: "Isso! Ele sabia que o templo era um lugar especial.", en: "Yes! He knew the temple was a special place.", es: "¡Sí! Sabía que el templo era un lugar especial.", ht: "Wi! Li te konnen tanp lan se te yon kote espesyal." }
+                q: { pt: "Quem pode participar (comer e beber) dos símbolos?", en: "Who partakes of (eats and drinks) the symbols?", es: "¿Quiénes participan de los símbolos?", ht: "Kilès ki pran nan senbòl yo (manje ak bwè)?" },
+                o: { pt: ["Todo mundo que vai", "Apenas os que vão para o céu (ungidos)", "Só as crianças"], en: ["Everyone who attends", "Only those going to heaven (anointed)", "Only children"], es: ["Todos los que asisten", "Solo los que van al cielo (ungidos)", "Solo los niños"], ht: ["Tout moun ki vini yo", "Moun ki pral nan syèl yo sèlman (wen yo)", "Timoun yo sèlman"] },
+                c: 1, f: { pt: "Correto! A maioria das pessoas assiste com respeito como observadores.", en: "Correct! Most people attend respectfully as observers.", es: "¡Correcto! La mayoría asiste con respeto como observadores.", ht: "Kòrèk! Pifò moun asiste ak respè kòm moun k ap gade." }
             },
             { 
-                q: { pt: "O que aconteceu quando Jesus cresceu?", en: "What happened as Jesus grew up?", es: "¿Qué pasó mientras Jesús crecía?", ht: "Kisa k te rive pandan Jezi t ap grandi?" },
-                o: { pt: ["Ficou mais inteligente e Jeová ficou feliz", "Ele esqueceu as leis", "Ele fugiu de casa"], en: ["He grew smarter and Jehovah was happy", "He forgot the laws", "He ran away from home"], es: ["Se hizo más sabio y Jehová estaba feliz", "Se olvidó de las leyes", "Huyó de casa"], ht: ["Li te vin gen plis sajès e Jewova te kontan", "Li te bliye lwa yo", "Li te kouri kite kay li"] },
-                c: 0, f: { pt: "Perfeito! As pessoas gostavam cada vez mais dele.", en: "Perfect! People liked him more and more.", es: "¡Perfecto! A la gente le gustaba cada vez más.", ht: "Pafè! Moun yo te renmen l de plis an plis." }
-            },
-
-            // HISTÓRIA 73
-            { 
-                q: { pt: "Quem eram os pais de João Batista?", en: "Who were John the Baptist's parents?", es: "¿Quiénes eran los padres de Juan el Bautista?", ht: "Kilès ki te paran Jan Batis?" },
-                o: { pt: ["José e Maria", "Zacarias e Elisabete", "Davi e Rute"], en: ["Joseph and Mary", "Zechariah and Elizabeth", "David and Ruth"], es: ["José y María", "Zacarías y Elisabet", "David y Rut"], ht: ["Jozèf ak Mari", "Zakari ak Elizabèt", "David ak Rit"] },
-                c: 1, f: { pt: "Correto! Ele nasceu quando eles já eram idosos.", en: "Correct! He was born when they were already old.", es: "¡Correcto! Nació cuando ellos ya eran mayores.", ht: "Kòrèk! Li te fèt lè yo te granmoun deja." }
+                q: { pt: "Por que as outras pessoas não comem do pão?", en: "Why don't the other people eat the bread?", es: "¿Por qué las otras personas no comen del pan?", ht: "Poukisa lòt moun yo pa manje nan pen an?" },
+                o: { pt: ["Porque não gostam do sabor", "Porque sua esperança é viver para sempre na Terra", "Porque chegaram atrasadas"], en: ["Because they don't like the taste", "Because their hope is to live forever on Earth", "Because they arrived late"], es: ["Porque no les gusta el sabor", "Porque su esperanza es vivir para siempre en la Tierra", "Porque llegaron tarde"], ht: ["Paske yo pa renmen gou a", "Paske espwa yo se viv pou toutan sou tè a", "Paske yo rive anreta"] },
+                c: 1, f: { pt: "Isso! Elas mostram gratidão por Jesus tornar possível a vida na Terra.", en: "Yes! They show gratitude for Jesus making life on Earth possible.", es: "¡Sí! Muestran gratitud porque Jesús hace posible la vida en la Tierra.", ht: "Wi! Yo montre yo rekonesan paske Jezi fè l posib pou moun viv sou tè a." }
             },
             { 
-                q: { pt: "Qual era o trabalho especial de João?", en: "What was John's special job?", es: "¿Cuál era el trabajo especial de Juan?", ht: "Ki travay espesyal Jan te genyen?" },
-                o: { pt: ["Construir casas", "Dizer que o Messias estava chegando", "Ser um soldado"], en: ["To build houses", "To say the Messiah was coming", "To be a soldier"], es: ["Construir casas", "Decir que el Mesías estaba llegando", "Ser un soldado"], ht: ["Bati kay", "Di Mesi a ap vini", "Yon sòlda"] },
-                c: 1, f: { pt: "Isso! Jeová escolheu João para preparar o caminho.", en: "Yes! Jehovah chose John to prepare the way.", es: "¡Sí! Jehová eligió a Juan para preparar el camino.", ht: "Wi! Jewova te chwazi Jan pou l prepare chemen an." }
+                q: { pt: "Onde Jesus estava na primeira Celebração?", en: "Where was Jesus during the first Celebration?", es: "¿Dónde estaba Jesús en la primera Conmemoración?", ht: "Ki kote Jezi te ye nan premye Memoryal la?" },
+                o: { pt: ["No templo", "Num quarto no andar de cima", "Num barco"], en: ["In the temple", "In an upper room", "On a boat"], es: ["En el templo", "En un cuarto en el piso de arriba", "En un barco"], ht: ["Nan tanp lan", "Nan yon chanm anlè", "Sou yon bato"] },
+                c: 1, f: { pt: "Exato! Ele estava com seus 12 apóstolos.", en: "Exactly! He was with his 12 apostles.", es: "¡Exacto! Estaba con sus 12 apóstoles.", ht: "Egzak! Li te ak 12 apot li yo." }
             },
             { 
-                q: { pt: "Onde João ensinava as pessoas?", en: "Where did John teach the people?", es: "¿Dónde enseñaba Juan a la gente?", ht: "Ki kote Jan te konn anseye moun yo?" },
-                o: { pt: ["Longe das cidades", "Dentro do palácio", "Nas escolas"], en: ["Far from the cities", "Inside the palace", "In schools"], es: ["Lejos de las ciudades", "Dentro del palacio", "En las escuelas"], ht: ["Lwen vil yo", "Anndan palè a", "Nan lekòl yo"] },
-                c: 0, f: { pt: "Exato! Ele ensinava em lugares simples, longe da cidade.", en: "Exactly! He taught in simple places, far from the city.", es: "¡Exacto! Enseñaba en lugares sencillos, lejos de la ciudad.", ht: "Egzak! Li te konn anseye kote ki senp, lwen vil yo." }
+                q: { pt: "Qual é o nome da data no calendário bíblico?", en: "What is the date on the Bible calendar?", es: "¿Cuál es la fecha en el calendario bíblico?", ht: "Ki dat li ye nan kalandriye biblik la?" },
+                o: { pt: ["1º de Janeiro", "14 de Nisã", "25 de Dezembro"], en: ["January 1st", "Nisan 14", "December 25th"], es: ["1 de enero", "14 de nisán", "25 de diciembre"], ht: ["1ye janvye", "14 nizan", "25 desanm"] },
+                c: 1, f: { pt: "Correto! É um dia que muda no nosso calendário todo ano.", en: "Correct! It's a day that changes on our calendar every year.", es: "¡Correcto! Es un día que cambia en nuestro calendario cada año.", ht: "Kòrèk! Se yon jou ki chanje nan kalandriye pa nou an chak ane." }
             },
             { 
-                q: { pt: "De que era feita a roupa de João?", en: "What were John's clothes made of?", es: "¿De qué estaba hecha la ropa de Juan?", ht: "Ak kisa rad Jan te fèt?" },
-                o: { pt: ["Seda fina", "Pelo de camelo", "Pele de ovelha"], en: ["Fine silk", "Camel hair", "Sheepskin"], es: ["Seda fina", "Pelo de camello", "Piel de oveja"], ht: ["Swa", "Plim chamo", "Po mouton"] },
-                c: 1, f: { pt: "Certo! Ele levava uma vida muito simples.", en: "Right! He led a very simple life.", es: "¡Bien! Llevaba una vida muy sencilla.", ht: "Wi! Li te mennen yon vi ki senp anpil." }
+                q: { pt: "O que acontece em uma reunião do Memorial?", en: "What happens at a Memorial meeting?", es: "¿Qué pasa en una reunión de la Conmemoración?", ht: "Kisa k pase nan yon reyinyon Memoryal?" },
+                o: { pt: ["Uma festa com música alta", "Um discurso que explica a Bíblia", "Uma gincana"], en: ["A party with loud music", "A talk explaining the Bible", "A scavenger hunt"], es: ["Una fiesta con música fuerte", "Un discurso que explica la Biblia", "Un juego de pistas"], ht: ["Yon fèt ak mizik fò", "Yon diskou ki esplike Labib", "Yon konpetisyon jwèt"] },
+                c: 1, f: { pt: "Isso! O discurso nos ajuda a entender o amor de Jeová.", en: "Right! The talk helps us understand Jehovah's love.", es: "¡Bien! El discurso nos ayuda a entender el amor de Jehová.", ht: "Wi! Diskou a ede nou konprann lanmou Jewova." }
             },
             { 
-                q: { pt: "O que João comia no deserto?", en: "What did John eat in the desert?", es: "¿Qué comía Juan en el desierto?", ht: "Kisa Jan te konn manje nan dezè a?" },
-                o: { pt: ["Pão e frutas", "Peixe frito", "Gafanhotos e mel"], en: ["Bread and fruit", "Fried fish", "Locusts and honey"], es: ["Pan y frutas", "Pescado frito", "Langostas y miel"], ht: ["Pen ak fwi", "Pwason fri", "Krikèt ak siwo myèl"] },
-                c: 2, f: { pt: "Isso! Era o que ele encontrava na natureza.", en: "Yes! It was what he found in nature.", es: "¡Sí! Era lo que encontraba en la naturaleza.", ht: "Wi! Se sa li te jwenn nan lanati a." }
+                q: { pt: "Por que o Memorial é o dia mais importante do ano?", en: "Why is the Memorial the most important day of the year?", es: "¿Por qué es el día más importante del año?", ht: "Poukisa Memoryal la se jou ki pi enpòtan nan ane a?" },
+                o: { pt: ["Porque mostra o grande amor de Jeová e Jesus por nós", "Porque não temos escola", "Porque comemos pão diferente"], en: ["Because it shows Jehovah and Jesus' great love for us", "Because there is no school", "Because we eat different bread"], es: ["Porque muestra el gran amor de Jehová y Jesús por nosotros", "Porque no hay escuela", "Porque comemos un pan diferente"], ht: ["Paske sa montre gwo lanmou Jewova ak Jezi gen pou nou", "Paske nou pa al lekòl", "Paske nou manje yon pen ki diferan"] },
+                c: 0, f: { pt: "Certo! Sem o sacrifício de Jesus, não teríamos esperança.", en: "Right! Without Jesus' sacrifice, we would have no hope.", es: "¡Bien! Sin el sacrificio de Jesús, no tendríamos esperanza.", ht: "Wi! San sakrifis Jezi a, nou pa t ap gen espwa." }
             },
             { 
-                q: { pt: "O que as pessoas faziam depois de se arrepender?", en: "What did people do after repenting?", es: "¿Qué hacía la gente después de arrepentirse?", ht: "Kisa moun yo te fè apre yo fin repanti?" },
-                o: { pt: ["Eram batizados por João", "Davam dinheiro para João", "Iam morar no deserto"], en: ["They were baptized by John", "They gave money to John", "They went to live in the desert"], es: ["Eran bautizados por Juan", "Le daban dinero a Juan", "Se iban a vivir al desierto"], ht: ["Jan te batize yo", "Yo te bay Jan lajan", "Y al rete nan dezè a"] },
-                c: 0, f: { pt: "Correto! O batismo mostrava que queriam mudar.", en: "Correct! Baptism showed they wanted to change.", es: "¡Correcto! El bautismo mostraba que querían cambiar.", ht: "Kòrèk! Batèm nan te montre yo te vle chanje." }
-            },
-            { 
-                q: { pt: "O que João disse para quem tinha duas roupas?", en: "What did John say to those who had two sets of clothes?", es: "¿Qué les dijo Juan a los que tenían dos mudas de ropa?", ht: "Kisa Jan te di moun ki te gen de rad yo?" },
-                o: { pt: ["Venda uma delas", "Guarde para o futuro", "Deem uma para quem não tem"], en: ["Sell one of them", "Save it for the future", "Give one to those who have none"], es: ["Vendan una", "Guárdenla para el futuro", "Denle una al que no tiene"], ht: ["Vann youn", "Sere l pou pita", "Bay moun ki pa genyen an youn"] },
-                c: 2, f: { pt: "Isso! Ele ensinou que temos que amar e ajudar as pessoas.", en: "Yes! He taught that we must love and help people.", es: "¡Sí! Enseñó que debemos amar y ayudar a las personas.", ht: "Wi! Li te montre nou dwe renmen ak ede moun." }
-            },
-            { 
-                q: { pt: "O que João falou para os cobradores de impostos?", en: "What did John tell the tax collectors?", es: "¿Qué les dijo Juan a los cobradores de impuestos?", ht: "Kisa Jan te di pèseptè yo?" },
-                o: { pt: ["Não trabalhem mais", "Sejam honestos e não enganem ninguém", "Cobrem mais caro"], en: ["Stop working", "Be honest and don't cheat anyone", "Charge more"], es: ["No trabajen más", "Sean honrados y no engañen a nadie", "Cobren más caro"], ht: ["Sispann travay", "Se pou n onèt e piga n twonpe pèsonn", "Mande plis lajan"] },
-                c: 1, f: { pt: "Certo! Honestidade é muito importante para Jeová.", en: "Right! Honesty is very important to Jehovah.", es: "¡Bien! La honradez es muy importante para Jehová.", ht: "Wi! Jewova bay onètete anpil enpòtans." }
-            },
-            { 
-                q: { pt: "João disse que alguém mais importante estava chegando. Quem era?", en: "John said someone more important was coming. Who was it?", es: "Juan dijo que alguien más importante estaba por llegar. ¿Quién era?", ht: "Jan te di yon moun ki pi enpòtan t apral vini. Kilès sa te ye?" },
-                o: { pt: ["Um novo rei", "O Messias (Jesus)", "Um anjo"], en: ["A new king", "The Messiah (Jesus)", "An angel"], es: ["Un nuevo rey", "El Mesías (Jesús)", "Un ángel"], ht: ["Yon lòt wa", "Mesi a (Jezi)", "Yon zanj"] },
-                c: 1, f: { pt: "Isso mesmo! João disse que não merecia nem tirar as sandálias dele.", en: "Exactly! John said he wasn't worthy to untie his sandals.", es: "¡Exacto! Juan dijo que no era digno de quitarle las sandalias.", ht: "Egzak! Jan te di li pa t menm merite retire sapat nan pye l." }
-            },
-            { 
-                q: { pt: "Com o que o Messias iria batizar as pessoas?", en: "What would the Messiah baptize people with?", es: "¿Con qué bautizaría el Mesías a la gente?", ht: "Ak kisa Mesi a t apral batize moun yo?" },
-                o: { pt: ["Com água", "Com espírito santo", "Com mel"], en: ["With water", "With holy spirit", "With honey"], es: ["Con agua", "Con espíritu santo", "Con miel"], ht: ["Ak dlo", "Ak lespri sen", "Ak siwo myèl"] },
-                c: 1, f: { pt: "Excelente! João batizava com água, mas o Messias seria especial.", en: "Excellent! John baptized with water, but the Messiah would be special.", es: "¡Excelente! Juan bautizaba con agua, pero el Mesías sería especial.", ht: "Ekselan! Jan te batize ak dlo, men Mesi a t ap espesyal." }
+                q: { pt: "O que as crianças podem fazer para se preparar?", en: "What can children do to prepare?", es: "¿Qué pueden hacer los niños para prepararse?", ht: "Kisa timoun yo ka fè pou yo prepare yo?" },
+                o: { pt: ["Dormir cedo", "Ler as histórias da Bíblia sobre os últimos dias de Jesus", "Comprar roupas de super-herói"], en: ["Go to sleep early", "Read Bible stories about Jesus' final days", "Buy superhero clothes"], es: ["Dormir temprano", "Leer las historias bíblicas sobre los últimos días de Jesús", "Comprar ropa de superhéroe"], ht: ["Dòmi bonè", "Li istwa nan Bib la sou dènye jou Jezi yo", "Achte rad sipè-erò"] },
+                c: 1, f: { pt: "Excelente! Ler a Bíblia nos ajuda a preparar o coração.", en: "Excellent! Reading the Bible helps us prepare our hearts.", es: "¡Excelente! Leer la Biblia nos ayuda a preparar el corazón.", ht: "Ekselan! Lè nou li Labib, sa ede nou prepare kè nou." }
             }
         ];
 
@@ -241,13 +210,11 @@
             const t = uiTextos[idioma];
             document.getElementById('txt-titulo').innerText = t.titulo;
             document.getElementById('txt-subtitulo').innerText = t.subtitulo;
-            document.getElementById('txt-h72').innerText = t.h72;
-            document.getElementById('txt-h73').innerText = t.h73;
+            document.getElementById('txt-h74').innerText = t.h74;
             document.getElementById('btn-verificar').innerText = t.btn;
 
-            const c72 = document.getElementById('questoes-72');
-            const c73 = document.getElementById('questoes-73');
-            c72.innerHTML = ''; c73.innerHTML = '';
+            const conteiner = document.getElementById('questoes-gerais');
+            conteiner.innerHTML = '';
 
             dadosQuiz.forEach((item, i) => {
                 const div = document.createElement('div');
@@ -260,8 +227,7 @@
                     `).join('') +
                     `<div id="feedback-${i}" class="feedback"></div>`;
                 
-                if(i < 10) c72.appendChild(div);
-                else c73.appendChild(div);
+                conteiner.appendChild(div);
             });
         }
 
