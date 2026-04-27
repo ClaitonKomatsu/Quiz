@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Histórias 78 e 79</title>
+    <title>Quiz: Histórias 80 e 81</title>
     <style>
         body {
             font-family: sans-serif;
@@ -102,14 +102,14 @@
     </div>
 
     <h1 id="txt-titulo">Quiz Bíblico para Crianças</h1>
-    <p id="txt-subtitulo" style="text-align: center;">Aprenda sobre a Pregação e os Milagres de Jesus!</p>
+    <p id="txt-subtitulo" style="text-align: center;">Aprenda sobre os Apóstolos e o Sermão do Monte!</p>
 
     <div id="quiz-container">
-        <h3 id="txt-h78">História 78: Jesus prega sobre o Reino de Deus</h3>
-        <div id="questoes-78"></div>
+        <h3 id="txt-h80">História 80: Jesus escolhe seus 12 apóstolos</h3>
+        <div id="questoes-80"></div>
 
-        <h3 id="txt-h79">História 79: Jesus faz muitos milagres</h3>
-        <div id="questoes-79"></div>
+        <h3 id="txt-h81">História 81: O Sermão do Monte</h3>
+        <div id="questoes-81"></div>
     </div>
 
     <button id="btn-verificar" onclick="verificarRespostas()">Verificar Respostas</button>
@@ -118,115 +118,115 @@
 
     <script>
         const uiTextos = {
-            pt: { titulo: "Quiz Bíblico para Crianças", subtitulo: "Histórias 78 e 79", h78: "História 78: Jesus prega sobre o Reino", h79: "História 79: Jesus faz muitos milagres", btn: "Verificar Respostas", erro: "Responda todas as perguntinhas!", fim: "Muito bem!", acertou: "Você acertou", de: "de", corretaEra: "A resposta certa era: " },
-            en: { titulo: "Bible Quiz for Kids", subtitulo: "Stories 78 and 79", h78: "Story 78: Jesus Preaches About the Kingdom", h79: "Story 79: Jesus Performs Many Miracles", btn: "Check Answers", erro: "Please answer all questions!", fim: "Great job!", acertou: "You got", de: "out of", corretaEra: "The correct answer was: " },
-            es: { titulo: "Quiz Bíblico para Niños", subtitulo: "Historias 78 y 79", h78: "Historia 78: Jesús predica sobre el Reino", h79: "Historia 79: Jesús hace muchos milagros", btn: "Verificar", erro: "¡Responde todas las preguntas!", fim: "¡Excelente!", acertou: "Acertaste", de: "de", corretaEra: "La respuesta era: " },
-            ht: { titulo: "Kwiz Biblik pou Timoun", subtitulo: "Istwa 78 ak 79", h78: "Istwa 78: Jezi preche konsènan Wayòm nan", h79: "Istwa 79: Jezi fè anpil mirak", btn: "Tcheke Repons yo", erro: "Tanpri reponn tout kesyon yo!", fim: "Bon travay!", acertou: "Ou jwenn", de: "sou", corretaEra: "Bon repons lan se te: " }
+            pt: { titulo: "Quiz Bíblico para Crianças", subtitulo: "Histórias 80 e 81", h80: "História 80: Jesus escolhe seus 12 apóstolos", h81: "História 81: O Sermão do Monte", btn: "Verificar Respostas", erro: "Responda todas as perguntinhas!", fim: "Muito bem!", acertou: "Você acertou", de: "de", corretaEra: "A resposta certa era: " },
+            en: { titulo: "Bible Quiz for Kids", subtitulo: "Stories 80 and 81", h80: "Story 80: Jesus Chooses His 12 Apostles", h81: "Story 81: The Sermon on the Mount", btn: "Check Answers", erro: "Please answer all questions!", fim: "Great job!", acertou: "You got", de: "out of", corretaEra: "The correct answer was: " },
+            es: { titulo: "Quiz Bíblico para Niños", subtitulo: "Historias 80 y 81", h80: "Historia 80: Jesús elige a sus 12 apóstoles", h81: "Historia 81: El Sermón del Monte", btn: "Verificar", erro: "¡Responde todas las preguntas!", fim: "¡Excelente!", acertou: "Acertaste", de: "de", corretaEra: "La respuesta era: " },
+            ht: { titulo: "Kwiz Biblik pou Timoun", subtitulo: "Istwa 80 ak 81", h80: "Istwa 80: Jezi chwazi 12 apòt li yo", h81: "Istwa 81: Diskou sou Mòn nan", btn: "Tcheke Repons yo", erro: "Tanpri reponn tout kesyon yo!", fim: "Bon travay!", acertou: "Ou jwenn", de: "sou", corretaEra: "Bon repons lan se te: " }
         };
 
         const dadosQuiz = [
-            // HISTÓRIA 78
+            // HISTÓRIA 80
             { 
-                q: { pt: "O que Jesus começou a fazer logo depois de ser batizado?", en: "What did Jesus start doing right after being baptized?", es: "¿Qué empezó a hacer Jesús justo después de ser bautizado?", ht: "Kisa Jezi te kòmanse fè touswit apre l fin batize?" },
-                o: { pt: ["Construir casas", "Pregar sobre o Reino de Deus", "Pescar no mar"], en: ["Build houses", "Preach about God's Kingdom", "Fish in the sea"], es: ["Construir casas", "Predicar sobre el Reino de Dios", "Pescar en el mar"], ht: ["Bati kay", "Preche konsènan Wayòm Bondye a", "Lapèch nan lanmè"] },
-                c: 1, f: { pt: "Isso! Ele pregava que o Reino estava chegando.", en: "Yes! He preached that the Kingdom was coming.", es: "¡Sí! Predicaba que el Reino estaba cerca.", ht: "Wi! Li te preche Wayòm nan te toupre." }
+                q: { pt: "Quanto tempo Jesus já pregava antes de escolher os apóstolos?", en: "How long had Jesus been preaching before choosing the apostles?", es: "¿Cuánto tiempo llevaba Jesús predicando antes de elegir a los apóstoles?", ht: "Depi konbe tan Jezi t ap preche anvan l te chwazi apòt yo?" },
+                o: { pt: ["Um ano e meio", "Cinco anos", "Três meses"], en: ["A year and a half", "Five years", "Three months"], es: ["Un año y medio", "Cinco años", "Tres meses"], ht: ["Yon ane edmi", "Senk an", "Twamwa"] },
+                c: 0, f: { pt: "Isso! Jesus já pregava há um ano e meio[cite: 103].", en: "Correct! Jesus had been preaching for a year and a half[cite: 103].", es: "¡Eso! Jesús ya predicaba hacía un año y medio[cite: 103].", ht: "Wi! Jezi te gen yon ane edmi depi l t ap preche[cite: 103]." }
             },
             { 
-                q: { pt: "Em qual cidade Jesus foi criado?", en: "In which city was Jesus raised?", es: "¿En qué ciudad se crió Jesús?", ht: "Nan ki vil Jezi te grandi?" },
-                o: { pt: ["Nazaré", "Jerusalém", "Roma"], en: ["Nazareth", "Jerusalem", "Rome"], es: ["Nazaret", "Jerusalén", "Roma"], ht: ["Nazarèt", "Jerizalèm", "Wòm"] },
-                c: 0, f: { pt: "Correto! Ele foi à sinagoga de Nazaré e leu o profeta Isaías.", en: "Correct! He went to the synagogue in Nazareth and read Isaiah.", es: "¡Correcto! Fue a la sinagoga de Nazaret y leyó a Isaías.", ht: "Kòrèk! Li te ale nan sinagòg Nazarèt la e li te li pwofèt Ezayi." }
+                q: { pt: "O que Jesus fez antes de escolher os 12 apóstolos?", en: "What did Jesus do before choosing the 12 apostles?", es: "¿Qué hizo Jesús antes de elegir a los 12 apóstoles?", ht: "Kisa Jezi te fè anvan l te chwazi 12 apòt yo?" },
+                o: { pt: ["Ele dormiu bastante", "Ele orou a noite toda", "Ele fez um grande banquete"], en: ["He slept a lot", "He prayed all night", "He made a great feast"], es: ["Durmió mucho", "Oró toda la noche", "Hizo un gran banquete"], ht: ["Li te dòmi anpil", "Li te pase tout nuit lan ap priye", "Li te fè yon gwo fèt"] },
+                c: 1, f: { pt: "Correto! Ele foi sozinho para um monte orar a Jeová[cite: 105].", en: "Correct! He went alone to a mountain to pray to Jehovah[cite: 105].", es: "¡Correcto! Fue solo a un monte a orar a Jehová[cite: 105].", ht: "Kòrèk! Li te al pou kò l sou yon mòn pou l priye Jewova[cite: 105]." }
             },
             { 
-                q: { pt: "Quem eram os quatro pescadores que Jesus chamou?", en: "Who were the four fishermen Jesus called?", es: "¿Quiénes fueron los cuatro pescadores que llamó Jesús?", ht: "Kilès kat pechè pwason Jezi te rele yo te ye?" },
-                o: { pt: ["Mateus, Lucas, Marcos e João", "Davi, Saul, Samuel e Salomão", "Pedro, André, Tiago e João"], en: ["Matthew, Luke, Mark, and John", "David, Saul, Samuel, and Solomon", "Peter, Andrew, James, and John"], es: ["Mateo, Lucas, Marcos y Juan", "David, Saúl, Samuel y Salomón", "Pedro, Andrés, Santiago y Juan"], ht: ["Matye, Lik, Mak ak Jan", "David, Sayil, Samyèl ak Salomon", "Pyè, Andre, Jak ak Jan"] },
-                c: 2, f: { pt: "Exato! Eles deixaram a pesca na mesma hora.", en: "Exactly! They left their fishing at once.", es: "¡Exacto! Dejaron la pesca en ese mismo momento.", ht: "Egzak! Yo te kite travay lapèch la menm lè a." }
+                q: { pt: "Qual era o trabalho dos apóstolos?", en: "What was the work of the apostles?", es: "¿Cuál era el trabajo de los apóstoles?", ht: "Ki travay apòt yo te genyen?" },
+                o: { pt: ["Trabalhar no templo", "Ajudar na pregação", "Construir barcos"], en: ["Work in the temple", "Help in the preaching", "Build boats"], es: ["Trabajar en el templo", "Ayudar en la predicación", "Construir barcos"], ht: ["Travay nan tanp lan", "Ede nan travay predikasyon an", "Bati bato"] },
+                c: 1, f: { pt: "Isso! Eles iam trabalhar com ele na pregação e cuidar das congregações[cite: 104].", en: "Yes! They were to work with him in preaching and care for the congregations[cite: 104].", es: "¡Sí! Iban a trabajar con él en la predicación y cuidar las congregaciones[cite: 104].", ht: "Wi! Yo t apral travay avè l nan travay predikasyon an epi pran swen kongregasyon yo[cite: 104]." }
             },
             { 
-                q: { pt: "O que significa ser 'pescadores de homens'?", en: "What does it mean to be 'fishers of men'?", es: "¿Qué significa ser 'pescadores de hombres'?", ht: "Kisa sa vle di pou yo te 'pechè moun'?" },
-                o: { pt: ["Dar peixes para as pessoas", "Ensinar as pessoas sobre o Reino", "Trabalhar em barcos grandes"], en: ["Give fish to people", "Teach people about the Kingdom", "Work on big boats"], es: ["Dar peces a la gente", "Enseñar a la gente sobre el Reino", "Trabajar en barcos grandes"], ht: ["Bay moun pwason", "Anseye moun yo konsènan Wayòm nan", "Travay sou gwo bato"] },
-                c: 1, f: { pt: "Isso mesmo! Eles ensinariam outros sobre Jeová.", en: "That's right! They would teach others about Jehovah.", es: "¡Así es! Enseñarían a otros sobre Jehová.", ht: "Se sa menm! Yo t apral anseye lòt moun konsènan Jewova." }
+                q: { pt: "Como Jesus chamava os seus 12 apóstolos?", en: "What did Jesus call his 12 apostles?", es: "¿Cómo llamaba Jesús a sus 12 apóstoles?", ht: "Ki jan Jezi te rele 12 apòt li yo?" },
+                o: { pt: ["Funcionários", "Alunos", "Amigos"], en: ["Employees", "Students", "Friends"], es: ["Empleados", "Alumnos", "Amigos"], ht: ["Anplwaye", "Elèv", "Zanmi"] },
+                c: 2, f: { pt: "Exato! Para Jesus, os 12 apóstolos eram seus amigos[cite: 110, 127].", en: "Exactly! To Jesus, the 12 apostles were his friends[cite: 110, 127].", es: "¡Exacto! Para Jesús, los 12 apóstoles eran sus amigos[cite: 110, 127].", ht: "Egzak! Pou Jezi, 12 apòt yo se te zanmi l[cite: 110, 127]." }
             },
             { 
-                q: { pt: "Onde Jesus e seus discípulos pregavam?", en: "Where did Jesus and his disciples preach?", es: "¿Dónde predicaban Jesús y sus discípulos?", ht: "Ki kote Jezi ak disip li yo te konn preche?" },
-                o: { pt: ["Só dentro de casa", "Apenas no deserto", "Nas sinagogas, praças e ruas"], en: ["Only inside homes", "Only in the desert", "In synagogues, squares, and streets"], es: ["Solo dentro de las casas", "Solo en el desierto", "En las sinagogas, plazas y calles"], ht: ["Anndan kay sèlman", "Nan dezè a sèlman", "Nan sinagòg, sou plas piblik ak nan lari"] },
-                c: 2, f: { pt: "Correto! Eles pregavam por toda a Galileia.", en: "Correct! They preached throughout Galilee.", es: "¡Correcto! Predicaban por toda Galilea.", ht: "Kòrèk! Yo te preche nan tout Galile." }
+                q: { pt: "De qual região muitos apóstolos vieram?", en: "Which region did many apostles come from?", es: "¿De qué región venían muchos apóstoles?", ht: "Nan ki rejyon anpil nan apòt yo te soti?" },
+                o: { pt: ["Samaria", "Galileia", "Egito"], en: ["Samaria", "Galilee", "Egypt"], es: ["Samaria", "Galilea", "Egipto"], ht: ["Samari", "Galile", "Lejip"] },
+                c: 1, f: { pt: "Correto! Assim como Jesus, muitos eram da Galileia[cite: 112].", en: "Correct! Like Jesus, many were from Galilee[cite: 112].", es: "¡Correcto! Al igual que Jesús, muchos eran de Galilea[cite: 112].", ht: "Kòrèk! Menm jan ak Jezi, anpil nan yo te soti Galile[cite: 112]." }
             },
             { 
-                q: { pt: "Quem ajudava Jesus e os discípulos com o que eles precisavam?", en: "Who helped Jesus and the disciples with what they needed?", es: "¿Quiénes ayudaban a Jesús y sus discípulos con lo que necesitaban?", ht: "Kilès ki te konn ede Jezi ak disip li yo ak sa yo te bezwen?" },
-                o: { pt: ["Mulheres fiéis como Maria Madalena", "Os reis daquela época", "Os vendedores do templo"], en: ["Faithful women like Mary Magdalene", "The kings of that time", "The temple sellers"], es: ["Mujeres fieles como María Magdalena", "Los reyes de esa época", "Los vendedores del templo"], ht: ["Fi ki te gen lafwa tankou Mari Madlèn", "Wa nan tan sa a", "Machann nan tanp lan"] },
-                c: 0, f: { pt: "Isso! Maria Madalena, Joana e Susana ajudavam muito.", en: "Yes! Mary Magdalene, Joanna, and Susanna helped a lot.", es: "¡Sí! María Magdalena, Juana y Susana ayudaban mucho.", ht: "Wi! Mari Madlèn, Jwann ak Sizàn te konn ede anpil." }
+                q: { pt: "Por que os fariseus não davam importância para os apóstolos?", en: "Why did the Pharisees not give importance to the apostles?", es: "¿Por qué los fariseos no daban importancia a los apóstoles?", ht: "Poukisa farizyen yo pa t bay apòt yo enpòtans?" },
+                o: { pt: ["Eles eram muito jovens", "Não estudaram em escolas famosas", "Eles não sabiam falar"], en: ["They were very young", "They didn't study in famous schools", "They didn't know how to speak"], es: ["Eran muy jóvenes", "No estudiaron en escuelas famosas", "No sabían hablar"], ht: ["Yo te jèn anpil", "Yo pa t aprann nan gwo lekòl", "Yo pa t konn pale"] },
+                c: 1, f: { pt: "Isso! Eles não tinham estudado em escolas famosas[cite: 118].", en: "Right! They had not studied in famous schools[cite: 118].", es: "¡Eso! No habían estudiado en escuelas famosas[cite: 118].", ht: "Wi! Yo pa t aprann nan gwo lekòl[cite: 118]." }
             },
             { 
-                q: { pt: "Jesus comparou as pessoas que precisavam ouvir a mensagem com o quê?", en: "What did Jesus compare the people who needed to hear the message to?", es: "¿Con qué comparó Jesús a las personas que necesitaban oír el mensaje?", ht: "Ak kisa Jezi te konpare moun ki te bezwen tande mesaj la?" },
-                o: { pt: ["Com um barco no mar", "Com um campo pronto para a colheita", "Com uma montanha alta"], en: ["With a boat at sea", "With a field ready for harvest", "With a high mountain"], es: ["Con un barco en el mar", "Con un campo listo para la cosecha", "Con una montaña alta"], ht: ["Ak yon bato nan lanmè", "Ak yon jaden ki pare pou rekòt la", "Ak yon mòn ki wo"] },
-                c: 1, f: { pt: "Exato! Havia muito trabalho para fazer.", en: "Exactly! There was a lot of work to do.", es: "¡Exacto! Había mucho trabajo por hacer.", ht: "Egzak! Te gen anpil travay pou fè." }
+                q: { pt: "O que Jeová deu para os apóstolos fazerem?", en: "What did Jehovah give the apostles power to do?", es: "¿Qué les dio Jehová poder para hacer a los apóstoles?", ht: "Kisa Jewova te bay apòt yo pouvwa pou yo fè?" },
+                o: { pt: ["Curar doentes e expulsar demônios", "Ficar ricos rapidamente", "Voar como pássaros"], en: ["Heal the sick and cast out demons", "Get rich quickly", "Fly like birds"], es: ["Curar enfermos y expulsar demonios", "Hacerse ricos rápidamente", "Volar como pájaros"], ht: ["Geri moun malad ak chase demon", "Vin rich rapid", "Vole tankou zwazo"] },
+                c: 0, f: { pt: "Correto! Eles receberam poder para curar e expulsar demônios[cite: 109].", en: "Correct! They received power to heal and cast out demons[cite: 109].", es: "¡Correcto! Recibieron poder para curar y expulsar demonios[cite: 109].", ht: "Kòrèk! Yo te resevwa pouvwa pou yo geri moun ak chase demon[cite: 109]." }
             },
             { 
-                q: { pt: "Quantos discípulos Jesus escolheu para mandar de dois em dois?", en: "How many disciples did Jesus choose to send out two by two?", es: "¿A cuántos discípulos eligió Jesús para enviar de dos en dos?", ht: "Konbe disip Jezi te chwazi pou l voye de pa de?" },
-                o: { pt: ["12 discípulos", "100 discípulos", "70 discípulos"], en: ["12 disciples", "100 disciples", "70 disciples"], es: ["12 discípulos", "100 discípulos", "70 discípulos"], ht: ["12 disip", "100 disip", "70 disip"] },
-                c: 2, f: { pt: "Correto! Ele os mandou pregar por toda a Judeia.", en: "Correct! He sent them to preach throughout Judea.", es: "¡Correcto! Los envió a predicar por toda Judea.", ht: "Kòrèk! Li te voye yo preche nan tout Jide." }
+                q: { pt: "Os apóstolos eram perfeitos?", en: "Were the apostles perfect?", es: "¿Eran perfectos los apóstoles?", ht: "Èske apòt yo te pafè?" },
+                o: { pt: ["Sim, nunca erravam", "Não, eles falavam sem pensar", "Sempre tinham paciência"], en: ["Yes, they never made mistakes", "No, they spoke without thinking", "They always had patience"], es: ["Sí, nunca se equivocaban", "No, hablaban sin pensar", "Siempre tenían paciencia"], ht: ["Wi, yo pa t janm fè erè", "Non, yo te konn pale san yo pa panse", "Yo te toujou gen pasyans"] },
+                c: 1, f: { pt: "Exato! Eles falavam sem pensar e às vezes discutiam entre si[cite: 120, 121, 122].", en: "Exactly! They spoke without thinking and sometimes argued among themselves[cite: 120, 121, 122].", es: "¡Exacto! Hablaban sin pensar y a veces discutían entre ellos[cite: 120, 121, 122].", ht: "Egzak! Yo te konn pale san yo pa panse e pafwa yo te konn diskite antre yo[cite: 120, 121, 122]." }
             },
             { 
-                q: { pt: "O que Jesus mandou os discípulos fazerem em toda a Terra?", en: "What did Jesus command the disciples to do throughout the Earth?", es: "¿Qué mandó Jesús a los discípulos que hicieran en toda la Tierra?", ht: "Kisa Jezi te bay disip li yo lòd pou yo fè sou tout tè a?" },
-                o: { pt: ["Pregar sobre o Reino e batizar", "Apenas construir sinagogas", "Morar em outros países"], en: ["Preach about the Kingdom and baptize", "Only build synagogues", "Live in other countries"], es: ["Predicar sobre el Reino y bautizar", "Solo construir sinagogas", "Vivir en otros países"], ht: ["Preche konsènan Wayòm nan epi batize moun", "Bati sinagòg sèlman", "Al rete nan lòt peyi"] },
-                c: 0, f: { pt: "Isso! Essa obra continua até hoje.", en: "Yes! This work continues until today.", es: "¡Sí! Esta obra continúa hasta hoy.", ht: "Wi! Travay sa a ap kontinye jouk jodi a." }
+                q: { pt: "Quem era o apóstolo que traiu Jesus?", en: "Who was the apostle who betrayed Jesus?", es: "¿Quién fue el apóstol que traicionó a Jesús?", ht: "Kilès nan apòt yo ki te trayi Jezi?" },
+                o: { pt: ["Mateus", "Filipe", "Judas Iscariotes"], en: ["Matthew", "Philip", "Judas Iscariot"], es: ["Mateo", "Felipe", "Judas Iscariote"], ht: ["Matye", "Filip", "Jida Iskariòt"] },
+                c: 2, f: { pt: "Infelizmente foi Judas Iscariotes [cite: 107, 132].", en: "Unfortunately, it was Judas Iscariot [cite: 107, 132].", es: "Lamentablemente fue Judas Iscariote [cite: 107, 132].", ht: "Malerezman se te Jida Iskariòt[cite: 107, 132]." }
             },
             { 
-                q: { pt: "Alguém conseguiu parar a pregação dos discípulos?", en: "Did anyone manage to stop the disciples' preaching?", es: "¿Logró alguien detener la predicación de los discípulos?", ht: "Èske gen moun ki te rive sispann travay predikasyon disip yo?" },
-                o: { pt: ["Sim, os inimigos pararam", "Não, nem mesmo o Diabo podia parar", "Sim, eles ficaram cansados"], en: ["Yes, the enemies stopped it", "No, not even the Devil could stop it", "Yes, they got tired"], es: ["Sí, los enemigos la detuvieron", "No, ni siquiera el Diablo pudo pararla", "Sí, se cansaron"], ht: ["Wi, ènmi yo te sispann li", "Non, menm Dyab la pa t ka sispann li", "Wi, yo te vin fatige"] },
-                c: 1, f: { pt: "Excelente! Com a ajuda de Jeová, a pregação avançou.", en: "Excellent! With Jehovah's help, the preaching advanced.", es: "¡Excelente! Con la ayuda de Jehová, la predicación avanzó.", ht: "Ekselan! Avèk èd Jewova, travay predikasyon an te vanse." }
+                q: { pt: "O que os apóstolos amavam?", en: "What did the apostles love?", es: "¿Qué amaban los apóstoles?", ht: "Kisa apòt yo te renmen?" },
+                o: { pt: ["Eles amavam a Jeová", "Eles amavam escolas famosas", "Eles amavam o dinheiro"], en: ["They loved Jehovah", "They loved famous schools", "They loved money"], es: ["Amaban a Jehová", "Amaban las escuelas famosas", "Amaban el dinero"], ht: ["Yo te renmen Jewova", "Yo te renmen gwo lekòl", "Yo te renmen lajan"] },
+                c: 0, f: { pt: "Isso! Mesmo não sendo perfeitos, eles amavam a Jeová[cite: 122].", en: "Yes! Even though they were not perfect, they loved Jehovah[cite: 122].", es: "¡Eso! Aun no siendo perfectos, amaban a Jehová[cite: 122].", ht: "Wi! Menm si yo pa t pafè, yo te renmen Jewova[cite: 122]." }
             },
 
-            // HISTÓRIA 79
+            // HISTÓRIA 81
             { 
-                q: { pt: "Por que Jeová deu poder para Jesus fazer milagres?", en: "Why did Jehovah give Jesus power to perform miracles?", es: "¿Por qué le dio Jehová poder a Jesús para hacer milagros?", ht: "Poukisa Jewova te bay Jezi pouvwa pou l fè mirak?" },
-                o: { pt: ["Para ele ficar famoso", "Para mostrar o que ele fará como Rei", "Para ele ganhar dinheiro"], en: ["To make him famous", "To show what he will do as King", "To make him money"], es: ["Para que fuera famoso", "Para mostrar lo que hará como Rey", "Para ganar dinero"], ht: ["Pou l te ka vin popilè", "Pou montre sa l pral fè antanke Wa", "Pou l te ka fè lajan"] },
-                c: 1, f: { pt: "Isso! Os milagres mostram o futuro maravilhoso no Reino.", en: "Right! The miracles show the wonderful future in the Kingdom.", es: "¡Sí! Los milagros muestran el futuro maravilloso en el Reino.", ht: "Wi! Mirak yo montre bèl avni ki gen nan Wayòm nan." }
+                q: { pt: "Qual é o nome famoso do discurso de Jesus no monte?", en: "What is the famous name of Jesus' speech on the mountain?", es: "¿Cuál es el nombre famoso del discurso de Jesús en el monte?", ht: "Ki non diskou pi popilè Jezi te fè sou mòn nan genyen?" },
+                o: { pt: ["Aulas de Jesus", "O Sermão do Monte", "Histórias da Galileia"], en: ["Jesus' Classes", "The Sermon on the Mount", "Stories of Galilee"], es: ["Clases de Jesús", "El Sermón del Monte", "Historias de Galilea"], ht: ["Kou Jezi", "Diskou sou Mòn nan", "Istwa Galile yo"] },
+                c: 1, f: { pt: "Correto! É conhecido como o Sermão do Monte[cite: 75, 79].", en: "Correct! It is known as the Sermon on the Mount[cite: 75, 79].", es: "¡Correcto! Se conoce como el Sermón del Monte[cite: 75, 79].", ht: "Kòrèk! Yo rele l Diskou sou Mòn nan[cite: 75, 79]." }
             },
             { 
-                q: { pt: "O que aconteceu quando alguns homens não conseguiram entrar na casa por causa da multidão?", en: "What happened when some men couldn't enter the house because of the crowd?", es: "¿Qué pasó cuando unos hombres no pudieron entrar en la casa por la multitud?", ht: "Kisa k te pase lè kèk gason pa t ka antre nan yon kay akoz foul moun yo?" },
-                o: { pt: ["Eles foram embora", "Eles esperaram até o dia seguinte", "Eles fizeram um buraco no telhado"], en: ["They went away", "They waited until the next day", "They made a hole in the roof"], es: ["Se fueron", "Esperaron hasta el día siguiente", "Hicieron un agujero en el techo"], ht: ["Yo te moute al lakay yo", "Yo te tann demen si Dye", "Yo te fè yon twou nan tèt kay la"] },
-                c: 2, f: { pt: "Correto! Eles desceram o paralítico pelo telhado.", en: "Correct! They lowered the paralyzed man through the roof.", es: "¡Correcto! Bajaron al paralítico por el techo.", ht: "Kòrèk! Yo te file nonm ki te paralize a desann nan twou tèt kay la." }
+                q: { pt: "De onde vinham as pessoas que queriam ouvir Jesus?", en: "Where did the people who wanted to hear Jesus come from?", es: "¿De dónde venía la gente que quería escuchar a Jesús?", ht: "Ki kote moun ki te vle tande Jezi yo te soti?" },
+                o: { pt: ["Apenas de Jerusalém", "De vários lugares como Galileia e Síria", "Só de Tiro e Sídon"], en: ["Only from Jerusalem", "From various places like Galilee and Syria", "Only from Tyre and Sidon"], es: ["Solo de Jerusalén", "De varios lugares como Galilea y Siria", "Solo de Tiro y Sidón"], ht: ["Jerizalèm sèlman", "Yo te soti divès kote tankou Galile ak Siri", "Tir ak Sidon sèlman"] },
+                c: 1, f: { pt: "Isso! Vinham da Galileia, Judeia, Tiro, Sídon e Síria[cite: 77].", en: "Yes! They came from Galilee, Judea, Tyre, Sidon, and Syria[cite: 77].", es: "¡Eso! Venían de Galilea, Judea, Tiro, Sidón y Siria[cite: 77].", ht: "Wi! Yo te soti Galile, Jide, Tir, Sidon ak Siri[cite: 77]." }
             },
             { 
-                q: { pt: "Dos dez leprosos que Jesus curou, quantos voltaram para agradecer?", en: "Out of the ten lepers Jesus healed, how many returned to thank him?", es: "De los diez leprosos que Jesús curó, ¿cuántos volvieron para agradecer?", ht: "Nan dis lepre Jezi te geri yo, konbe ki te tounen vin di l mèsi?" },
-                o: { pt: ["Todos os dez", "Apenas um", "Cinco deles"], en: ["All ten", "Only one", "Five of them"], es: ["Los diez", "Solo uno", "Cinco de ellos"], ht: ["Yo toule dis", "Yon sèl", "Senk nan yo"] },
-                c: 1, f: { pt: "Isso mesmo. Devemos sempre ser agradecidos como aquele homem.", en: "That's right. We should always be thankful like 그 man.", es: "Así es. Siempre debemos ser agradecidos como ese hombre.", ht: "Se sa menm. Nou dwe toujou gen rekonesans menm jan ak nonm sa a." }
+                q: { pt: "O que Jesus disse sobre amar os inimigos?", en: "What did Jesus say about loving enemies?", es: "¿Qué dijo Jesús sobre amar a los enemigos?", ht: "Kisa Jezi te di konsènan renmen lènmi nou?" },
+                o: { pt: ["Não precisa amar ninguém", "Devemos amar apenas os amigos", "Devemos amar os inimigos e perdoar"], en: ["No need to love anyone", "We should love only friends", "We should love enemies and forgive"], es: ["No hace falta amar a nadie", "Solo debemos amar a los amigos", "Debemos amar a los enemigos y perdonar"], ht: ["Nou pa bezwen renmen pèsonn", "Nou dwe renmen zanmi nou sèlman", "Nou dwe renmen lènmi nou epi padone moun"] },
+                c: 2, f: { pt: "Exato! Ele ensinou a amar os inimigos e perdoar[cite: 85].", en: "Exactly! He taught to love enemies and forgive[cite: 85].", es: "¡Exacto! Enseñó a amar a los enemigos y perdonar[cite: 85].", ht: "Egzak! Li te anseye pou n renmen lènmi nou epi padone moun[cite: 85]." }
             },
             { 
-                q: { pt: "Como a mulher que estava doente há 12 anos foi curada?", en: "How was the woman who had been sick for 12 years healed?", es: "¿Cómo se curó la mujer que llevaba 12 años enferma?", ht: "Ki jan fi ki te gen 12 an depi l malad la te fè geri?" },
-                o: { pt: ["Ao tocar na roupa de Jesus", "Ao tomar um remédio", "Ao conversar com os discípulos"], en: ["By touching Jesus' clothes", "By taking medicine", "By talking to the disciples"], es: ["Al tocar la ropa de Jesús", "Al tomar una medicina", "Al hablar con los discípulos"], ht: ["Lè l te manyen rad Jezi", "Lè l te bwè yon renmèd", "Lè l te pale ak disip yo"] },
-                c: 0, f: { pt: "Exato! Jesus disse: 'Filha, vá em paz'.", en: "Exactly! Jesus said: 'Daughter, go in peace'.", es: "¡Exacto! Jesús dijo: 'Hija, vete en paz'.", ht: "Egzak! Jezi te di l: 'Pitit fi m, ale an pè'." }
+                q: { pt: "Qual é a 'Regra de Ouro' que Jesus ensinou?", en: "What is the 'Golden Rule' that Jesus taught?", es: "¿Cuál es la 'Regla de Oro' que enseñó Jesús?", ht: "Ki 'Règ annò' Jezi te anseye a?" },
+                o: { pt: ["Trate os outros como quer ser tratado", "Faça o que for melhor para você", "Ignore quem te trata mal"], en: ["Treat others as you want to be treated", "Do what is best for you", "Ignore those who treat you badly"], es: ["Trata a otros como quieres que te traten", "Haz lo que sea mejor para ti", "Ignora a quien te trate mal"], ht: ["Trete lòt moun jan w ta renmen yo trete w", "Fè sa k pi bon pou ou", "Inyore moun ki malpalan w"] },
+                c: 0, f: { pt: "Isso! Trate os outros como você quer ser tratado por eles[cite: 87].", en: "Yes! Treat others as you want to be treated by them[cite: 87].", es: "¡Eso! Trata a los demás como quieres que te traten a ti[cite: 87].", ht: "Wi! Trete lòt moun jan w ta renmen yo trete w[cite: 87]." }
             },
             { 
-                q: { pt: "Quem era o pai da menina que morreu e Jesus ressuscitou?", en: "Who was the father of the girl who died and Jesus resurrected?", es: "¿Quién era el padre de la niña que murió y Jesús resucitó?", ht: "Kilès ki te papa tifi ki te mouri a e Jezi te resisite l la?" },
-                o: { pt: ["Pedro", "Jairo", "André"], en: ["Peter", "Jairus", "Andrew"], es: ["Pedro", "Jairo", "Andrés"], ht: ["Pyè", "Jayiris", "Andre"] },
-                c: 1, f: { pt: "Correto! Jairo era um homem que tinha muita fé.", en: "Correct! Jairus was a man of great faith.", es: "¡Correcto! Jairo era un hombre de mucha fe.", ht: "Kòrèk! Jayiris te yon moun ki te gen anpil lafwa." }
+                q: { pt: "O que é mais importante do que ter muito dinheiro?", en: "What is more important than having a lot of money?", es: "¿Qué es más importante que tener mucho dinero?", ht: "Kisa ki pi enpòtan pase gen anpil lajan?" },
+                o: { pt: ["Ter roupas caras", "Ser amigo de Jeová", "Ter muitos brinquedos"], en: ["Have expensive clothes", "Be friends with Jehovah", "Have many toys"], es: ["Tener ropa cara", "Ser amigo de Jehová", "Tener muchos juguetes"], ht: ["Gen bèl rad", "Zanmi Jewova", "Gen anpil jwèt"] },
+                c: 1, f: { pt: "Correto! É mais importante ser amigo de Jeová do que ter dinheiro[cite: 90].", en: "Correct! It is more important to be friends with Jehovah than to have money[cite: 90].", es: "¡Correcto! Es más importante ser amigo de Jehová que tener dinero[cite: 90].", ht: "Kòrèk! Li pi enpòtan pou n zanmi Jewova pase n gen lajan[cite: 90]." }
             },
             { 
-                q: { pt: "O que Jesus disse para as pessoas que estavam chorando na casa de Jairo?", en: "What did Jesus say to the people crying at Jairus' house?", es: "¿Qué le dijo Jesús a la gente que lloraba en casa de Jairo?", ht: "Kisa Jezi te di moun ki t ap kriye lakay Jayiris yo?" },
-                o: { pt: ["Chorem mais alto", "Vão para suas casas", "Não chorem. Ela só está dormindo."], en: ["Cry louder", "Go to your homes", "Don't cry. She's just sleeping."], es: ["Lloren más fuerte", "Vayan a sus casas", "No lloren. Solo está durmiendo."], ht: ["Kriye pi fò", "Al lakay nou", "Sispann kriye. Se dòmi l ap dòmi."] },
-                c: 2, f: { pt: "Isso! Ele sabia que ia trazê-la de volta à vida.", en: "Yes! He knew he was going to bring her back to life.", es: "¡Sí! Sabía que iba a devolverle la vida.", ht: "Wi! Li te konnen li t apral resisite l." }
+                q: { pt: "Quem pode roubar sua amizade com Jeová?", en: "Who can steal your friendship with Jehovah?", es: "¿Quién puede robar tu amistad con Jehová?", ht: "Kilès ki ka vòlè amitye w ak Jewova?" },
+                o: { pt: ["Ninguém", "Um ladrão", "Os inimigos"], en: ["No one", "A thief", "Enemies"], es: ["Nadie", "Un ladrón", "Los enemigos"], ht: ["Pèsonn", "Yon vòlè", "Lènmi yo"] },
+                c: 0, f: { pt: "Exato! Ninguém pode roubar sua amizade com Jeová[cite: 91].", en: "Exactly! No one can steal your friendship with Jehovah[cite: 91].", es: "¡Exacto! Nadie puede robar tu amistad con Jehová[cite: 91].", ht: "Egzak! Pèsonn pa ka vòlè amitye w ak Jewova[cite: 91]." }
             },
             { 
-                q: { pt: "O que aconteceu quando Jesus disse: 'Menina, levante!'?", en: "What happened when Jesus said: 'Little girl, get up!'?", es: "¿Qué pasó cuando Jesús dijo: '¡Niña, levántate!'?", ht: "Kisa k te pase lè Jezi te di: 'Tifi, leve!'?" },
-                o: { pt: ["Nada aconteceu", "A menina se levantou na mesma hora", "A menina continuou dormindo"], en: ["Nothing happened", "The girl got up at once", "The girl kept sleeping"], es: ["No pasó nada", "La niña se levantó al momento", "La niña siguió durmiendo"], ht: ["Anyen pa t pase", "Tifi a te leve menm lè a", "Tifi a te kontinye dòmi"] },
-                c: 1, f: { pt: "Exato! Jesus tem poder sobre a morte.", en: "Exactly! Jesus has power over death.", es: "¡Exacto! Jesús tiene poder sobre la muerte.", ht: "Egzak! Jezi gen pouvwa sou lanmò." }
+                q: { pt: "Jesus usou qual animal para ensinar que não devemos nos preocupar?", en: "Which animal did Jesus use to teach that we should not worry?", es: "¿Qué animal usó Jesús para enseñar que no debemos preocuparnos?", ht: "Ki bèt Jezi te pran kòm egzanp pou l montre nou pa dwe bay kò n pwoblèm?" },
+                o: { pt: ["Leões", "Peixes", "Pássaros"], en: ["Lions", "Fish", "Birds"], es: ["Leones", "Peces", "Pájaros"], ht: ["Lyon", "Pwason", "Zwazo"] },
+                c: 2, f: { pt: "Isso! Ele disse para vermos como Deus cuida dos pássaros[cite: 92, 93].", en: "Yes! He said to see how God cares for the birds[cite: 92, 93].", es: "¡Eso! Dijo que viéramos cómo Dios cuida a los pájaros[cite: 92, 93].", ht: "Wi! Li te di pou n gade jan Bondye pran swen zwazo yo[cite: 92, 93]." }
             },
             { 
-                q: { pt: "Por que os leprosos tinham que ficar de longe?", en: "Why did the lepers have to stay far away?", es: "¿Por qué tenían que quedarse lejos los leprosos?", ht: "Poukisa lepre yo te dwe rete lwen?" },
-                o: { pt: ["Por causa da lei daquela época", "Porque estavam com vergonha", "Porque não gostavam de Jesus"], en: ["Because of the law at that time", "Because they were ashamed", "Because they didn't like Jesus"], es: ["Por la ley de esa época", "Porque tenían vergüenza", "Porque no les gustaba Jesús"], ht: ["Akoz lalwa nan tan sa a", "Paske yo te wont", "Paske yo pa t renmen Jezi"] },
-                c: 0, f: { pt: "Correto. A lepra era uma doença contagiosa e a lei exigia distância.", en: "Correct. Leprosy was a contagious disease and the law required distance.", es: "Correcto. La lepra era contagiosa y la ley exigía distancia.", ht: "Kòrèk. Lalèp se te yon maladi ki te ka kontamine moun e lalwa te mande pou yo rete lwen." }
+                q: { pt: "Por que Jesus ensinava tão bem?", en: "Why did Jesus teach so well?", es: "¿Por qué enseñaba Jesús tan bien?", ht: "Poukisa Jezi te konn anseye byen konsa?" },
+                o: { pt: ["Porque Jeová dizia o que ele devia ensinar", "Porque ele lia muitos livros", "Porque ele era muito velho"], en: ["Because Jehovah told him what he should teach", "Because he read many books", "Because he was very old"], es: ["Porque Jehová le decía qué debía enseñar", "Porque leía muchos libros", "Porque era muy viejo"], ht: ["Paske Jewova te di l sa pou l anseye", "Paske l te li anpil liv", "Paske l te granmoun anpil"] },
+                c: 0, f: { pt: "Correto! Jeová dizia para Jesus o que ele devia ensinar[cite: 96].", en: "Correct! Jehovah told Jesus what he should teach[cite: 96].", es: "¡Correcto! Jehová le decía a Jesús lo que debía enseñar[cite: 96].", ht: "Kòrèk! Jewova te di Jezi sa pou l anseye[cite: 96]." }
             },
             { 
-                q: { pt: "O que Jesus sentia quando as pessoas doentes iam atrás dele?", en: "What did Jesus feel when sick people followed him?", es: "¿Qué sentía Jesús cuando la gente enferma lo seguía?", ht: "Kisa Jezi te santi lè moun malad yo t ap suiv li?" },
-                o: { pt: ["Ele ficava bravo", "Vontade de ajudar e compaixão", "Ele fugia de todos"], en: ["He got angry", "Desire to help and compassion", "He ran away from everyone"], es: ["Se enojaba", "Deseo de ayudar y compasión", "Huía de todos"], ht: ["Li te fè kòlè", "Li te vle ede yo e li te gen konpasyon", "Li te kouri pou tout moun"] },
-                c: 1, f: { pt: "Isso! Jesus nunca deixou de ajudar ninguém.", en: "Yes! Jesus never failed to help anyone.", es: "¡Sí! Jesús nunca dejó de ayudar a nadie.", ht: "Wi! Jezi pa t janm sispann ede pèsonn." }
+                q: { pt: "O que devemos fazer se alguém estiver triste com a gente?", en: "What should we do if someone is upset with us?", es: "¿Qué debemos hacer si alguien está triste con nosotros?", ht: "Kisa n dwe fè si yon moun fache kont nou?" },
+                o: { pt: ["Ficar triste também", "Pedir desculpas logo", "Não falar mais com a pessoa"], en: ["Be sad too", "Apologize quickly", "Don't speak to the person anymore"], es: ["Estar triste también", "Pedir disculpas pronto", "No hablar más con la persona"], ht: ["Tris tou", "Mande padon touswit", "Pa janm pale ak moun nan ankò"] },
+                c: 1, f: { pt: "Isso! Vá logo conversar e peça desculpas[cite: 86].", en: "Yes! Go at once to talk and apologize[cite: 86].", es: "¡Eso! Ve pronto a hablar y pide disculpas[cite: 86].", ht: "Wi! Al pale avè l epi mande l padon touswit[cite: 86]." }
             },
             { 
-                q: { pt: "Qual desses milagres Jesus NÃO fez na História 79?", en: "Which of these miracles did Jesus NOT do in Story 79?", es: "¿Cuál de estos milagros NO hizo Jesús en la Historia 79?", ht: "Kilès nan mirak sa yo Jezi PA T fè nan Istwa 79 la?" },
-                o: { pt: ["Curar cegos e surdos", "Criar um castelo de ouro", "Expulsar demônios"], en: ["Heal blind and deaf", "Create a gold castle", "Drive out demons"], es: ["Curar ciegos y sordos", "Crear un castillo de oro", "Expulsar demonios"], ht: ["Geri avèg ak moun ki soud", "Bati yon palè annò", "Chase demon"] },
-                c: 1, f: { pt: "Excelente! Jesus usava o poder para ajudar as pessoas, não para riquezas.", en: "Excellent! Jesus used power to help people, not for riches.", es: "¡Excelente! Jesús usaba el poder para ayudar, no para riquezas.", ht: "Ekselan! Jezi te sèvi ak pouvwa l pou l ede moun, li pa t fè sa pou l te ka rich." }
+                q: { pt: "Como Jesus era de temperamento?", en: "What was Jesus' temperament like?", es: "¿Cómo era el temperamento de Jesús?", ht: "Ki jan tanperaman Jezi te ye?" },
+                o: { pt: ["Brando e humilde de coração", "Bravo e impaciente", "Orgulhoso e rico"], en: ["Mild and lowly in heart", "Angry and impatient", "Proud and rich"], es: ["Apacible y humilde de corazón", "Enojado e impaciente", "Orgulloso y rico"], ht: ["Dou e li gen imilite nan kè l", "Fache e li pa gen pasyans", "Ògeye e li rich"] },
+                c: 0, f: { pt: "Excelente! Jesus era brando e humilde de coração[cite: 99].", en: "Excellent! Jesus was mild and lowly in heart[cite: 99].", es: "¡Excelente! Jesús era apacible y humilde de corazón[cite: 99].", ht: "Ekselan! Jezi te dou e li te gen imilite nan kè l[cite: 99]." }
             }
         ];
 
@@ -241,13 +241,13 @@
             const t = uiTextos[idioma];
             document.getElementById('txt-titulo').innerText = t.titulo;
             document.getElementById('txt-subtitulo').innerText = t.subtitulo;
-            document.getElementById('txt-h78').innerText = t.h78;
-            document.getElementById('txt-h79').innerText = t.h79;
+            document.getElementById('txt-h80').innerText = t.h80;
+            document.getElementById('txt-h81').innerText = t.h81;
             document.getElementById('btn-verificar').innerText = t.btn;
 
-            const c78 = document.getElementById('questoes-78');
-            const c79 = document.getElementById('questoes-79');
-            c78.innerHTML = ''; c79.innerHTML = '';
+            const c80 = document.getElementById('questoes-80');
+            const c81 = document.getElementById('questoes-81');
+            c80.innerHTML = ''; c81.innerHTML = '';
 
             dadosQuiz.forEach((item, i) => {
                 const div = document.createElement('div');
@@ -260,8 +260,8 @@
                     `).join('') +
                     `<div id="feedback-${i}" class="feedback"></div>`;
                 
-                if(i < 10) c78.appendChild(div);
-                else c79.appendChild(div);
+                if(i < 10) c80.appendChild(div);
+                else c81.appendChild(div);
             });
         }
 
